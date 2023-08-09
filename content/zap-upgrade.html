@@ -1,0 +1,113 @@
+<h1>&gt; Tribblix Upgrades</h1>
+
+<p>
+There are two paths to get newer versions of software in Tribblix,
+both using the <a href="zap.html">zap</a> utility. An <em>update</em>
+will install newer versions of packages or overlays, while
+an <em>upgrade</em> will install a newer version of Tribblix.
+</p>
+
+<p>
+In general, updates affect the current system and can be applied with
+the system running. You'll have to restart any application you've
+updated. Whereas an upgrade creates a new boot environment, installs
+new packages to that, and you reboot to activate the upgraded system.
+</p>
+
+<p>
+Before doing an upgrade, you <b>must</b> ensure that the system has the
+latest versions of the appropriate software. As root, issue:
+</p>
+<pre>
+zap refresh
+</pre>
+<p>
+followed by
+</p>
+<pre>
+zap update TRIBzap-upgrade
+</pre>
+
+<p>
+You will then be able to check whether an upgrade is available:
+</p>
+<pre>
+zap upgrade list
+</pre>
+<p>
+and you should be given a list similar to the following:
+</p>
+<pre>
+m30: (current)
+m31: Milestone 31
+</pre>
+<p>
+which shows that you're currently running the m30 release, and that an
+upgrade to m31 (Milestone 31) is available.
+</p>
+
+<p>
+To perform the upgrade:
+</p>
+<pre>
+zap upgrade m31
+</pre>
+<p>
+and then to boot into the newly upgraded system, use beadm to activate
+it and then reboot - the appropriate commands will be printed at the
+end of the upgrade process, but will be something like
+</p>
+<pre>
+beadm activate m31
+init 6
+</pre>
+
+<p>
+If you want to see what would happen (this isn't a proper dry run, and
+will create a number of errors) then
+</p>
+<pre>
+zap upgrade -n m31
+</pre>
+
+<p>
+If the newly upgraded system fails to work properly, then you can roll
+back to the previous version. If you're in a running system then you
+can use <code>beadm list</code> to see the available boot environments
+</p>
+<pre>
+BE       Active Mountpoint      Space Policy Created
+m30      -      -               28.0M static 2023-05-03 15:40
+m31      NR     /               12.2G static 2023-07-10 18:42
+</pre>
+<p>
+(note that the initially installed boot environment will usually be
+called tribblix), and then
+</p>
+<pre>
+beadm activate m30
+init 6
+</pre>
+<p>
+to go back to the older boot environment.
+</p>
+
+<p>
+If the new boot environment won't boot properly, simply select the old
+one from the boot menu, and then <code>beadm activate</code> it so it
+will be the default next time.
+</p>
+
+<p>
+If you have the ISO for the new release, then you might save some time
+and bandwidth by copying the zap files from the pkgs directory on the
+ISO into the <code>/var/zap/cache</code> directory. And if you're
+upgrading more than one system, copying <code>/var/zap/cache</code>
+will do even better.
+</p>
+
+<p>
+Once you're happy that the new version of Tribblix is working well,
+you can remove older versions with the <code>beadm destroy</code>
+command.
+</p>

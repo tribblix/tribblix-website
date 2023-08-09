@@ -1,0 +1,53 @@
+<h1>&gt; Tribblix on Digital Ocean</h1>
+
+<p>
+Digital Ocean is one place to run Tribblix in the
+<a href="cloud.html">cloud.</a>
+</p>
+
+<p>
+On Digital Ocean, you will have to upload a custom image. Don't worry, the
+images have already been created, but you will have to upload them yourself.
+(There doesn't appear to be a way to share custom images.)
+</p>
+
+<p>
+In the left hand pane on the console, select Images, and then the Custom
+Images tab. Then click the "Import via URL" button (it may appear as if it's
+greyed out, but it is clickable).
+</p>
+
+<p>
+The currently valid URLs for images are, for vanilla Tribblix and OmniTribblix
+respectively:
+</p>
+<ul>
+<li>http://pkgs.tribblix.org/iso/tribblix-m31.img.gz</li>
+<li>http://pkgs.tribblix.org/iso/omnitribblix-m31lx.img.gz</li>
+</ul>
+
+<p>
+Upon clicking Next, you'll get a screen to enter an image name, a distribution
+(you'll have to choose Unknown), and a region for where you want to upload
+the image to. Then upload.
+</p>
+
+<p>
+It will take a little while, but after a few minutes the image will be
+available. Then, under the "More" dropdown to the right of the image name,
+you can Start a droplet. You can then select the normal droplet attributes
+such as droplet size, and an ssh key that will allow you to ssh in
+directly as root.
+</p>
+
+<p>
+With the m28 and later releases, you can add an additional volume. (This
+requires the vioscsi driver, which is why it wasn't available in prior
+releases.)
+</p>
+
+<p>
+You may find that a reboot doesn't work - the guest becomes inaccessible.
+A power cycle from the control panel ought to fix that. This is being tracked
+as illumos issue <a href="https://www.illumos.org/issues/14526">14526</a>.
+</p>

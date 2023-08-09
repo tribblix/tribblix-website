@@ -1,0 +1,149 @@
+<h1>&gt; Zip Archive Packaging</h1>
+
+<p>
+Tribblix uses traditional Solaris SVR4 packaging, but this is
+largely hidden by a layer called ZAP - short for Zip Archive Packaging
+- and implemented by a command also called <code>zap</code>.
+</p>
+
+<p>
+Because of the connection to packaging, zap is also used to manage
+<a href="zap-zones.html">zones</a> and perform
+system <a href="zap-upgrade.html">upgrades</a>.
+</p>
+
+<p>
+In ZAP, packages are distributed as zip archives of SVR4 packages in
+filesystem format. This means that you don't need any special tools to
+access the package contents, and they're compressed for network
+distribution.
+</p>
+
+<p>
+In general, though, Tribblix thinks about managing software suites or
+applications, not individual packages - the packages are an
+implementation detail that you should be able to ignore most of the
+time. The level of abstraction you should normally use are
+the <a href="overlays.html">overlays</a>.
+</p>
+
+<h2>zap usage</h2>
+
+<p>
+To see which overlays are available, and whether they're installed, run:
+</p>
+<pre>
+zap list-overlays
+</pre>
+
+<p>
+To see a little more detail about a given overlay, run:
+</p>
+<pre>
+zap describe-overlay <i>overlay-name</i>
+</pre>
+
+<p>
+To install an overlay, as root run:
+</p>
+<pre>
+zap install-overlay <i>overlay-name</i>
+</pre>
+<p>
+Any dependent overlays will automatically be installed.
+</p>
+
+<p>
+To make the system aware of new and updated packages and overlays,
+as root run:
+</p>
+<pre>
+zap refresh
+</pre>
+
+<p>
+To check that an overlay is correctly installed, run:
+</p>
+<pre>
+zap verify-overlay <i>overlay-name</i>
+</pre>
+<p>
+(if the overlay isn't installed, then it will just say so).
+</p>
+
+<p>
+To update the packages in an overlay, to handle either updates to
+packages or overlays, or if something has got messed up, as root run:
+</p>
+<pre>
+zap update-overlay <i>overlay-name</i>
+</pre>
+<p>
+If you want to update all the installed overlays, it's:
+</p>
+<pre>
+zap update-overlay -a
+</pre>
+
+<p>
+While the preferred (and strongly recommended) mechanism is to always
+work with overlays, zap also supports operating on packages directly,
+using the following commands:
+</p>
+<pre>
+zap list-packages
+zap describe-package <i>package-name</i>
+zap install <i>package-name</i>
+zap update <i>package-name</i>
+zap uninstall <i>package-name</i>
+</pre>
+<p>
+(note, though, that dependency handling is ignored if you use zap to
+manipulate packages directly).
+</p>
+
+<h2>Downloads, cache management, and implementation</h2>
+
+<p>
+Installing packages requires them to be downloaded from a
+repository. Downloaded packages are kept
+in <code>/var/zap/cache</code>. If you remove a package, and need to
+later install it again, it will use the package in the cache if it
+finds it. If you want to install multiple machines and only download
+files once, then you can copy the package files
+into <code>/var/zap/cache</code> on other systems. If that directory
+uses too much space, it's perfectly fine to delete some or all of the
+files there.
+</p>
+
+<p>
+If you use <code>-O</code> to add an overlay when installing a
+zone, the downloaded packages are cached in the global zone. Next time
+you install a zone with that extra overlay, it won't need to download
+the files again.
+</p>
+
+<p>
+The overlay metadata is stored in the following directory:
+</p>
+<pre>
+/var/sadm/overlays
+</pre>
+<p>
+The <code>ovl</code> files are the overlay metadata,
+the <code>pkgs</code> files contain the list of packages. Whether an
+overlay is installed or not is simply based on whether a file with the
+overlay's name exists in <code>/var/sadm/overlays/installed</code>.
+</p>
+
+<p>
+The details of repositories and catalogs are stored under
+</p>
+<pre>
+/etc/zap
+</pre>
+<p>
+The <code>list</code> files here list the available repositories and
+their preference. The files under <code>/etc/zap/repositories</code>
+are the repo details and their catalogs.
+</p>

@@ -1,0 +1,29 @@
+<h1>&gt; Use</h1>
+
+<p>
+The live environment is a little sparse, by design. I recommend that
+for a reasonable starting point you <a href="install.html">install</a>
+the <a href="overlays.html">overlays</a> <code>develop xfce</code> and
+possibly <code>xfce-extras</code>, or just install
+the <code>kitchen-sink</code>. You can add additional software
+overlays using <a href="zap.html">zap</a>.
+</p>
+
+<p>Log in as jack, and you can get a very ancient desktop (twm) using
+<code>startx</code>.</p>
+
+<p>To get Xfce, run <code>startxfce4</code>. (If you create a new
+account, you may find that you have trouble saving Xfce settings; if
+that's the case simply copy the <code>.config</code> directory from
+<code>/jack</code> and this should set everything up.)</p>
+
+<p>For other desktops, there's a <code>setxsession</code> command that
+allows you to choose which desktop to run. Without arguments, it will
+just list which desktop environments/window managers it knows about,
+and whether they're installed. Just choose one, for example:
+</p>
+<pre>
+setxsession wmaker
+</pre>
+<p>and then run startx to get it running.
+</p>

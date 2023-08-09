@@ -1,0 +1,7 @@
+<h1>Overlay xfce - The Xfce Desktop</h1>
+<p>Supplies the basic <a href="https://xfce.org/">Xfce Desktop Environment</a>,
+a lightweight desktop environment that aims to be fast and low on system
+resources, while still being visually appealing and user friendly.</p>
+
+<p>Xfce is the default Desktop Environment in Tribblix, and can be extended
+with the @xfce-extras and @lightweight-desktop overlays.</p>

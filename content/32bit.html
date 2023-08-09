@@ -1,0 +1,48 @@
+<h1>&gt; 32-bit support</h1>
+
+<p>
+As of February 2018, support for 32-bit x86 hardware was removed
+from illumos. This only affects the kernel; 32-bit applications are still
+supported.
+</p>
+
+<p>
+In practice, 32-bit hardware support hasn't been well-tested for a while,
+and most illumos distributions haven't supported 32-bit hardware for a while.
+</p>
+
+<p>
+However, you can still run older Tribblix on 32-bit hardware, with certain
+caveats. The biggest caveat is that this is unsupported, and you'll be 5
+years out of date.
+<p>
+
+<p>
+The best base release to download and run is the original 0m20 release. The
+update releases may be problematic, as will the omnitribblix variant. Note
+that all the 0m20 updates, and the 0m20 omnitribblix variant, share the same
+application repository - there is no difference in terms of what applications
+are available, it's just the kernel that differs between the various releases
+in the 0m20 series. If you're running on 32-bit hardware, do not upgrade to
+any of the update releases or any later version such as 0m21.
+</p>
+
+<p>
+With 32-bit hardware, you're often looking at hardware that is resource
+constrained in other ways. Tribblix is the best illumos distribution for
+such resource constrained systems, allowing a more minimal install, and
+supporting installation to ufs rather than zfs. (If you have less than 1G
+of RAM, ufs is recommended, and should be comfortable on even a 512M system.)
+</p>
+
+<p>
+Note that while Tribblix is happy to allow for 32-bit hardware, some modern
+applications may be aimed at 64-bit hardware. For example, golang is only
+available for 64-bit illumos, as will be any applications written in Go.
+Java 8 is 64-bit only, so you're limited to Java 7. Many new languages,
+runtimes, and applications, will only be 64-bit.
+</p>
+
+<p>
+Enjoy Tribblix!
+</p>

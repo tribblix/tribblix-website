@@ -1,0 +1,120 @@
+<h1>&gt; Installation (SPARC)</h1>
+
+<p>The below are appropriate for Tribblix on SPARC; there are
+separate <a href="install.html">installation on x86 instructions</a>.
+</p>
+
+<p>Once you have downloaded the ISO image, you
+can use cdrecord or cdrw to burn the image to a DVD.</p>
+
+<p>Booting from the DVD should take a few minutes or less, and you
+should be presented with a login prompt.
+<pre>
+tribblix login:
+</pre>
+The username is jack, the password is jack.</p>
+
+<p>You can now log in and investigate. The environment here is
+deliberately minimalist.</p>
+
+<p>You can install to hard disk. To do this you will have to become root
+<pre>
+# su - root
+</pre>
+where the password is "tribblix". Then run the format command
+<pre>
+# format
+</pre>
+which will give you a list of disks.</p>
+
+<p>In the simplest case, where you just have one disk and want to use
+it all for Tribblix, just run the live_install.sh script with the name
+of the desired disk, like so:
+<pre>
+# ./live_install.sh -B c1t0d0
+</pre></p>
+
+<p>You can also install additional software packages at this
+point. Additional package sets are known as overlays, so you don't need
+to know anything about individual packages. There's
+a <a href="overlays.html">complete list</a>, but here are some of the
+overlays likely to be commonly used on SPARC:
+<ul>
+<li>x11 - enough for a basic X11 installation</li>
+<li>retro-desktop - additional window managers, tools, and libraries</li>
+<li>develop - development tools and headers</li>
+<li>networked-system - packages to integrate a system into a network,
+such as NIS, LDAP, NFS</li>
+<li>java - openjdk8</li>
+<li>kitchen-sink - a desktop and development tools</li>
+</ul>
+and you simply add the name of the overlay(s) you want to install to
+the install command, like so:
+<pre>
+# ./live_install.sh -B c1t0d0 develop
+</pre>
+Any required overlays will be installed automatically. There's a
+special overlay, called <b>kitchen-sink</b> that will install most
+things, and that's what I personally use.
+<pre>
+# ./live_install.sh -B c1t0d0 kitchen-sink
+</pre>
+You can add additional software overlays later using
+the <a href="zap.html">zap</a> utility.
+</p>
+
+<p>Then reboot
+<pre>
+reboot -p
+</pre>
+If it boots off the DVD, then hit 6 to ChainLoad the hard disk.
+This should then boot up.</p>
+
+<p>When booted up the first time, you have the same user account (jack)
+and same user and root passwords as the live image, which you should
+immediately change.</p>
+
+<h2><a name="manual"></a>Manual partitioning</h2>
+
+<p>The default installation above will use the whole disk for Tribblix
+and all the available space for the root file system. If you want to do
+something different, then you can manually partition the disk, and
+then tell the installer to use a given slice in that partition,
+omitting the -B flag. Manual partitioning is only for experts; if
+you're not familiar with the way Solaris disk partitions/slices
+work, use the defaults.</p>
+
+<p>Run format and choose the disk you're using. Type 'p' to go into the
+partition (slice) menu, and 'p' to show the partitions. Enter a number to
+edit that slice, for example type '0' to edit slice 0, type 'root' for the
+tag, accept the permissions, the starting cylinder should be 0, and then
+input the size. (The overall size is that of slice 2
+which you should be able to see.) Then type 'p'
+again to make sure it looks OK. Then 'l' to label the disk and exit
+format.</p>
+
+<p>That's the complex bit. To actually install, run the installer with
+slice 0 of your chosen disk as the argument. If the disk is
+<code>c1t0d0</code>, then you're installing to <code>c1t0d0s0</code>
+<pre>
+# ./live_install.sh c1t0d0s0
+</pre>
+(optionally followed by the names of overlays you want to install) and
+wait a few minutes for it to do the install.</p>
+
+<h2><a name="overlay"></a>Installing to an existing ZFS pool</h2>
+
+<p>If you wish to install Tribblix to an existing pool (for example, you
+have an older Tribblix release, a corrupted install, or an alternative
+illumos distribution already installed, and you don't want to lose the data)
+then there's a script to do just that. It works just like the regular
+installer but with a different name, and takes the name of the existing pool
+as the destination rather than a disk device:
+<pre>
+# ./over_install.sh -B rpool list_of_overlays...
+</pre>
+This mechanism will give you a fresh install, although it will copy the
+system ssh keys and user account details from the existing system to make
+it easier to log in and get going. Using the <code>-N</code> flag will
+prevent this information from being copied across.
+</p>

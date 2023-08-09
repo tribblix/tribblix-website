@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+#
+# unlike the default rule, we keep the file layout verbatim
+#
+compile '/**/*.html' do
+  layout '/default.*'
+  write item.identifier.to_s
+end
+
+#
+# ovl files are processed through OverlayFilter.rb, then have a bit
+# of extra overlay layout, and then get specific file names.
+# Note that the ovl extension is added to nanoc.yaml so it's recognized
+# as textual rather than binary
+#
+compile '/**/*.ovl' do
+  filter :overlay
+  layout '/overlay.*'
+  layout '/default.*'
+  write '/overlay-' + item.identifier.without_ext.sub('/','') + '.html'
+end
+
+# This is an example rule that matches Markdown (.md) files, and filters them
+# using the :kramdown filter. It is commented out by default, because kramdown
+# is not bundled with Nanoc or Ruby.
+#
+#compile '/**/*.md' do
+#  filter :kramdown
+#  layout '/default.*'
+#
+#  if item.identifier =~ '**/index.*'
+#    write item.identifier.to_s
+#  else
+#    write item.identifier.without_ext + '/index.html'
+#  end
+#end
+
+compile '/**/*' do
+  write item.identifier.to_s
+end
+
+layout '/**/*', :erb

@@ -1,0 +1,86 @@
+<h1>&gt; Tribblix on AWS</h1>
+
+<p>
+AWS - Amazon Web Services - is one place to run Tribblix in the
+<a href="cloud.html">cloud.</a>
+</p>
+
+<p>
+You can run Tribblix on an EC2 instance on AWS.
+</p>
+
+<p>
+There are AMIs available for both vanilla Tribblix and the LX-enabled
+OmniTribblix. These are available in the London (eu-west-2) region. If you
+set your region to London, launch an instance, browse AMIs, and then search
+Community AMIs for "illumos" or "Tribblix" then you should get some results
+like the following:
+</p>
+
+<p>
+<img src="tribblix-ami.png" alt="[Tribblix AMIs]">
+</p>
+
+<p>
+Specifically, the currently available AMIs are:
+</p>
+<ul>
+<li>Tribblix m31 - ami-09b9bb965f8c61549</li>
+<li>OmniTribblix m31lx - ami-0618130c66a698e81</li>
+<li>Tribblix m31 (Nitro) - ami-0467b145d850dba9f</li>
+<li>OmniTribblix m31lx (Nitro) - ami-0ce0a55e6e7d756a2</li>
+</ul>
+<ul>
+<li>Tribblix m30 - ami-01f7dc5243d6887a8</li>
+<li>OmniTribblix m30lx - ami-0e9390c029cf831ca</li>
+<li>Tribblix m30 (Nitro) - ami-09679d23945169147</li>
+<li>OmniTribblix m30lx (Nitro) - ami-09084d85b34979a85</li>
+</ul>
+
+<p>
+If you want to run Tribblix in a different region, then you'll have to copy
+the AMI.
+</p>
+
+<p>
+The images labelled (Nitro) support the new (t3, m5 etc.) instance types.
+They won't run on the older (t2, m4, etc.) instances. <b>Do not enable static
+networking on a Nitro instance, the system will crash and not come back.</b>
+There isn't any difference between the Nitro and non-Nitro images other
+than which instance types they will boot on.
+</p>
+
+<p>
+The m4 and similar generation instances work well for the other images, as do
+t2 instances. The t2.micro is just fine for Tribblix, and is on the free tier.
+For these, I recommend you do enable static networking with
+<code>
+zap staticnet -y
+</code>
+</p>
+
+<p>
+After launching an instance, you should be able to log in as root with your
+key pair. That's the only way in, there's no jack account, and no valid root
+password. You should create your own regular users, of course.
+</p>
+
+<p>
+If you want to store data, add an EBS volume and create a separate ZFS pool.
+(This will also make it easier to move the data to another instance when you
+need to.)
+</p>
+
+<p>
+The images supplied only have a smallish system disk. If you need a bigger
+root pool (as opposed to adding a second data pool) then create the root
+EBS volume with a larger size and expand the pool with:
+</p>
+<pre>
+# zpool online -e rpool c2t0d0
+</pre>
+<p>
+to get the additional space recognised. You can enlarge an EBS volume after
+instance creation, but it will take a reboot for Tribblix to realise that
+the volume size has changed.
+</p>

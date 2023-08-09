@@ -1,0 +1,9 @@
+<h1>Overlay develop - Development Tools</h1>
+<p>Supplies a basic development environment, including the GCC compiler,
+headers, and tools commonly used in software development.</p>
+
+<p>For additional, less commonly required, tools, see the @develop-extras
+overlay.</p>
+
+<p>For a selection of less common langages, see the @language-extras
+overlay.</p>

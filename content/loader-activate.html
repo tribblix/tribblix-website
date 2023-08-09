@@ -1,0 +1,35 @@
+<h1>Activating the new loader</h1>
+
+<p>
+After <a href="zap-upgrade.html">upgrading</a> to the milestone 19 (m19)
+release, the new loader will be available but the system will still use
+the old Grub bootloader. This is chosen as a safe default because it's
+not easy to boot older Grub-based boot environments once you've enabled
+the new loader.
+</p>
+
+<p>
+Therefore, you should only switch to using the new loader once you're
+fairly sure that you won't need to go back to an older boot environment.
+</p>
+
+<h2>Migration procedure</h2>
+
+<p>
+Assuming your new BE is called m19, the steps to activate the new loader
+start with:
+<pre>
+rm /etc/default/be
+beadm activate m19
+reboot
+</pre>
+If you still get Grub, then run:
+<pre>
+bootadm install-bootloader -P rpool
+</pre>
+If you still get Grub, then run the following for each disk in the
+root pool:
+<pre>
+installboot -F -m /boot/pmbr /boot/gptzfsboot /dev/rdsk/c0t0d0s0
+</pre>
+</p>

@@ -1,0 +1,131 @@
+<h1>&gt; Zone administration</h1>
+
+<p>
+A zone is a virtualized environment that looks a lot like a regular
+system. It has its own network, its own processes, its own file
+systems, and its own identity. As far as an application is concerned,
+it looks and behaves like a distinct computer. However, zones actually
+share the same instance of an operating system - in particular,
+there's just one kernel - so overhead is absolutely minimal.
+</p>
+
+<p>
+While the traditional zone administration tools like zonecfg and
+zoneadm are still available, Tribblix uses <a href="zap.html">zap</a>
+to manage zones:
+</p>
+<pre>
+zap create-zone -z zone_name [-i ip_address] [other flags]
+zap destroy-zone -z zone_name
+</pre>
+
+<p>
+The real value of using zap is to control the software that's installed
+in a zone. The first interesting flag here is the type, to install a
+sparse-root or whole-root zone:
+</p>
+<pre>
+-t sparse
+-t whole
+</pre>
+<p>
+For a sparse-root zone, the software is essentially fixed
+(as <code>/usr</code> is a read-only loopback mount). For a whole-root
+zone, the default is for the zone to contain the same software as the
+global zone, but this can be changed. Use the <code>-o</code> flag to
+select the overlays to be copied from the global zone. For example:
+</p>
+<pre>
+-o develop -o java
+</pre>
+<p>
+will result in a zone that contains the java and develop overlays (and
+any overlays needed for dependency resolution). Note that if you
+specify an overlay that isn't installed in the global zone, then it
+won't install that overlay - use the <code>-O</code> flag instead (see
+below).
+</p>
+
+<p>
+Furthermore, you can add
+additional overlays with the <code>-O</code> flag, for example:
+</p>
+<pre>
+-O groovy
+</pre>
+<p>
+which will result in the groovy overlay being added to the new
+zone. (And any prerequisites.)
+</p>
+
+<p>
+You can create a file system that should exist in the zone with
+the <code>-d</code> flag. For example:
+</p>
+<pre>
+-d /data/www
+</pre>
+<p>
+will create a directory /data/www inside the zone, ready for you to
+fill with data.
+</p>
+
+<p>
+The <code>-U</code> flag specifies a user account to be shared with
+the zone. The account will be created in the zone with the same
+details as in the global zone, and the home directory will be
+shared. In addition, that user is delegated management of the zone,
+including the ability to use zlogin to connect to the zone. Note that
+this mechanism gives the delegated user full root access to the zone,
+and potentially full root access to the global zone via shared file
+systems, so should be used with caution.
+</p>
+
+<p>
+A regular sparse-root zone has, by necessity, the same software
+installed as the global zone. A whole-root zone has its own
+independent set of software, so it can have any software installed
+that you like. Another option is to construct a zone template which,
+like a whole-root zone, has a completely independent set of software
+packages. You can then create sparse-root zones based on that
+template, allowing you to have a sparse-root zone that has different
+software to the global zone. To create a template:
+</p>
+<pre>
+zap create-zone-template -T template_name [-d extra_dir] [-o overlay] [-O overlay]
+</pre>
+<p>
+where the <code>-d</code>, <code>-o</code>, and <code>-O</code> flags
+have the same meanings as before. Then you can use create-zone with
+the extra <code>-T</code> flag to specify the template the zone should
+be built from:
+</p>
+<pre>
+zap create-zone -z zone_name -T template_name [other flags]
+</pre>
+
+<p>
+Another zone variant is the alien zone. An alien-root zone contains
+file systems derived from an ISO image of an alternative illumos
+distribution. This assumes that the other distribution is compatible -
+generally illumos isn't making changes in the critical system
+interfaces, so it works if the other distribution is of similar
+vintage to the Tribblix system you're running, and if it's a
+distribution whose installation ISO is known to Tribblix. (Currently, this
+should handle OpenIndiana, OmniOS, and DilOS.)
+</p>
+
+<p>
+To create an alien zone, the command is:
+</p>
+<pre>
+zap create-zone -z zone_name -t alien -I /path/to/iso/image [other flags]
+</pre>
+<p>
+where the <code>-t</code> flag must specify alien, and
+the <code>-I</code> flag tells it where the iso image is to be
+found. The file systems will be populated from the ISO, and the
+installation will attempt to undo the customizations needed for a live
+boot environment. For obvious reasons, the <code>-o</code>
+and <code>-O</code> flags aren't appropriate.
+</p>
