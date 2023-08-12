@@ -1,0 +1,4 @@
+<h1>Overlay gtk2 - GTK2</h1>
+<p>Supplies the graphical toolkit <a href="https://www.gtk.org/">GTK</a>,
+version 2. This overlay isn't meant for standalone use, but as a dependency
+for GUI applications that need it.</p>
