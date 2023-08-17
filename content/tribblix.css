@@ -19,6 +19,11 @@ table#banner {
     border-bottom: 1px solid #006600;
     border-top: 1px solid #006600;
     width: 100%;
+    table-layout: fixed;
+    text-align: center;
+}
+table#banner td:hover {
+    background-color: #eeddaa;
 }
 img.banner {
     display: block;
