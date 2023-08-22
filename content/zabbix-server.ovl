@@ -1,0 +1,12 @@
+<h1>Overlay zabbix-server - Zabbix server</h1>
+<p>Supplies the <a href="https://www.zabbix.com/">Zabbix</a> monitoring
+server.</p>
+
+<p>It's probably best to run this in a zone, for isolation.</p>
+
+<p>To enable, it should be a case of:</p>
+<pre>
+svcadm enable -s zabbix-db
+svcadm enable -s zabbix-server
+svcadm enable -s zabbix-apache
+</pre>

@@ -1,0 +1,7 @@
+<h1>Overlay illumos-build - Illumos Build Environment</h1>
+<p>This is the overlay you need to install in order to build
+<a href="https://github.com/illumos/illumos-gate">illumos-gate</a>
+from source.</p>
+
+<p>It's strongly recommended to install this in a zone, unless you're
+not going to use the system for anything else.</p>
