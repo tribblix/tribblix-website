@@ -1,0 +1,38 @@
+<h1>&gt; Zone updates and upgrades</h1>
+
+<p>There are a number of considerations to be aware of when it comes to the
+way that zones interact with <a href="3.update.html">updates</a> and
+<a href="3.upgrade.html">upgrades</a>.</p>
+
+<h2>Updates</h2>
+
+<p>If you apply updates to the software in the global zone, this has no
+effect whatsoever on the majority of types of zones. Only sparse-root
+zones are affected, and they will see the updated software (or most of it)
+but not any packaging metadata.</p>
+
+<p>For sparse-root zones, you cannot apply updates within the zone. That's
+the whole point, the operating system is read-only in such a zone.</p>
+
+<p>For bhyve zones, manage the guest in the normal way for whatever
+operating system you're running in the guest. (The zone itself is a
+special type of sparse-root zone that you should leave alone.)</p>
+
+<p>For other types of zones, apply any updates within the zone as normal.</p>
+
+<h2>Upgrades</h2>
+
+<p>When you upgrade Tribblix, the upgrade doesn't touch zones. However, some
+types of zones are tied to the version running in the global zone, which is a
+problem.</p>
+
+<p>Any LX, alien, or S10 zones don't need to be touched; they will be
+retained through the upgrade and should function as normal afterwards.</p>
+
+<p>Other types of zone will be disabled by the upgrade process. This is for
+safety as they won't work correctly if at all otherwise. The best
+approach is to destroy the zones before the system upgrade and recreate
+them afterwards.</p>
+
+<p>(This isn't terribly satisfactory but needs a bit more engineering work
+to fix properly.)</p>

@@ -1,0 +1,55 @@
+<h1>&gt; Tribblix History</h1>
+
+<p>In 2005 Sun open sourced Solaris, their version of Unix, creating
+  the OpenSolaris project. Following the acquisition of Sun by Oracle
+  some 5 years later, the OpenSolaris project was abandoned, and
+  Oracle Solaris is no longer open source.</p>
+
+<p>Two projects sprang up to fill the gap, in different ways.</p>
+
+<p>The <a href="https://illumos.org/">illumos</a> project continued
+  to develop the underlying code base -  the kernel and supporting
+  user commands (sometimes known as ON - the OS and Networking
+  consolidation). This code base is now used as the basis for many 
+  derived distributions, including Tribblix.</p> 
+
+<p>The <a href="https://www.openindiana.org/">OpenIndiana</a> project
+  continued to develop a clone of the OpenSolaris distribution (which
+  was code named project Indiana), including packaging and desktop
+  components.</p>
+
+<p>Oracle have continued to develop their own version of Solaris, so
+  that, while the commercial Oracle Solaris and the illumos
+  distributions share a common heritage and often behave similarly,
+  they have diverged significantly.</p>
+
+<p>There are now a significant number of
+  illumos <a href="https://illumos.org/docs/about/distro/">distributions</a>,
+  some of which are:</p>
+
+<ul>
+<li><a href="https://www.openindiana.org/">OpenIndiana</a> continues to
+  develop a distribution that looks like OpenSolaris, with IPS
+  packaging</li>
+<li><a href="https://omnios.org/">OmniOS</a> is server-focussed,
+  again using IPS. Originally built by OmniTI, it has been taken over
+  by the community.</li>
+<li><a href="https://www.tritondatacenter.com/smartos">SmartOS</a> is a
+  Converged Container and Virtual Machine Hypervisor</li> 
+<li>A number of storage vendors use OpenSolaris or illumos under the
+  hood (largely because of ZFS)</li>
+</ul>
+
+<p>And a number of smaller distributions including, of course, Tribblix.</p>
+
+<p>The creator of Tribblix wanted to get away from the bloat and
+  complexity introduced by IPS, and created a lightweight distribution
+  using SVR4 packaging, with a distinctively retro feel, but using
+  modern components.</p>
+
+<p>Tribblix ships 2 variants for 64-bit x86 hardware. The vanilla variant is
+  built on essentially unmodified illumos. The omnitribblix variant is built on
+  the same foundation as OmniOS, so gains features such as LX
+  zones. Both Tribblix variants share the same application packages.</p>
+
+<p>Tribblix also supports a limited range of SPARC hardware.</p>

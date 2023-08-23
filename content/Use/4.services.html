@@ -1,0 +1,73 @@
+<h1>&gt; Tribblix: Services</h1>
+
+<p>In Tribblix, all running services are controlled by SMF, the Service
+  Management Facility. There are two key commands. The first is:</p>
+<pre>
+  svcs
+</pre>
+<p>which lists the services and their status.</p>
+
+<p>If you add the <code>-a</code> flag, then all services will be shown (by
+  default, disabled services will be ignored). If you add the <code>-p</code>
+  flag, then the running processes associated with each service will be listed.
+  </p>
+
+<p>Not all services have long-running processes associated with them. Many
+  just run something the once (often at boot).</p>
+
+<p>Normally, you would expect to see a long list of services that are
+  <em>online</em>. Those are the active services. You may see a handful
+  listed as <em>legacy_run</em> - SMF still supports the old init system
+  that ran scripts from the <code>/etc/rc*.d</code> directories. These
+  services aren't tracked. Any service in <em>maintenance</em> is broken,
+  indicating a problem.</p>
+
+<p>The first thing to do when investigating a problem with a service is
+  to ask SMF to explain what's wrong, using:</p>
+<pre>
+  svcs -xv
+</pre>
+<p>The next thing is to check the logs associated with a service. These are
+  normally found in <code>/var/svc/log</code>, but you can ask SMF where the
+  log for a given service. For example, the name of the log file for the zones
+  service would be shown by:</p>
+<pre>
+  svcs -L zones
+</pre>
+<p>You may also have log files associated with the application, but if an
+  application is really broken it may not be able to write to its own logs.
+  In that case it might write a helpful error to <code>stdout</code> or
+  <code>stderr</code>, which will end up in the SMF logs.</p>
+
+<p>You'll see that the services have a long name. This is called an FMRI
+  (Fault Managed Resource Identifier). Generally, you don't need the full
+  name, as the last unique element will suffice. The last part of the name,
+  after the colon (<code>:</code>) is an instance. In most cases there's only
+  the one copy of a service, the <code>default</code>) instance, but some
+  services have multiple instances which can be controlled independently.</p>
+
+<p>The other command you need is <code>svcadm</code>. For example, if you
+  had nginx installed, then you could enable nginx with:</p>
+<pre>
+  svcadm enable nginx
+</pre>
+<p>Or disable it with:</p>
+<pre>
+  svcadm disable nginx
+</pre>
+<p>If you need to restart it, you can either run disable and enable, or
+  simply:</p>
+<pre>
+  svcadm restart nginx
+</pre>
+<p>Imagine that nginx wasn't working, and ended up in the <em>maintenance</em>
+  state. Once you've diagnosed and fixed the problem, you need to let SMF know
+  that everything should be OK and it should try the service again:</p>
+<pre>
+  svcadm clear nginx
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="4.rmvolmgr.html">Previous Section</a>
+ | <a href="4.software.html">Next Section</a>
+</p>

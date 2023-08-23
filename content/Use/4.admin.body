@@ -1,0 +1,14 @@
+<h1>&gt; Tribblix Basic Administration</h1>
+
+<p>Installation of Tribblix has already been covered
+  in <a href="3.install.html">Chapter 3</a>. Here we'll cover the
+  wide variety of tasks that may be necessary for the day to day
+  administration of your Tribblix system.</p>
+
+<ul>
+<li><a href="4.networking.html">Networking</a></li>
+<li><a href="4.rmvolmgr.html">Removable Media</a></li>
+<li><a href="4.services.html">Services</a></li>
+<li><a href="4.software.html">Software</a></li>
+<li><a href="4.users.html">Users</a></li>
+</ul>

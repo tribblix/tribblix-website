@@ -33,6 +33,7 @@ esac
 case $1 in
     update)
 	./mk-overlays.sh > content/overlays.html
+	./mk-handbook.sh
 	$NANOC
 	;;
     view)

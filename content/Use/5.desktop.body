@@ -1,0 +1,134 @@
+<h1>&gt; Tribblix Desktop use</h1>
+
+<p>Tribblix provides a variety of desktop environments and window
+  managers, and you can choose which one to use. To use a desktop,
+  you will need at least the x11 overlay to be installed, although
+  adding the retro-desktop overlay will give more choice and enlarge
+  the set of available utilities.</p>
+
+<p>To select a desktop environment or window manager for use,
+  the <code>setxsession</code> utility is provided. If run without
+  arguments, it will list the known options and whether they're
+  installed. For example:</p>
+
+<ul>
+<li>afterstep: Afterstep (installed)</li>
+<li>amiwm: Amiga-like Window Manager (installed)</li>
+<li>awesome: awesome window manager (installed)</li>
+<li>awm: Ardent Window Manager (installed)</li>
+<li>cde: CDE (installed)</li>
+<li>ctwm: CTWM (installed)</li>
+<li>e19: Enlightenment (installed)</li>
+<li>ede: EDE (installed)</li>
+<li>fluxbox: Fluxbox (installed)</li>
+<li>fvwm: FVWM (installed)</li>
+<li>i3wm: improved tiling wm (installed)</li>
+<li>icewm: IceWM (installed)</li>
+<li>leftwm: LeftWM (installed)</li>
+<li>lumina: Lumina Desktop (installed)</li>
+<li>mate: MATE (installed)</li>
+<li>mwm: Motif Window Manager (installed)</li>
+<li>olvwm: OLVWM (installed)</li>
+<li>olwm: OLWM (installed)</li>
+<li>openbox: Openbox (installed)</li>
+<li>pekwm: PekWM (installed)</li>
+<li>piewm: Window Manager with pie menus (installed)</li>
+<li>qvwm: QVWM (installed)</li>
+<li>tvtwm: Tom's virtual Tab Window Manager (installed)</li>
+<li>twm: TWM (installed)</li>
+<li>vtwm: Virtual tab Window Manager (installed)</li>
+<li>wmaker: Window Maker (installed)</li>
+<li>xfce: Xfce (installed)</li>
+</ul>
+
+<p>To select an option, just supply it as an argument, for example
+</p>
+  <pre>
+    setxsession wmaker
+  </pre>
+<p>will set your account up so that the next time you run a desktop
+  session, Window Maker will be used. If the chosen desktop option is
+  not installed, the command will tell you what needs to be
+  installed in order to enable it.
+</p>
+
+<p>If you are presented with a console login prompt,
+  then type the command
+</p>
+  <pre>
+    startx
+  </pre>
+<p>to start up a graphical session.
+</p>
+
+<p>You can enable a graphical login prompt. Use the <code>su</code>
+  command to become root, and enable the slim service
+</p>
+<pre>
+    /usr/sbin/svcadm enable svc:/system/slim:default
+</pre>
+
+<p>If the mouse doesn't appear to work, you'll need to ensure that hal
+  is enabled (this problem is likely to occur if you add the x11
+  packages on top of a minimalist install)
+</p>
+  <pre>
+    /usr/sbin/svcadm enable svc:/system/hal:default
+  </pre>
+
+<p>For most purposes, the xfce desktop is recommended.</p>
+
+<h2>VNC</h2>
+
+<p>Tribblix also allows you to run a separate desktop session using
+  VNC. This offers a number of advantages over a regular desktop
+  session - you can easily test out a new desktop, you can disconnect
+  and reconnect to the session, and can connect to a session from a
+  remote system.
+</p>
+
+<p>Similar to the way that <code>setxsession</code> allows you to
+  specify which desktop session to run, the <code>setvncsession</code>
+  command will allow you to select which desktop environment or
+  window manager will be used for a VNC session. Having specified
+  which window manager you wish to use, the command
+</p>
+<pre>
+    vncserver
+</pre>
+<p>
+will create the VNC session and print out the connection details. To
+connect to a session, for example <code>tribblix:1</code>,
+</p>
+<pre>
+    vncviewer tribblix:1
+</pre>
+<p>and to terminate a session
+</p>
+<pre>
+    vncserver -kill tribblix:1
+</pre>
+
+<h2>Applications</h2>
+
+<p>Tribblix provides a basic range of tools for desktop use.
+
+  <ul>
+    <li>Terminals - apart from xterm, sakura and the xfce Terminal are
+      recommended.</li>
+    <li>Text editing - emacs, vim, leafpad, and mousepad are basic text
+      editors. bluefish is focused on web content.</li>
+    <li>Office - the LibreOffice suite is available. For
+      lighter-weight tasks you can also use abiword and gnumeric.</li>
+    <li>Mail - claws-mail is available, or run mutt in a terminal.</li>
+    <li>Graphics - for viewing images, gpicview and gqview are good
+      choices. The ImageMagick suite is also available, as is the
+      gimp.</li>
+    <li>Desktop publishing - Inkscape, Scribus, and Dia are
+      available.</li>
+    <li>Graphics - for generating graphics, there are gnuplot,
+      ploticus, ggobi, graphviz, and the R suite.</li>
+    <li>Messaging - for IRC, hexchat is a good choice, while pidgin and
+      irssi are also available.</li>
+  </ul>
+</p>

@@ -1,0 +1,52 @@
+<h1>&gt; LX zones</h1>
+
+<p>To run LX zones, you need to be running omnitribblix, not vanilla Tribblix.
+If you're not sure, run the <code>uname -v</code> command - omnitribblix
+will end in <code>lx</code>.
+</p>
+
+<p>A wide range of Linux distributions are supported. The simplest way is to
+get Tribblix to download an image for you. For example:
+</p>
+<pre>
+zap create-zone -t lx -z fedora \
+  -x 192.168.0.238  \
+  -I proxmox:fedora
+</pre>
+<p>
+or
+</p>
+<pre>
+zap create-zone -t lx -z ubuntu \
+  -x 192.168.0.239  \
+  -I ubuntu:22.04
+</pre>
+<p>
+In the above, you can download images from a couple of sources -
+<code>proxmox</code> and <code>ubuntu</code>. With proxmox, add the name
+of the distribution you want, optionally with the version attached. With
+ubuntu, add the version as YY.MM, although the code names are also accepted.
+</p>
+
+<p>As an alternative, you can simply supply a tarball of a Linux instance
+(or an export of a docker image, although it needs to be a full image
+with init present).</p>
+<pre>
+zap create-zone -t lx -z myserver \
+  -x 192.168.0.240  \
+  -I /var/tmp/my-linux-server.tar.gz
+</pre>
+
+<h2>Troubleshooting</h2>
+
+<p>If the ssh server doesn't start, for example on Ubuntu, you may need to
+force regeneration of the host keys"
+</p>
+<pre>
+dpkg-reconfigure openssh-server
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="6.zones_bhyve.html">Previous Section</a>
+ | <a href="6.zones_update.html">Next Section</a>
+</p>

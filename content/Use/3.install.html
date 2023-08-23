@@ -1,0 +1,263 @@
+<h1>&gt; Tribblix Installation</h1>
+
+<p>Tribblix is designed to be easy to install, while remaining
+  flexible. Generally, you will be able to install with a single
+  command.</p>
+
+<h2>Hardware requirements</h2>
+
+<p>Tribblix will run on a wide variety of x86 and SPARC
+  systems. Generally, the requirements will be:</p>
+
+<ul>
+<li>A 64-bit x86 or SPARC processor. Single or multiple cores,
+  sockets, and threads are all supported. (If you have an old 32-bit
+  x86 system then the old and unsupported Tribblix m20 is the last version
+  that's known to work.)</li>
+<li>A minimum of 512M of memory. Tribblix will run in less, but the
+  installer won't currently go below 512M (and may struggle even
+  then). Depending on your expected use, more memory is better.</li>
+<li>Disk space may be as low as 1GB for limited software, although
+  this is unlikely to be a constraint.</li>
+<li>The components (specifically network, graphics, disk) need to be
+  supported by illumos. Mainstream desktop or server hardware that's
+  not brand new is most likely to be safe. Laptops, equipment from
+  niche manufacturers, or that is only just released, is likely to
+  be problematic.</li>
+<li>Virtual machine environments such as VMware Fusion or VirtualBox
+  should work just fine.</li>
+<li>For cloud providers using KVM, legacy emulation will work well;
+  virtio drivers should work (including virtio-scsi as of the m28
+  release).</li>
+<li>For SPARC, common systems with UltraSPARC II through IV (sun4u),
+  or the T1 through T4 (sun4v, coolthreads) chips are likely to
+  work.</li>
+</ul>
+
+<h2>Installation using a CD/DVD drive</h2>
+
+<p>You'll need to <a href="http://www.tribblix.org/download.html">download</a>
+  the ISO image. For virtual emulators, you can boot direct off the
+  ISO image; for physical hardware you'll need to create a DVD. (If
+  you don't have a CD or DVD drive, see the section below on iPXE.) On
+  Solaris or illumos systems, this can be accomplished using the
+  command:</p>
+
+<code>
+cdrw -i tribblix-0m31.iso
+</code>
+
+<p>On an x86 system, you may need to interrupt the BIOS to specify an
+  alternate boot device. On SPARC, you should be able to</p>
+
+<code>
+boot cdrom
+</code>
+
+<p>at the OBP prompt, or reboot from the current installation using</p>
+
+<code>
+reboot -- cdrom
+</code>
+
+<p>On x86, a boot menu should appear. If you just leave it, after a
+  few seconds it will boot into the live installer for Tribblix. You
+  have the option of enabling debugging or changing other boot
+  settings, or bypassing the live image to boot from the hard disk.</p>
+
+<p>After some messages, you will be presented with a login prompt. You
+  should log in using the following account:</p>
+
+<ul>
+<li>Username: jack</li>
+<li>Password: jack</li>
+</ul>
+
+<p>At this point you have a functional, if somewhat minimalist
+  environment. You can look around, try out a few commands, or check
+  that Tribblix can see all the hardware you expect to be
+  present.</p>
+
+<p>To install Tribblix, you need to be root. To become root,</p>
+
+<code>
+su -
+</code>
+
+<p>The initial root password is <code>tribblix</code>.</p>
+
+<p>To install, you need to invoke the <code>./live_install.sh</code>
+  script, specifying which device to install to, and what software you
+  wish to be installed.</p>
+
+<p>To identify disk devices, use the <code>format</code> command. This
+  should list the devices, and you can immediately exit
+  with <code>ctrl-d</code>. The disk drives follow the naming
+  scheme <code>c#t#d#</code>. Normally the <code>c#</code> will be a
+  small number, often <code>c1</code>. Similarly, <code>d#</code> will
+  often be <code>d0</code>. The <code>t#</code> might be a small
+  number or a long string, depending on the disk controller (fiber
+  channel or newer SAS HBAs will present the longer version).</p>
+
+<p>To specify what software is to be installed, supply a list of
+  overlays.</p>
+
+<p>The overall command to perform the install will be of the form</p>
+
+<code>
+./live_install.sh -G c0t0d0 kitchen-sink
+</code>
+
+<p>Which means install the kitchen sink to the
+  disk <code>c0t0d0</code>. The <code>-G</code> before the disk means
+  to take over the whole drive. If omitted, it is assumed that you
+  have manually partitioned the disk and allocated the named part of
+  the disk to Tribblix.</p>
+
+<p>The installer takes over the disk device, creates a ZFS pool and
+  file systems, copies the running system to the disk, and installs
+  additional software packages. At the end of the install you will see
+  an error</p>
+
+<code>unable to remount</code>
+
+<p>This actually means that the installation has succeeded - it's part
+  of the reconfiguration to make the newly installed disk the primary
+  device. Then just reboot.</p>
+
+<p>Some systems will automatically boot off the newly installed hard
+  drive. If the system tries to boot off the live media, choose
+  the menu entry that says</p>
+
+<code>
+Chainload disk0:
+</code>
+
+<p>and eject the CD so it doesn't become a problem again.</p>
+
+<p>The newly installed system will have the same user (jack) and
+  passwords as the installer. You should change the root password and
+  create your own user accounts.</p>
+
+<h2>Installation from USB</h2>
+
+<p>Tribblix doesn't currently offer a USB image that can be written to
+  a USB stick. If all you have is USB, then your best bet is to boot
+  the iPXE image (see the section below) and use that to boot Tribblix
+  from the network.</p>
+
+<p>The live ISO image is a hybrid image, so may work if written to a USB
+  stick. Unfortunately not every BIOS is compatible with this approach.</p>
+
+<h2>Using iPXE</h2>
+
+<p>Tribblix can be booted using iPXE. Some cloud providers supported
+  booting directly with iPXE. Alternatively, download
+  an <code>iso</code> or <code>usb</code> image
+  from <a href="https://ipxe.org/">ipxe.org</a>, write to the
+  appropriate media, and boot from that. Press <code>ctrl-B</code> to get the
+  iPXE command line, and type the following at the prompt:
+</p>
+  <pre>
+    dhcp
+    chain http://pkgs.tribblix.org/m31/ipxe.txt
+  </pre>
+<p>You can replace m31 with m31lx to get omnitribblix, or an
+  alternative version may be available. That should boot up as normal
+  and you can do the install.
+</p>
+
+<h2>In the cloud</h2>
+
+<p>Tribblix is available on <a href="/aws.html">AWS</a>, so you can quickly
+  run up an EC2 instance. Simply search for Tribblix in the Community images.
+  You may need to set the region to London (eu-west-2), as the AMIs are
+  only created there by default.
+</p>
+
+<p>Raw images are available for <a href="/digitalocean.html">Digital Ocean</a>.
+</p>
+
+<p>
+Many smaller cloud providers offer an install from ISO option, which can be
+used along with the regular install process.
+</p>
+
+
+<h2>Further installation options</h2>
+
+<p>The installation can be customized. You saw a little of this above
+  where the disk drive and software were supplied. There are other
+  options you can set.</p>
+
+<dl>
+
+  <dt>Drive format</dt>
+  <dd><p>The <code>-G</code> flag tells the installer that it owns
+  the drives, and is free to do whatever it wants with them. (This is
+  the same as running <code>fdisk -B</code>.) If you have data on the
+  drive you need to preserve, or want to partition the disk to give
+  space elsewhere, then you need to omit the <code>-G</code> flag and
+  partition the drive yourself (using the fdisk and format
+  commands). In that case, you need to create a slice <code>s0</code>
+  on the device, and Tribblix will install to that.</p></dd>
+  
+  <dt>Mirroring</dt>
+  <dd><p>You can tell the system to mirror the installation across two
+    drives for redundancy, using the <code>-m</code> flag with the name of the
+    second drive. The syntax here is</p>
+    <p><code>-m second_drive</code></p>
+  </dd>
+
+  <dt>raidz1/2</dt>
+  <dd><p>You can tell the system to install to and boot from a raidz zfs
+    pool, using the <code>-z</code> (for raidz1) or
+    <code>-Z</code> (for raidz2) flag with the list of the
+    drives in a quoted list. The syntax here is</p>
+    <p><code>-z "drive1 drive2 drive3 ..."</code></p>
+    <p>or</p>
+    <p><code>-Z "drive1 drive2 drive3 drive4 ..."</code></p>
+    <p>With raidz, there's no need to supply any other drive as an argument.
+    Make sure all drives used in the pool are visible to the BIOS.</p>
+  </dd>
+
+  <dt>Name</dt>
+  <dd><p>You can specify the name of the system, instead of the default
+    "tribblix", using the <code>-n</code> flag</p>
+    <p><code>-n new_name</code></p>
+  </dd>
+
+  <dt>Timezone</dt>
+  <dd><p>You can specify the desired timezone for the new system, as
+    opposed to the default pacific time, with the -t flag</p>
+    <p><code>-t timezone</code></p>
+  </dd>
+
+  <dt>Swap space</dt>
+  <dd><p>By default, the system will be allocated 2g of swap
+  space. This is a reasonable default, but will depend on
+  workload. (Some applications will request memory but never use it -
+  swap space will allow this to be allocated out of the swap area
+  rather than locking up valuable memory.) If you do need to change
+  it, use the <code>-s</code> flag with the desired size (with
+  an <code>m</code> or <code>g</code> suffix for megabytes or
+  gigabytes)</p>
+  <p><code>-s swap_size</code></p>
+  </dd>
+
+</dl>
+
+<p>All the arguments need to precede the main disk drive and the list
+  of software.</p>
+
+<p>A full example of all the above might be</p>
+
+<code>
+  ./live_install.sh -n bigserver -s 8g -t GB -G -m c0t1d0 c0t0d0
+  retro-desktop develop
+</code>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="2.versus.html">Previous Section</a>
+ | <a href="3.update.html">Next Section</a>
+</p>

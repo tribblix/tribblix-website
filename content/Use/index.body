@@ -1,0 +1,59 @@
+<h1>&gt; Tribblix Documentation</h1>
+
+<p>Welcome to Tribblix, an operating system distribution built on top
+  of the illumos operating system, derived from the OpenSolaris
+  project. Here you will be able to find out about the distribution's
+  history, philosophy, construction, and use.</p>
+
+<ol>
+
+<li><a href="1.history.html">History</a></li>
+
+<li><a href="2.philosophy.html">Philosophy</a></li>
+<ol>
+<li><a href="2.versus.html">Comparisons</a></li>
+</ol>
+</li>
+
+<li><a href="3.install.html">Installation</a></li>
+<ol>
+<li><a href="3.update.html">Keeping up to date</a></li>
+<li><a href="3.upgrade.html">Upgrading to a newer release</a></li>
+</ol>
+</li>
+
+<li><a href="4.admin.html">Basic administration</a></li>
+<ol>
+<li><a href="4.networking.html">Networking</a></li>
+<li><a href="4.rmvolmgr.html">Removable Media</a></li>
+<li><a href="4.services.html">Services</a></li>
+<li><a href="4.software.html">Software</a></li>
+<li><a href="4.users.html">Users</a></li>
+</ol>
+</li>
+
+<li><a href="5.desktop.html">Desktop use</a></li>
+
+<li><a href="6.zones.html">Virtualization and zones</a></li>
+<ol>
+<li><a href="6.zones_bhyve.html">Bhyve</a></li>
+<li><a href="6.zones_lx.html">Linux Emulation</a></li>
+<li><a href="6.zones_update.html">Zones with updates and upgrades</a></li>
+</ol>
+</li>
+
+<li><a href="7.troubleshooting.html">Monitoring and Troubleshooting</a></li>
+
+<li><a href="8.applications.html">Application Notes</a></li>
+<ol>
+<li><a href="8.webdev.html">Web Development</a></li>
+</ol>
+
+</ol>
+
+<h2>Additional documentation</h2>
+
+<ul>
+<li><a href="https://illumos.org/man">illumos manual pages</a></li>
+<li><a href="https://illumos.org/books/">illumos books</a></li>
+</ul>

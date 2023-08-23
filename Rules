@@ -1,11 +1,25 @@
 #!/usr/bin/env ruby
 
 #
+# the handbook currently has a slightly different banner
+#
+compile '/**/Use/*.html' do
+  layout '/handbook.*'
+  write item.identifier.to_s
+end
+
+#
 # unlike the default rule, we keep the file layout verbatim
 #
 compile '/**/*.html' do
   layout '/default.*'
   write item.identifier.to_s
+end
+
+#
+#  Skip the body files
+#
+compile '/**/*.body' do
 end
 
 #

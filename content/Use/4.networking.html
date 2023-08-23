@@ -1,0 +1,116 @@
+<h1>&gt; Tribblix Networking</h1>
+
+<p>Tribblix inherits a highly functional and very flexible networking
+  subsystem from illumos.</p>
+
+<p>The traditional <code>ifconfig</code> command will show a lot of
+  detail on network interfaces. Its output, however, can be hard to read.
+  To make things easier, there are several newer commands, such as
+  <code>dladm</code> (for datalinks), <code>ipadm</code> (for IP),
+  <code>routeadm</code> (for routing), and <code>flowadm</code> (for
+  network flows).</p>
+
+<p>Generally, the intention of Tribblix is that networking configuration
+  should be handled automatically by tools such as <code>zap</code> rather
+  than having to be performed manually by the administrator or user. For
+  example, using zap to create and destroy <a href="6.zones.html">zones</a>
+  will set up the appropriate networking for you. It's still useful to
+  understand what's available behind the scenes, though.</p>
+
+<p>By default, Tribblix networking uses nwam (NetWork Auto Magic) which
+  will work out which network interface to use and run dhcp to get the
+  configuration automatically. Most of the time, this will do the right
+  thing.</p>
+
+<h2>dladm</h2>
+
+<p>The <code>dladm</code> command operates on datalinks - physical or virtual
+network objects. It's coverage is quite extensive, so only the most common
+cases are covered here.</p>
+
+<p>To show the physical network interfaces, use:</p>
+<pre>
+  dladm show-phys
+</pre>
+<p>for example,</p>
+<pre>
+LINK         MEDIA                STATE      SPEED  DUPLEX    DEVICE
+e1000g0      Ethernet             up         100    full      e1000g0
+</pre>
+<p>which shows that my system has a single <code>e1000g0</code> network card,
+that's up at 100Mbps full-duplex.</p>
+
+<p>To show all datalinks, use:</p>
+<pre>
+  dladm show-link
+</pre>
+<p>for example,</p>
+<pre>
+LINK        CLASS     MTU    STATE    BRIDGE     OVER
+e1000g0     phys      1500   up       --         --
+vnic1       vnic      1500   up       --         e1000g0
+bhyve0      vnic      1500   up       --         e1000g0
+</pre>
+<p>which shows that, in addition to the <code>e1000g0</code> physical
+interface, I have two vnic (virtual interfaces) called <code>vnic1</code>
+and <code>bhyve0</code>, which are created atop the <code>e1000g0</code>
+interface.</p>
+
+<p>If you build zones using exclusive-ip (the <code>-x</code> flag to
+<code>zap create-zone</code>) then vnics will be created automatically
+as part of that process.</p>
+
+<h2>ipadm</h2>
+
+<p>While <code>dladm</code> manages network interfaces, <code>ipadm</code>
+manages the network addresses and properties on those interfaces.</p>
+
+<p>To see which network interfaces <code>ipadm</code> knows about, use:</p>
+<pre>
+  ipadm show-if
+</pre>
+<p>for example,</p>
+<pre>
+IFNAME     CLASS     STATE    CURRENT      PERSISTENT
+lo0        VIRTUAL   ok       -m-v------46 ---
+e1000g0    IP        ok       bm--------46 ---
+</pre>
+<p>which shows that <code>ipadm</code> is handling two IP interfaces,
+<code>lo0</code> which is the internal loopback device and the physical
+<code>e1000g0</code> interface.</p>
+
+<p>To see configured addresses, use:</p>
+<pre>
+  ipadm show-addr
+</pre>
+<p>for example,</p>
+<pre>
+ADDROBJ           TYPE     STATE        ADDR
+lo0/v4            static   ok           127.0.0.1/8
+lo0/?             static   ok           127.0.0.1/8
+lo0/?             static   ok           127.0.0.1/8
+e1000g0/_b        dhcp     ok           192.168.0.63/24
+e1000g0/?         static   ok           192.168.0.217/24
+e1000g0/?         static   ok           192.168.0.201/24
+lo0/v6            static   ok           ::1/128
+lo0/?             static   ok           ::1/128
+lo0/?             static   ok           ::1/128
+e1000g0/_a        addrconf ok           fe80::3617:ebff:fec4:1b42%e1000g0/10
+</pre>
+<p>As you can see, it's getting quite complicated. The <code>ipadm</code>
+command thinks in terms of address objects (the names in the ADDROBJ column)
+which are the name of the interface and a label.<p>
+
+<p>It's not quite obvious from the above, but the entries with "?" as the
+label are associated with shared-ip networking in zones. Each zone has its
+own loopback network, and they always have the same address (127.0.0.1/8 for
+IPv4 or ::1/128 for IPv6) so those are duplicated.</p>
+
+<h2>routeadm</h2>
+
+<h2>flowadm</h2>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="4.admin.html">Previous Section</a>
+ | <a href="4.rmvolmgr.html">Next Section</a>
+</p>

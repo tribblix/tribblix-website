@@ -1,0 +1,51 @@
+<h1>&gt; Tribblix and Removable Media</h1>
+
+<p>
+Removable media - specifically CD-ROMs and USB sticks - can be
+automatically mounted on Tribblix.
+</p>
+
+<p>
+To enable automatic mounting, you need to install <code>rmvolmgr</code>:
+<pre>
+zap install-overlay dbus-glib
+zap install TRIBsvc-hal TRIBsvc-storage-media-volmgr
+svcadm enable hal
+</pre>
+and then enable it
+<pre>
+svcadm enable rmvolmgr
+</pre>
+(If you're running a desktop that includes the <code>x11</code> overlay, then
+the packages will already be installed and the service simply needs to be
+enabled.)
+</p>
+
+<p>
+With the <code>rmvolmgr</code> service running, the system will automatically
+mount any filesystem it recognises on the removable media under the
+<code>/media</code> directory, for example:
+<pre>
+# ls /media
+/media:
+NIKON D3200
+</pre>
+</p>
+
+<p>
+To remove the media once you've finished with it, first make sure that no
+processes are currently accessing the media (including any interactive shells
+that may have cd'ed into the filesystem) and then <code>eject</code> it by
+using the name of the mounted filesystem:
+<pre>
+eject /media/NIKON\ D3200
+</pre>
+Alternatively, running <code>eject -l</code> will print a list of removable
+media devices and their nicknames that can also be used as the argument to
+the <code>eject</code> command.
+</p>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="4.networking.html">Previous Section</a>
+ | <a href="4.services.html">Next Section</a>
+</p>

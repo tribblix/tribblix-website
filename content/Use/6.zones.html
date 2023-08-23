@@ -1,0 +1,261 @@
+<h1>&gt; Tribblix Virtualization and zones</h1>
+
+<p>A zone is a virtualized system that gives the
+  illusion of being an independent system while sharing resources with
+  its host.</p>
+
+<p>For most purposes, particularly from an application-centric point
+  of view, you can think of a zone as a separate system. It has
+  its own file systems, networking, users, applications, and
+  services. System-centric resources are shared. There is only a
+  single kernel running, shared by all zones, and hardware and
+  resource administration is done once.</p>
+
+<p>As a contrast, hypervisors such as VMware, Xen, and KVM emulate a
+  physical system, and each virtualized system using these
+  technologies contains a full operating system. Not only is this
+  inefficient in that each system has to be allocated enough resources
+  to run a full standalone operating system, it is inefficient in that
+  the systems have to be managed as full and independent operating
+  system instances.</p>
+
+<p>At the other end of the scale, Docker presents an isolated custom
+  environment customized for a specific environment. It isn't
+  providing a complete system, as normal system services are missing,
+  and Docker provides no native support for storage or networking.</p>
+
+<h2>Types of zones</h2>
+
+<p>A note on nomenclature: the underlying system is referred to as
+  the <em>global zone</em>, other zones are
+  <em>non-global zones</em>.
+</p>
+
+<p>Tribblix supports a number of zone variants.</p>
+
+<h3>Sparse-root</h3>
+
+<p>A sparse-root zone in Tribblix is very similar to the sparse-root
+  zones available in Solaris 10. In such a zone, the operating system
+  binaries (the file systems such as /usr) are mounted read-only from
+  the global zone. The zone has its own copies of configuration files
+  (such as /etc) and can have its own private file systems.</p>
+
+<h3>Whole-root</h3>
+
+<p>The other zone type available in Solaris 10 is also available in
+  Tribblix. A whole-root zone has its own writable copy of the
+  operating system, initially set up as a clone of the global zone
+  (so it will initially have the same software installed, although
+  this can be changed later).</p>
+
+<h3>Alternate-root</h3>
+
+<p>An alternate-root zone is just like a sparse-root zone, but where
+  the operating system binaries are mounted read-only not from the
+  global zone, but from an alternate source. You can use the
+  <code>create-zone-template</code> zap subcommand to build such an
+  alternate image, allowing you to build sparse-root
+  zones that have a specific set of packages installed, rather than
+  simply inheriting whatever the global zone happens to have. (This
+  also makes the sparse-root zone unaffected by changes to the global
+  zone.)</p>
+
+<h3>Partial-root</h3>
+
+<p>Tribblix allows an extended variant of a whole-root zone, in which
+  the installed software can differ from the global
+  zone. Specifically, you can specify that a subset of the overlays
+  present in the global zone be present in the non-global zone, and
+  that additional overlays can be added at zone creation time.</p>
+
+<h3>Alien-root</h3>
+
+<p>Tribblix allows you to create a zone from another illumos
+  distribution. Specifically, it knows how to create a zone from the
+  installation ISO images for some of the distributions. This feature
+  is experimental, as there is no guarantee that the system software
+  provided by another distribution is compatible with that in
+  Tribblix.</p>
+
+<p>This facility also allows you to create a zone running a prior
+  version of Tribblix.</p>
+
+<p>The alien-root variant allows you to install a zone from any
+  tarball, so you can construct arbitrary zone images (the mvi project
+  is one way to do this) for specific purposes. In particular, very
+  minimalist single-application zones can be built.</p>
+
+<h3>bhyve</h3>
+
+<p>The byhve hypervisor allows you to run a virtual machine, within which you
+  can run a range of alternative operating systems. While it's possible
+  to run bhyve standalone, illumos distributions including Tribblix will
+  normally wrap a bhyve instance inside a zone, to allow an additional
+  layer of management.</p>
+
+<p><a href="6.zones_bhyve.html">More on bhyve...</a></p>
+
+<h3>LX</h3>
+
+<p>If you're running the omnitribblix variant, then the LX (Linux
+  Emulation) brand is available. With this, you can run many Linux
+  distributions and applications in a zone.</p>
+
+<p><a href="6.zones_lx.html">More on LX...</a></p>
+
+<h3>Blank zones</h3>
+
+<p>Not strictly a zone variant, zones in Tribblix can be configured to
+  boot as a blank system - one with no services (other than the
+  necessary init process) running. To run applications, you must use
+  zlogin to enter the zone and start any applications you require.</p>
+
+<h3>solaris10</h3>
+
+<p>You can run an old Solaris 10 image as a zone. This is useful if
+  you have an old system you wish to import, or if you still need to
+  build applications compatible with Solaris 10. (To create such an
+  image from distribution media, pkgadd the required packages to an
+  alternate root with <code>-R</code>, and tar that image up.)</p>
+
+<h2>Creating zones</h2>
+
+<p>Zones are created using the create-zone subcommand to zap. In the
+  simplest case;
+</p>
+<pre>
+    zap create-zone -z myzone
+</pre>
+<p>
+  will create a sparse-root zone called <em>myzone</em>, without any
+  networking. The <code>-z</code> flag is the only mandatory thing you
+  must supply. The other options are listed below.
+</p>
+
+<h3>-t whole|sparse|alien|s10|lx|bhyve</h3>
+
+<p>You can specify the zone variant to use with the -t flag. The
+  default is to create a sparse-root zone. If creating an alien-root,
+  s10, or lx zone, you will need to also supply the <code>-I</code>
+  flag to tell the system where the image you're going to use is to be
+  found.</p>
+
+<p>The lx zones are only available on omnitribblix.</p>
+
+<p>For s10 (solaris10) zones, the TRIBsys-zones-brand-s10 package must
+  be installed.</p>
+
+<p>For bhyve zones, the bhyve overlay must be installed.</p>
+
+<h3>-T template</h3>
+
+<p>Allows you to create a sparse-root zone from a template. Use
+  the <code>create-zone-template</code> zap subcommand to create the
+  template zone in the first place.</p>
+
+<h3>-i ip_address</h3>
+
+<p>Create the zone with the given IP address. This creates a virtual
+  interface on a shared physical interface. This flag can be specified
+  more than once to allocate multiple IP addresses to the zone. In the
+  shared network stack model, addresses are manually assigned from the
+  global zone and cannot be manipulated in the non-global zone.</p>
+
+<h3>-x ip_address</h3>
+
+<p>Creates a network device exclusively for the zone's use. It is the
+  responsibility of the zone to actually do all the network
+  configuration required.</p>
+
+<p>There's a subtle difference between the <code>-i</code>
+  and <code>-x</code> options. With <code>-i</code>, the zone will be
+  booted with the given IP address. With <code>-x</code>, it is free to
+  use any IP address it chooses, although the system will only allow the
+  specified address to work. Thus, with <code>-x</code>, you'll either
+  have to configure the IP address manually, or use cloud-init with bhyve.
+</p>
+
+<h3>-o overlay</h3>
+
+<p>For a whole-root zone, only copy the given overlay (or overlays, if
+  multiple <code>-o</code> flags are given) to the newly created
+  zone. The new zone will thus have the appropriate subset of packages
+  installed.</p>
+
+<p>If the global zone does not have the specified overlay installed,
+  it will not be installed in the newly created zone either. Use
+  the <code>-o</code> flag strictly to install a subset.</p>
+
+<p>With the <code>-o</code> flag, the software is simply copied from
+  the global zone. No package installation is done, and no attempt
+  will be made to retrieve a package from a networked repository.</p>
+
+<h3>-O overlay</h3>
+
+<p>For a whole-root zone, add the specified overlay (or overlays, if
+  multiple <code>-O</code> flags are given) to the newly created
+  zone.</p>
+
+<p>With the <code>-O</code> flag, software packages will be installed
+  afresh, being retrieved from either a network repository or the
+  global zone's cache.</p>
+
+<h3>-U user</h3>
+
+<p>Allocate the zone to the given user (or users, if
+  multiple <code>-U</code> flags are given). Specifically, the user
+  will exist in the zone with the same username and password as the
+  global zone; the user's home directory will be shared with the
+  global zone (so when you log in to the zone, all your files will be
+  there); and the user has administrative rights to the zone - in
+  particular, they will be able to use <code>zlogin</code> to log in
+  to the zone both as themselves and as root.</p>
+
+<h3>-d extra_dir</h3>
+
+<p>Creates a ZFS file system and mounts it at the given location in
+  the zone. The data will be accessible from the global zone and will
+  persist even if the zone is destroyed.</p>
+
+<h3>-D dataset</h3>
+
+<p>Creates a ZFS dataset and delegates it to the zone. The data will
+  not be accessible from the global zone, will be under the management
+  of the zone, but will persist even if the zone is destroyed.</p>
+
+<h3>-I image</h3>
+
+<p>Specifies the location of an image file to be used when creating a
+  zone.</p>
+<p>For alien-root zones, this can be an installation ISO, a
+  tarball, or a zfs send stream in a file.</p>
+<p>For lx zones, this should be a tarball or a logical name.</p>
+<p>This can be an absolute path to a file, if local, or a logical
+  image name that will be downloaded as required. Some examples of
+  logical image names are omnios:r151042, proxmox:alpine, and
+  ubuntu:22.04.</p>
+
+<h3>-S|-s shared_dir</h3>
+
+<p>Specifies a directory (that must exist) that will be shared with
+  the zone. It will be mounted at the same location in the zone as in
+  the global zone. With <code>-S</code>, the directory will be mounted
+  read-write; with <code>-s</code>, it will be read-only.</p>
+ 
+<h3>-B</h3>
+
+<p>Specifies that the zone will boot up blank, with no processes
+  (besides the necessary init) running. You will have
+  to <code>zlogin</code> to the zone to run anything.</p>
+
+<p>If you want networking in a blank zone, use the <code>-i</code>
+  flag to specify an address. In a blank zone, the normal network
+  configuration commands will never run, but IP addresses specified
+  with the <code>-i</code> flag are configured by the global zone and
+  will still work.</p>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="5.desktop.html">Previous Section</a>
+ | <a href="6.zones_bhyve.html">Next Section</a>
+</p>

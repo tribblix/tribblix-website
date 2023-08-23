@@ -1,0 +1,72 @@
+<h1>&gt; Tribblix Comparison with similar distributions</h1>
+
+<p>It may be worth considering some of the differences between Tribblix and
+  the other members of the Solaris/illumos family. None of the following
+  should be considered criticism - it is simply true that different
+  distributions have made different choices.</p>
+
+<p>There are a number of core similarities - all distributions in the family
+support ZFS, Zones, Dtrace, and SMF.</p>
+
+<h2>Solaris 10</h2>
+
+<p>In some ways, Tribblix is a much modernised descendant of Solaris 10. Like
+Solaris 10, Tribblix uses SVR4 packaging. However, there is no equivalent of
+Solaris patches - updates are supplied as complete replacement packages.</p>
+
+<p>Zone support in Tribblix is also similar to Solaris 10, with sparse
+and whole root. Tribblix adds more flexible installation of whole root
+zones (partial root). Mind you, zone installation in Tribblix is far quicker
+than it ever was in Solaris 10. Unlike Solaris 10, however, packaging in the
+global zone doesn't know how to manage and update packages in zones.</p>
+
+<p>A key feature missing in Solaris 10 that is available in Tribblix and all
+the other distributions considered here is crossbow, or virtualized networking.
+</p>
+
+<h2>Solaris 11</h2>
+
+<p>Solaris 11 is really quite a different beast to Tribblix entirely. It uses
+IPS for packaging instead of SVR4, has no support for sparse root zones, and
+has dropped support for whole swathes of older hardware.</p>
+
+<h2>OpenIndiana</h2>
+
+<p>OpenIndiana is very similar to Solaris 11, using IPS for packaging instead
+of SVR4, and sharing much of the logic for building 3rd-party packages with
+Solaris.</p>
+
+<p>Compared to Tribblix, OpenIndiana has chosen MATE rather than XFCE as the
+default desktop. In terms of secondary desktops, Tribblix has a very wide
+choice, but OpenIndiana has very little - but probably has a more thoroughly
+integrated version of its default desktop than Tribblix does.</p>
+
+<p>OpenIndiana has a pretty good Xorg stack and better graphics card support
+than Tribblix. (Tribblix is limited here because I really don't have access
+to any interesting graphics cards at all.)</p>
+
+<p>It's often said that OpenIndiana uses a rolling release model, but that's
+not entirely true. OpenIndiana is continually updated, but can't roll a
+release at an arbitrary point. Tribblix only updates the illumos pieces
+when a release is made, but is a true rolling release in that a release can
+be made at an arbitrary point.</p>
+
+<h2>OmniOS</h2>
+
+<p>The primary focus of OmniOS is servers. Out of the box, there's simply
+no desktop support there at all. That's a deliberate feature. If you want
+a minimalist base to build your own stuff on top of (the KYSTY principle)
+then that's OmniOS - although you can take the minimal Tribblix install and
+use it exactly the same way.</p>
+
+<p>Unlike OpenIndiana and Tribblix, OmniOS isn't built from vanilla illumos
+but their own variant, which has LX zones amongst other things. (The
+omnitribblix variant is based on the same source as OmniOS.) Aside from that,
+other features might show up in OmniOS before other distributions.</p>
+
+<h2>SmartOS</h2>
+
+<p>SmartOS is very special-purpose, aimed at being a pure hypervisor. If
+you wanted to build a private cloud, while other illumos distributions such
+as Tribblix will help you build one yourself, SmartOS along with Triton and
+Manta is designed to build it for you.</p>

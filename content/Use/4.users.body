@@ -1,0 +1,51 @@
+<h1>&gt; Tribblix: Administering users</h1>
+
+<p>Adding a new user to the system is as simple as</p>
+
+<code>
+  zap create-user myname
+</code>
+
+<p>The only required argument is the username of the new user. If you
+want to customize the properties of the account then you can use the
+following arguments, which are similar to the same arguments of
+  the <code>useradd</code> command:</p>
+
+<ul>
+  <li>-c "a comment" : a description of the account</li>
+  <li>-d /directory/name : the home directory for the user, by default
+    this will be a directory named after the username in
+    <code>/export/home</code></li>
+  <li>-g group : you can specify the name (or numeric id) of an
+  existing group that the new account should belong to</li>
+  <li>-u uid : you can specify the numeric user-id of the new account</li>
+  <li>-s shell : you can specify the login shell of the new user,
+    <code>/usr/bin/bash</code> will be used if unspecified </li>
+</ul>
+<p>A full example might be:</p>
+<code>
+  zap create-user -c "Smell tester" -d /var/smell -u 456 -s /bin/zsh smell
+</code>
+
+<p>Once you've created a user account, you'll need to set a passwd,
+  with the command</p>
+<code>
+  passwd myname
+</code>
+<p>If the account is being accessed remotely over ssh, it's better to
+  set up the <code>.ssh/authorized_keys</code> file to allow login
+  using their ssh key, in which case you should remove the password
+  from the account so that only the ssh key grants access, with</p>
+<code>
+  passwd -N myname
+</code>
+
+<p>To delete a user account:</p>
+<code>
+  zap delete-user myname
+</code>
+<p>If you want the user's home directory to be deleted as well, then
+  use the <code>-r</code> flag, like so:</p>
+<code>
+  zap delete-user -r myname
+</code>

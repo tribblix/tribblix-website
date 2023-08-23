@@ -1,0 +1,57 @@
+<h1>&gt; Tribblix: Administering installed software</h1>
+
+<p>As with many distributions, the software available on Tribblix
+  comes as a set of packages. Each package is a discrete piece of
+  software, which may be a single application, or a tool, library,
+  documentation, or supporting files.</p>
+
+<p>Tribblix does not encourage thinking in terms of individual
+  packages. Rather, groups of packages called <em>overlays</em>
+  provide a useful and complete level of functionality. It is much
+  easier to track a small number of overlays than hundreds or
+  thousand of individual packages.</p>
+
+<p>To see which overlays are available, and whether they are installed
+  or not, use the <code>zap</code> command to query the list of
+  overlays:</p>
+
+<code>
+zap list-overlays
+</code>
+
+<p>Installation, removal, and updates of packages and overlays
+  requires you to be running as root.</p>
+
+<p>New or updated overlays or software packages can be retrieved from
+  repositories available on the internet. To make your system aware of
+  new or updated software, you need to refresh the catalogs with:</p>
+
+<code>
+zap refresh
+</code>
+
+<p>To install an overlay:</p>
+
+<code>
+zap install-overlay <em>overlay_name</em>
+</code>
+
+<p>To remove an overlay:</p>
+
+<code>
+zap uninstall-overlay <em>overlay_name</em>
+</code>
+
+<p>To update the components of an overlay to their current
+  versions:</p>
+
+<code>
+zap update-overlay <em>overlay_name</em>
+</code>
+
+<p>To update the components of all installed overlays to their current
+  versions:</p>
+
+<code>
+zap update-overlay -a
+</code>

@@ -1,0 +1,190 @@
+<h1>&gt; Monitoring and Troubleshooting on Tribblix</h1>
+
+<p>When looking at a system, the questions you might ask might fall
+  into several categories.
+</p>
+
+<ul>
+  <li>What have I got?</li>
+  <li>What is it doing?</li>
+  <li>What's wrong?</li>
+  <li>How do I fix it?</li>
+</ul>
+
+<h2>What have I got?</h2>
+
+<p>It helps to have a good understanding of what you're looking at
+  before you start. And I'm just talking about the basics - how much
+  memory, how many of what type of CPUs, disk, network, and, at a very
+  high level, how it's structured, along with a rough understanding
+  of what types of tasks the system is performing.</p>
+
+<h3>CPU</h3>
+
+<p>To get a listing of the CPUs present in your system, the command is</p>
+<pre>
+    /usr/sbin/psrinfo -vp
+</pre>
+<p>which will tell you how many CPUs you have, how many cores and
+  threads each one has, and the model details of each CPU.</p>
+
+<h3>Memory</h3>
+
+<p>The easiest way to get the total memory is</p>
+<pre>
+    /usr/sbin/prtconf -m
+</pre>
+<p>which gives the total memory in megabytes. (This might be a few
+  megabytes smaller than the marketing capacity, as the system can
+  reserve memory.)</p>
+
+<p>You can see details of which memory slots are occupied in the
+  output from</p>
+<pre>
+    /usr/sbin/prtdiag
+</pre>
+<p>although the output can be erratic. Even more details of the
+  components can be found by looking through the output
+  of <code>/usr/sbin/smbios</code>. Optionally,
+  the <code>memconf</code> tool may be installed, which can parse
+  these information sources into more easily understood forms.</p>
+
+<p>A partner to memory is swap space, you can get a summary with</p>
+<pre>
+    /usr/sbin/swap -sh
+</pre>
+<p>
+and a list of swap devices and their usage with
+</p>
+<pre>
+    /usr/sbin/swap -lh
+</pre>
+
+<h3>Disk</h3>
+
+<p>There are a couple of ways to get information on the installed disk
+  (storage) devices.</p>
+
+<p>If you're root, the easiest way is to type</p>
+<pre>
+    diskinfo
+</pre>
+<p>and you'll get a list, with the properties of each disk.</p>
+
+<p>If you're not root, then</p>
+<pre>
+    iostat -En
+</pre>
+<p>will give information on all storage devices known to the
+  system. The weakness of this method is that the information is a
+  little hard to read, and that it will include removable media
+  devices, such as CD-ROM drives, whether or not there is media in
+  the drive. (In some circumstances it will also report on phantom or
+  removed devices, especially if connected to external storage
+  arrays.)</p>
+
+<p>There's then the question of what the disk devices are used
+  for. With illumos, it's most likely to be ZFS. You can see the
+  available zfs pools</p>
+<pre>
+    /usr/sbin/zpool list
+</pre>
+<p>
+and their status, and how they're constructed from the available
+disk devices
+</p>
+<pre>
+    /usr/sbin/zpool status
+</pre>
+<p>
+You can also see how the storage pool is split up into file systems using
+</p>
+<pre>
+    /usr/sbin/zfs list
+</pre>
+<p>
+Generally, if you have problems, <code>zpool status</code> will tell you about
+hardware failures, while <code>zpool list</code> will give utilization - it's
+important to keep usage of a ZFS pool below about 90% capacity, as performance
+can decline sharply above that point.
+</p>
+
+<h3>Network</h3>
+
+<p>The simplest and most traditional way to see the state of the
+  network is to use</p>
+<pre>
+    /usr/sbin/ifconfig
+</pre>
+<p>(traditionally, <code>ifconfig</code> on its own produced a usage
+  message, but now the default output is the same as that given by
+  the <code>-a</code> flag).</p>
+
+<p>The two other tools available are <code>dladm</code>
+  and <code>ipadm</code>, for working with network interfaces and
+  configuring IP on those interfaces respectively.</p>
+
+<p>Running these commands without arguments produces a usage
+  message. To see what's going on, there are a variety of show-
+  subcommands that are available. For example</p>
+<pre>
+    /usr/sbin/dladm show-phys
+    /usr/sbin/dladm show-aggr
+    /usr/sbin/dladm show-vnic
+    /usr/sbin/dladm show-etherstub
+    /usr/sbin/dladm show-wifi
+</pre>
+<p>will show physical interfaces, aggregations (LACP), virtual NICs,
+  virtual networks, and wifi interfaces. There are more objects that
+  can be shown. Usually, if the system has none of the appropriate
+  objects, nothing will be output. At the IP level, you'll probably
+  want to start with
+</p>
+<pre>
+    /usr/sbin/ipadm show-if
+    /usr/sbin/ipadm show-addr
+</pre>
+
+<p>To see how the system will route traffic, use</p>
+<pre>
+    netstat -nr
+</pre>
+<p>which will print the IPv4 and IPv6 routing tables.</p>
+
+<h3>Zones</h3>
+
+<p>You should also see what, if any, zones are present</p>
+<pre>
+    /usr/sbin/zoneadm list -icv
+</pre>
+<p>The important point here is that certain resources (Networking, ZFS
+  datasets) may be delegated to zones, so those resources may not be
+  fully visible in the global zone. Also, the workloads running in
+  zones need to be taken into account.</p>
+
+<p>Of course, one fundamental question is whether you're actually
+  looking at a non-global zone. The <code>zonename</code> command will
+  output the string "global" if you're in the global zone, or the name
+  of the zone if you're in a non-global zone.</p>
+
+<h3>Processes</h3>
+
+<p>A general view of what's actually running can be given by</p>
+<pre>
+    top
+</pre>
+<p>
+which will list the running processes and how much memory and CPU
+each is using. For an alternative view, try <code>htop</code>.
+</p>
+
+<p>
+While the load average isn't a terribly accurate measure of the load
+on a system, a load average in excess of the number of CPUs in the system
+likely indicates that the system is overloaded.
+</p>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="6.zones_update.html">Previous Section</a>
+ | <a href="8.applications.html">Next Section</a>
+</p>

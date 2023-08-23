@@ -1,0 +1,92 @@
+<h1>&gt; bhyve zones</h1>
+
+<p>To run zones using the bhyve hypervisor, first ensure that the bhyve
+overlay is installed</p>
+<pre>
+zap install-overlay bhyve
+</pre>
+
+<p>To boot Tribblix (or other illumos distributions) as a bhyve guest, you
+will need to use a fairly recent version of the distribution. For Tribblix
+specifically you'll need to use m24.1 or later. The command would be something
+like:</p>
+<pre>
+zap create-zone -t bhyve -z bhyve1 \
+  -x 192.168.0.236  \
+  -I /var/tmp/tribblix-0m31.iso \
+  -V 8G
+</pre>
+<p>Here, the <code>-t</code> flag tells us that this is a bhyve zone, the
+<code>-z</code> flag gives the name of the zone, the <code>-x</code>
+flag specifies the zone's permitted IP address, the <code>-I</code> flag
+tells bhyve where to find the ISO image to boot from, and the <code>-V</code>
+flag says to create an 8G virtual disk for the guest to use.</p>
+
+<p>That will create and boot the zone. To interact with it, use VNC. As
+root, start up <code>socat</code> like so:</p>
+<pre>
+  socat TCP-LISTEN:5905,reuseaddr,fork UNIX-CONNECT:/export/zones/bhyve1/root/tmp/vm.vnc
+</pre>
+<p>Note the name of the path to the zone, which you'll need to change
+depending on the name of the zone. Also, you can choose a different port,
+just remember that it must be unique, and the VNC display number is offset
+by 5900.</p>
+
+<p>Then, as yourself, you can connect with</p>
+<pre>
+vncviewer :5
+</pre>
+<p>and you should see, and be able to interact with, the system as it boots.</p>
+
+<p>You can run the installer as normal. But before you can use the installed
+system you need to remove the virtual CD and reboot.</p>
+<pre>
+zap remove-cd -z bhyve1 -r
+</pre>
+<p>At the present time, you're unable to run X in Tribblix under bhyve.
+(Although you could run an X session under VNC.)</p>
+
+<h2>Sharing data</h2>
+
+<p>In other zone types, you can share directories using the <code>-S</code>
+and <code>-s</code> flags (for writable and read-only shares respectively).
+</p>
+
+<p>The same works with bhyve, but the bhyve guest will use virtfs. In a
+Linux guest you can mount these as follows:
+</p>
+<pre>
+mount -t 9p -o trans=virtio,uname=root bhyvefs0 /mnt/foo
+</pre>
+<p>
+The name <code>bhyvefs#</code> is fixed and, if you have multiple shares,
+will start from 0 and increment, in the order given by the <code>-S</code>
+and <code>-s</code> flags.
+</p>
+
+<h2>Cloud-init</h2>
+
+<p>Often, you'll want the guest to automatically configure itself.
+You can use <code>cloud-init</code> for this.</p>
+
+<p>Adding the <code>-c</code> flag to the <code>create-zone</code>
+invocation will enable <code>cloud-init</code>. On its own, this doesn't
+do a great deal, but should set up the IP address and dns resolution
+correctly.</p>
+
+<p>Using the <code>-k</code> flag with the name of an SSH public key file
+will enable <code>cloud-init</code> and configure the guest to allow SSH
+access to the default account (or root) using the given SSH key. For example,
+you might use:</p>
+<pre>
+zap create-zone -t bhyve -z bhyve2 \
+  -x 192.168.0.237  \
+  -I /var/tmp/ubuntu-22.04.1-live-server-amd64.iso \
+  -k /export/home/ptribble/.ssh/id_rsa.pub \
+  -V 8G
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="6.zones.html">Previous Section</a>
+ | <a href="6.zones_lx.html">Next Section</a>
+</p>

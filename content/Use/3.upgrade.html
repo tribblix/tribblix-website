@@ -1,0 +1,142 @@
+<h1>&gt; Upgrading Tribblix</h1>
+
+<p>From time to time, a new version of Tribblix will be made
+  available. This will update to a more recent build of illumos, and
+  will also update applications to match.</p>
+
+<p>The first thing to do is to <a href="3.update.html">keep Tribblix
+    up to date</a>. If you're fully up to date (<code>zap
+    refresh</code> and <code>zap update-overlay -a</code>) then you
+  can check for available upgrades with:</p>
+
+<code>
+zap upgrade list
+</code>
+
+<p>This will return one or more lines of output, showing the current
+version and any other versions available for upgrade. For example:</p>
+
+<pre>
+m30: (current)
+</pre>
+
+<p>Shows you that you're currently running the m30 release, and there
+  are no upgrades available. If it says:</p>
+
+<pre>
+m30: (current)
+m31: Tribblix m31
+</pre>
+
+<p>Then that's an indication that there's a new version - in this
+  case <em>m31</em> - available that you can upgrade to. You don't
+  have to upgrade, but it's often a good idea.</p>
+
+<p>What you'll also see from the above output is that there may be
+  multiple newer versions available to you. There's also a minor
+  distinction between update releases within a stream, and going to a
+  new version.
+</p>
+  <ul>
+    <li>An update release - such as m25.3 - shares the application
+    updates with all the other update releases in that stream. In
+    other words, from the point of view of applications, running an
+    <a href="3.update.html">update</a> will give you exactly the same
+    application versions as an upgrade.</li>
+    <li>A full release - such as m31 - will have a different set of
+    application updates. In particular, it may introduce completely
+    new applications, and application updates that are incompatible
+    will tend to occur at a full release boundary. In fact, it's the
+    need to make incompatible changes that drives full releases as
+    opposed to update releases, as a full release can establish a new
+    baseline of application versions.</li>
+  </ul>
+<p>Once a new full release has been made, application updates for the
+  old release will stop relatively quickly (although application
+  updates for security issues will continue a while longer), and the
+  focus will shift to only updating applications for the new release.
+</p>
+
+<p>You can upgrade directly to any release listed. You don't have to
+  go through any intermediate releases.</p>
+
+<p>To actually perform the upgrade, run the following command, with
+  the version you want to upgrade to:</p>
+
+<code>
+  zap upgrade m31
+</code>
+
+<p>This will take a few minutes. It will create a clone of your
+  current system, and update all the software on that clone to the
+  correct version. Once it's done, you'll see a message similar to the
+  following:</p>
+
+<pre>
+=====================================================
+|| To switch to the newly upgraded version, issue  ||
+|| the following commands:                         ||
+||   beadm activate m31                            ||
+||   init 6                                        ||
+=====================================================
+</pre>
+
+<p>If you're happy, then issue the two commands shown, and the system
+  will reboot, and you'll be running the newly upgraded version of
+  Tribblix.</p>
+
+<h2>Managing multiple versions</h2>
+
+<p>Once you've upgraded, the old version of Tribblix is still
+  present. In illumos, you can have multiple <em>boot
+  environments</em>. The upgrade process clones the running system to
+  a new boot environment, and upgrades that rather than attempting to
+  upgrade the running system in place, which is much safer.</p>
+
+<p>You can see which boot environments are present on your system with
+  the command:</p>
+
+<code>
+  beadm list
+</code>
+
+<p>which will return something similar to the following:</p>
+
+<pre>
+BE  Active Mountpoint Space  Policy Created
+m30 -      -          15.84M static 2023-05-03 21:00
+m31 NR     /          25.30G static 2023-07-10 15:17
+</pre>
+
+<p>Here I have 3 boot environments. The current one is
+  called <code>m31</code> - the <code>NR</code> in the Active column
+  shows that it's being used now ("N") and will be used if the system
+  reboots ("R"). I also have an older boot
+  environment, <code>m30</code>, so you can see
+  the upgrade path.</p>
+
+<p>If, for some reason, you want to use one of the older boot
+  environments (for example, you've upgraded and something doesn't
+  quite work correctly), then you need to activate it:</p>
+
+<code>
+  beadm activate m30
+</code>
+
+<p>and then reboot.</p>
+
+<p>You can also list and select boot environments from the boot loader
+  screen.</p>
+
+<p>Old boot environments do take up space - they are, after all, a
+  copy of the operating system. Once you're sure that you won't need
+  to go back, you can delete them. For example:</p>
+
+<code>
+  beadm destroy m30
+</code>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="3.update.html">Previous Section</a>
+ | <a href="4.admin.html">Next Section</a>
+</p>

@@ -1,0 +1,47 @@
+<h1>&gt; Keeping Tribblix up to date</h1>
+
+<p>Software is never static, and updated releases - whether to fix
+  bugs, address security issues, or add features - appear in a
+  seemingly never-ending stream.</p>
+
+<p>Software in Tribblix is generally split into two parts - the
+  underlying operating system (illumos), and the applications that you
+  run on top of that. To update the underlying operating system, see
+  the <a href="3.upgrade.html">next section</a>. To learn about
+  application updates, read on.</p>
+
+<p>All software updates and Tribblix upgrades need to be done as root.</p>
+
+<p>The first part of the update process is to issue the following
+  command:</p>
+  
+<code>
+zap refresh
+</code>
+
+<p>This will not update any software, but will download newer versions
+  of the software catalog. You can then see if any software updates
+  are available:</p>
+
+<code>
+zap verify-overlay -a
+</code>
+
+<p>To update the components of one specific overlay to their current
+  versions:</p>
+
+<code>
+zap update-overlay <em>overlay_name</em>
+</code>
+
+<p>To update the components of all installed overlays to their current
+  versions:</p>
+
+<code>
+zap update-overlay -a
+</code>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="3.install.html">Previous Section</a>
+ | <a href="3.upgrade.html">Next Section</a>
+</p>
