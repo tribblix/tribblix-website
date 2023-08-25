@@ -1,0 +1,5 @@
+<h1>Overlay gstreamer1 - GStreamer 1.0 and codecs</h1>
+<p>Supplies the <a href="https://gstreamer.freedesktop.org/">GStreamer</a>
+open source multimedia framework.</p>
+<p>This overlay isn't meant for standalone use, but as a dependency
+for GUI applications that need it.</p>
