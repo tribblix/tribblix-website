@@ -1,0 +1,20 @@
+<h1>&gt; Desktop Usage Notes</h1>
+
+<h2>Sakura</h2>
+
+<p>The Sakura terminal is probably the best all-round terminal. To change
+settings, start up one copy, right-click to get into the settings menu. Once
+you have it the way you want, close that instance of Sakura to save the
+settings.</p>
+
+<h2>Xfce</h2>
+
+<p>You can add the Whisker Menu by right-click on a panel, got to Panel,
+Add New Items.</p>
+
+<p>The background wallpaper is under Desktop Settings. (Just right-click on the
+background.)</p>
+
+<p>If you want transparency, and you're lucky enough that your combination
+of graphics card and Tribblix manages to support it, go to Window Manager
+Tweaks and it's under the right-most tab, Compositor.</p>
