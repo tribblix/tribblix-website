@@ -523,8 +523,15 @@ m25/m26. Specifically the openssl 3.x and openssh 9.x updates are included.
 This update also incorporates the manual page renumbering from
 <a href="https://github.com/illumos/ipd/blob/master/ipd/0004/README.md">IPD4</a>.
 </p>
-
-This sparc release includes 
+<p>
+If upgrading, mesa may need to be fixed (if installed). To sort this out:
+</p>
+<pre>
+  zap uninstall SUNWxorg-mesa TRIBx11-lib-mesa \
+    TRIBx11-header-x11-protocols TRIBsvc-opengl-ogl-select
+  zap install TRIBx11-lib-mesa TRIBx11-header-x11-protocols \
+    TRIBsvc-opengl-ogl-select
+</pre>
 
 <h2><a name="m27-sparc"></a>Milestone 27, SPARC</h2>
 
