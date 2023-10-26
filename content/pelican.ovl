@@ -1,0 +1,6 @@
+<h1>Overlay pelican - Pelican static site generator and importer</h1>
+<p>Provides the <a href="https://getpelican.com/">Pelican</a> Static Site
+Generator, along with the
+<a href="https://docs.getpelican.com/en/latest/importer.html">importer</a>
+functionality.
+</p>
