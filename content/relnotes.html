@@ -569,6 +569,30 @@ Remember to use the -B flag when installing;
 </pre>
 </p>
 
+<h2><a name="m25.1-sparc"></a>Milestone 25.1, SPARC</h2>
+
+<p>
+This SPARC ISO has been tested in an LDOM on a T4-1 and the host on a T5140,
+and works extremely well there. A Sun Blade 1500 works, but less well.
+Reports indicate that M-series and the Ultra 25 do not work.
+</p>
+<p>
+<b>Important notes for upgrades: </b> If upgrading from a SPARC
+release before m25.1 to m25.1 (or later) then you <b>must</p> follow
+the steps laid out in
+<a href="https://ptribble.blogspot.com/2022/11/tribblix-for-sparc-m251.html">this
+article</a>. Subsequent upgrades are fine, it's just getting through
+the m25.1 boundary that needs the extra manual step.
+</p>
+<p>
+Remember to use the -B flag when installing;
+</p>
+<p>
+<pre>
+./live_install.sh -B c1d0
+</pre>
+</p>
+
 <h2><a name="m22-sparc"></a>Milestone 22, SPARC</h2>
 
 <p>
