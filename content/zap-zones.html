@@ -104,6 +104,8 @@ be built from:
 zap create-zone -z zone_name -T template_name [other flags]
 </pre>
 
+<h2>Alien zones</h2>
+
 <p>
 Another zone variant is the alien zone. An alien-root zone contains
 file systems derived from an ISO image of an alternative illumos
@@ -128,4 +130,23 @@ found. The file systems will be populated from the ISO, and the
 installation will attempt to undo the customizations needed for a live
 boot environment. For obvious reasons, the <code>-o</code>
 and <code>-O</code> flags aren't appropriate.
+</p>
+
+<h2>Bhyve zones</h2>
+
+<p>The bhyve hypervisor allows you to run most operating systems in a
+  virtual machine. For convenience, this is most easily managed inside
+  a special lightweight zone.</p>
+
+<p>
+  To create an alien zone, the command is:
+</p>
+<pre>
+zap create-zone -z zone_name -t bhyve -V 8G -I /path/to/iso/image [other flags]
+</pre>
+<p>
+where the <code>-t</code> flag must specify bhve, and
+the <code>-I</code> flag tells it where a bootable iso image is to be
+found. The <code>-V</code> flags specifies the size of a ZFS volume
+that will be presented to the virtual machine as a disk drive.
 </p>

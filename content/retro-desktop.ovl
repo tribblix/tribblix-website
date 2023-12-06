@@ -1,0 +1,5 @@
+<h1>Overlay retro-desktop - Retro Desktop environments and utilities</h1>
+<p>Supplies a wide range of retro desktop libraries and utilities.</p>
+<p>While there are some lightweight windows managers such as AfterStep
+and WindowMaker included, normally this would be used as the base for a
+full desktop such as @mate or @xfce.</p>
