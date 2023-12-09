@@ -1,5 +1,10 @@
 <h1>&gt; Desktop Usage Notes</h1>
 
+<h2>GStreamer</h2>
+
+<p>If you see warnings or errors about GStreamer being unable to load
+its plugins, delete the registry file(s) in $HOME/.cache/gstreamer-1.0.</p>
+
 <h2>Sakura</h2>
 
 <p>The Sakura terminal is probably the best all-round terminal. To change
