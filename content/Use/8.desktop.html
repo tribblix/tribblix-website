@@ -1,5 +1,24 @@
 <h1>&gt; Desktop Usage Notes</h1>
 
+<h2>Audio Devices</h2>
+
+<p>If your system has multiple audio devices, then they will be numbered
+0, 1, etc. The default will be 0, but that might be wrong. To test this,
+you can simply <code>cat</code> an audio file at the devices to see which
+one works, for example</p>
+<pre>
+cat /usr/demo/SOUND/sounds/train.au > /dev/sound/1
+</pre>
+
+<p>To fix audio output for most applications that have no way of selecting
+the audio device, simply replace <code>/dev/audio</code>,
+<code>/dev/audioctl</code>, and <code>/dev/dsp</code> with symbolic links
+that point to the working device.</p>
+
+<p>To get GStreamer, and applications using GStreamer for audio output, to
+use the non-default audio device, set the environment variable
+<code>AUDIODEV</code> to the working dsp device, eg <code>/dev/dsp1</code>.</p>
+
 <h2>GStreamer</h2>
 
 <p>If you see warnings or errors about GStreamer being unable to load
