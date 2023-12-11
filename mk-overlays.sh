@@ -34,7 +34,7 @@ do
     else
 	isostat=""
     fi
-    ONAME=$(nawk -F= '{if ($1=="NAME") print $2}' $file)
+    ONAME=$(awk -F= '{if ($1=="NAME") print $2}' $file)
     #
     # if an ovl file exists we link to it
     # regenerate the h1 header to match the actual Overlay metadata
