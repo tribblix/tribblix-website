@@ -111,24 +111,23 @@ connect to a session, for example <code>tribblix:1</code>,
 
 <h2>Applications</h2>
 
-<p>Tribblix provides a basic range of tools for desktop use.
+<p>Tribblix provides a basic range of tools for desktop use.</p>
 
-  <ul>
-    <li>Terminals - apart from xterm, sakura and the xfce Terminal are
+<ul>
+  <li>Terminals - apart from xterm, sakura and the xfce Terminal are
       recommended.</li>
-    <li>Text editing - emacs, vim, leafpad, and mousepad are basic text
+  <li>Text editing - emacs, vim, leafpad, and mousepad are basic text
       editors. bluefish is focused on web content.</li>
-    <li>Office - the LibreOffice suite is available. For
+  <li>Office - the LibreOffice suite is available. For
       lighter-weight tasks you can also use abiword and gnumeric.</li>
-    <li>Mail - claws-mail is available, or run mutt in a terminal.</li>
-    <li>Graphics - for viewing images, gpicview and gqview are good
+  <li>Mail - claws-mail is available, or run mutt in a terminal.</li>
+  <li>Graphics - for viewing images, gpicview and gqview are good
       choices. The ImageMagick suite is also available, as is the
       gimp.</li>
-    <li>Desktop publishing - Inkscape, Scribus, and Dia are
+  <li>Desktop publishing - Inkscape, Scribus, and Dia are
       available.</li>
-    <li>Graphics - for generating graphics, there are gnuplot,
+  <li>Graphics - for generating graphics, there are gnuplot,
       ploticus, ggobi, graphviz, and the R suite.</li>
-    <li>Messaging - for IRC, hexchat is a good choice, while pidgin and
+  <li>Messaging - for IRC, hexchat is a good choice, while pidgin and
       irssi are also available.</li>
-  </ul>
-</p>
+</ul>
