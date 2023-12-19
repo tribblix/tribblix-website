@@ -8,37 +8,37 @@ separate <a href="install.html">installation on x86 instructions</a>.
 can use cdrecord or cdrw to burn the image to a DVD.</p>
 
 <p>Booting from the DVD should take a few minutes or less, and you
-should be presented with a login prompt.
+should be presented with a login prompt.</p>
 <pre>
 tribblix login:
 </pre>
-The username is jack, the password is jack.</p>
+<p>The username is jack, the password is jack.</p>
 
 <p>You can now log in and investigate. The environment here is
 deliberately minimalist.</p>
 
-<p>You can install to hard disk. To do this you will have to become root
+<p>You can install to hard disk. To do this you will have to become root</p>
 <pre>
 # su - root
 </pre>
-where the password is "tribblix". Then run the format command
+<p>where the password is "tribblix". Then run the format command</p>
 <pre>
 # format
 </pre>
-which will give you a list of disks.</p>
+<p>which will give you a list of disks.</p>
 
 <p>In the simplest case, where you just have one disk and want to use
 it all for Tribblix, just run the live_install.sh script with the name
-of the desired disk, like so:
+of the desired disk, like so:</p>
 <pre>
 # ./live_install.sh -B c1t0d0
-</pre></p>
+</pre>
 
 <p>You can also install additional software packages at this
 point. Additional package sets are known as overlays, so you don't need
 to know anything about individual packages. There's
 a <a href="overlays.html">complete list</a>, but here are some of the
-overlays likely to be commonly used on SPARC:
+overlays likely to be commonly used on SPARC:</p>
 <ul>
 <li>x11 - enough for a basic X11 installation</li>
 <li>retro-desktop - additional window managers, tools, and libraries</li>
@@ -48,26 +48,26 @@ such as NIS, LDAP, NFS</li>
 <li>java - openjdk8</li>
 <li>kitchen-sink - a desktop and development tools</li>
 </ul>
-and you simply add the name of the overlay(s) you want to install to
-the install command, like so:
+<p>and you simply add the name of the overlay(s) you want to install to
+the install command, like so:</p>
 <pre>
 # ./live_install.sh -B c1t0d0 develop
 </pre>
-Any required overlays will be installed automatically. There's a
+<p>Any required overlays will be installed automatically. There's a
 special overlay, called <b>kitchen-sink</b> that will install most
-things, and that's what I personally use.
+things, and that's what I personally use.</p>
 <pre>
 # ./live_install.sh -B c1t0d0 kitchen-sink
 </pre>
-You can add additional software overlays later using
+<p>You can add additional software overlays later using
 the <a href="zap.html">zap</a> utility.
 </p>
 
-<p>Then reboot
+<p>Then reboot</p>
 <pre>
 reboot -p
 </pre>
-If it boots off the DVD, then hit 6 to ChainLoad the hard disk.
+<p>If it boots off the DVD, then hit 6 to ChainLoad the hard disk.
 This should then boot up.</p>
 
 <p>When booted up the first time, you have the same user account (jack)
@@ -96,10 +96,11 @@ format.</p>
 <p>That's the complex bit. To actually install, run the installer with
 slice 0 of your chosen disk as the argument. If the disk is
 <code>c1t0d0</code>, then you're installing to <code>c1t0d0s0</code>
+</p>
 <pre>
 # ./live_install.sh c1t0d0s0
 </pre>
-(optionally followed by the names of overlays you want to install) and
+<p>(optionally followed by the names of overlays you want to install) and
 wait a few minutes for it to do the install.</p>
 
 <h2><a name="overlay"></a>Installing to an existing ZFS pool</h2>
@@ -109,11 +110,11 @@ have an older Tribblix release, a corrupted install, or an alternative
 illumos distribution already installed, and you don't want to lose the data)
 then there's a script to do just that. It works just like the regular
 installer but with a different name, and takes the name of the existing pool
-as the destination rather than a disk device:
+as the destination rather than a disk device:</p>
 <pre>
 # ./over_install.sh -B rpool list_of_overlays...
 </pre>
-This mechanism will give you a fresh install, although it will copy the
+<p>This mechanism will give you a fresh install, although it will copy the
 system ssh keys and user account details from the existing system to make
 it easier to log in and get going. Using the <code>-N</code> flag will
 prevent this information from being copied across.

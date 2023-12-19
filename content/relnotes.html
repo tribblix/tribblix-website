@@ -78,11 +78,10 @@ a micro release so that all dependencies get updated consistently.
 This release also introduces 2 new overlays - desktop and server - in an
 attempt to provide better default installations for those use cases. Note
 that desktop doesn't yet enable the graphical login, for that you'll
-need to
+need to</p>
 <pre>
 svcadm enable slim
 </pre>
-</p>
 
 <h2><a name="m26-x86"></a>Milestone 26, x86</h2>
 
@@ -563,11 +562,9 @@ although the underlying illumos is closer to m25/m26.
 This SPARC ISO has only been tested in an LDOM so far, but works extremely
 well there. Remember to use the -B flag when installing;
 </p>
-<p>
 <pre>
 ./live_install.sh -B c1d0
 </pre>
-</p>
 
 <h2><a name="m26-sparc"></a>Milestone 26, SPARC</h2>
 
@@ -579,11 +576,9 @@ Reports indicate that M-series and the Ultra 25 do not work.
 <p>
 Remember to use the -B flag when installing;
 </p>
-<p>
 <pre>
 ./live_install.sh -B c1d0
 </pre>
-</p>
 
 <h2><a name="m25.1-sparc"></a>Milestone 25.1, SPARC</h2>
 
@@ -593,8 +588,8 @@ and works extremely well there. A Sun Blade 1500 works, but less well.
 Reports indicate that M-series and the Ultra 25 do not work.
 </p>
 <p>
-<b>Important notes for upgrades: </b> If upgrading from a SPARC
-release before m25.1 to m25.1 (or later) then you <b>must</p> follow
+<b>Important notes for upgrades:</b> If upgrading from a SPARC
+release before m25.1 to m25.1 (or later) then you <b>must</b> follow
 the steps laid out in
 <a href="https://ptribble.blogspot.com/2022/11/tribblix-for-sparc-m251.html">this
 article</a>. Subsequent upgrades are fine, it's just getting through
@@ -603,11 +598,9 @@ the m25.1 boundary that needs the extra manual step.
 <p>
 Remember to use the -B flag when installing;
 </p>
-<p>
 <pre>
 ./live_install.sh -B c1d0
 </pre>
-</p>
 
 <h2><a name="m22-sparc"></a>Milestone 22, SPARC</h2>
 
@@ -619,12 +612,12 @@ the xz package file on the ISO is invalid.
 
 <p>
 To update m22 packages to current
+</p>
 <pre>
 zap refresh
 zap update TRIBlib-security-openssl
 zap update-overlay -a
 </pre>
-</p>
 
 <h2><a name="m20.6-sparc"></a>Milestone 20 update 6, SPARC</h2>
 

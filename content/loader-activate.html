@@ -17,19 +17,18 @@ fairly sure that you won't need to go back to an older boot environment.
 
 <p>
 Assuming your new BE is called m19, the steps to activate the new loader
-start with:
+start with:</p>
 <pre>
 rm /etc/default/be
 beadm activate m19
 reboot
 </pre>
-If you still get Grub, then run:
+<p>If you still get Grub, then run:</p>
 <pre>
 bootadm install-bootloader -P rpool
 </pre>
-If you still get Grub, then run the following for each disk in the
-root pool:
+<p>If you still get Grub, then run the following for each disk in the
+root pool:</p>
 <pre>
 installboot -F -m /boot/pmbr /boot/gptzfsboot /dev/rdsk/c0t0d0s0
 </pre>
-</p>

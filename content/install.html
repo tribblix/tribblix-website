@@ -13,32 +13,32 @@ can use cdrecord or cdrw to burn the image to a DVD.</p>
 setup.</p>
 
 <p>Booting from the DVD should take a few minutes or less, and you
-should be presented with a login prompt.
+should be presented with a login prompt.</p>
 <pre>
 tribblix login:
 </pre>
-The username is jack, the password is jack.</p>
+<p>The username is jack, the password is jack.</p>
 
 <p>You can now log in and investigate. The environment here is
 deliberately minimalist.</p>
 
-<p>You can install to hard disk. To do this you will have to become root
+<p>You can install to hard disk. To do this you will have to become root</p>
 <pre>
 # su - root
 </pre>
-where the password is "tribblix". Then run the format command
+<p>where the password is "tribblix". Then run the format command</p>
 <pre>
 # format
 </pre>
-which will give you a list of disks. (If you want to see removable devices
+<p>which will give you a list of disks. (If you want to see removable devices
 as well, use <code>format -e</code>.)</p>
 
 <p>In the simplest case, where you just have one disk and want to use
 it all for Tribblix, just run the live_install.sh script with the name
-of the desired disk, like so:
+of the desired disk, like so:</p>
 <pre>
 # ./live_install.sh -G c1t0d0
-</pre></p>
+</pre>
 
 <p>You can also install additional software packages at this
 point. Additional package sets are known as overlays, so you don't need
@@ -57,25 +57,25 @@ overlays likely to be commonly used:
 </ul>
 <p>
 and you simply add the name of the overlay(s) you want to install to
-the install command, like so:
+the install command, like so:</p>
 <pre>
 # ./live_install.sh -G c1t0d0 develop desktop
 </pre>
-Any required overlays will be installed automatically. There's a
+<p>Any required overlays will be installed automatically. There's a
 special overlay, called <b>kitchen-sink</b> that will install most
-things, and that's what I personally use.
+things, and that's what I personally use.</p>
 <pre>
 # ./live_install.sh -G c1t0d0 kitchen-sink
 </pre>
-You can add additional software overlays later using
+<p>You can add additional software overlays later using
 the <a href="zap.html">zap</a> utility.
 </p>
 
-<p>Then reboot
+<p>Then reboot</p>
 <pre>
 reboot -p
 </pre>
-If it boots off the DVD, then hit 6 to ChainLoad the hard disk.
+<p>If it boots off the DVD, then hit 6 to ChainLoad the hard disk.
 This should then boot up.</p>
 
 <p>There may be an additional reboot, so watch to make sure it doesn't
@@ -106,11 +106,10 @@ omitting the -B or -G flag.</p>
 <p>If you just have one disk and want to use it all for Tribblix, use
 fdisk -B to delete all the current partitions and just have a single
 Solaris partition. You should use the disk name followed
-by <code>p0</code>, for example
+by <code>p0</code>, for example</p>
 <pre>
 # fdisk -B /dev/rdsk/c1t0d0p0
 </pre>
-</p>
 
 <p>If you already have partitions, and you wish to save some of them,
 then simply create a Solaris partition in some free space.</p>
@@ -129,10 +128,11 @@ format.</p>
 <p>That's the complex bit. To actually install, run the installer with
 slice 0 of your chosen disk as the argument. If the disk is
 <code>c1t0d0</code>, then you're installing to <code>c1t0d0s0</code>
+</p>
 <pre>
 # ./live_install.sh c1t0d0s0
 </pre>
-(optionally followed by the names of overlays you want to install) and
+<p>(optionally followed by the names of overlays you want to install) and
 wait a few minutes for it to do the install.</p>
 
 <h2><a name="mirror"></a>Installing to a mirrored pool</h2>
@@ -140,11 +140,10 @@ wait a few minutes for it to do the install.</p>
 <p>If you have 2 identical drives, you can create a mirrored ZFS pool
 that will give you redundancy against disk failure (and allow ZFS to
 heal any data corruption). Use the <code>-m</code> flag to specify
-the second disk:
+the second disk:</p>
 <pre>
 # ./live_install.sh -G -m c1t1d0 c1t0d0
 </pre>
-</p>
 
 <h2><a name="mirror"></a>Installing to a raidz pool</h2>
 
@@ -152,11 +151,10 @@ the second disk:
 for the system. Care needs to be taken that all the disks in the raidz pool
 are visible to the BIOS. Use the <code>-z</code> flag for raidz1, and
 <code>-Z</code> for raidz2, and specify
-the list of disks in quotes, for example:
+the list of disks in quotes, for example:</p>
 <pre>
 # ./live_install.sh -G -z "c1t0d0 c1t1d0 c2t0d0 c2t1d0"
 </pre>
-</p>
 
 <h2><a name="overlay"></a>Installing to an existing ZFS pool</h2>
 
@@ -165,11 +163,11 @@ have an older Tribblix release, a corrupted install, or an alternative
 illumos distribution already installed, and you don't want to lose the data)
 then there's a script to do just that. It works just like the regular
 installer but with a different name, and takes the name of the existing pool
-as the destination rather than a disk device:
+as the destination rather than a disk device:</p>
 <pre>
 # ./over_install.sh -B rpool list_of_overlays...
 </pre>
-This mechanism will give you a fresh install, although it will copy the
+<p>This mechanism will give you a fresh install, although it will copy the
 system ssh keys and user account details from the existing system to make
 it easier to log in and get going. Using the <code>-N</code> flag will
 prevent this information from being copied across.
@@ -187,16 +185,15 @@ configuration script is. An example is given in the article
 
 <p>Or, if you're booting from an <a href="https://ipxe.org/">ipxe.org</a>
 image, once you have networking set up you can chain the configuration script.
-You can get a menu by chaining the following script:
+You can get a menu by chaining the following script:</p>
 <pre>
 http://pkgs.tribblix.org/ipxe.txt
 </pre>
-Alternatively, you can go directly to one of the entries in the following list,
-depending on which version you want to boot.
+<p>Alternatively, you can go directly to one of the entries in the following
+list, depending on which version you want to boot.</p>
 <pre>
 http://pkgs.tribblix.org/m33/ipxe.txt
 http://pkgs.tribblix.org/m33lx/ipxe.txt
 http://pkgs.tribblix.org/m32/ipxe.txt
 http://pkgs.tribblix.org/m32lx/ipxe.txt
 </pre>
-</p>
