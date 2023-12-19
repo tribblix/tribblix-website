@@ -22,6 +22,11 @@ flag specifies the zone's permitted IP address, the <code>-I</code> flag
 tells bhyve where to find the ISO image to boot from, and the <code>-V</code>
 flag says to create an 8G virtual disk for the guest to use.</p>
 
+<p>You can set the number of vcpus for the guest with the <code>-c</code>
+flag (the default is a single cpu). Likewise, the guest memory can be set
+with the <code>-m</code> flag (the default is 1G of memory). As an example,
+add <code>-c 2 -m 2G</code>.</p>
+
 <p>That will create and boot the zone. To interact with it, use VNC. As
 root, start up <code>socat</code> like so:</p>
 <pre>
@@ -69,7 +74,7 @@ and <code>-s</code> flags.
 <p>Often, you'll want the guest to automatically configure itself.
 You can use <code>cloud-init</code> for this.</p>
 
-<p>Adding the <code>-c</code> flag to the <code>create-zone</code>
+<p>Adding the <code>-C</code> flag to the <code>create-zone</code>
 invocation will enable <code>cloud-init</code>. On its own, this doesn't
 do a great deal, but should set up the IP address and dns resolution
 correctly.</p>
