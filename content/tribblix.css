@@ -42,3 +42,9 @@ td {
 ul {
     list-style-type: square;
 }
+hr {
+    height: 1px;
+    border-width: 0;
+    color: #006600;
+    background-color: #006600;
+}
