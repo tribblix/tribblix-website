@@ -1,12 +1,17 @@
-<h1>&gt; Use</h1>
+<h1>&gt; First Use</h1>
 
 <p>
-The live environment is a little sparse, by design. I recommend that
-for a reasonable starting point you <a href="install.html">install</a>
-the <a href="overlays.html">overlays</a> <code>develop xfce</code> and
+The live environment you get when booted from the ISO image
+is a little sparse, by design. You can check
+that Tribblix will boot on your system, and check that it can see the
+devices that you expect (run <code>format</code> to see what disks are
+detected, and <code>/usr/sbin/dladm show-phys</code> to list network
+interfaces). And then do an <a href="install.html">install</a>, adding
+the <a href="overlays.html">overlays</a> you find interesting. A
+reasonable starting point would be to add <code>develop xfce</code> and
 possibly <code>xfce-extras</code>, or just install
 the <code>kitchen-sink</code>. You can add additional software
-overlays using <a href="zap.html">zap</a>.
+overlays later using <a href="zap.html">zap</a>.
 </p>
 
 <p>Log in as jack, and you can get a very ancient desktop (twm) using
@@ -26,4 +31,9 @@ and whether they're installed. Just choose one, for example:
 setxsession wmaker
 </pre>
 <p>and then run startx to get it running.
+</p>
+
+<p>
+For a more detailed description of using Tribblix, see the
+<a href="/Use/">handbook</a>.
 </p>
