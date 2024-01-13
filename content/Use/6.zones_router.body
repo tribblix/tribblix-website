@@ -1,0 +1,68 @@
+<h1>&gt; Router zones</h1>
+
+<p>In illumos, you can create a separate internal network - an etherstub -
+and can create network interfaces attached to that network.</p>
+
+<p> A router zone provides a mechanism to connect that internal network to
+the outside world and manage systems attached to that internal network.</p>
+
+<p>To create a router zone:
+</p>
+<pre>
+zap create-zone -t router -z zrouter10 \
+-x 192.168.0.226 \
+-R 10.10.10.0/24
+</pre>
+<p>This creates a custom zone called <code>zrouter10</code>, with external
+address <code>192.168.0.226</code>.</p>
+
+<p>An internal network (technically, an etherstub) will be created to go
+with this zone. The subnet <code>10.10.10.0/24</code> will be configured.
+The router zone will have the bottom address on this subnet (in this case,
+that will be <code>10.10.10.1</code>) and will be configured to NAT all
+traffic from that subnet.</p>
+
+<p>The router zone will also have a dhcp server that can be used to
+manage systems attached to the configured subnet.</p>
+
+<p>You can create other zones as normal. If you specify an IP address for a
+new zone that's on the configured subnet, then it will be connected to that
+subnet and the router zone will route the traffic for it.</p>
+
+<p>So, for example, creating a bhyve zone like so:
+</p>
+<pre>
+zap create-zone -t bhyve -z bhyve10 \
+  -x 10.10.10.10  \
+  -I /var/tmp/tribblix-0m31.iso \
+  -V 8G
+</pre>
+<p>Will connect the new zone to the subnet. The dhcp server on the router
+zone will be configured to give out the right details.</p>
+
+<p>Native illumos zones (ie, sparse-root, whole-root, and alien-root)
+will work the same way if you set them up as exclusive-ip (ie, with the
+<code>-x</code> flag).</p>
+
+<p>You can set up a shared-ip zone (with the <code>-i</code> flag) but such
+zones won't be able to communicate outside the subnet. (The reason here is
+that the network interface associated with a shared-ip address belongs to
+the global zone, rather than the router zone, so routing doesn't work.) So,
+if you can, set zones up to use exclusive-ip.</p>
+
+<p>While NAT will allow traffic from zones to get out, there's no way
+for external traffic to reach one of the zones on the subnet. If you need to
+log in via <code>ssh</code>, use the router zone as a jumphost. In the future,
+it will be possible to use haproxy in the router zone as a reverse proxy.</p>
+
+<p>There are a few cases where using router zones like this may be useful:
+</p>
+<ul>
+<li>Security - the zones on the internal network can be blocked from external
+access</li>
+<li>When you don't have enough IP addresses (you can have potentially
+hundreds of zones behind a router zone)</li>
+<li>As a variant of the previous one, on AWS you might have unlimited
+addresses available in your VPC, but any given EC2 instance is limited
+to a very small number of addresses.</li>
+</ul>

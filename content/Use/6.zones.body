@@ -104,6 +104,13 @@
 
 <p><a href="6.zones_lx.html">More on LX...</a></p>
 
+<h3>Router zones</h3>
+
+<p>With a router zone, you can create and manage an entire network
+  subnet internal to a system.</p>
+
+<p><a href="6.zones_router.html">More on Router zones...</a></p>
+
 <h3>Blank zones</h3>
 
 <p>Not strictly a zone variant, zones in Tribblix can be configured to
