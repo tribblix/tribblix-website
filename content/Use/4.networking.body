@@ -108,4 +108,54 @@ IPv4 or ::1/128 for IPv6) so those are duplicated.</p>
 
 <h2>routeadm</h2>
 
+<p>There are two parts to <code>routeadm</code>: IP forwarding is the passing
+  of IP packets from one network to another; IP routing is the use of a
+  routing protocol to determine routes.</p>
+
+<p>Simply running the <code>routeadm</code> command will show the status
+  of the routing system. For example:</p>
+<pre>
+              Configuration   Current              Current
+                     Option   Configuration        System State
+---------------------------------------------------------------
+               IPv4 routing   enabled              enabled
+               IPv6 routing   disabled             disabled
+            IPv4 forwarding   disabled             disabled
+            IPv6 forwarding   disabled             disabled
+
+           Routing services   "route:default ripng:default"
+
+Routing daemons:
+
+                      STATE   FMRI
+                   disabled   svc:/network/routing/ripng:default
+                   disabled   svc:/network/routing/legacy-routing:ipv4
+                   disabled   svc:/network/routing/legacy-routing:ipv6
+                     online   svc:/network/routing/ndp:default
+                   disabled   svc:/network/routing/rdisc:default
+                     online   svc:/network/routing/route:default
+</pre>
+<p>One thing to note here is that there are a number of associated
+  <a href="4.services.html">SMF services</a>. Generally, it's better to
+  use <code>routeadm</code> to set things up and let it turn the
+  services it needs on and off rather than manipulating the SMF
+  services directly.</p>
+
 <h2>flowadm</h2>
+
+<p>In illumos, it's possible to implement resource controls on a lot of
+  things, including network utilization. This is all managed and
+  monitored using the <code>flowadm</code> command.</p>
+
+<p>This is an advanced topic that won't be covered in detail here. The
+  basic command to see if there are any flows configured is:</p>
+<pre>
+    flowadm show-flow
+</pre>
+<p>If nothing is returned, then no flows are configured.</p>
+<p>If you wish to associate a flow with a <a href="6.zones.html">zone</a>,
+  for example to limit its bandwidth utilization, then the <code>-F</code>
+  flag to <code>zap create-zone</code> will automatically create a flow
+  with the given properties and associate it with the new zone.</p>
+<p>If all you want to do is monitor network usage of a zone, then the
+  <code>dlstat</code> will do that for you, with no need to create a flow.</p>

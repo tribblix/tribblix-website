@@ -20,8 +20,9 @@
 
 <p>Oracle have continued to develop their own version of Solaris, so
   that, while the commercial Oracle Solaris and the illumos
-  distributions share a common heritage and often behave similarly,
-  they have diverged significantly.</p>
+  distributions share a common heritage and philosophy, and often behave
+  similarly, they have diverged over time. With now over a decade of
+  divergence, the minor differences can now be considerable.</p>
 
 <p>There are now a significant number of
   illumos <a href="https://illumos.org/docs/about/distro/">distributions</a>,
@@ -30,14 +31,15 @@
 <ul>
 <li><a href="https://www.openindiana.org/">OpenIndiana</a> continues to
   develop a distribution that looks like OpenSolaris, with IPS
-  packaging</li>
+  packaging.</li>
 <li><a href="https://omnios.org/">OmniOS</a> is server-focussed,
   again using IPS. Originally built by OmniTI, it has been taken over
-  by the community.</li>
+  by the community. The key feature difference in OmniOS is the Linux
+  emulation (LX) Zone system, which isn't present in vanilla illumos.</li>
 <li><a href="https://www.tritondatacenter.com/smartos">SmartOS</a> is a
-  Converged Container and Virtual Machine Hypervisor</li> 
+  Converged Container and Virtual Machine Hypervisor.</li> 
 <li>A number of storage vendors use OpenSolaris or illumos under the
-  hood (largely because of ZFS)</li>
+  hood (largely because of ZFS).</li>
 </ul>
 
 <p>And a number of smaller distributions including, of course, Tribblix.</p>

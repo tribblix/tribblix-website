@@ -60,13 +60,13 @@ boot cdrom
 reboot -- cdrom
 </code>
 
-<p>On x86, a boot menu should appear. If you just leave it, after a
-  few seconds it will boot into the live installer for Tribblix. You
-  have the option of enabling debugging or changing other boot
-  settings, or bypassing the live image to boot from the hard disk.</p>
+<p>On x86, a boot menu should appear. If you just leave it, after a few
+  seconds it will boot into the live installer for Tribblix. From the
+  boot menu you have the option of enabling debugging or changing other
+  boot settings, or bypassing the live image to boot from the hard disk.</p>
 
 <p>After some messages, you will be presented with a login prompt. You
-  should log in using the following account:</p>
+  can log in using the following account:</p>
 
 <ul>
 <li>Username: jack</li>
@@ -99,8 +99,9 @@ su -
   number or a long string, depending on the disk controller (fiber
   channel or newer SAS HBAs will present the longer version).</p>
 
-<p>To specify what software is to be installed, supply a list of
-  overlays.</p>
+<p>By default, a fairly minimal base system will be installed. To install
+  additional software, supply a list of <a href="/overlays.html">overlays</a>.
+  </p>
 
 <p>The overall command to perform the install will be of the form</p>
 
@@ -112,7 +113,9 @@ su -
   disk <code>c0t0d0</code>. The <code>-G</code> before the disk means
   to take over the whole drive. If omitted, it is assumed that you
   have manually partitioned the disk and allocated the named part of
-  the disk to Tribblix.</p>
+  the disk to Tribblix. (What this means is that without <code>-G</code>
+  you're also responsible for managing the boot process and configuring
+  your own bootloader.)</p>
 
 <p>The installer takes over the disk device, creates a ZFS pool and
   file systems, copies the running system to the disk, and installs
@@ -158,21 +161,28 @@ Chainload disk0:
   appropriate media, and boot from that. Press <code>ctrl-B</code> to get the
   iPXE command line, and type the following at the prompt:
 </p>
-  <pre>
+<pre>
     dhcp
     chain http://pkgs.tribblix.org/m33/ipxe.txt
-  </pre>
+</pre>
 <p>You can replace m33 with m33lx to get omnitribblix, or an
   alternative version may be available. That should boot up as normal
   and you can do the install.
 </p>
+<p>Alternatively, to get a menu from which you can choose the Tribblix version
+  you wish to install, you can type the following at the iPXE prompt:
+<pre>
+    dhcp
+    chain http://pkgs.tribblix.org/ipxe.txt
+</pre>
 
 <h2>In the cloud</h2>
 
 <p>Tribblix is available on <a href="/aws.html">AWS</a>, so you can quickly
   run up an EC2 instance. Simply search for Tribblix in the Community images.
-  You may need to set the region to London (eu-west-2), as the AMIs are
-  only created there by default.
+  You will need to set the region to London (eu-west-2), as the AMIs are
+  only created there by default. If you want to run Tribblix in another
+  region, you'll need to copy the AMI there.
 </p>
 
 <p>Raw images are available for <a href="/digitalocean.html">Digital Ocean</a>.
