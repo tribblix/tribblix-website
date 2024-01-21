@@ -20,6 +20,7 @@
 <li>ctwm: CTWM (installed)</li>
 <li>e19: Enlightenment (installed)</li>
 <li>ede: EDE (installed)</li>
+<li>emwm: Enhanced Motif Window Manager (installed)</li>
 <li>fluxbox: Fluxbox (installed)</li>
 <li>fvwm: FVWM (installed)</li>
 <li>i3wm: improved tiling wm (installed)</li>
@@ -36,6 +37,7 @@
 <li>qvwm: QVWM (installed)</li>
 <li>tvtwm: Tom's virtual Tab Window Manager (installed)</li>
 <li>twm: TWM (installed)</li>
+<li>uwm: UDE Window Manager (installed)</li>
 <li>vtwm: Virtual tab Window Manager (installed)</li>
 <li>wmaker: Window Maker (installed)</li>
 <li>xfce: Xfce (installed)</li>
