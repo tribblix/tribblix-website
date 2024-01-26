@@ -1,0 +1,9 @@
+<h1>Overlay all-locales - All Locales</h1>
+<p>This supplies all available locales.</p>
+
+<p>You should directly install this overlay, as should use
+<a href="zap.html">zap</a> to manage locales - the
+<code>add-locale</code>,
+<code>remove-locale</code>,
+<code>installed-locales</code>, and
+<code>list-locales</code> subcommands are what you need.</p>
