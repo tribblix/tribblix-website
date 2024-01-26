@@ -1,0 +1,4 @@
+<h1>Overlay base-iso - Base packages, in the live image</h1>
+<p>This is the set of packages that live in the live image as shipped
+on the downloadable ISO. It's designed just for that, and would normally
+be extended to at least the @base overlay.</p>

@@ -1,0 +1,3 @@
+<h1>Overlay base - Base packages, not in the live image</h1>
+<p>This is the base install, built atop the set of packages provided by
+@base-iso in the live image.</p>
