@@ -1,0 +1,4 @@
+<h1>Overlay dmarc - DMARC analysis</h1>
+<p>Supplies the
+<a href="https://domainaware.github.io/checkdmarc/">checkdmarc</a>
+utility for querying and validating a domain's SPF and DMARC DNS records.</p>

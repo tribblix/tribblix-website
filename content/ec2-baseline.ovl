@@ -1,0 +1,7 @@
+<h1>Overlay ec2-baseline - Baseline for EC2 AMI, do not use elsewhere</h1>
+<p>Adds drivers needed for EC2 images on AWS, and tools so that
+new instances boot up correctly (for example, picking up the correct
+root ssh key).</p>
+
+<p>This is automatically installed on the AMIs supplied by Tribblix.
+Do not use outside of an AWS EC2 instance.</p>

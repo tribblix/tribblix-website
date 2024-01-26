@@ -1,0 +1,4 @@
+<h1>Overlay compression-utilities - Compression/decompression utilities</h1>
+<p>Supplies all the available compression/decompression utilities available
+in Tribblix. Tools to handle common formats are always available, this
+overlay adds tools for some of the less well known formats.</p>
