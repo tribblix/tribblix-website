@@ -22,7 +22,16 @@ like the following:
 </p>
 
 <p>
-Specifically, the currently available AMIs are:
+Specifically, the currently available and supported AMIs are:
+</p>
+<ul>
+<li>Tribblix m33p1 - ami-03745614c82800523</li>
+<li>OmniTribblix m33p1lx - ami-0608ad0511e6fe3e1</li>
+<li>Tribblix m33p1 (Nitro) - ami-0941a5d7b466ea8fd</li>
+<li>OmniTribblix m33p1lx (Nitro) - ami-0554b8df5122ed8c7</li>
+</ul>
+<p>
+The following older AMIs are available, but will soon be dropped.
 </p>
 <ul>
 <li>Tribblix m33 - ami-0a72f94422d5adb03</li>
@@ -49,20 +58,45 @@ boot. Rebooting the instance from the AWS console ought to clear that.
 
 <p>
 The images labelled (Nitro) support the new (t3, m5 etc.) instance types.
-They won't run on the older (t2, m4, etc.) instances. <b>Do not enable static
-networking on a Nitro instance, the system will crash and not come back.</b>
+They won't run on the older (t2, m4, etc.) instances.
+</p>
+
+<p>
+If running on a Nitro instance, you should definitely use the m33p1
+AMIs. They have an updated ena network driver with a lot of fixes.
+<b>Do not enable static networking on a Nitro instance using an
+older AMI (original m33, or earlier) as the system will crash and not
+come back.</b> 
 There isn't any difference between the Nitro and non-Nitro images other
 than which instance types they will boot on.
 </p>
 
 <p>
-The m4 and similar generation instances work well for the other images, as do
-t2 instances. The t2.micro is just fine for Tribblix, and is on the free tier.
-For these, I recommend you do enable static networking with
-<code>
-zap staticnet -y
-</code>
+If you see Time of Day clock errors on the console, which will manifest
+itself as silly clock speeds reported by <code>psrinfo -v</code>,
+or <code>sleep</code> taking a wildly different time to what you asked
+for, then
 </p>
+<pre>
+echo set pit_is_broken = 1 > /etc/system.d/pit
+</pre>
+<p>
+and reboot, and all should be fine.
+</p>
+
+<p>
+The m4 and similar generation instances work well, as do
+t2 instances. The t2.micro is just fine for Tribblix, and is on the free tier.
+With the current AMIs, the newer Nitro instances are a good bet, and cheaper.
+</p>
+
+<p>
+I recommend you enable static networking (again, not on Nitro instance
+with older AMIs) with
+</p>
+<pre>
+zap staticnet -y
+</pre>
 
 <p>
 After launching an instance, you should be able to log in as root with your
