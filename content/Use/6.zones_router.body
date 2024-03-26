@@ -64,5 +64,5 @@ access</li>
 hundreds of zones behind a router zone)</li>
 <li>As a variant of the previous one, on AWS you might have unlimited
 addresses available in your VPC, but any given EC2 instance is limited
-to a very small number of addresses.</li>
+to a tiny number of addresses.</li>
 </ul>

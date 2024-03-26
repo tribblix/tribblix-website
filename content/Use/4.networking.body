@@ -1,6 +1,6 @@
 <h1>&gt; Tribblix Networking</h1>
 
-<p>Tribblix inherits a highly functional and very flexible networking
+<p>Tribblix inherits a functional and flexible networking
   subsystem from illumos.</p>
 
 <p>The traditional <code>ifconfig</code> command will show a lot of
@@ -25,7 +25,7 @@
 <h2>dladm</h2>
 
 <p>The <code>dladm</code> command operates on datalinks - physical or virtual
-network objects. It's coverage is quite extensive, so only the most common
+network objects. Its coverage is quite extensive, so only the most common
 cases are covered here.</p>
 
 <p>To show the physical network interfaces, use:</p>
