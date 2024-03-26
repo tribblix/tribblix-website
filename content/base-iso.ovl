@@ -1,4 +1,6 @@
 <h1>Overlay base-iso - Base packages, in the live image</h1>
 <p>This is the set of packages that live in the live image as shipped
-on the downloadable ISO. It's designed just for that, and would normally
+on the standard ISO. It's designed just for that, and would normally
 be extended to at least the @base overlay.</p>
+<p>For a server, specifically if you need to connect to a SAN or a
+storage fabric, the @base-server overlay is more appropriate.</p>

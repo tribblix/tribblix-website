@@ -1,0 +1,4 @@
+<h1>Overlay core-tribblix - Core Tribblix Software</h1>
+<p>Provides the basic core of the operating system and applications.</p>
+<p>This is the common component of the installation images, which then
+differ in which device drivers and services they support.</p>
