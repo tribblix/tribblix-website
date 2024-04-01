@@ -4,6 +4,30 @@
 <b>Important:</b> <a href="32bit.html">32-bit support</a>.
 </p>
 
+<h2><a name="m34-x86"></a>Milestone 34, x86</h2>
+
+<p>
+This release enforces a requirement for the CPU to support SSE2. As
+all 64-bit capable CPUs should be SSE2-capable, this should have no impact.
+</p>
+
+<p>
+The minimal ISO image has been reworked slightly and is now more of a
+server image. Specifically, if you're SAN-connected, the minimal live
+image includes more SAN drivers, whereas the regular ISO has no SAN
+capability at all. (In previous releases, neither were terribly useful
+on a SAN-connected host.)
+</p>
+
+<p>
+The old closed /usr/xpg4/bin/more has been replaced by less.
+</p>
+
+<p>
+The opportunity was taken to update some components with incompatible
+changes, along with associated rebuilds.
+</p>
+
 <h2><a name="m33-x86"></a>Milestone 33, x86</h2>
 
 <p>
