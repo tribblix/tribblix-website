@@ -1,13 +1,14 @@
 #!/bin/sh
 #
+# SPDX-License-Identifier: CDDL-1.0
+#
 # just creates the list in the middle
 # redirect to overlays.html
 #
 # FIXME: mark as available for sparc and/or x86
 #
 
-cd content
-
+cd content || exit 1
 
 cat <<EOF
 <h1>&gt; Software overlays</h1>
@@ -28,21 +29,21 @@ for file in ${THOME}/overlays/*.ovl
 do
     ovl=${file%.ovl}
     ovl=${ovl##*/}
-    if grep -q "^$ovl$" ${THOME}/overlays/overlays.iso
+    if grep -q "^$ovl$" "${THOME}/overlays/overlays.iso"
     then
 	isostat=" [*]"
     else
 	isostat=""
     fi
-    ONAME=$(awk -F= '{if ($1=="NAME") print $2}' $file)
+    ONAME=$(awk -F= '{if ($1=="NAME") print $2}' "$file")
     #
     # if an ovl file exists we link to it
     # regenerate the h1 header to match the actual Overlay metadata
     #
     if [ -f "${ovl}.ovl" ]; then
-	echo "<h1>Overlay $ovl - $ONAME</h1>" > tmp-${ovl}.body
-	grep -v '<h1>' ${ovl}.ovl >> tmp-${ovl}.body
-	mv tmp-${ovl}.body ${ovl}.ovl
+	echo "<h1>Overlay $ovl - $ONAME</h1>" > "tmp-${ovl}.body"
+	grep -v '<h1>' "${ovl}.ovl" >> "tmp-${ovl}.body"
+	mv "tmp-${ovl}.body" "${ovl}.ovl"
 	echo "<li><a href=\"overlay-${ovl}.html\">${ovl}</a> - ${ONAME}${isostat}</li>"
     else
 	echo "<li>${ovl} - ${ONAME}${isostat}</li>"

@@ -1,8 +1,10 @@
 #!/bin/sh
 #
+# SPDX-License-Identifier: CDDL-1.0
+#
 # creates all the pages
 #
-cd content/Use
+cd content/Use || exit 1
 
 #
 # the assumption here is that the page names sort into the right order
@@ -24,7 +26,7 @@ do
     file=${farray[$index]}
     prev=$((index-1))
     next=$((index+1))
-    echo creating ${file/.body/.html}
+    echo "creating ${file/.body/.html}"
     echo "<hr>" > tfooter.tmp
     echo "<p><a href=\"./\">Index</a>" >> tfooter.tmp
     if [ "$prev" -gt -1 ]; then
@@ -40,6 +42,6 @@ do
 	echo " | <a href=\"$turl\">Next Section</a>" >> tfooter.tmp
     fi
     echo "</p>" >> tfooter.tmp
-    cat ${file} tfooter.tmp  >  ${file/.body/.html}
+    cat "${file}" tfooter.tmp  >  "${file/.body/.html}"
 done
 rm -f tfooter.tmp
