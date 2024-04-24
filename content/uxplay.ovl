@@ -1,0 +1,21 @@
+<h1>Overlay uxplay - UxPlay iPad mirroring</h1>
+<p>Provides <a href="https://github.com/FDH2/UxPlay">UxPlay</a>, allowing
+you to mirror your iPad screen an audio.</p>
+
+<p>To use, open up a terminal and run the server</p>
+<pre>
+uxplay
+</pre>
+<p>You can then mirror the ipad screen (swipe down from the right-hand side
+of the top edge of the screen, click on the button that looks like a
+double-screen, and select either UxPlay or the name of your machine).</p>
+
+<p>Alternatively, some individual applications can send their output
+directly. In my experience this worked for a couple of audio apps, but not
+much more.</p>
+
+<p>For this to work, you'll need mdns enabled. The simplest way to do
+this is to give your workstation a unique name, and enable mdns, like so:</p>
+<pre>
+zap set-hostname -m my-workstation
+</pre>
