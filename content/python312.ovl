@@ -1,6 +1,9 @@
-<h1>Overlay python311 - Python 3.11</h1>
-<p>Supplies the <a href="https://www.python.org/">Python</a> programming
-language.</p>
+<h1>Overlay python312 - Python 3.12</h1>
+<p>Supplies version 3.12 of the <a href="https://www.python.org/">Python</a>
+programming language.</p>
+
+<p>Currently, @python311 is the default Python, but the next Tribblix
+release will update from 3.11 to 3.12.</p>
 
 <p>You may also be interested in @ipython for enhanced interactive use.</p>
 
@@ -15,5 +18,5 @@ installed by default as part of this overlay; if you don't have it then
 run</p>
 <pre>
 zap refresh
-zap update-overlay python311
+zap update-overlay python312
 </pre>
