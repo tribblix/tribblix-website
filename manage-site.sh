@@ -11,7 +11,7 @@ NANOC="/usr/versions/ruby-3/bin/nanoc"
 if [ ! -x "${NANOC}" ]; then
     echo "ERROR: nanoc isn't installed"
     echo "On tribblix, as root:"
-    echo "zap install TRIBv-ruby-3 TRIBwebrick-ruby-3 TRIBnanoc-ruby-3 TRIBadsf-ruby-3"
+    echo "zap install TRIBv-ruby-3 TRIBwebrick-ruby-3 TRIBnanoc-ruby-3 TRIBadsf-ruby-3 TRIBnokogiri-ruby-3 TRIBw3cvalidators-ruby-3"
     exit 1
 fi
 
@@ -32,6 +32,10 @@ case $# in
 	;;
 esac
 
+#
+# restrict checks to css, internal_links, stale, mixed_content
+# the external_links and html checks will probably fail to run
+#
 case $1 in
     update)
 	./mk-overlays.sh > content/overlays.html
@@ -40,6 +44,10 @@ case $1 in
 	;;
     view)
 	$NANOC view
+	;;
+    check)
+	shift
+	$NANOC check "$@"
 	;;
     *)
 	usage
