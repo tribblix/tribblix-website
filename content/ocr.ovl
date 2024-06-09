@@ -1,2 +1,9 @@
 <h1>Overlay ocr - OCR utilities</h1>
 <p>Supplies the Tesseract OCR engine.</p>
+
+<p>This overlay also supplies the <code>pytesseract</code> and
+<code>pyocr</code> python modules. The simplest way to run ocr on an
+image is to use <code>pytesseract</code> like so:</p>
+<pre>
+pytesseract image_file
+</pre>

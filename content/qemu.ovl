@@ -1,0 +1,9 @@
+<h1>Overlay qemu - QEMU machine emulator</h1>
+<p>Supplies <a href="https://www.qemu.org/">QEMU</a>, a generic and open
+source machine emulator and virtualizer.</p>
+
+<p>The base overlay only supplies a subset of the more common emulated
+machine types. To get them all, also install:</p>
+<pre>
+zap install TRIBqemu-extra
+</pre>

@@ -1,0 +1,8 @@
+<h1>Overlay patroni - Patroni</h1>
+<p>Supplies <a href="https://patroni.readthedocs.io/en/latest/">Patroni</a>,
+allowing you to build a high availability (HA) PostgreSQL solution on
+Tribblix.</p>
+
+<p>You may be interested in a
+<a href="https://ptribble.blogspot.com/2019/04/ha-postgresql-on-tribblix-with-patroni.html">blog post</a>
+describing a deployment.</p>
