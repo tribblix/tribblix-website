@@ -20,6 +20,9 @@ cp index.body index.html
 #
 # now loop through all the body files, creating the forward/back
 # links at the bottom
+# and the title header, which is pulled out of the h1 element
+# in the page, dropping any instances of the word "Tribblix" as
+# that's already part of the layout for the handbook pages
 #
 for index in "${!farray[@]}"
 do
@@ -27,6 +30,9 @@ do
     prev=$((index-1))
     next=$((index+1))
     echo "creating ${file/.body/.html}"
+    echo "---" > theader.tmp
+    echo "title: $(head -1 "${file}" | cut -d' ' -f2- | cut -d'<' -f1 | sed s:Tribblix::)" >> theader.tmp
+    echo "---" >> theader.tmp
     echo "<hr>" > tfooter.tmp
     echo "<p><a href=\"./\">Index</a>" >> tfooter.tmp
     if [ "$prev" -gt -1 ]; then
@@ -42,6 +48,7 @@ do
 	echo " | <a href=\"$turl\">Next Section</a>" >> tfooter.tmp
     fi
     echo "</p>" >> tfooter.tmp
-    cat "${file}" tfooter.tmp  >  "${file/.body/.html}"
+    cat theader.tmp "${file}" tfooter.tmp  >  "${file/.body/.html}"
 done
 rm -f tfooter.tmp
+rm -f theader.tmp
