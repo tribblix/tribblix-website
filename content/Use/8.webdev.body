@@ -10,13 +10,22 @@ zap install-overlay webdev
 optimisation utilities such as pngquant, optipng, and jpegoptim.
 </p>
 
-<p>Depending on your stack, you may wish to look at the java11, java17, or
-node-v20 overlays.</p>
+<p>Depending on your stack, you may wish to look at the java11, java17,
+java21, or node-v20 overlays.</p>
 
 <h2>KISS</h2>
 
 <p>If you want to use the <a href="https://kissweb.org/">KISS</a> web
 development framework then, in addition to installing java, you'll
+need to install libsqlitejdbc:</p>
+<pre>
+zap install TRIBlibsqlitejdbc
+</pre>
+
+<h2>Reposilite/h2>
+
+<p>If you want to use the <a href="https://reposilite.com/">Reposilite</a>
+repository manager then, in addition to installing java, you'll
 need to install libsqlitejdbc:</p>
 <pre>
 zap install TRIBlibsqlitejdbc
