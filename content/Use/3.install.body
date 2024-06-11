@@ -11,7 +11,7 @@
 
 <ul>
 <li>A 64-bit x86 or SPARC processor. Single or multiple cores,
-  sockets, and threads are all supported. (If you have an old 32-bit
+  sockets, and threads are all supported. (If you have an 32-bit
   x86 system then the old and unsupported Tribblix m20 is the last version
   that's known to work.)</li>
 <li>A minimum of 512M of memory. Tribblix will run in less, but the
@@ -44,7 +44,7 @@
   command:</p>
 
 <code>
-cdrw -i tribblix-0m33.iso
+cdrw -i tribblix-0m34.iso
 </code>
 
 <p>On an x86 system, you may need to interrupt the BIOS to specify an
@@ -163,9 +163,9 @@ Chainload disk0:
 </p>
 <pre>
     dhcp
-    chain http://pkgs.tribblix.org/m33/ipxe.txt
+    chain http://pkgs.tribblix.org/m34/ipxe.txt
 </pre>
-<p>You can replace m33 with m33lx to get omnitribblix, or an
+<p>You can replace m34 with m34lx to get omnitribblix, or an
   alternative version may be available. That should boot up as normal
   and you can do the install.
 </p>

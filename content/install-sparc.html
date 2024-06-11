@@ -45,7 +45,7 @@ overlays likely to be commonly used on SPARC:</p>
 <li>develop - development tools and headers</li>
 <li>networked-system - packages to integrate a system into a network,
 such as NIS, LDAP, NFS</li>
-<li>java - openjdk8</li>
+<li>java - openjdk11</li>
 <li>kitchen-sink - a desktop and development tools</li>
 </ul>
 <p>and you simply add the name of the overlay(s) you want to install to
@@ -62,13 +62,17 @@ things, and that's what I often use.</p>
 <p>You can add additional software overlays later using
 the <a href="zap.html">zap</a> utility.
 </p>
+<p>If you're short of memory (less than 1GB, for example) then it's
+best not to add additional software at this point, but to leave it
+until later.</p>
 
 <p>Then reboot</p>
 <pre>
-reboot -p
+reboot
 </pre>
-<p>If it boots off the DVD, then hit 6 to ChainLoad the hard disk.
-This should then boot up.</p>
+<p>If it boots off the DVD, then remove the media and try again,
+although normally on SPARC systems the boot priority will be to
+use a hard disk ahead of optical media.</p>
 
 <p>When booted up the first time, you have the same user account (jack)
 and same user and root passwords as the live image, which you should
