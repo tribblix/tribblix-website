@@ -1,0 +1,110 @@
+---
+title: Storage and ZFS
+---
+<h1>&gt; Storage and ZFS</h1>
+
+<p>While it's possible to run Tribblix on the old UFS file system, by
+default ZFS is used.</p>
+
+<p>Similar to networking, Tribblix will manage ZFS for you most of the
+time.</p>
+
+<p>ZFS thinks of storage in 2 layers.</p>
+
+<h2>ZFS pools</h2>
+
+<p>The first is the pool, which combines storage devices into a flexible
+pool of storage. To see which pools are present, their size and usage, run:<p>
+<pre>
+zpool list
+</pre>
+
+<p>To get a description of the pools, including their layout and the
+status of individual devices, run:</p>
+<pre>
+zpool status
+</pre>
+
+<p>On installation, Tribblix will create the root pool - commonly called
+<code>rpool</code>. You can install to a mirror, or a raidz pool, and if
+you have no further storage devices, you're done. If you have additional
+storage devices you're then free to create additional pools. It's generally
+best to keep the number of pools small, generally one for the system and
+one for data is plenty.</p>
+
+<h2>ZFS datasets</h2>
+
+<p>The second layer in ZFS is the dataset, most commonly a file system, but
+also a block volume. To show existing datasets, run:</p>
+<pre>
+zfs list
+</pre>
+
+<p>You can create as many file systems as you need, for example:</p>
+<pre>
+zfs create rpool/export/spreadsheets
+</pre>
+<p>assuming rpool/export is mounted at <code>/export</code>, the new file
+system will automatically be mounted at <code>/export/spreadsheets</code>.</p>
+
+<p>Once you've finished with a file system, you can delete it:</p>
+<pre>
+zfs destroy rpool/export/spreadsheets
+</pre>
+
+<h2>Snapshots</h2>
+
+<p>A key feature of ZFS is the ability to create snapshots, saving the state
+of the dataset at a given point in time. For example:</p>
+<pre>
+zfs snapshot rpool/export/spreadsheets@2021-12-02
+</pre>
+<p>The syntax is simple, the name of the dataset, followed by @, followed by
+the name of the snapshot.</p>
+
+<p>To see what snapshots exist, a variant of <code>zfs list</code> is used:</p>
+<pre>
+zfs list -t snapshot
+</pre>
+<p>and once you no longer need a snapshot, you can delete it:</p>
+<pre>
+zfs destroy rpool/export/spreadsheets@2021-12-02
+</pre>
+
+<p>One thing you can do with a snapshot it to look inside it. A ZFS file
+system has a magic <code>.zfs</code> directory that's hidden and only appears
+when you explicitly access it. So if you try and list the .zfs directory,
+with:</p>
+<pre>
+ls /export/spreadsheets/.zfs
+</pre>
+then you should see two directories - <code>shares</code> and
+<code>snapshot</code>. And then if you look inside the snaphost directory:</p>
+<pre>
+ls /export/spreadsheets/.zfs/snapshot
+</pre>
+<p>you'll see a list of all the snapshots. Look inside a snapshot and you'll
+see the data exactly as it was when the snapshot was taken.</p>
+
+<p>If you need a file back, perhaps because it's been deleted or changed, you
+can use normal tools like <code>cp</code> to copy the old version out of the
+snapshot, which can save a lot of hunting for backups.</p>
+
+<h2>Zones and ZFS</h2>
+
+<p>When you create zones in Tribblix, <code>zap</code> will automatically
+manage whatever ZFS datasets are needed, so you don't have to do anything.
+This includes creating a file system for the zone itself, or a ZFS storage
+volume if you're using bhyve.</p>
+
+<p>In addition, you can use the <code>-D</code> flag to
+<code>zap create-zone</code> to delegate a dataset to a zone. This will
+create a new dataset if it doesn't exist, and allocate it to the zone, so
+that the zone's administrator can manage it. (If you simply share a directory
+using <code>-s</code> or <code>-S</code>, the zone can use the data but
+can't manage the underlying ZFS file system.)
+<hr>
+<p><a href="./">Index</a>
+ | <a href="4.software.html">Previous Section</a>
+ | <a href="4.users.html">Next Section</a>
+</p>
