@@ -1,4 +1,4 @@
-<h1>&gt; Tribblix Services</h1>
+<h1>&gt; Services and SMF</h1>
 
 <p>In Tribblix, all running services are controlled by SMF, the Service
   Management Facility. There are two key commands. The first is:</p>

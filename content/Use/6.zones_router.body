@@ -1,9 +1,9 @@
-<h1>&gt; Router zones</h1>
+<h1>&gt; Router Zones</h1>
 
 <p>In illumos, you can create a separate internal network - an etherstub -
 and can create network interfaces attached to that network.</p>
 
-<p> A router zone provides a mechanism to connect that internal network to
+<p>A router zone provides a mechanism to connect that internal network to
 the outside world and manage systems attached to that internal network.</p>
 
 <p>To create a router zone:
