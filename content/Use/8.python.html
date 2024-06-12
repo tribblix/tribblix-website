@@ -1,0 +1,31 @@
+---
+title: Python Notes
+---
+<h1>&gt; Python Notes</h1>
+
+<p>As a general observation, using the <a href="/overlays.html">overlays</a>
+to install Python-based packages is preferred as they will tend to resolve
+dependencies correctly.</p>
+
+<h2>Installing your own modules</h2>
+
+<p>If you want to install your own modules, do so using venv or virtualenv
+to keep them separate from the system python modules. Not only will this
+avoid your modules corrupting the system install, it also means that system
+updates won't corrupt anything you install.</p>
+
+<p>Alternatively, use pipx.</p>
+
+<h2>Matplotlib</h2>
+
+<p>Applications using matplotlib to generate graphs will only show
+the graphical output if tkinter is installed. To do this:</p>
+<pre>
+zap install-overlay tcl-tk
+zap install tkinter
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="8.desktop.html">Previous Section</a>
+ | <a href="8.webdev.html">Next Section</a>
+</p>
