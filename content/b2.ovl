@@ -1,0 +1,8 @@
+<h1>Overlay b2 - Backblaze B2 CLI utilities</h1>
+<p>Supplies the
+<a href="https://b2-command-line-tool.readthedocs.io/en/master/index.html">b2
+cli</a> used to access the Backblaze B2 service.</p>
+
+<p>For basic file operations, such as listing, putting, and retrieving files,
+the <code>s5cmd</code> application may be found to be easier and faster, so
+it's also supplied.</p>
