@@ -1,0 +1,198 @@
+---
+title: Configuring LDAP Authentication
+---
+<h1>&gt; Configuring LDAP Authentication</h1>
+
+<h2>Aim</h2>
+
+<p>The instructions below should be sufficient to
+configure LDAP as a naming service with PAM authentication and
+SSH authentication using keys. This document assumes a 2307bis
+LDAP schema.</p>
+
+<h2>Prerequisites</h2>
+
+<p>Before proceeding, you should have a working familiarity with
+your LDAP configuration and ideally should have it tested on
+another host.</p>
+
+<p>The following information is required to complete the configuration</p>
+
+<p>
+    <ul>
+        <li>An LDAP proxy bind account DN and password</li>
+        <li>The FQDNs of your LDAP servers</li>
+    </ul>
+</p>
+
+<h2>Step One - stabilise the network</h2>
+
+<p>Making network changes with tools such as <code>zap</code> can deploy
+changes that impact the name service switch. Before starting the
+LDAP join process, ensure your network configuration is clear,
+preferably with a static IP address configured. Reboot before starting
+the process to ensure everything is clean.</p>
+
+<h2>Install the required packages</h2>
+
+Installing the <code>networked-system</code> overlay will catch everything
+you need. Otherwise, try <code>TRIBsys-net-nis</code> and <code>TRIBnaming-ldap</code>.
+
+
+<h2>Home Directories and Shells</h2>
+
+<p>Your LDAP schema will include an attribute for home directory location.
+This is often <code>/home/username</code> which is handled by the automounter
+by default on Tribblix.</p>
+
+<p>If your home directories are set to <code>/home/username</code> and you
+are not using an automounted configuration, edit <code>/etc/auto_master</code> and
+<code>/etc/auto_home</code> and comment out the configuration. Then restart the
+automounter with <code>svcadm restart autofs</code>.
+
+<p>Check your LDAP accounts for their login shells and make sure those
+shells are installed and in the location defined in the LDAP attribute.
+A user with no shell cannot log in.</p>
+
+<h2>Prepare an ldap_client configuration script</h2>
+
+<p>Paste the following into a file and edit all the parameters to match
+your configuration. This is an extremely basic and simple example and
+you should ensure you read the corresponding man page to add anything
+missing. In particular, you may wish to add multiple services and handle
+SSL/TLS.</p>
+
+<p>You can re-run this script as many times as you need, so don't worry about
+making a mistake. Re-running the script will overwrite the configuration
+completely.</p>
+
+<pre>
+#!/bin/bash
+ldapclient manual -v \
+-a credentialLevel=proxy \
+-a authenticationMethod=simple \
+-a defaultSearchBase=dc=yoursubdomain,dc=yourdomain,dc=org \
+-a domainName=yoursubdomain.yourdomain.org \
+-a defaultServerList=ldapserver.yourdomain.org \
+-a "proxyDN=cn=tribbind,ou=service accounts,dc=yoursubdomain,dc=yourdomain,dc=org" \
+-a proxyPassword=your_fun_filled_password_here \
+-a attributeMap=group:gidnumber=gidNumber \
+-a attributeMap=group:memberUid=Member \
+-a attributeMap=passwd:gidnumber=gidNumber \
+-a attributeMap=passwd:uidnumber=uidNumber \
+-a attributeMap=passwd:homedirectory=homeDirectory \
+-a attributeMap=shadow:userpassword=userPassword \
+-a objectClassMap=group:posixGroup=posixGroup \
+-a objectClassMap=passwd:posixAccount=posixAccount \
+-a objectClassMap=shadow:shadowAccount=posixAccount \
+-a serviceSearchDescriptor=passwd:ou=people,dc=yoursubdomain,dc=yourdomain,dc=org \
+-a serviceSearchDescriptor=group:ou=groups,dc=yoursubdomain,dc=yourdomain,dc=org \
+-a serviceSearchDescriptor=shadow:ou=people,dc=yoursubdomain,dc=yourdomain,dc=org \
+</pre>
+
+<p>Run the script as <code>root</code>.</p>
+
+<p>The script will configure the entire LDAP stack including making changes to the
+<code>/etc/nsswitch.conf</code> file that you most likely do not want. Edit that file, noting
+that the LDAP service only needs to be applied to the <code>passwd:</code> and
+<code>group:</code> lines to enable user authentication. You may wish to start by copying
+<code>/etc/nsswitch.dns></code> back over <code>/etc/nsswitch.conf</code> and manually adding the
+<code>ldap</code> option to <code>passwd:</code> and <code>group:</code>.</p>
+
+<p>Verify that the <code>dns/client</code> service is still enabled at the end of
+the LDAP script run.</p>
+
+<h2>Testing</h2>
+
+<p>At this point, you should be able to test LDAP with
+<code>getent passwd</code> and <code>getent group</code>. If you don't see users and
+groups, modify the script and run it again until you have this working.</p>
+
+<h2>Configure PAM</h2>
+
+<p>In the <code>/etc/pam.conf</code> file, edit every line that reads:
+<br><pre>
+auth required pam_unix_auth.so.1
+</pre><br>
+
+and change it to
+
+<br>
+<pre>
+auth binding pam_unix_auth.so.1 server_policy
+auth required pam_ldap.so.1
+</pre>
+</br>
+</p>
+
+<p>For example, if we start with:
+<br>
+<pre>
+other   auth requisite          pam_authtok_get.so.1
+other   auth required           pam_dhkeys.so.1
+other   auth required           pam_unix_cred.so.1
+other   auth required           pam_unix_auth.so.1
+</pre>
+<br>
+
+It should now look like:
+<br>
+<pre>
+other   auth requisite          pam_authtok_get.so.1
+other   auth required           pam_dhkeys.so.1
+other   auth required           pam_unix_cred.so.1
+other   auth binding            pam_unix_auth.so.1 server_policy
+other   auth required           pam_ldap.so.1
+</pre>
+</br>
+</p>
+
+<h2>Configuring SSH including key-based login from LDAP</h2>
+
+<p>Tribblix doesn't ship with a default script to read ssh
+keys from LDAP, so create a script to do this. In this example,
+the script is located at <code>/opt/scripts/pubkey.sh</code>.
+
+<br>
+<pre>
+#!/bin/sh
+ldaplist -l passwd $1 | grep sshPublicKey:  | awk '{print $2" "$3" "$4}'
+</pre>
+<br>
+
+<p>Don't forget to <code>chmod +x /opt/scripts/pubkey.sh</code>.
+
+<p>Add the following lines to the bottom of
+<code>/etc/ssh/sshd_config</code>
+<br>
+<pre>
+AuthorizedKeysCommand /opt/scripts/pubkey.sh
+AuthorizedKeysCommandUser daemon
+</pre>
+<br>
+
+<p>If you would like LDAP users to be able to connect by ssh using
+a password rather than keys, ensure the <code>UsePAM yes</code> option
+is set in <code>/etc/ssh/sshd_config</code>.
+
+<p>Restart ssh with <code>svcadm restart ssh</code>.</p>
+
+<h2>Completed</h2>
+
+<p>At this point, you should have <code>passwd</code> and <code>group</code>
+entities populated with LDAP entries and users should be able to connect
+by ssh using their LDAP provided credentials. Further, tools like
+<code>sudo</code> should work with the LDAP stored password.</p>
+
+
+
+
+
+
+
+
+<hr>
+<p><a href="./">Index</a>
+ | <a href="4.networking.html">Previous Section</a>
+ | <a href="4.rmvolmgr.html">Next Section</a>
+</p>
