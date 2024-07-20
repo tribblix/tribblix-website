@@ -22,7 +22,7 @@ if [ ! -d "${THOME}/overlays" ]; then
 fi
 
 usage() {
-    echo "Usage: $0 update|view"
+    echo "Usage: $0 update|view|spell"
     exit 1
 }
 
@@ -35,6 +35,8 @@ esac
 #
 # restrict checks to css, internal_links, stale, mixed_content
 # the external_links and html checks will probably fail to run
+# and external_links fetches the content of every link, which
+# includes the iso images
 #
 case $1 in
     update)
@@ -48,6 +50,10 @@ case $1 in
     check)
 	shift
 	$NANOC check "$@"
+	;;
+    spell)
+	shift
+	/usr/bin/codespell -L ede content layouts
 	;;
     *)
 	usage
