@@ -269,6 +269,26 @@ used along with the regular install process.
   ./live_install.sh -n bigserver -s 8g -t GB -G -m c0t1d0 c0t0d0
   retro-desktop develop
 </code>
+
+<h2>If the disk is already in use by zfs</h2>
+
+<p>
+If the disk you're installing to already contains a zfs pool, then you
+will need to clear that first. From the live environment,</p>
+
+<pre>
+zpool import
+</pre>
+
+<p>will tell you if the disk contains a zfs pool and what its name is.
+Then import and destroy it by name, for example</p>
+
+<pre>
+zpool import oldpool
+zpool destroy oldpool
+</pre>
+
+<p>Following this, you should be able to install to that disk as normal.</p>
 <hr>
 <p><a href="./">Index</a>
  | <a href="2.versus.html">Previous Section</a>
