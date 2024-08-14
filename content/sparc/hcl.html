@@ -1,0 +1,70 @@
+<h1>&gt; illumos on SPARC</h1>
+
+<p>The following is a record of <a href="./">SPARC</a> systems that
+  are known to work, or known to not work, with illumos. Be aware that
+  there may be subtle differences in configuration or firmware that
+  may lead to alternate results.</p>
+
+<p>Working graphics cards are few and far between. There have been no
+  recent reports of successfully using the local graphics cards to run
+  an X session.</p>
+
+<p>A reasonable memory configuration is a minimum of 1G. While it's
+  possible to install Tribblix in 768M, that's the lower limit with
+  the current builds.</p>
+
+<p>Reports regarding success or otherwise on other models are
+  welcome, please let us know on the
+  <a href="https://illumos.topicbox.com/groups/sparc">mailing
+  list</a></p>
+
+<h2>Known to work</h2>
+
+<ul>
+  <li>T4-1, T4-2</li>
+  <li>T5240/T5140</li>
+  <li>T5120/T5220</li>
+  <li>T1000/T2000</li>
+  <li>SunBlade 2000</li>
+  <li>SunBlade 1500</li>
+  <li>SunBlade 150</li>
+  <li>SunFire V240</li>
+  <li>E450</li>
+  <li>Ultra 5</li>
+  <li>Ultra 2</li>
+  <li>Ultra 1 (not the 140MHz one, though)</li>
+</ul>
+
+<p>Note that using the IDE controllers on some of the newer
+  entry-level desktops can be problematic.</p>
+
+<p>On the sun4v systems, installation on either bare metal or inside
+  an LDOM is supported. There is as yet no support for running as a
+  control domain (ie, for hosting other LDOMs).</p>
+
+<h2>Should work, but don't</h2>
+
+<p>The following systems should be supported, but do not currently
+  work. There's a suspicion that gcc builds here are faulty, and old
+  Studio builds work.</p>
+  
+<ul>
+  <li>M-series (Olympus, M3000/M4000/M5000)</li>
+  <li>T5440 (if fully populated)</li>
+  <li>T4-4 (if fully populated)</li>
+  <li>T3-2 (if fully populated)</li>
+  <li>Ultra 25/45</li>
+</ul>
+
+<h2>Will not work</h2>
+
+<p>The following systems will not work, as there is no support in the
+  codebase for them.</p>
+
+<ul>
+  <li>32-bit systems (sun4m, sun4d, sun4c,...)</li>
+  <li>T5, T7, M7/M8</li>
+  <li>Enterprise servers (E3000/E3500-E6000/E6500)</li>
+  <li>StarFire/StarCat (E10K, F15K, F25K)</li>
+  <li>Telco (CT) systems</li>
+</ul>
