@@ -1,0 +1,49 @@
+<h1>&gt; Boot Customization</h1>
+
+<p>Normally, leaving the boot process alone is the safest way to proceed.
+There are a couple of potential tweaks that may be beneficial or, in
+some cases, necessary.</p>
+
+<h2>Reducing the loader timeout</h2>
+
+<p>By default, the boot loader will wait for 10 seconds at the boot menu
+just in case you need to modify the boot process. It's usually safe to
+reduce this in order to speed up the boot process.</p>
+
+<pre>
+bootadm set-menu timeout=3
+</pre>
+
+<p>The above command  reduces the wait to 3 seconds, which is a good
+compromise. You don't wait too long, but still have the opportunity to
+get into the loader setup if you need to.</p>
+
+<p>If you're using a headless system (where you have no access to the console)
+then it would be reasonable to reduce it all the way to 0.</p>
+
+<h2>Restricting the console device</h2>
+
+<p>The boot loader is designed to work on a wide range of systems, and
+it will accept input from all possible console devices. That includes
+the normal graphical display as well as serial devices.</p>
+
+<p>If you just have a normal graphical screen (for example, on a PC or
+workstation, and most servers), then you can tell the boot loader to only
+use the regular screen and directly attached keyboard. To do this, create
+a file called</p>
+
+<pre>
+/boot/conf.d/console
+</pre>
+
+and edit it so it contains the following
+
+<pre>
+console="text"
+</pre>
+
+<p>If you have other devices connected to the serial ports on your PC
+(for example, I have the serial port on my desktop wired through to the
+legacy serial console on a server) then preventing the boot loader from
+accessing the serial ports is necessary to stop anything connected to a
+serial port from interfering with the boot process.</p>
