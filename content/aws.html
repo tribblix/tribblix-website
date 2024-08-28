@@ -22,7 +22,16 @@ like the following:
 </p>
 
 <p>
-Specifically, the currently available and supported AMIs are:
+Specifically, the currently available and supported AMIs, which can be
+used for both Nitro and non-Nitro instances, are:
+</p>
+<ul>
+<li>Tribblix m35 - ami-01b06698db06cdb16</li>
+<li>OmniTribblix m35lx - ami-09cae0ad1eebc2b0e</li>
+</ul>
+
+<p>
+The previous release of supported AMIs are:
 </p>
 <ul>
 <li>Tribblix m33p1 - ami-03745614c82800523</li>
@@ -42,18 +51,12 @@ boot. Rebooting the instance from the AWS console ought to clear that.
 </p>
 
 <p>
-The images labelled (Nitro) support the new (t3, m5 etc.) instance types.
-They won't run on the older (t2, m4, etc.) instances.
-</p>
-
-<p>
-If running on a Nitro instance, you should definitely use the m33p1
-AMIs. They have an updated ena network driver with a lot of fixes.
-<b>Do not enable static networking on a Nitro instance using an
-older AMI (original m33, or earlier) as the system will crash and not
-come back.</b> 
-There isn't any difference between the Nitro and non-Nitro images other
-than which instance types they will boot on.
+For releases prior to m35, the images labelled (Nitro) support the new
+(t3, m5 etc.) instance types. They won't run on the older (t2, m4,
+etc.) instances. Likewise, the images without the (Nitro) label will
+only run on the older instance types. As of the m35 release, Nitro
+support has greatly stabilised and the same images can be used for
+either.
 </p>
 
 <p>
