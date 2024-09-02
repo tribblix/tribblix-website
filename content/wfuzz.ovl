@@ -1,3 +1,6 @@
+---
+title: wfuzz overlay
+---
 <h1>Overlay wfuzz - Wfuzz - The Web Fuzzer</h1>
 <p>Supplies Wfuzz - The Web Fuzzer. See also the @security overlay, which
 provides a wider selection of security-related tools.</p>

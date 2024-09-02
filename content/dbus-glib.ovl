@@ -1,3 +1,6 @@
+---
+title: dbus-glib overlay
+---
 <h1>Overlay dbus-glib - Common packages for dbus and glib</h1>
 <p>Supplies the dbus and GLib2 libraries.</p>
 <p>This overlay isn't meant for standalone use, but as a dependency

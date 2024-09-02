@@ -1,3 +1,6 @@
+---
+title: dmarc overlay
+---
 <h1>Overlay dmarc - DMARC analysis</h1>
 <p>Supplies the
 <a href="https://domainaware.github.io/checkdmarc/">checkdmarc</a>

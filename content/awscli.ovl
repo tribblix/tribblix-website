@@ -1,3 +1,6 @@
+---
+title: awscli overlay
+---
 <h1>Overlay awscli - AWS CLI utilities</h1>
 <p>Supplies the AWS CLI, and the associated Boto3, botocore, and s3client
 modules.</p>

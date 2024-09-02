@@ -1,3 +1,6 @@
+---
+title: desktop overlay
+---
 <h1>Overlay desktop - Standard Desktop</h1>
 <p>This supplies a reasonably functional desktop, based on @xfce with
 the @lightweight-desktop and @desktop-mail overlays on top.</p>

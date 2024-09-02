@@ -1,3 +1,6 @@
+---
+title: gstreamer1 overlay
+---
 <h1>Overlay gstreamer1 - GStreamer 1.0 and codecs</h1>
 <p>Supplies the <a href="https://gstreamer.freedesktop.org/">GStreamer</a>
 open source multimedia framework.</p>

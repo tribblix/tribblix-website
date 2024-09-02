@@ -1,3 +1,6 @@
+---
+title: illumos-build overlay
+---
 <h1>Overlay illumos-build - Illumos Build Environment</h1>
 <p>This is the overlay you need to install in order to build
 <a href="https://github.com/illumos/illumos-gate">illumos-gate</a>

@@ -1,3 +1,6 @@
+---
+title: gtk2 overlay
+---
 <h1>Overlay gtk2 - GTK2</h1>
 <p>Supplies the graphical toolkit <a href="https://www.gtk.org/">GTK</a>,
 version 2.</p>

@@ -1,3 +1,6 @@
+---
+title: patroni overlay
+---
 <h1>Overlay patroni - Patroni</h1>
 <p>Supplies <a href="https://patroni.readthedocs.io/en/latest/">Patroni</a>,
 allowing you to build a high availability (HA) PostgreSQL solution on

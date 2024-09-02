@@ -11,6 +11,9 @@
 cd content || exit 1
 
 cat <<EOF
+---
+title: Software Overlays
+---
 <h1>&gt; Software overlays</h1>
 
 <p>
@@ -41,8 +44,13 @@ do
     # regenerate the h1 header to match the actual Overlay metadata
     #
     if [ -f "${ovl}.ovl" ]; then
-	echo "<h1>Overlay $ovl - $ONAME</h1>" > "tmp-${ovl}.body"
-	grep -v '<h1>' "${ovl}.ovl" >> "tmp-${ovl}.body"
+	cat > "tmp-${ovl}.body" <<_EOF
+---
+title: $ovl overlay
+---
+_EOF
+	echo "<h1>Overlay $ovl - $ONAME</h1>" >> "tmp-${ovl}.body"
+	grep -v -e '<h1>' -e '^---' -e '^title:' "${ovl}.ovl" >> "tmp-${ovl}.body"
 	mv "tmp-${ovl}.body" "${ovl}.ovl"
 	echo "<li><a href=\"overlay-${ovl}.html\">${ovl}</a> - ${ONAME}${isostat}</li>"
     else

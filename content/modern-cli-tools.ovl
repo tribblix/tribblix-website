@@ -1,3 +1,6 @@
+---
+title: modern-cli-tools overlay
+---
 <h1>Overlay modern-cli-tools - Modern CLI tools</h1>
 <p>Supplies a selection of the more modern CLI utilities, such as bat,
 eza, fd, fx, fzf, hexyl, htop, age, s-nail, and diff-so-fancy.</p>

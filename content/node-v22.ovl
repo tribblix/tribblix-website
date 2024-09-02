@@ -1,3 +1,6 @@
+---
+title: node-v22 overlay
+---
 <h1>Overlay node-v22 - Node.js, v22</h1>
 <p>Supplies <a href="https://nodejs.org/">Node.js</a>, version
 22 (aka the Current release, and will be the next LTS).</p>

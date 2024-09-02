@@ -1,3 +1,6 @@
+---
+title: java-desktop overlay
+---
 <h1>Overlay java-desktop - Desktop Utilities requiring Java</h1>
 <p>Supplies a few desktop utilities written in java.</p>
 <p>This is <b>not</b> the old Java Desktop System (JDS) from Solaris.</p>

@@ -1,3 +1,6 @@
+---
+title: jupyter overlay
+---
 <h1>Overlay jupyter - JupyterLab and the Jupyter Notebook</h1>
 <p>Supplies <a href="https://jupyter.org/">Jupyter</a>, both the newer
 JupyterLab and the classic Jupyter Notebook interfaces.</p>

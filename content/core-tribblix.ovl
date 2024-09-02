@@ -1,3 +1,6 @@
+---
+title: core-tribblix overlay
+---
 <h1>Overlay core-tribblix - Core Tribblix Software</h1>
 <p>Provides the basic core of the operating system and applications.</p>
 <p>This is the common component of the installation images, which then

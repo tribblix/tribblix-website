@@ -1,3 +1,6 @@
+---
+title: kitchen-sink overlay
+---
 <h1>Overlay kitchen-sink - Everything but the kitchen sink</h1>
 <p>If you want everything that comes on the main ISO image, install the
 kitchen-sink.</p>

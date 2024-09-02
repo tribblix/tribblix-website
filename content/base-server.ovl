@@ -1,3 +1,6 @@
+---
+title: base-server overlay
+---
 <h1>Overlay base-server - Base packages, for server hardware</h1>
 <p>This is the set of packages that live in the live image as shipped
 on the downloadable ISO. It's designed just for that, and would normally

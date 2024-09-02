@@ -1,3 +1,6 @@
+---
+title: go overlay
+---
 <h1>Overlay go - The GO programming language</h1>
 <p>Supplies the <a href="https://go.dev/">go</a> programming language. Note
 that you need this to build programs written in go, but it's not needed to

@@ -1,3 +1,6 @@
+---
+title: perl-developer overlay
+---
 <h1>Overlay perl-developer - Perl oriented developer tools</h1>
 <p>Supplies a number of utilities and modules helpful for the perl
 developer, including <a href="http://perlcritic.com/">perlcritic</a>,

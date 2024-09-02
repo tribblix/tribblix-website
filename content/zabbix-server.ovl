@@ -1,3 +1,6 @@
+---
+title: zabbix-server overlay
+---
 <h1>Overlay zabbix-server - Zabbix server</h1>
 <p>Supplies the <a href="https://www.zabbix.com/">Zabbix</a> monitoring
 server.</p>

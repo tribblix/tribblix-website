@@ -1,3 +1,6 @@
+---
+title: rsyslog overlay
+---
 <h1>Overlay rsyslog - RSYSLOG</h1>
 <p>Supplies <a href="https://www.rsyslog.com/">rsyslog</a>, a more flexible
 alternative to the built-in illumos syslog.</p>

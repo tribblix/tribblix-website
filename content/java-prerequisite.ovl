@@ -1,3 +1,6 @@
+---
+title: java-prerequisite overlay
+---
 <h1>Overlay java-prerequisite - Java Prerequisites</h1>
 <p>This overlay supplies the basic libraries needed by any version of
 @java. It's not really useful on its own.</p>
