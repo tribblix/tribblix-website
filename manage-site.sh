@@ -49,7 +49,7 @@ case $1 in
 	;;
     check)
 	shift
-	$NANOC check "$@"
+	$NANOC check css ilinks stale mixed_content
 	;;
     spell)
 	shift
