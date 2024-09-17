@@ -75,7 +75,7 @@ with:</p>
 <pre>
 ls /export/spreadsheets/.zfs
 </pre>
-then you should see two directories - <code>shares</code> and
+<p>then you should see two directories - <code>shares</code> and
 <code>snapshot</code>. And then if you look inside the snaphost directory:</p>
 <pre>
 ls /export/spreadsheets/.zfs/snapshot
@@ -99,4 +99,4 @@ volume if you're using bhyve.</p>
 create a new dataset if it doesn't exist, and allocate it to the zone, so
 that the zone's administrator can manage it. (If you simply share a directory
 using <code>-s</code> or <code>-S</code>, the zone can use the data but
-can't manage the underlying ZFS file system.)
+can't manage the underlying ZFS file system.)</p>

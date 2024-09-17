@@ -15,12 +15,10 @@ another host.</p>
 
 <p>The following information is required to complete the configuration</p>
 
-<p>
-    <ul>
-        <li>An LDAP proxy bind account DN and password</li>
-        <li>The FQDNs of your LDAP servers</li>
-    </ul>
-</p>
+<ul>
+<li>An LDAP proxy bind account DN and password</li>
+<li>The FQDNs of your LDAP servers</li>
+</ul>
 
 <h2>Step One - stabilise the network</h2>
 
@@ -32,8 +30,8 @@ the process to ensure everything is clean.</p>
 
 <h2>Install the required packages</h2>
 
-Installing the <code>networked-system</code> overlay will catch everything
-you need. Otherwise, try <code>TRIBsys-net-nis</code> and <code>TRIBnaming-ldap</code>.
+<p>Installing the <code>networked-system</code> overlay will catch everything
+you need. Otherwise, try <code>TRIBsys-net-nis</code> and <code>TRIBnaming-ldap</code>.</p>
 
 
 <h2>Home Directories and Shells</h2>
@@ -45,7 +43,7 @@ by default on Tribblix.</p>
 <p>If your home directories are set to <code>/home/username</code> and you
 are not using an automounted configuration, edit <code>/etc/auto_master</code> and
 <code>/etc/auto_home</code> and comment out the configuration. Then restart the
-automounter with <code>svcadm restart autofs</code>.
+automounter with <code>svcadm restart autofs</code>.</p>
 
 <p>Check your LDAP accounts for their login shells and make sure those
 shells are installed and in the location defined in the LDAP attribute.
@@ -96,33 +94,35 @@ that the LDAP service only needs to be applied to the <code>passwd:</code> and
 <code>/etc/nsswitch.dns></code> back over <code>/etc/nsswitch.conf</code> and manually adding the
 <code>ldap</code> option to <code>passwd:</code> and <code>group:</code>.</p>
 
-<p>Verify that the <code>dns/client</code> service is still enabled at the end of
-the LDAP script run.</p>
+<p>Verify that the <code>dns/client</code> service is still enabled at the end
+of the LDAP script run.</p>
 
 <h2>Testing</h2>
 
 <p>At this point, you should be able to test LDAP with
-<code>getent passwd</code> and <code>getent group</code>. If you don't see users and
+<code>getent passwd</code> and <code>getent group</code>.
+If you don't see users and
 groups, modify the script and run it again until you have this working.</p>
 
 <h2>Configure PAM</h2>
 
-<p>In the <code>/etc/pam.conf</code> file, edit every line that reads:
-<br><pre>
+<p>In the <code>/etc/pam.conf</code> file, edit every line that reads:</p>
+<br>
+<pre>
 auth required pam_unix_auth.so.1
-</pre><br>
+</pre>
+<br>
 
-and change it to
+<p>and change it to</p>
 
 <br>
 <pre>
 auth binding pam_unix_auth.so.1 server_policy
 auth required pam_ldap.so.1
 </pre>
-</br>
-</p>
+<br>
 
-<p>For example, if we start with:
+<p>For example, if we start with:</p>
 <br>
 <pre>
 other   auth requisite          pam_authtok_get.so.1
@@ -132,7 +132,7 @@ other   auth required           pam_unix_auth.so.1
 </pre>
 <br>
 
-It should now look like:
+<p>It should now look like:</p>
 <br>
 <pre>
 other   auth requisite          pam_authtok_get.so.1
@@ -141,14 +141,13 @@ other   auth required           pam_unix_cred.so.1
 other   auth binding            pam_unix_auth.so.1 server_policy
 other   auth required           pam_ldap.so.1
 </pre>
-</br>
-</p>
+<br>
 
 <h2>Configuring SSH including key-based login from LDAP</h2>
 
 <p>Tribblix doesn't ship with a default script to read ssh
 keys from LDAP, so create a script to do this. In this example,
-the script is located at <code>/opt/scripts/pubkey.sh</code>.
+the script is located at <code>/opt/scripts/pubkey.sh</code>.</p>
 
 <br>
 <pre>
@@ -157,9 +156,9 @@ ldaplist -l passwd $1 | grep sshPublicKey:  | awk '{print $2" "$3" "$4}'
 </pre>
 <br>
 
-<p>Don't forget to <code>chmod +x /opt/scripts/pubkey.sh</code>.
+<p>Don't forget to <code>chmod +x /opt/scripts/pubkey.sh</code>.</p>
 
-<p>Add the following lines to the bottom of
+<p>Add the following lines to the bottom of</p>
 <code>/etc/ssh/sshd_config</code>
 <br>
 <pre>
@@ -170,7 +169,7 @@ AuthorizedKeysCommandUser daemon
 
 <p>If you would like LDAP users to be able to connect by ssh using
 a password rather than keys, ensure the <code>UsePAM yes</code> option
-is set in <code>/etc/ssh/sshd_config</code>.
+is set in <code>/etc/ssh/sshd_config</code>.</p>
 
 <p>Restart ssh with <code>svcadm restart ssh</code>.</p>
 
