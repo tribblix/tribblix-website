@@ -22,7 +22,7 @@ need to install libsqlitejdbc:</p>
 zap install TRIBlibsqlitejdbc
 </pre>
 
-<h2>Reposilite/h2>
+<h2>Reposilite</h2>
 
 <p>If you want to use the <a href="https://reposilite.com/">Reposilite</a>
 repository manager then, in addition to installing java, you'll
