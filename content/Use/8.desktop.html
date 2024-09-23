@@ -22,6 +22,14 @@ that point to the working device.</p>
 use the non-default audio device, set the environment variable
 <code>AUDIODEV</code> to the working dsp device, eg <code>/dev/dsp1</code>.</p>
 
+<p>If you're running MATE, then there's a volume control, and some audio
+applications have their own volume controls. For anything else you can
+adjust the volume from the command line:</p>
+<pre>
+/usr/bin/audioctl set-control volume 50
+</pre>
+<p>where the volume is between 0 (muted) and 100 (full volume).</p>
+
 <h2>GStreamer</h2>
 
 <p>If you see warnings or errors about GStreamer being unable to load
