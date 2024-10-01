@@ -22,7 +22,7 @@ if [ ! -d "${THOME}/overlays" ]; then
 fi
 
 usage() {
-    echo "Usage: $0 update|view|spell"
+    echo "Usage: $0 update|view|check|spell"
     exit 1
 }
 
