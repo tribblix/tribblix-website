@@ -108,7 +108,7 @@ m30 -      -          15.84M static 2023-05-03 21:00
 m31 NR     /          25.30G static 2023-07-10 15:17
 </pre>
 
-<p>Here I have 3 boot environments. The current one is
+<p>Here I have 2 boot environments. The current one is
   called <code>m31</code> - the <code>NR</code> in the Active column
   shows that it's being used now ("N") and will be used if the system
   reboots ("R"). I also have an older boot

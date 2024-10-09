@@ -51,7 +51,8 @@
 
 <p>Tribblix ships 2 variants for 64-bit x86 hardware. The vanilla variant is
   built on essentially unmodified illumos. The omnitribblix variant is built on
-  the same foundation as OmniOS, so gains features such as LX
-  zones. Both Tribblix variants share the same application packages.</p>
+  the same foundation as OmniOS, so gains features such as
+  <a href="6.zones_lx.html">LX zones</a>. Both Tribblix variants share the
+  same application packages.</p>
 
 <p>Tribblix also supports a limited range of SPARC hardware.</p>
