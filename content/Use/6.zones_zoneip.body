@@ -1,0 +1,75 @@
+<h1>&gt; Zone IP address changes</h1>
+
+<p>If the network configuration of a host changes, then you may have to
+change the IP addresses of your zones. For example, I changed my broadband
+provider at home, and the old ISP router used the 192.168.0 network, while
+the new router used the 192.168.1 network.</p>
+
+<p>In this case, if you're using DHCP (explicitly or automatically via NWAM
+which is the default) the change will be picked up automatically. But the
+zone configuration will have the old IP addresses embedded and those need to
+be updated.</p>
+
+<p>The examples below are appropriate for a network change from 192.168.0
+to 192.168.1.</p>
+
+<h2>Shared-ip zones</h2>
+
+<p>For a shared-ip zone, you just need to change the address for each zone.
+Having found the old address (via <code>ifconfig</code> for example, run the
+command</p>
+<pre>
+zonecfg -z illumos-build
+</pre>
+<p>and then update the address</p>
+<pre>
+select net address=192.168.0.211/24
+set address=192.168.1.211/24
+end
+verify
+commit
+exit
+</pre>
+<p>Then you'll need to get the zone to use the new address by rebooting it:</p>
+<pre>
+zoneadm -z illumos-build reboot
+</pre>
+
+<h2>Exclusive-ip zones</h2>
+
+<p>For an exclusive-ip zone (and all LX or bhyve zones will be exclusive-ip)
+the parameters in the zone configuration are slightly different, you need
+to identify the name of the virtual interface (vnic) that's in use. Then run
+the command</p>
+<pre>
+zonecfg -z alpine1
+</pre>
+<p>and then update the address</p>
+<pre>
+select net physical=znic0
+set allowed-address=192.168.1.239/24
+set defrouter=192.168.1.1
+end
+verify
+commit
+exit
+</pre>
+<p>Then you'll need to get the zone to use the new address by rebooting it:</p>
+<pre>
+zoneadm -z alpine1 reboot
+</pre>
+
+<p>You may then need to get whatever's inside the zone to pick up the changes,
+if it's been statically configured.
+For example, with an LX zone running alpine you'll need to log in to the
+console via VNC and run setup-interfaces.</p>
+
+<h2>All zones</h2>
+
+<p>There's one additional step needed for all zones, as zap saves the
+network configuration for its own use. This can be fixed by updating the
+relevant <code>zconfig</code> files stored in <code>/var/zap/zones</code>:</p>
+<pre>
+cd /var/zap/zones
+sed -i s:192.168.0:192.168.1: zconfig.*
+</pre>

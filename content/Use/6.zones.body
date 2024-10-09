@@ -126,6 +126,23 @@
   image from distribution media, pkgadd the required packages to an
   alternate root with <code>-R</code>, and tar that image up.)</p>
 
+<h3>Dedicated or shared networks</h3>
+
+<p>Zones can use the host network, by creating an additional IP
+  address (called a <code>shared-ip</code> configuration), which is
+  configured using the <code>-i</code> flag.</p>
+
+<p>Alternatively, a dedicated network interface can be assigned to a
+  zone (called an <code>exclusive-ip</code> configuration), which is
+  configured using the <code>-x</code> flag.</p>
+
+<p>For bhyve and LX zones, you have to use <code>exclusive-ip</code>. Other
+  zones types can use either; often a <code>shared-ip</code> is much
+  simpler.</p>
+
+<p>There are some special steps needed if you need to
+  <a href="6.zones_zoneip.html">change a zone's IP address</a>.</p>
+
 <h2>Creating zones</h2>
 
 <p>Zones are created using the create-zone subcommand to zap. In the
