@@ -28,7 +28,7 @@ EOF
 
 THOME=${THOME:-/packages/localsrc/Tribblix}
 
-for file in ${THOME}/overlays/*.ovl
+for file in "${THOME}"/overlays/*.ovl
 do
     ovl=${file%.ovl}
     ovl=${ovl##*/}
