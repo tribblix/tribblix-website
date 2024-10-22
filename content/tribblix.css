@@ -1,6 +1,6 @@
 body {
 font-family: sans-serif;
-background-color: #ffeebb;
+background-color: #ffeecc;
 color: #004400;
 }
 a:visited {
@@ -24,7 +24,7 @@ table#banner {
     text-align: center;
 }
 table#banner td:hover {
-    background-color: #eeddaa;
+    background-color: #eeddbb;
 }
 img.banner {
     display: block;
