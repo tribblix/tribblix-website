@@ -26,7 +26,7 @@ special type of sparse-root zone that you should leave alone.)</p>
 types of zones are tied to the version running in the global zone, which is a
 problem.</p>
 
-<p>Any LX, alien, or S10 zones don't need to be touched; they will be
+<p>Any bhyve, LX, alien, or S10 zones don't need to be touched; they will be
 retained through the upgrade and should function as normal afterwards.</p>
 
 <p>Other types of zone will be disabled by the upgrade process. This is for
