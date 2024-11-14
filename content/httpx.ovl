@@ -1,0 +1,10 @@
+---
+title: httpx overlay
+---
+<h1>Overlay httpx - httpx</h1>
+<p>Supplies <a href="https://www.python-httpx.org/">HTTPX<a/>, a fully
+featured HTTP client for Python 3, which provides sync and async APIs,
+and support for both HTTP/1.1 and HTTP/2.</p>
+
+<p>While it can be used standalone, httpx is also used as a library by
+a number of other components.</p>
