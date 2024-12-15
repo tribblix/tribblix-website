@@ -5,8 +5,7 @@ title: python312 overlay
 <p>Supplies version 3.12 of the <a href="https://www.python.org/">Python</a>
 programming language.</p>
 
-<p>Currently, @python311 is the default Python, but the next Tribblix
-release will update from 3.11 to 3.12.</p>
+<p>This is the default version of Python in Tribblix.</p>
 
 <p>You may also be interested in @ipython for enhanced interactive use.</p>
 
