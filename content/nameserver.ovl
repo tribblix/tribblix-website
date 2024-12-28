@@ -1,0 +1,5 @@
+---
+title: nameserver overlay
+---
+<h1>Overlay nameserver - BIND name server</h1>
+<p>Supplies the <a href="https://www.isc.org/bind/">BIND</a> nameserver.</p>
