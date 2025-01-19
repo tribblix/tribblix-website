@@ -1,0 +1,8 @@
+---
+title: python-developer overlay
+---
+<h1>Overlay python-developer - Software needed to build and package python modules</h1>
+<p>Provides the packages necessary to build packages for python modules.</p>
+
+<p>Note that this is aimed at building the Tribblix packages, not at
+general purpose python module build and installation.</p>
