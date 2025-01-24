@@ -4,3 +4,5 @@ title: dask overlay
 <h1>Overlay dask - Dask parallel computing library</h1>
 <p>Supplies the <a href="https://www.dask.org/">Dask</a> framework
 for parallel computing with Python.</p>
+<p>This overlay includes all the modules necessary for the dask extras
+[complete], [array], [dataframe], [diagnostics], and [distributed].</p>
