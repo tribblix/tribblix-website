@@ -3,3 +3,22 @@ title: retro-desktop-games overlay
 ---
 <h1>Overlay retro-desktop-games - Desktop Games</h1>
 <p>Supplies a varied selection of games for the desktop.</p>
+<p>Some of the available games are:</p>
+<dl>
+<dt><a href="https://www.openttd.org/">OpenTTD</a></dt>
+<dd>OpenTTD is an open source simulation game based upon Transport Tycoon Delux</dd>
+<dt><a href="https://www.freeciv.org/">Freeciv</a></dt>
+<dd>Freeciv is a Free and Open Source empire-building strategy game inspired by the history of human civilization.</dd>
+<dt><a href="https://pio.sourceforge.net/">Pioneers - The Settlers of Catan</a></dt>
+<dd>Pioneers, a game based on "The Settlers of Catan" by Klaus Teuber</dd>
+<dt><a href="https://ri-li.sourceforge.net/">Ri-Li</a></dt>
+<dd>A simple arcade game in which you drive a wooden train and collect coaches.</dd>
+<dt><a href="https://sourceforge.net/projects/lincity/">Lincity</a></dt>
+<dd>Lincity is a city simulation game.</dd>
+<dt><a href="https://www.simutrans.com/en/">Simutrans</a></dt>
+<dd>Simutrans is a free and open-source transportation simulator.</dd>
+<dt><a href="https://www.luanti.org/">Luanti</a></dt>
+<dd>Not a game itself, but a platform for a range of block-based building and adventure games.</dd>
+<dt>Tali, Tetravex, Atomix</dt>
+<dd>These are part of the GNOME games collection.</dd>
+</dl>
