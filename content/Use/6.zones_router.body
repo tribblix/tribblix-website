@@ -34,7 +34,7 @@ subnet and the router zone will route the traffic for it.</p>
 <pre>
 zap create-zone -t bhyve -z bhyve10 \
   -x 10.10.10.10  \
-  -I /var/tmp/tribblix-0m35.iso \
+  -I /var/tmp/tribblix-0m36.iso \
   -V 8G
 </pre>
 <p>Will connect the new zone to the subnet. The dhcp server on the router
