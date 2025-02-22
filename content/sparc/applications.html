@@ -1,0 +1,69 @@
+<h1>&gt; applications on SPARC</h1>
+
+<p>I though it worthwhile to put together some notes on the current
+  problems pertaining to the state of applications on SPARC,
+  specifically illumos. These are generic across illumos distributions
+  although informed by my experience maintaining applications on
+  Tribblix.</p>
+
+<p>(On Tribblix, the aim generally is that if I can build an
+  application easily on SPARC then it will be packaged, and at the
+  same version as on x86 if I can. The aim is to avoid unnecessary
+  divergence and make it easier to fill gaps later.)</p>
+
+<h2>Desktop</h2>
+
+<p>Quite a lot of desktop applications work on SPARC. On Tribblix,
+  I've ignored enlightenment and Qt as environments, and don't build
+  Pale Moon or LibreOffice. But all the old window managers work, as
+  do the base desktops like Xfce and MATE.</p>
+
+<p>Actually using a desktop is trickier, as running an X server
+  locally is problematic due to issues around drivers for graphics
+  cards. But pointing a working X server to an xdm session on the
+  SPARC system works pretty well.</p>
+
+<h2>Go</h2>
+
+<p>There is no go port for SPARC. This largely removes the entire
+  ecosystem of modern go applications at a stroke.</p>
+
+<p>Yes, there's gccgo. That is really quite old (in terms of go
+  versions, it's always behind), and is just the compiler not the
+  entire ecosystem.</p>
+
+<h2>Node</h2>
+
+<p>There's no port of Node.JS to SPARC, largely because there's no
+  port of the V8 javascript runtime on which it's based.</p>
+
+<h2>Java</h2>
+
+<p>Support for SPARC was removed from OpenJDK upstream at the same
+  time support for Solaris was removed. At the present time, I have
+  builds of JDK17 for SPARC on both illumos and Solaris 11.4 available
+  <a href="https://pkgs.tribblix.org/openjdk/">for download</a>. This
+  is good enough to run the Jenkins agent. The port has reached JDK18
+  and early builds of JDK19; whether it will go much further (because
+  of virtual threads) remains to be seen.</p>
+
+<h2>Rust</h2>
+
+<p>Currently we don't have rust. Making it work doesn't seem to be an
+  insurmountable problem, as it is available as a cross-compile target
+  and Solaris 11 has it. Apart from the direct impact of blocking
+  applications written in Rust, there's also a number of Python
+  modules that can't be build because they use Rust, or depend on some
+  other module that needs Rust.</p>
+
+<h2>Python</h2>
+
+<p>By and large, Python works. There are issues with module
+  availability due to the Rust requirement, and some Python scripts
+  seem to run abnormally slowly on SPARC.</p>
+
+<h2>Haskell</h2>
+
+<p>I don't currently have Haskell (ghc) available on SPARC. I do have
+  an older bootstrap so it may be possible to get something more
+  current working.</p>
