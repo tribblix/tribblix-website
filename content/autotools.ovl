@@ -1,0 +1,9 @@
+---
+title: autotools overlay
+---
+<h1>Overlay autotools - The GNU autotools</h1>
+<p>Supplies the autotools, for software development.</p>
+
+<p>You usually don't need this to build 3rd-party software, and having
+it installed (especially libtool) causes problems for some applications,
+which is why it's separated out from the @develop overlay.</p>

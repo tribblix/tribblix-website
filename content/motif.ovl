@@ -1,0 +1,8 @@
+---
+title: motif overlay
+---
+<h1>Overlay motif - Motif toolkit</h1>
+<p>The <a href="https://sourceforge.net/projects/motif/">Motif</a>
+graphical toolkit was once the unix standard. It comes with the basic
+mwm window manager, here the enhanced
+<a href="http://fastestcode.org/emwm.html">emwm</a> is also supplied.</p>

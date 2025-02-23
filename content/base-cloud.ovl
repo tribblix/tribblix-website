@@ -1,0 +1,8 @@
+---
+title: base-cloud overlay
+---
+<h1>Overlay base-cloud - Base packages, for cloud/virtual</h1>
+<p>This is the set of packages that live in the base cloud images. It provides
+only the minimal set of drivers that cloud instances need to support.
+It's designed just for that, and would normally
+be extended to at least the @base overlay.</p>

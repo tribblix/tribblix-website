@@ -1,0 +1,15 @@
+---
+title: tribblix-tools overlay
+---
+<h1>Overlay tribblix-tools - Tribblix stats and monitoring</h1>
+<p>Supplies the java tools I've written for illumos.</p>
+<ul>
+<li><a href="https://github.com/ptribble/illuminate">illuminate, a graphical
+system information viewer</a></li>
+<li><a href="https://github.com/ptribble/jkstat">JKstat, browse and query
+the system's kstats</a></li>
+<li><a href="https://github.com/ptribble/jproc">JProc, a process information
+viewer</a></li>
+<li><a href="https://github.com/ptribble/jangle">jangle, a java SNMP
+client</a></li>
+</ul>

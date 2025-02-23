@@ -1,0 +1,6 @@
+<p>Supplies a range of useful command-line utilities for working at
+the terminal.</p>
+
+<p>If you're going to be working mostly at the command line, then you
+probably want this. You may also be interested in the @modern-cli-tools
+overlay.</p>
