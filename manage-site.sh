@@ -38,6 +38,8 @@ esac
 # and external_links fetches the content of every link, which
 # includes the iso images
 #
+# ilinks check disabled as the Manual is external and thus fails
+#
 case $1 in
     update)
 	./mk-overlays.sh > content/overlays.html
@@ -49,7 +51,7 @@ case $1 in
 	;;
     check)
 	shift
-	$NANOC check css ilinks stale mixed_content
+	$NANOC check css stale mixed_content
 	;;
     spell)
 	shift
