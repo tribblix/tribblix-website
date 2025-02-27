@@ -6,13 +6,14 @@ color: #004400;
 a:visited {
     color: #993399;
 }
-h1 {
+h1, h2, h3, h4 {
     font-family: sans-serif;
     color: #004400;
 }
-h2 {
-    font-family: sans-serif;
-    color: #004400;
+.manpage {
+    white-space: pre;
+    font-family: monospace;
+    font-size: 14px;
 }
 table#banner {
     font-family: sans-serif;
