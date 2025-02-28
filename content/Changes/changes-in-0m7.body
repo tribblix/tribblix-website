@@ -1,0 +1,57 @@
+Update Python to 2.7.5
+
+Update gdk-pixbuf, atk, glib
+
+Repackage libcroco, libnotify, goffice, gnumeric, evince, libnice,
+farstream, gstreamer
+
+Update gimp to 2.8.6
+
+Don't copy the save/pspool area into zones
+
+Add rsync
+
+Update Ant to 1.9.1, include ivy, jsch, and svnant
+
+Update cmake to 2.8.11
+
+Add Ruby
+
+New develop-extras overlay, with additional developer tools served from
+the repo; package jruby, scala, clojure
+
+Update pidgin to 2.10.7
+
+Add irssi
+
+Add nmap
+
+Update parole to 0.5.1
+
+Update BIND to 9.9.3-P1
+
+Update wireshark to 1.10.0
+
+Update curl to 7.31.0
+
+Update gawk to 4.1.0
+
+Perl 5.18.0 (not yet as the default perl)
+
+Add xplanet
+
+Update cups to 1.6.2
+
+E17 update - EFL 1.7.7, enlightenment 0.17.3
+
+Add tomcat6 and tomcat7 overlays
+
+Update illumos
+
+Zone brand scripts cleaned up
+
+Firefox 22
+
+Support install to ufs
+
+Fix installation logging

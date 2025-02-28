@@ -1,0 +1,49 @@
+Update version to 0.4
+
+Add openbox to retro-desktop
+
+Add gimp overlay
+
+Update and rebuild poppler
+
+Add inkscape overlay (not on the iso)
+
+Update firefox to 19.0
+
+Update bash, tcsh, zsh
+
+Add gdb to the develop overlay
+
+Add monitoring overlay - rrdtool, fping, mtr, tcpdump, libpcap, wireshark
+
+Add tls overlay to rationalize dependencies
+
+Add libglade
+
+Add xscreensaver
+
+Added nss and nspr headers to the develop overlay
+
+Update gstreamer
+
+Add pidgin and dependencies
+
+Updated curl to 7.29.0; add libidn
+
+Add evince
+
+Update orage to 4.8.4
+
+Add xfce datetime plugin
+
+Add cups
+
+Include more headers
+
+Include more fonts
+
+Add openjdk 7u14
+
+Add jkstat/kar/jproc/solview and dependencies
+
+Add kitchen-sink overlay to save typing

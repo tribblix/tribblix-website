@@ -1,0 +1,38 @@
+Update version to 0.2
+
+Update zip to 3.0; unzip to 6.0
+
+Added xfce-screenshooter
+
+Added leafpad
+
+Added xfce-extras overlay, which adds some Xfce applications with
+additional dependencies
+
+Add nge, ixgbe driver to base
+
+Remove ce driver (Illumos doesn't have it)
+
+ON based on a direct Illumos build, not proxied via OI
+
+Fix generation of the man (text/doctools) package; added it to base
+
+Added server-manage overlay
+
+Fix .bashrc and .profile for root and jack
+
+Further tidy the ISO.
+
+Editable files are marked as such
+
+Add rdesktop, less, ghostscript, imagemagick
+
+Update glib2, pixman, gdk-pixbuf
+
+Update firefox to 17.0
+
+Add an overlay for MIT Scratch
+
+Rebuilt pekwm, awm
+
+Added git

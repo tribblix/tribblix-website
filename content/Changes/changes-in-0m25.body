@@ -1,0 +1,107 @@
+The ksh93 shell is now in a separate package
+
+Default libpng is now libpng16
+
+Add overlays for base python versions
+
+Update gtar to 1.34
+
+Update Python to 3.7.10, 3.8.8, 3.9.2
+
+Drop python 3.8 modules (keep bare python)
+
+Update tig to 2.5.2
+
+Update Node.JS to v10.24.1, v12.22.1, v14.16.1
+
+Update meson to 0.57.1
+
+Update openssl to 1.1.1k
+
+Update git to 2.30.2
+
+Add xrdp 0.9.15
+
+Add FlameGraph package
+
+Update mousepad to 0.5.3
+
+Update Pale Moon to 29.1.1
+
+Update NumPy to 1.20.1
+
+Update PHP to 7.4.16
+
+Add lz4 1.9.3
+
+Add zstd 1.4.9
+
+Add VisualVM 2.0.6
+
+Update JRuby to 9.2.16.0
+
+Ruby 2.7 is now the default
+
+Update Go to 1.15.10, 1.16.2
+
+Update tomcat to 8.5.64, 9.0.44, 10.0.4
+
+Update NetBeans to 12.3
+
+Add a hetty package
+
+Add a teler package
+
+Update librsvg to 2.40.21
+
+Update PMD to 6.32.0
+
+Update spotbugs to 4.2.2
+
+Update Shibboleth SP to 3.2.1
+
+Update xkbcomp to 1.4.5
+
+Update bind to 9.11.29
+
+Libreoffice 6.4.7.2
+
+Update sqlmap to 1.5
+
+Update gdk-pixbuf to 2.36.12
+
+Update fftw to 3.3.9, and enable fftw3f
+
+Update glibmm to 2.56.1
+
+Update cairomm to 1.12.2
+
+Update pangomm to 2.40.2
+
+Update atkmm to 2.24.3
+
+Add gtkmm 3.22.3
+
+Add gtksourceviewmm 3.21.3
+
+Add aspell 0.60.8
+
+Add libgit2 1.1.0
+
+Update scala to 2.13.5
+
+Update Kotlin to 1.4.31
+
+Update curl to 7.76.0
+
+Update minio client and server
+
+Add metadata agent for Digital Ocean
+
+Update awscli to 1.19.44
+
+Update libXres to 1.2.1
+
+Update libXaw to 1.0.14
+
+Update libICE to 1.0.10

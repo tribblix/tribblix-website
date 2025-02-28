@@ -1,0 +1,87 @@
+Zone templates: sparse root zones using an alternate file system to the
+global zone.
+
+Python3 update to 3.4.1
+
+Python2 update to 2.7.8; syminks fixed; location just tied to 2.7
+
+Rebuild gcc to fix visibility problems
+
+Rebuilds with gcc4 and against updated libffi: glib2 dbus-glib
+libnotify libwnck librsvg gtk pango atk libnice libsoup gdk-pixbuf
+gtkspell goffice gnumeric emacs libsigcpp glibmm cairomm pangomm atkmm
+gtkmm
+
+Update poppler to 0.26.4
+
+Update gimp to 2.8.14
+
+Update node to v0.10.32
+
+Add Anti-Grain Geometry
+
+Add lynx
+
+Add mutt
+
+Add libmng
+
+Fix jack cleanup in zones (missed user_attr)
+
+Add xboing (try with -speed 1)
+
+Add xgalaga
+
+Update inkscape
+
+Update tomcat8
+
+Add qemu
+
+Zap create-zone -U for sharing accounts with a zone
+
+Update bash
+
+SVR4 packaging no longer depends on openssl or wanboot
+
+JDK updates
+
+Shortcut for zap to update or verify all installed overlays
+
+Fix and update ProjectLibre
+
+Update firefox (31.2.0esr)
+
+Update thunderbird (24.8.1)
+
+Add thunderbird 31
+
+Update curl to 7.38.0
+
+Update openjpeg
+
+Update zsh
+
+Add rcs
+
+Update gnu grep, m4, tar, coreutils, gdb, gawk, nano
+
+Add ISC dhcpd
+
+Simple zap search
+
+Update mercurial
+
+Update samba to 4.1.12
+
+Updata groovy, jruby, scala
+
+Update rsync
+
+Package catalogs have sizes and checksums
+
+Update xscreensaver
+
+OpenSSL 1.0.1j
+
+Remove /usr/bin/on

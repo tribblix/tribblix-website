@@ -1,0 +1,400 @@
+Update josm to 14760
+
+Update curl to 7.62.0
+
+Add libusb 1.0.22
+
+Update apache httpd to 2.4.38
+
+Add FOX toolkit 1.6.57
+
+Add openjdk 8u181
+
+Add openjdk 8u191
+
+Add openjdk 8u201
+
+Add openjdk 7u191
+
+Update php to 7.2.16
+
+Remove php 5.6 as it's no longer supported
+
+Update wine to 3.0.2
+
+Update elk stack to 5.6.14
+
+Update node to v10.15.0, v8.15.1, v6.17.0
+
+Update subversion to 1.9.10
+
+Update firefox to 52.9.0esr
+
+Package repo now available over https
+
+Add Azure VHD utilities
+
+Add augeas 1.10.1
+
+Update openssh to 7.7p1
+
+Update cmake to 3.11.4
+
+Update pgpool-II to 4.0.2
+
+Remove postgres 9.5
+
+Update repmgr to 4.2
+
+Add OpenSP 1.5.2
+
+Update Illumos SMF and Zones perl modules
+
+Add lxadm 0.1.6
+
+Update shibboleth SP and components to 3.0.3
+
+Update zabbix to 4.0.5
+
+Zabbix now uses postgres 11 and php 7
+
+Update llvm/clang to 4.0.1
+
+Update meson to 0.49.2
+
+Update mercurial to 4.7.2
+
+Update memconf to 3.14
+
+Add Berkeley DB 5.3.28
+
+Add Postfix 3.3.3
+
+Update mutt to 1.10.1
+
+Add cpuid 1.6.4
+
+Add pgbadger 10.3
+
+Zap create-zone can delegate a zfs dataset
+
+Update bind to 9.11.5-P4
+
+Update postgres to 9.6.12, 10.7
+
+Update lynis to 2.7.1
+
+Update commix to 2.7
+
+Update nikto
+
+Update jruby to 9.2.6.0
+
+Update dbus to 1.10.26
+
+Update dbus-glib to 0.110
+
+Update pgbouncer to 1.9.0
+
+Add autoconf-archive 2018.03.13.0
+
+Update groovy to 2.5.6, drop older groovy
+
+getent can now handle the attr databases
+
+Update samba to 4.9.4
+
+Update tomcat to 9.0.16, 8.5.38
+
+Remove tomcat7
+
+Add openjdk9
+
+Add maven 3.6.0, drop older maven
+
+Add openjdk10
+
+Update slony to 2.2.7
+
+Update go to 1.10.8
+
+Add go 1.11.5
+
+Many X11 components rebuilt
+
+Update expat to 2.2.6
+
+Update xscreensaver to 5.42
+
+Update ghostscript to 9.26
+
+Add PyMySQL 0.9.2
+
+Add SQLAlchemy 1.2.12
+
+Add temBoard 2.0
+
+Add python psutil 5.4.7
+
+Add python msgpack 0.5.6
+
+Remove pycrypto
+
+Add pycryptodome 3.7.3
+
+Add ecdsa 0.13
+
+Add dnspython 1.16.0
+
+Update Jinja2 to 2.10
+
+Update tornado to 5.1
+
+Update mkdocs to 1.0.4
+
+Update s3cmd to 2.0.2
+
+Update botocore to 1.12.74
+
+Update pyasn1 to 0.4.5
+
+Update urllib3 to 1.23
+
+Update boto3 to 1.9.74
+
+Update boto to 2.49.0
+
+Update awscli to 1.16.84
+
+Update git to 2.19.1
+
+Update dcraw to 9.28.0
+
+Update openssl to 1.0.2p
+
+Update help2man to 1.47.7
+
+Update htop to 2.2.0
+
+Add openjdk11
+
+Update wireshark to 2.2.17
+
+Add rust 1.29.1
+
+More Xfce desktop wallpaper
+
+Update squid to 3.5.28
+
+Update vtwm to 5.5.0
+
+Update scala to 2.12.8
+
+Update gupnp to 1.0.3
+
+Update Django to 1.11.20, 2.1.7
+
+Update clamav to 0.100.2
+
+Enhance dependency validation
+
+Add dnsmasq 2.79
+
+Update mysql to 5.6.43
+
+Update zsh to 5.6.2
+
+Update plan9port
+
+Update seaweedfs to 0.97
+
+Update Erlang/OTP to 20.3
+
+Update LeoFS to 1.4.2
+
+Update rabbitmq to 3.7.8
+
+Add pgFormatter 3.3
+
+Add Ajqvue 2.10
+
+Add PostgreSQL 11.2
+
+Many python module updates
+
+Update python 3.7.2
+
+Add python 3.7 versions of most  modules
+
+Update ruby to 2.4.5, 2.5.3
+
+Add ruby 2.6.1
+
+Update libarchive to 3.3.3
+
+Update libX11 to 1.6.7
+
+Update Barman to 2.6
+
+Update pg_back to 1.6
+
+Update duviz to 1.1.0
+
+Update poppler to 0.56.0
+
+Update libspectre to 0.2.8
+
+Add LibRaw 0.19.0
+
+Update python-dateutil to 2.7.5
+
+Python 3.6 removed, python3 is now 3,7
+
+Update gnupg to 1.4.23
+
+Update gnupg2 to 2.2.11
+
+Update libgpg-error to 1.32
+
+Update libgcrypt to 1.8.4
+
+Update gpa to 0.10.0
+
+Update gpgme to 1.12.0
+
+Add simplejson 3.16.0
+
+Add pycurl 7.43.0.2
+
+Add jsonrpclib 0.1.7
+
+Update etcd to 3.3.0
+
+Add SWI Prolog 7.7.20
+
+Add gcc 7.3.0-il-1 as a shadow compiler for illumos-gate
+
+Update perl DBI to 1.642
+
+Update perl DBD-Pg to 3.7.4
+
+Add perl DBIx-Safe 1.2.5
+
+Update nss+nspr 3.40+4.20, add 64-bit pc files, ship certutil
+
+Update psycopg to 2.7.7
+
+Update Radicale to 2.1.11
+
+Update libxcb to 1.13.1
+
+Add jansson 2.11
+
+Add pmd 6.9.0
+
+Add graudit
+
+Add SpotBugs 3.1.8
+
+Update pciutils to 3.6.2
+
+Add gnu parallel 20181122
+
+Add Bucardo 5.5.0
+
+Add idnkit 2.3
+
+Update nginx to 1.14.2
+
+Add ActiveMQ 5.15.8
+
+Update lynx to 2.8.9rel.1 [Thanks to Matt Lewandowsky]
+
+Revert ImageMagick to 6.x [Suggested by Matt Lewandowsky]
+
+Update Inkscape to 0.92.3, and make it work again [Thanks to Matt
+Lewandowsky]
+
+Add nicstat
+
+Update icinga to 2.8.4
+
+Update colorama to 0.4.1
+
+Update skew to 0.17.0
+
+Add wheel 0.32.3
+
+Update irssi to 1.2.0
+
+Update sudo to 1.8.27
+
+Add skopeo
+
+Update xdaliclock to 2.44
+
+Add bitmap 1.0.9
+
+Update xcursor-themes to 1.0.6
+
+Update joe to 4.6
+
+Update unbound to 1.9.0
+
+Update xcalc to 1.0.7
+
+Update xclock to 1.0.8
+
+Update xev to 1.2.3
+
+Update xfsinfo to 1.0.6
+
+Update fslsfonts to 1.0.5
+
+Update fstobdf to 1.0.6
+
+Update xwininfo to 1.1.4
+
+Update xvinfo to 1.1.4
+
+Update xlsatoms to 1.1.3
+
+Update xdriinfo to 1.0.6
+
+Update xdpyinfo to 1.3.2
+
+Update rdesktop to 1.8.4
+
+Update Domination to 1.2.0
+
+Update xstdcmap to 1.0.4
+
+No longer ship the old Sun colormap tools
+
+Update libfontenc to 1.1.4
+
+Add go 1.12
+
+Add rclone 1.46
+
+Update minio client
+
+Update ctwm to 4.0.2
+
+Add msgpack-c 3.1.1
+
+Add groonga 9.0.0
+
+Replace PIL with Pillow
+
+Update HarfBuzz to 0.9.42
+
+Update Pound to 2.8
+
+Update vulcand
+
+Update Python to 2.7.16
+
+Fix the multicast nce DoS vulnerability
+
+Fix the ELF panic vulnerability

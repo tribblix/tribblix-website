@@ -1,0 +1,480 @@
+Give zap the ability to manage additional package and overlay repos
+
+In future, packaging should manage editable files (such as configuration
+files) correctly, and preserve changes across updates/upgrades
+
+Template zones are handled much better in this release
+
+More applications and libraries are 64-bit only
+
+The old closed /usr/xpg4/bin/more has been replaced by less
+
+Xfce is now 64-bit
+
+Update i3 to 4.23
+
+Update IceWM to 3.4.5
+
+Update jansson to 2.14
+
+Update libupnp to 1.14.18
+
+Add Django 5
+
+Update MediaInfo to 23.11
+
+Update Python to 3.11.8
+
+Update rclone to 1.66.0
+
+Update libde265 to 1.0.14
+
+Update libheif to 1.7.5
+
+Update varnish to 7.4.3
+
+Update citus to 12.1.0
+
+Update zola to 0.18.0
+
+Update SCons to 4.6.0
+
+Update rsyslog to 8.2402.0
+
+Update sudo to 1.9.15p4
+
+Add sbom4python
+
+Update PHP to 8.2.17
+
+Update groovy to 4.0.20, 5.0.0-alpha-7
+
+Drop groovy 3
+
+Update xrdp to 0.9.23.1
+
+Update seaweedfs to 3.59
+
+Add pip-audit
+
+Update commix to 3.9
+
+Update nikto to 2.5.0
+
+Update putty to 0.80
+
+Update pgBadger to 12.4
+
+Update gnu parallel to 20231222
+
+Update checkdmarc to 5.2.6
+
+Update meson to 1.4.0
+
+Update subversion to 1.14.3
+
+Enabled Xft in Motif
+
+Add emwm
+
+Add ssh-audit
+
+Update OpenSSH to 9.7p1
+
+Update Window Maker to 0.96.0
+
+Update tomcat to 9.0.87, 10.1.20
+
+Update HAProxy to 2.6.16
+
+Update go to 1.20.14, 1.21.8
+
+Add go 1.22.1
+
+Update imake to 1.0.10
+
+Updat jkstat, jproc, kar, and illuminate
+
+Update stunnel to 5.72
+
+Update iperf to 3.16
+
+Update mbuffer to 20240107
+
+Update Node to v18.19.1
+
+Update Node to v20.11.1
+
+Update s3cmd to 2.4.0
+
+Update mpg123 to 1.32.5
+
+Add bzip3 for testing
+
+Update mercurial to 6.6.3
+
+Update restic to 0.16.4
+
+Add zrepl 0.6.1
+
+Update eza to 0.18.2
+
+Update bat to 0.24.0
+
+Update hexyl to 0.14.0
+
+Update mate-media to 1.26.2
+
+Update mate-panel to 1.26.4
+
+Update mate-settings-daemon to 1.26.1
+
+Update mate-terminal to 1.26.1
+
+Update libmateweather to 1.26.3
+
+Add java 8u402
+
+Update Grisbi to 3.0.2
+
+Update jdk21 to 21.0.2
+
+Update jdk17 to 17.0.10
+
+Update jdk11 to 11.0.22
+
+Add pluma-plugins 1.26.0
+
+Update memcached to 1.6.23
+
+Update nanoc to 4.12.19
+
+Update hugo to v0.121.2
+
+Update ruby to 3.2.3
+
+Add Freeplane 1.11.8
+
+Update nginx to 1.25.4, with http_v3 enabled
+
+Update libmad to 0.16.4
+
+Update Barman to 3.10.0
+
+Update lynx to 2.9.0
+
+Add ugrep 4.5.2
+
+Add dust 0.9.0
+
+Update lzlib to 1.14, plzip to 1.11
+
+Update libpng to 1.6.43
+
+Update libpaper to 2.2.5
+
+Update libcares to 1.26.0
+
+Update botocore to 1.34.41, boto3 to 1.34.41, awscli to 1.32.41
+
+Update lynis to 3.1.1
+
+Update libusb to 1.0.27
+
+Update pgbouncer to 1.22.0
+
+Update Pale Moon to 33.0.2
+
+Update mousepad to 0.6.2
+
+Update bitmap to 1.1.1
+
+Update duplicity to 2.2.2
+
+Update ipython to 8.22.2
+
+Update TigerVNC Viewer to v1.13.1
+
+Update engrampa to 1.26.2
+
+Update hexchat to 2.16.2
+
+Update PostgreSQL to 15.6, 16.2
+
+Update Expat to 2.6.2
+
+Update aspell to 0.60.8.1
+
+Update libgit2 to 1.7.2
+
+Add libavif 1.0.4
+
+Update Zabbix to 6.0.26
+
+Update fzf to 0.46.1
+
+Update consul to 1.17.2
+
+Update osv-scanner to 1.6.2
+
+Update gitleaks to 8.18.2
+
+Update vault to 1.15.5
+
+Update vultr-cli to 2.22.0
+
+Update s5cmd to 2.2.2
+
+Update ffuf to 2.1.0
+
+Update loki to 2.9.4
+
+Add bazel 6.3.2
+
+Add Free Pascal 3.2.2
+
+Add diffoscope
+
+Update NetSurf to 3.11
+
+Update OpenEXR to 3.1.12
+
+Update bind to 9.18.25
+
+Update pango to 1.50.14
+
+Update unbound to 1.19.3
+
+Update sakura to 3.8.7
+
+Update planner to 0.14.92
+
+Update pizarra to 1.7.5
+
+Update xosview to .124
+
+Packaged openjdk22
+
+Update samba to 4.18.10
+
+Update rust to 1.76.0
+
+Update git to 2.43.2
+
+Update tig to 2.5.8
+
+Update Liberation Fonts to 2.1.5
+
+Update colordiff to 1.0.21
+
+Update goaccess to 1.9.1
+
+Update freeciv to 3.0.10
+
+Update simutrans
+
+Add the linode-cli
+
+Add mpd and mpc
+
+/usr/lib/cpp is now built from source
+
+Update netbeans to 21
+
+Update gnu m4 to 1.4.19
+
+Update libgphoto2 to 2.5.31
+
+Add scrot 0.10.0
+
+Add gnu units 2.23
+
+Update scikit-learn to 1.4.1.post1
+
+Update JRuby to 9.4.6.0
+
+Update json-glib to 1.8.0
+
+Update xterm to 390
+
+Update tmux to 3.4
+
+Update mupdf to 1.23.11
+
+Update libksba to 1.6.6
+
+Update libgpg-error to 1.48
+
+Update libarchive to 3.7.2
+
+Update curl to 8.7.1
+
+Update prometheus to 2.45.3
+
+Bring back OpenSP 1.5.2
+
+Update Pidgin to 2.14.13
+
+Update qpdf to 11.9.0
+
+Update vim to 9.1.0139
+
+Update screen to 4.9.1
+
+Update nghttp2 to 1.60.0
+
+Update lxterminal
+
+Add difftastic 0.55.0
+
+Add libdeflate 1.19
+
+Add libsixel 1.8.6
+
+Update libjpeg-turbo to 3.0.2
+
+Update timg to 1.6.0 (now with sixel and pdf support)
+
+Update xarchiver to 0.5.4.23
+
+Add psycopg, aka psycopg3, 3.1.18
+
+Update Tcl/Tk to 8.6.14
+
+Add gopls to go builds
+
+Update xlsfonts to 1.0.8
+
+Update slang to pre2.3.4-11
+
+Update jed to pre0.99.20-180
+
+Update ImageJ to 154
+
+Update Freeplane to 1.11.11
+
+Update listres to 1.0.6
+
+Update editres to 1.0.9
+
+Update xauth to 1.1.3
+
+Update libXaw to 1.0.16
+
+Update libXaw3d to 1.6.6
+
+Update xpr to 1.2.0
+
+Update xev to 1.2.6
+
+Update xmessage to 1.0.7
+
+Update xrefresh to 1.1.0
+
+Update xfontsel to 1.1.1
+
+Update mkfontscale to 1.2.3, font-util to 1.4.1
+
+Update libfontenc to 1.1.8, encodings to 1.1.0
+
+Update pgbouncer to 1.22.1
+
+Update ImageMagick to 7.1.1-29
+
+Update LCMS to 2.16
+
+Update LIVE555 to 2024.02.28
+
+Update libnice to 0.1.21
+
+Update libXcursor to 1.2.2
+
+In future, ssh_config and sshd_config will be preserved across updates
+
+Update libXdmcp to 1.1.5
+
+Update libXext to 1.3.6
+
+Add pgBackRest
+
+Add prometheus pgbouncer_exporter
+
+Update exiv2 to 0.28.2
+
+Update OpenSSL to 3.0.13
+
+Update libassuan to 2.5.7
+
+Update iceauth to 1.0.10
+
+Update shared-mime-info to 2.4
+
+Update sendmail to 8.18.1
+
+Update the CA bundle
+
+Update at-spi2-core to 2.40.3
+
+Update mutt to 2.2.13
+
+Update Xapian to 1.4.25
+
+Update wget to 1.24.5
+
+Update pixman to 0.43.4
+
+Update poppler to 22.12.0
+
+Update goffice to 0.10.57
+
+Update gnumeric to 1.12.57
+
+Update pcre2 to 10.43
+
+Add podofo 0.10.3
+
+Update scribus to 1.6.1
+
+Update libpeas to 1.36.0
+
+Update hunspell to 1.7.2
+
+Update glib2 to 2.64.6
+
+Update xfce4-panel to 4.16.6
+
+Update xfce4-settings to 4.16.5
+
+Update xfdesktop to 4.16.1
+
+Update gnu gettext to 0.22.5
+
+Update scala to 2.13.13, 3.3.3
+
+Update libgsf to 1.14.52
+
+Update bluefish to 2.2.15
+
+Dropped libc_hwcap3
+
+Update tcsh to 6.24.11
+
+Update PMD to 7.0.0
+
+Update LibreCAD to 2.2.0.2
+
+Update pandas to 2.2.1
+
+Update xdm to 1.1.15
+
+Update xedit to 1.2.4
+
+Update automake to 1.16.5
+
+Update libXmu to 1.2.0
+
+Update GraphicsMagick to 1.3.43
+
+Add libpsl 0.21.5
+
+Update Kotlin to 1.9.23

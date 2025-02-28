@@ -44,6 +44,7 @@ case $1 in
     update)
 	./mk-overlays.sh > content/overlays.html
 	./mk-handbook.sh
+	./mk-changes.sh
 	$NANOC
 	;;
     view)

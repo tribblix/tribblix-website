@@ -1,0 +1,31 @@
+Update Illumos to something current
+
+Add IceWM 1.3.7
+
+Uprev and rebuild XCB
+
+Update curl to 7.30.0
+
+Update git to 1.8.2.1
+
+Update python to 2.7.4
+
+Add gqview, imlib2, qiv, xdaliclock, xcpustate
+
+Add abiword, gnumeric, dia
+
+Update OpenJDK to 7u21
+
+Enlightenment update
+
+Installer allows you to create a mirror
+
+Rebuild startup-notification, update and rebuild libwnck
+
+Update and rebuild XFCE
+
+Update Firefox to 21.0
+
+Add telnet client
+
+Whole-root and sparse-root zones

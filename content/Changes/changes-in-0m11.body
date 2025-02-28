@@ -1,0 +1,69 @@
+Uprev and repackage bison to avoid stomping on yacc
+
+Repackage binutils so illumos-build can find gas, gld, gobjcopy
+
+Uprev libffi, and build it directly rather than import from OI
+
+Restructure overlays for dbus and glib
+
+Add kerberos to networked-system
+
+CARDIGAN - can set domain name at install time
+
+CARDIGAN - begin, finish, and first boot scripts
+
+Update boehm-gc
+
+Add zile editor
+
+Update openssl, and build it directly rather than import from OI
+
+Package thunderbird
+
+Illumos packages passed through transform step
+
+Transform: enable dns in nsswitch for nis, ldap, and default
+
+Transform: allow boot without SVM package
+
+Transform: remove ipkg zone brand
+
+Transform: move finger to SUNWcs
+
+Remove legacy-services from the kitchen-sink
+
+Add sendmail to networked-system
+
+Update tomcat6 and tomcat7
+
+Add tomcat8
+
+Add groovy 2.3
+
+Add scala 2.11
+
+Update node
+
+Retro-desktop installs more complete audio support
+
+Update firefox
+
+Update jruby
+
+Update ant
+
+Update curl
+
+Update wget
+
+Update nmap
+
+Update rdesktop
+
+Update subversion, rebuild neon
+
+Update e17
+
+Update clojure
+
+Update ca-bundle

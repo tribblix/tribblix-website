@@ -1,0 +1,89 @@
+Python 3.4
+
+Firefox 29
+
+Disable autoupdate for Firefox
+
+OpenJDK 8
+
+Update CDE
+
+Add libxml2-python
+
+Add iso-codes
+
+Update itstool
+
+Update Emacs to 24.3
+
+Add gdmap
+
+Perl 5.18.2
+
+Update samba
+
+Update rdesktop
+
+Add Node.JS
+
+Add Qt4, Qt5
+
+Add Cool Reader 3
+
+Add erlang
+
+Add CA certificate bundle
+
+Update curl
+
+Add LIVE555(TM)
+
+Add lightdm display manager
+
+Update glib
+
+Zap uninstall-overlay
+
+Zap: overlay refresh triggers a catalog refresh
+
+Update ruby 1.9.3 and 2.0.0
+
+Update jfreechart, jkstat, kar
+
+Add protobuf
+
+Add perl IO::Tty
+
+Add mosh
+
+Update BIND to 9.9.5
+
+Add jangle snmp viewer
+
+Add Groovy
+
+JRuby 1.7.12
+
+Partial root zones
+
+Update illumos
+
+Fix xcb python packaging
+
+Update xcb, and ship 64-bit libraries
+
+Browsable package catalogs on website
+
+CARDIGAN - automated installation
+
+Live media packages use devprop, not prtconf
+
+Zap can manage zones
+
+Zap: trust the catalog, no more blind package retrieval
+
+Zap: use nawk when awk gets out of its depth
+
+Virtualized drivers
+
+New server pkgs.tribblix.org hosting the repos

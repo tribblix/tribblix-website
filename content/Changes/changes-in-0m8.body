@@ -1,0 +1,47 @@
+Update BIND to 9.9.3-P2
+
+Perl 5.18.1
+
+Ruby updates - 1.9.3p448, 2.0.0p247
+
+Update curl to 7.33.0
+
+Update enlightenment
+
+Update firefox to 25.0.1
+
+Update openjdk to 7u45
+
+Changes needed for pxe boot and network install: live_install.sh is
+now in /root; wget added to the base install; several files migrated
+into the boot archive; dependency on cdrom layout minimized
+
+Add ttya and ssh options to grub menu
+
+Update ant to 1.9.2
+
+Add ProjectLibre (in repo)
+
+Build USB image
+
+Add motif, nedit, and xephem
+
+Add wine (in repo)
+
+Add tkdiff
+
+Update cups to 1.6.4
+
+Update samba to 4.0.11
+
+Update glib to 2.36.4
+
+Update libgsf to 1.14.28
+
+Update python - 2.7.6 and 3.3.3
+
+Remove dia, as it crashes at startup
+
+Add default and timeout to installed grub menu
+
+Package files are now versioned

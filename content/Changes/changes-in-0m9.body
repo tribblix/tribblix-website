@@ -1,0 +1,82 @@
+Replace gcc3 with gcc4
+
+Add mercurial
+
+Add TRIBsvc-storage-removable-media to make rmformat work properly
+
+Add LLNL XDIR
+
+New motif-apps-extras overlay
+
+Update BIND to 9.9.4-p1
+
+Update nmap to 6.40
+
+Update curl to 7.35.0
+
+Add jEdit
+
+ZAP enhancements: new subcommands describe-package, describe-overlay,
+verify-overlay, refresh-overlays
+
+PXE boot and install use devprop rather than parsing prtconf
+
+Squeeze the boot archive
+
+Refactored overlays to get them better normalized
+
+Update illumos
+
+Add xrestop
+
+Firefox 27.0.1
+
+Update enlightenment e17
+
+Add CVS
+
+Copy tty settings to installed environment
+
+Add ICU
+
+Add harfbuzz
+
+Update libtool
+
+Update jruby
+
+Update scala
+
+Update gimp, build against poppler correctly
+
+Update ImageMagick
+
+Update ant
+
+Update python3
+
+Update tomcat 6 and 7
+
+Update java to openJDK 7u51
+
+Xfce updates - parole, equake plugin, orage
+
+Update rrdtool
+
+Update gdb
+
+Update zsh, bash
+
+Add CDE
+
+Update rsync
+
+Update ncftp (and move it)
+
+Update samba
+
+Add subversion
+
+Update git
+
+Replace OpenIndiana packages with our own - cdrtools, top

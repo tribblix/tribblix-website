@@ -1,0 +1,369 @@
+Update curl to 7.44
+
+Update bind to 9.9.8
+
+Firefox 38
+
+Add fossil scm
+
+Update git to 2.5.3
+
+Fix evince
+
+Add xlsextensions xlsvisuals
+
+Add netperf iperf
+
+Add Mosaic
+
+Add gopher, gophervr
+
+Add IcedTea for firefox java plugin
+
+Add pv (pipe-viewer)
+
+Update tomcat6 to 6.0.44
+
+Update tomcat7 to 7.0.64
+
+Update tomcat8 to 8.0.26
+
+Update jruby to 1.7.22
+
+Update scala to 2.11.7
+
+Add maven 3.3.3
+
+Update qemu to 2.4.0
+
+GO 1.4.2
+
+GO 1.5
+
+Add lzip tools
+
+Update fluxbox to 1.3.7 (with custom menu)
+
+Update openttd to 1.5.0
+
+Update Python3 to 3.4.3
+
+Update Tcl/Tk to 8.6.4
+
+Update the ca-bundle
+
+Add harfbuzz-icu back
+
+Update gawk to 4.1.3, and 64-bit
+
+Update nano to 2.4.2
+
+Update cups to 2.0.2
+
+Update samba to 4.2.3
+
+Add Domination (Risk-like game)
+
+Update node to 0.10.40, 0.12.7
+
+Add node v4.1.1
+
+Add tmux 2.0
+
+Update wine to 1.7.48
+
+Update CDE to 2.2.3
+
+Update xscreensaver to 5.33
+
+GnuPG refresh, add GnuPG2
+
+Gnutls update (and dependents)
+
+Update wireshark to 1.12.7
+
+Update emacs to 24.5
+
+Add Xcoral
+
+Update mtr to 0.86
+
+Add GGobi 2.1.11
+
+Update ffmpeg to 2.6.3
+
+Update xfce equake and clipman plugins
+
+Add xfce notes plugin
+
+Update xdaliclock to 2.43
+
+Update libpcap, tcpdump
+
+Update mercurial to 3.5
+
+Add Python Imaging Library 1.1.7
+
+Add readline 6.3
+
+Update erlang to otp_17.5
+
+Add postgresql 9.4.3
+
+Update vim to 7.4
+
+Update p7zip, and ship our  own copy
+
+Ship our own bzip2, update pbzip2
+
+Add scons 2.3.4
+
+Update gzip to 1.6.0, add pigz
+
+Update firefox 31 to 31.8.0esr
+
+Add more libsdl libraries
+
+Add smpeg
+
+Add dash
+
+Add memconf 3.07
+
+Add OCaml 4.02.1
+
+Add yasm
+
+Add mplayer
+
+Add LLVM/clang (experimental)
+
+Add ncurses
+
+Add multitail
+
+Add xclip
+
+Update gmake to 4.1
+
+LibreOffice 4.4.3.2 (and prerequisites)
+
+Add rtmpdump
+
+Add memcached
+
+Update Python to 2.7.10
+
+Add istatd
+
+Add libical
+
+More libraries shipped as 64-bit
+
+Update ant to 1.9.6
+
+Update openbox to 3.6.1
+
+Add cdpr 2.4
+
+Update nginx to 1.8.0, enable tls/sni
+
+Update R to 3.2.2
+
+Add doxygen 1.8.9.1
+
+Update fltk to 1.3.3
+
+Add xdiskusage 1.51
+
+Add tig 2.1.1
+
+Update collected to 5.5.0
+
+Add alien zones
+
+Add unrar
+
+Add jomic
+
+Update openssl to 1.0.2d
+
+Update php to 5.5.29/5.6.13
+
+Add mcrypt
+
+Add mcrypt to php
+
+Update gtkmm and dependencies
+
+Update inkscape to 0.91
+
+Add haproxy 1.5.14
+
+Add freecol
+
+Update cmake to 3.2.3
+
+Update groovy to 2.4.4
+
+Add perl 5.22, make it the default
+
+Add check 0.9.14
+
+Add blkdev to base
+
+Add golint
+
+Update intltool to 0.50.2
+
+Add dconf 0.24.0
+
+Add MATE desktop
+
+Add dillo 3.0.5
+
+Add blank zones
+
+Check overlay validity in create-zone
+
+Add python setuptools
+
+Add s3cmd 1.5.2, boto 2.38.0
+
+Update lynx to 2.8.8
+
+Add links and elinks browsers
+
+Add EC2 API tools
+
+Add xsol (Solitaire in Motif)
+
+Update irssi to 0.8.17
+
+Update joe to 4.0
+
+Update jEdit to 5.2.0
+
+Update texinfo to 6.0
+
+Update libidn to 1.32
+
+Update screen to 4.3.1
+
+Update zsh to 5.0.8
+
+Add Icinga
+
+Add rabbitmq
+
+Add redis
+
+Update subversion to 1.7.21
+
+Add libxdg-basedir
+
+Add gobject-introspection
+
+Add bzr
+
+Add etcd
+
+Update/fix openntpd
+
+Add xless
+
+Update rcs to 5.9.4
+
+Update less to 458
+
+Update live555
+
+Add jcifs
+
+Add sharutils 4.15
+
+Update xfce task manager to 1.1.0
+
+Update Orage to 4.12.1
+
+Fix unzip cve, enable bzip2
+
+Add lcms2 2.7
+
+Add exiftool
+
+Add exiv2 0.25
+
+Update openjdk8 to 8u60
+
+Add cacerts to openjdk
+
+Update hicolor-icon-theme to 0.15
+
+Add Tango icon theme
+
+Add gtk engines
+
+Update dia to 0.97.3 (which works)
+
+Add extra shapes to dia
+
+Update libsoup to 2.50.0
+
+Add gssdp, libgee, gupnp
+
+Add vala
+
+Add libmediaart
+
+Add rygel
+
+Update thunderbird
+
+Update nmap
+
+Update gsl to 1.16
+
+Update qt4 to 4.8.7
+
+Update qiv to 2.3.1
+
+Update rrdtool to 1.5.4
+
+Update flac to 1.3.1
+
+Update ruby to 2.2.3, 2.0.0-647
+
+Default ruby is now 2.2
+
+Update mutt to 1.5.24
+
+Add variant of SLiM for desktop login
+
+Update tcsh to 6.19.00
+
+Update DHCP to 4.3.3
+
+Add wxWidgets 3.0.2
+
+Add xshisen
+
+Update some core xfce components
+
+Add Xfig
+
+Add scribus
+
+Remove motif, e19 from the ISO to save space
+
+Update liberation fonts
+
+Have open make from illumos
+
+New separate packages for as and sccs
+
+Optimize the live image
+
+Improve upgrade
+
+Build our own libxml2, zlib, libxslt

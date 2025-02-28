@@ -1,0 +1,107 @@
+Released early for the SSH/PAM security fix
+
+Refresh of the X server stack
+
+Update libpciaccess and scanpci to 0.14.0
+
+Update mesa to 13.0.6
+
+Update Xorg to 1.16.4
+
+Add the VirtualBox video driver
+
+Update argcomplete to 1.12.1
+
+Update Xfce to 4.14
+
+Update groovy to 3.0.6
+
+Update vte to 0.42.5
+
+Update xfce4-terminal to 0.8.9.2
+
+Update ant to 1.10.9
+
+Update openjdk 16+21
+
+Update Zabbix to 4.0.25
+
+Update PHP to 7.3.23
+
+Update Django to 3.1.2
+
+Update botocore to 1.18.9
+
+Update boto3 to 1.15.9
+
+Update awscli to 1.18.150
+
+Update meson to 0.55.3
+
+Update links to 2.21, and enable graphics
+
+Update R to 3.6.3
+
+Tidy up the xserver-common package
+
+Tidy up the openbox install
+
+More modules for python 3.8
+
+Update goffice to 0.10.48
+
+Update gnumeric to  1.12.48
+
+Update ristretto to 0.10.0
+
+Update Thunar VCS plugin to 0.2.0
+
+Update evince to 3.30.3
+
+Update libexif and exif to 0.6.22
+
+Update ExifTool to 12.07
+
+Update libnice to 0.1.17
+
+Update farstream 0.2.9
+
+Update Pidgin to 2.14.1
+
+Update pidgin-sipe to 1.25.0
+
+Update Python 3.8.6
+
+Add Python 3.9 for testing
+
+Update ruby to 2.7.2
+
+tkinter now split out for python3, to reduce dependency sprawl.
+
+Update rust to 1.47.0
+
+Update Node to v12.19.0, v14.13.1
+
+Add qvwm
+
+Add netsurf browser 3.10
+
+Update tomcat to 8.5.59, 9.0.39, 10.0.0-M9
+
+Add sakura 3.5.0
+
+Update gperf to 3.1
+
+Update Go to 1.14.10, 1.15.3
+
+Update SQLAlchemy to 1.3.20
+
+Update sqlparse to 0.4.1
+
+Update freetype to 2.10.4
+
+Update the CA bundle
+
+Update openjdk 8u272
+
+Update openjdk 11.0.9+11

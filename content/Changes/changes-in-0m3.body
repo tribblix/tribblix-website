@@ -1,0 +1,26 @@
+Update version to 0.3
+
+gcc update - runtime and compiler, to 4.7.2
+
+Updated binutils to 2.23.1
+
+Add Enlightenment E17
+
+Update gdk-pixbuf, adding gdk-pixbuf-xlib
+
+Rebuilt packages for m4, flex
+
+Remove PCTtwmplus
+
+Add TRIBsys-xopen-xcu4 TRIBsys-xopen-xcu6 TRIBsys-scheduler-fss
+TRIBcurl to the live image; remove base-extra overlay
+
+Don't put scratch+squeak on the iso
+
+Firefox 18
+
+Fixed pbzip package so that pbzcat exists
+
+Added some additional drivers to the miniroot
+
+Illumos rebuilt, includes LZ4

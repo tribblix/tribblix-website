@@ -1,0 +1,497 @@
+There's a new nawk in illumos
+
+Starting to clean out python2 pmodules
+
+Support UEFI boot
+
+GPT partitioning by default
+
+Update bind to 9.11.16
+
+Update nasm to 2.14.02
+
+Update subversion to 1.9.12
+
+Update Jinja2 to 2.10.3
+
+Update tqdm to 4.41.1
+
+Update texttable to 1.6.2
+
+Update pytz to 2019.3
+
+Update phonenumbers to 8.11.4
+
+Update curl to 7.68.0
+
+Update bcrypt to 3.1.7
+
+Update dulwich to 0.9.15
+
+Update pytoml to 0.1.21
+
+Update pycurl 7.43.0.5
+
+Update xwininfo to 1.1.5
+
+Update ConfigArgParse to 0.14.0
+
+Update backports.ssl_match_hostname to 3.7.0.1
+
+Update websocket_client to 0.56.0
+
+Update mail_parser to 3.9.3
+
+Update ipaddress to 1.0.23
+
+Update ecdsa to 0.13.3
+
+Update argcomplete to 1.11.0
+
+Add importlib_metadata 1.3.0
+
+Add zipp 0.6.0
+
+Add more-itertools 8.2.0
+
+Update humanfriendly to 4.18
+
+Update PyMySQL to 0.9.3
+
+Update XScreenSaver to 5.43
+
+Update libestr to 0.1.11
+
+Update rsyslog to 8.1907
+
+Update jdcal to 1.4.1
+
+Add subversion 1.12.2
+
+Update libXrandr to 1.5.2
+
+Update certifi to 2019.11.28
+
+Update rdesktop to 1.8.6
+
+Update tcsh to 6.21.00
+
+Update tcl/tk to 8.6.10
+
+Add adwaita-icon-theme 3.32.0
+
+Update barman to 2.9
+
+Update Django to 2.2.11
+
+Remove Django 1.11
+
+Add Django 3.0.4
+
+Update reportlab to 3.5.34
+
+Update pyxdg to 0.26
+
+Update php to 7.2.28
+
+Update openpyxl to 2.6.3
+
+Update kiwisolver to 1.1.0
+
+Update apache libcloud to 2.8.1
+
+Update paramiko to 2.6.0
+
+Update PyNaCl to 1.3.0
+
+Update packaging-python to 19.2
+
+Update pyparsing to 2.4.5
+
+Update python futures 3.3.0
+
+Update python future 0.18.2
+
+Update requests to 2.22.0
+
+Update wine to 3.0.5
+
+Update pyasn1 to 0.4.8
+
+Update pyasn1-modules to 0.2.8
+
+Add perl 5.30.0 (will become default)
+
+Update zabbix to 4.0.15
+
+Deprecate Node.JS v4
+
+Update opus to 1.3.1
+
+Add opusfile 0.11
+
+Add libopusenc 0.2.1
+
+Add opus-tools 0.2
+
+Update ncdu to 1.14.1
+
+Update ClamAV to 0.102.0
+
+Update agedu to 20190630.66cb14d
+
+Add sox 14.4.2
+
+Add Imagination 3.4
+
+Update postgres to 11.7
+
+Add postgres 12.2
+
+Remove postgres 10
+
+Update mousepad to 0.4.2
+
+Update libXext to 1.3.4
+
+Update Groovy to 2.5.10
+
+Update httpie to 2.0.0
+
+Update illumos-gcc to 7.3.0-il3
+
+Update meson to 0.52.1
+
+Update ninja to 1.9.0
+
+Update aide to 0.16.2
+
+Update tmux to 2.9
+
+Update memconf to 3.15
+
+Update memcached to 1.5.16
+
+Update nano to 4.3
+
+Update iso-codes to 4.3
+
+Update nginx to 1.16.1
+
+Update sqlite to 3.29.0
+
+Update python-dateutil to 2.8.1
+
+Update temBoard to 4.1
+
+Update Go to 1.11.13 and 1.12.17
+
+Add Go 1.13.8
+
+Remove Go 1.10
+
+Add Go 1.14
+
+Update SQLAlchemy to 1.3.15
+
+Update six to 1.13.0
+
+Update apache httpd to 2.4.41
+
+Update urllib3 to 1.25.7
+
+Update Pgpool-II to 4.1.0
+
+Update Node to 8.16.2
+
+Update Pygments to 2.5.2
+
+Update git to 2.23.0
+
+Update tomcat to 8.5.51, 9.0.31
+
+Update setuptools to 41.6.0
+
+Update pip to 19.2.3
+
+Update h2o to 2.2.6
+
+Update viewres to 1.0.6
+
+Update font-util to 1.3.2
+
+Update pgbouncer to 1.12.0
+
+Update Slony to 2.2.8
+
+Add ZooKeeper 3.5.5
+
+Update jruby to 9.2.11.0
+
+Update jmespath to 0.9.5
+
+Update s3transfer to 0.3.3
+
+Update botocore to 1.15.11
+
+Update boto3 to 1.12.11
+
+Update awscli to 1.18.11
+
+Update samba to 4.9.17
+
+Update Ajqvue to 3.1
+
+Update ruby to 2.5.7, 2.6.5
+
+Update gnupg2 to 2.2.17
+
+Update libgcrypt to 1.8.5
+
+Update gpgme to 1.13.1
+
+Update pycryptodome to 3.9.4
+
+Update ant to 1.10.7
+
+Add wtf 20190903
+
+Update maven to 3.6.3
+
+Update ImageJ to 1.5.2
+
+Add Cython 0.29.15
+
+Update Sphinx to 2.4.4
+
+Update openssl to 1.0.2u
+
+Update openssl 1.1 to 1.1.1d
+
+Update pgBadger to 11.1
+
+Update scala to 2.13.1
+
+Update PySocks to 1.7.1
+
+Update expat to 2.2.8
+
+Update consul to 1.6.1
+
+Update Pillow to 7.0.0
+
+Update patroni to 1.6.3
+
+Update stolon to 0.14.0
+
+Update coredns to 1.6.3
+
+Update pgFormatter to 4.1
+
+Update unbound to 1.9.5
+
+Update libXfixes to 5.0.3
+
+Add V language
+
+Update httplib2 to 0.14.0
+
+Update fping to 4.2
+
+Update mod_perl to 2.0.11
+
+Update Suricata to 4.1.5
+
+Update ActiveMQ to 5.15.11
+
+Update citus to 9.0.1
+
+Update OpenJDK 8u232
+
+Update OpenJDK 8u242
+
+Update OpenJDK 11.0.6
+
+Add yarn 1.21.1
+
+Update repmgr to 5.0.0
+
+Update Python to 2.7.17
+
+Update Python3 to 3.7.6
+
+Add Python 3.8.1 (for testing only)
+
+Update wfuzz to 2.4.4
+
+Update psycopg2 to 2.8.4
+
+Update sudo to 1.8.31
+
+Add prometheus node exporter
+
+Add prometheus bind exporter
+
+Add prometheus nginx exporter
+
+Add prometheus haproxy exporter
+
+Update haproxy to 1.7.12
+
+Update libXvMC to 1.0.12
+
+Update file to 5.37
+
+Add prometheus
+
+Update psutil to 5.6.7
+
+Update nikto
+
+Update nmap to 7.80
+
+Update commix to 3.0
+
+Update Groonga to 9.0.9
+
+Add PGroonga 2.2.2
+
+Update pmd to 6.20.0
+
+Update libidn2 to 2.3.0
+
+Add pydot 1.4.1
+
+Add principalmapper 1.0.1
+
+Update python cryptography to 2.8
+
+Update passlib to 1.7.2
+
+Update jattack to 1.4.0
+
+Update dehydrated to v0.6.5
+
+Update pyOpenSSL to 19.1.0
+
+Add python tld module
+
+Add beautifulsoup4 and prerequisites soupsieve, html5lib, and webencodings
+
+Add yaswfp 0.9.3
+
+Add Mako 1.1.2
+
+Add lxml 4.4.2
+
+Add wapiti3 3.0.3
+
+Add publicsuffix2 20191221
+
+Add pyleri 1.3.2
+
+Add timeout-decorator 0.4.1
+
+Add checkdmarc 4.2.4
+
+Add python regex 2020.2.20
+
+Add dateparser 0.7.4
+
+Add libmaxminddb 1.4.2
+
+Add mailsuite 1.4.0
+
+Add python maxminddb module
+
+Add python geoip2 module
+
+Add kafka-python 1.4.7
+
+Add python elastic support
+
+Add elasticsearch 6.8.6
+
+Add parsedmarc 6.7.3
+
+Add sqlmap 1.3.11
+
+Update colorama to 0.4.3
+
+Update simplejson to 3.17.0
+
+Update minio server
+
+Update minio client
+
+Update terraform to 0.12.18
+
+Update libXpm to 3.5.13
+
+Update graudit to 2.3
+
+Update spotbugs to 3.1.12
+
+Add find-sec-bugs plugin to spotbugs
+
+Update etcd
+
+Update gogs to 0.11.97.1209
+
+Update Babel to 2.8.0
+
+Update the CA bundle
+
+Add ruby 2.7.0
+
+Add OpenJDK 13
+
+Add OpenJDK 14
+
+Update links to 2.20.2
+
+Update CDE to 2.3.2
+
+Update rabbitmq to 3.7.18
+
+Update ISC dhcp server to 4.4.2
+
+Update fish to 3.0.2
+
+Update ProjectLibre to 1.9.1
+
+Add jtreg
+
+Add Groovy 3.0.2
+
+Update kotlin to 1.3.61
+
+Add HexChat 2.14.3
+
+Update Bucardo to 5.6.0
+
+Update sqlparse to 0.3.1
+
+Update google-auth to 1.11.2
+
+Update google-api-python-client to 1.7.12
+
+Add ansi2html 1.5.2
+
+Update c-icap to 0.5.6 and modules 0.5.4
+
+Update mkdocs to 1.1
+
+Update Markdown to 3.2.1
+
+Update mkdocs-material to 4.6.3
+
+Add lunr 0.5.6
+
+Add nltk 3.4.5
+
+Update PyMdown Extensions to 6.3
+
+Update asgiref to 3.2.5
+
+Update borgbackup to 1.1.11

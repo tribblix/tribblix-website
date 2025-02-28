@@ -1,0 +1,63 @@
+Reverted compiler and toolchain to gcc3, not gcc4
+
+Uprev openjdk to 7u17
+
+Add tcl and tk
+
+Rebuild python with --enable-shared, add tkinter
+
+Build Python 3.3.1
+
+Add samba4
+
+Add java-developer overlay, includes ant
+
+Update git
+
+Rebuild most of the gnu utilities
+
+Update flex to 2.5.37
+
+Update ant to 1.9.0
+
+Update ImageMagick to 6.8.3-10
+
+Replace pkgs.zlib by a directory of zap packages
+
+Repackage neon, rrdtool, gettext, various codecs to trim documentation
+
+Firefox 20.0.1
+
+BIND 9.9.2-P2
+
+Update libgcrypt to 1.5.1
+
+Update binutils to 2.23.2 (reverted for release)
+
+Add sphaero pctlife jattack and the java-fun overlay
+
+EFL 1.7.5; enlightenment 0.17.1, and --disable-curl to improve
+stability
+
+Update gsf to 1.14.26
+
+Add gnupg 1.4.13
+
+Repackage librsvg, libwnck, afterstep, vte, Terminal, ristretto, gpicview
+
+Update pixman to 0.28.2
+
+Update pekwm to 0.1.15
+
+Update wmaker to 0.95.4
+
+Add some extra wmaker themes
+
+Build OpenEXR, openexr overlay, available from the repo
+
+Add retro-desktop-extras overlay, contains awm, pekwm, openbox,
+fluxbox, available from the repo
+
+Update wireshark to 1.8.6
+
+Rebuilt mrxvt

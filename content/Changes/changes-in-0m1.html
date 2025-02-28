@@ -1,0 +1,50 @@
+<h1>Changes in 0m1 prerelease</h1>
+<p>
+Added TRIBsys-lib-iconv-utf-8 to the base
+</p><p>
+Moved xsvc from the base to the x11 overlay
+</p><p>
+Moved xz, p7zip from the base to the develop overlay
+</p><p>
+Added TRIBsys-lib-math-header-math, TRIBlib-perl-5-xml-parser, zsh,
+cdrtools, xslt, pbzip2, emacs, and prerequisites to the develop overlay
+</p><p>
+Added volmgr, cdrw to retro-desktop overlay
+</p><p>
+Rebuilt AfterStep 2.2.11; it and prerequisites added to retro-desktop
+overlay
+</p><p>
+Created all-locales overlay
+</p><p>
+Updated version to 0.1
+</p><p>
+Update the scripts in TRIBsys-install-media-internal; no longer need
+solarismisc.zlib; don't lofs mount /jack and /root
+</p><p>
+Updated the gnome desktop caches to reflect the current build and
+locations
+</p><p>
+Trim /usr on the ramdisk; found something based on the joyent list that
+will work
+</p><p>
+The live_install.sh script unpacks packages in /tmp, not /var/tmp,
+allowing the ramdisk to be quite a bit smaller
+</p><p>
+Don't copy /sbin, /kernel, /lib to the iso - they're already in the
+ramdisk so don't need to be duplicated.
+</p><p>
+Correctly set up /dev; some directories were missing.
+</p><p>
+Rebuilt glib and pixman; now use my versions rather than importing from
+OI. Everything built above them is freshly built, but glib and pixman
+were essential to HAL and Xorg.
+</p><p>
+Xfce initial build - essentially works, but new users can't save the
+panel configuration
+</p><p>
+Add cmake to develop overlay
+</p><p>
+Added a selection of xfce panel plugins
+</p><p>
+Add gpicview
+</p>

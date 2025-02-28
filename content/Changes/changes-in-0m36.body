@@ -1,0 +1,443 @@
+There's a new ddu subcommand for zap
+
+Default go is now 1.23
+
+Default java is now jdk17
+
+Default Node is now v22
+
+Ruby is now v3.3
+
+Update numpy to 2.2.3
+
+Update Python to 3.12.9
+
+Remove Python 3.11 and modules
+
+Move chrony into the base overlay
+
+Update unbound to 1.22.0
+
+Update links to 2.30
+
+Update bind to 9.18.33
+
+Update pmd to 7.10.0
+
+Update SpotBugs to 4.8.6
+
+Add git-lfs 3.5.1
+
+Update ExifTool to 13.18
+
+Update UxPlay to 1.69
+
+Update Zabbix to 6.0.36
+
+Update vim to 9.1.1115
+
+Update Barman to 3.11.1
+
+Update maven to 3.9.9
+
+Update engrampa to 1.28.2
+
+Add FluidSynth 2.3.6
+
+Update ActiveMQ to 6.1.5
+
+Update memcached to 1.6.36
+
+Update zola to 0.19.2
+
+Update fd to 10.2.0
+
+Update difftastic to 0.60.0
+
+Update dust to 1.1.1
+
+Update vale to 3.9.1
+
+Update apache httpd 2.4.63
+
+Update APR (in Apache httpd and subversion) to 1.7.5
+
+Update subversion to 1.14.5
+
+Update trurl to 0.16
+
+Update PHP to 8.2.27
+
+Update GraphicsMagick to 1.3.45
+
+Update aide to 0.18.8
+
+On EC2, use IMDSv2
+
+Update ImageMagick to 7.1.1-38
+
+Update Ruby to 3.2.7, 3.3.7
+
+Update JRuby to 9.4.12.0
+
+Update pv to 1.9.31
+
+Update openssl to 3.0.16
+
+Update SCons to 4.8.1
+
+Update expat to 2.6.4
+
+Update clamav to 1.0.8
+
+Update groovy to 4.0.25, 5.0.0-alpha-12
+
+Update mercurial to 6.9.1
+
+Update go to 1.22.12, 1.23.6
+
+Update valkey to 7.2.8
+
+Update postgres to 15.10, 16.6, 17.2
+
+Update exiv2 to 0.28.3
+
+Update pgpool-II to 4.4.9
+
+Update libpcap to 1.10.5
+
+Update tcpdump to 4.99.5
+
+Update Pale Moon to 33.4.1
+
+Update slang to pre2.3.4-14
+
+Update jed to pre0.99.20-183
+
+Update bluefish to 2.2.16
+
+Update meson to 1.7.0
+
+Update JDK8 to 8u422, 8u432, 8u442
+
+Update live555 to 2024.09.25
+
+Update cups-filters to 2.0.1
+
+Update gawk to 5.3.1
+
+Update texinfo to 7.1.1
+
+Update gnu parallel to 20250122
+
+Update hugo to v0.141.0
+
+Update mawk to 1.3.4-20240905
+
+Update jtreg to 7.4
+
+Update Tcl/Tk to 8.6.15
+
+Update libical to 3.0.18
+
+Update freeciv to 3.1.2
+
+Update R to 4.4.1
+
+Update gitleaks to v8.23.1
+
+Update redis to 6.2.17
+
+Update haproxy to 2.6.21
+
+Update feh to 3.10.3
+
+Update CUPS to 2.4.11
+
+Update libgsf to 1.14.53
+
+Update gdk-pixbuf to 2.42.12
+
+Update snac to 2.71
+
+Update varnish to 7.6.1
+
+Update tmux to 3.5a
+
+Update Basilisk
+
+Update rclone to 1.69.0
+
+Update Midnight Commander to 4.8.32
+
+Update libpng to 1.6.45
+
+Update libwebp to 1.4.0
+
+Update Node to v18.20.6, v20.18.3, v22.14.0
+
+Update harfbuzz to 10.0.1
+
+Add pkgconf 2.3.0
+
+Update xterm to 397
+
+Update c-ares to 1.34.4
+
+Update Radicale to 3.3.0
+
+Update nghttp3 to 1.7.0
+
+Update xwud to 1.0.7
+
+Update xcmsdb to 1.0.7
+
+Update xinput to 1.6.4
+
+Update xprop to 1.2.7
+
+Update xrdb to 1.2.2
+
+Update consul to v1.20.2
+
+Update libarchive to 3.7.7
+
+Update openjdk11 to 11.0.26
+
+Update openjdk17 to 17.0.14
+
+Update openjdk21 to 21.0.6
+
+Update openjdk23 to 23.0.2
+
+Package openjdk24
+
+Update ripgrep to 14.1.1
+
+Update mbuffer to 20241007
+
+Update ncdu to 1.20
+
+Update git to 2.48.1
+
+Update durdraw to 0.28.0
+
+Update scala to 3.3.4
+
+Update wtf to 20230906
+
+Add JBang 0.119.0
+
+Update VisualVM to 2.1.10
+
+Update graudit to 3.6
+
+Update restic to v0.17.3
+
+Update nghttp2 to 1.64.0
+
+Update mpg123 to 1.32.8
+
+Update agedu to 20241013.3622eda
+
+Update libX11 to 1.8.10
+
+Update weechat to 4.5.1
+
+Update curl to 8.12.1
+
+Update libXcursor to 1.2.3
+
+Update patroni to 4.0.3
+
+Update fossil to 2.25
+
+Update wget to 1.25.0
+
+Add minisign
+
+Update liboqs to 0.12.0
+
+Add oqs-provider 0.7.0
+
+Update rsyslog to 8.2410.0
+
+Update apache arrow to 19.0.0
+
+Add fastfetch 2.30.1
+
+Update pgbouncer_exporter to 0.10.2
+
+Update xmag to 1.0.8
+
+Add xcompmgr 1.1.10
+
+Update pgbackrest to 2.54.0
+
+Update xmlto to 0.0.29
+
+Update unrar to 7.1.1
+
+Update desktop-file-utils to 0.28
+
+Update jEdit to 5.7.0
+
+Update minio server to 2024.11.07
+
+Update minio client to 2024.11.17
+
+Add monolith 2.8.3
+
+Add diffstat 1.67
+
+Update tcsh to 6.24.15
+
+Update tomcat to 9.0.98, 10.1.34, 11.0.4
+
+Update oclock to 1.0.6
+
+Update transset to 1.0.4
+
+Update htmldoc to 1.9.20
+
+Add lowdown 1.3.2
+
+Update Xcoral to 4.02.6
+
+Update pixman to 0.44.2
+
+Update libXv to 1.0.13
+
+Update libXxf86vm to 1.1.6
+
+Update libICE to 1.1.2
+
+Update libXrender to 0.9.12
+
+Update coredns to 1.12.0
+
+Update libXau to 1.0.12
+
+Add illumos gcc14, update illumos gcc10
+
+Update putty to 0.83
+
+Update Steel Bank Common Lisp to 2.4.11
+
+Update LibreCAD to 2.2.1
+
+Update xinit to 1.4.3 (reverted back to 1.4.2)
+
+Update tkdiff to 5.7
+
+Update stunnel to 5.74
+
+Add JMapViewer 2.22
+
+Update josm to 19277
+
+Update helix to 25.01
+
+Update rust to 1.83.0
+
+Update dbus to 1.12.28
+
+Update dbus-glib to 0.112
+
+Update memconf to 3.17.1
+
+Update i3 to 4.24
+
+Update pgbouncer to 1.24.0
+
+Update iperf to 3.18
+
+Update nettle to 3.10.1
+
+Update socat to 1.8.0.2
+
+Update rsync to 3.4.0
+
+Update tree to 2.2.1
+
+Update openjpeg to 2.5.3
+
+Update libjpeg-turbo 3.0.4
+
+Update age to 1.2.1
+
+Update hcloud to 1.50.0
+
+Update fzf to 0.57.0
+
+Update pgAgent to 4.2.3
+
+Update taglib to 1.13.1
+
+Update Pidgin to 2.14.14
+
+Update qpdf to 11.9.1
+
+Update nikto
+
+Update osv-scanner to 1.9.2
+
+Update sqlmap to 1.9
+
+Update commix to 4.0
+
+Update tig to 2.5.11
+
+Update xhost to 1.0.10
+
+Update gexiv2 to 0.14.3
+
+Update libexif to 0.6.25
+
+Update Dillo to 3.2.0
+
+Update boehm-gc to 8.2.8
+
+Add the prometheus blackbox exporter 0.25.0
+
+Add the prometheus memcached exporter 0.15.0
+
+Update loki to v3.3.2
+
+Update zlib to 1.3.1
+
+Update nginx to 1.26.3
+
+Update diffutils to 3.11
+
+Update libdeflate to 1.23
+
+Update eza to 0.20.20
+
+Update difftastic to 0.62.0
+
+Update PROJ to 9.5.1
+
+Update GDAL to 3.10.1
+
+Update GEOS to 3.13.0
+
+Update PostGIS to 3.5.2
+
+Add go 1.24.0
+
+Removed vault, use openbao instead
+
+Update terraform to 1.10.5
+
+Update prometheus to 2.53.3
+
+Update fish shell to 3.7.1
+
+Add ferretdb
+
+Update pcre to 8.45
+
+Update pcre2 to 10.45
+
+New experimental appstack zone brand

@@ -1,0 +1,239 @@
+Update php to 7.2.19
+
+Update lynis to 2.7.5
+
+Update kotlin to 1.3.30
+
+Update c_icap to 0.5.5, modules 0.5.3
+
+Update privoxy to 3.0.28
+
+Update sniproxy to 0.6.0
+
+Remove gccgo
+
+Update gtar to 1.32
+
+Update libXpm to 3.5.12
+
+Update xfd to 1.1.3
+
+Update libFS to 1.0.8
+
+Update Shibboleth SP to 3.0.4
+
+Add xbacklight 1.2.3
+
+Update git to 2.21.0
+
+Update libXcomposite to 0.4.5
+
+Update libXdamage to 1.1.5
+
+Add python phonenumbers 8.10.7
+
+Update jmespath to 0.9.4
+
+Update s3transfer to 0.2.1
+
+Update botocore to 1.12.184
+
+Update boto3 to 1.9.184
+
+Update awscli to 1.16.194
+
+Update libXcursor to 1.2.0
+
+Add nxlog
+
+Add Sphinx 1.8.5
+
+Update libsndfile
+
+Remove postgres 9.6
+
+Add s-nail 14.9.13
+
+Update mutt to 1.11.4
+
+Update libXvMC to 1.0.11
+
+Update restic to 0.9.4
+
+Update ruby to 2.5.5, 2.6.3
+
+Update libxkbfile to 1.1.0
+
+Add x11perf 1.6.1
+
+Update libXdmcp to 1.1.3
+
+Update libXmu to 1.1.3
+
+Update python3 to 3.7.4
+
+Update libassuan to 2.5.3
+
+Update libgpg-error to 1.36
+
+Update gnupg2 to 2.2.15
+
+Update gnutls to 3.3.30
+
+Update gpgme to 1.13.0
+
+Update curl to 7.65.1
+
+Update pgpool to 4.0.5
+
+Update groff to 1.22.4
+
+Update zabbix to 4.0.9
+
+Update Django to 1.11.22, 2.2.3
+
+Update apache to 2.4.39
+
+Update repmgr to 4.4.0
+
+Add clojure 1.10.0
+
+Update wget to 1.20.3
+
+Update tomcat to 8.5.43, 9.0.22
+
+Update maven to 3.6.1
+
+Update jruby to 9.2.7.0
+
+Add openjdk8u212
+
+Add openjdk 8u222
+
+Build postgres and pgpool with ssl support
+
+Update jdk11 to 11.0.4
+
+Update jdk12 to 12.0.2
+
+Update activemq to 5.15.9
+
+Update samba to 4.9.6
+
+Add GanttProject 2.8.10
+
+Update node to v6.17.1, v8.16.0
+
+Add citus postgres extension
+
+Add NetBeans 11
+
+Add stolon
+
+Update bind to 9.11.8
+
+Add python-etcd 0.4.5
+
+Add cdiff 1.0
+
+Add tzlocal 1.5.1
+
+Add kazoo 2.6.1
+
+Add patroni 1.5.6
+
+Update pgFormatter to 4.0
+
+Add libepoxy
+
+Update gtk3 to 3.16.7
+
+Update commix to 2.9
+
+Update nikto
+
+Update go to 1.11.12, 1.12.7
+
+Go 1.12 is now the default
+
+Update bison to 3.3.2
+
+Update coreutils to 8.31
+
+Update diffutils to 3.7
+
+Update ggrep to 3.3
+
+Update gzip to 1.10
+
+Update gsed to 4.7
+
+Update postgres to 10.8, 11.3
+
+Update aide to 0.16.1
+
+Add texttable 1.6.1
+
+Add tqdm 4.31.1
+
+Add backports.shutil_get_terminal_size 1.0.0
+
+Add RBtools 1.0.2
+
+Update temBoard to 3.1
+
+Update groovy to 2.5.7
+
+Update ant to 1.9.14, 1.10.6
+
+Add configparser 3.7.4
+
+Add future 0.17.1
+
+Add Wfuzz 2.4
+
+Add gogs
+
+Update Barman to 2.8
+
+Update psycopg2 to 2.8.3
+
+Update openssl 1.1.1c
+
+Update harfbuzz to 1.9.0
+
+Update xcalc to 1.1.0
+
+Update sessreg to 1.1.2
+
+Update vim to 8.1.1523
+
+Update ImageMagick to 6.9.10-49
+
+Update GraphicsMagick to 1.3.32
+
+Update pango to 1.42.4
+
+Update irssi to 1.2.1
+
+Update pgbadger to 11.0
+
+Update pgbouncer to 1.10.0
+
+Update expat to 2.2.7
+
+Update tiff to 4.0.10
+
+Fix ln -s issues in coreutils
+
+Update xclock to 1.0.9
+
+Add uritemplate 3.0.0
+
+Update pyasn1-modules to 0.2.5
+
+Add cachetools 3.1.1
+
+Add google-auth 1.6.3
+
+Update pkgsrc to 20190317

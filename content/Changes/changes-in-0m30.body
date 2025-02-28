@@ -1,0 +1,217 @@
+IMPORTANT: m30 contains a fix for CVE-2023-31284 Buffer Overflow in /dev/net
+
+The compiler used for illumos is now gcc10
+
+Deprecate and remove php7
+
+Deprecate and remove postgres11
+
+Deprecate and remove postgres14
+
+Deprecate and remove Python 3.10 and modules
+
+Deprecate and remove node v14
+
+Update ActiveMQ to 5.17.4
+
+Update libgcrypt to 1.8.10
+
+Update feh to 3.9.1
+
+Update bluefish to 2.2.13
+
+Update redis to 6.2.11
+
+Update gnu gettext to 0.21.1
+
+Update tomcat to 8.5.88, 9.0.74, 10.1.8
+
+Remove the shibboleth packages
+
+Update curl to 7.88.1
+
+Add libtasn1
+
+Go is now GOOS=illumos, not solaris
+
+Update go to 1.19.8
+
+Add go 1.20.3
+
+Update apache httpd to 2.4.57
+
+Add a test Qt6 build
+
+Update JRuby to 9.3.10.0
+
+Update Ruby to 3.2.2
+
+Deprecate and remove ruby 2.7
+
+Update mercurial to 6.3.3
+
+Update iso-codes to 4.13.0
+
+Add the Smooth Class Library
+
+Add libcdio-paranoia
+
+Update node to v16.20.0, v18.15.0
+
+Update Pale Moon to 32.1.1
+
+Update pgBadger to 12.1
+
+Update live555 to 2023.01.19
+
+Add openssl3
+
+Update babl to 0.1.98
+
+Update gegl to 0.4.44
+
+Add libde265 1.0.11
+
+Add libheif 1.15.1
+
+Update gimp to 2.10.34
+
+Update libpcap to 1.10.3
+
+Update tcpdump to 4.99.3
+
+Update groovy to 3.0.17, 4.0.11
+
+Update ctwm to 4.1.0
+
+Update graphviz to 8.0.1
+
+Update i3wm to 4.22
+
+Update Python to 3.10.11
+
+Add Python 3.11.3
+
+Remove ajqvue
+
+Remove ucarp
+
+Remove wackamole
+
+Update sniproxy to 0.6.1
+
+Update privoxy to 3.0.34
+
+Update botocore 1.29.106, awscli 1.27.106, boto3 1.26.106
+
+Add libspng 0.7.3
+
+Update OpenJPEG to 2.5.0
+
+Update xwininfo to 1.1.6
+
+Update libXaw to 1.0.15
+
+Update libXcxursor to 1.2.1
+
+Update libXvMC to 1.0.13
+
+Add vips 8.14.2
+
+Update illumos gcc7 to 7.5.0-il-2
+
+Update citus to 11.2.0
+
+Add ansible 7.4.0
+
+Update scala to 3.2.2
+
+Update php to 8.1.18
+
+Update lensfun to 0.3.3
+
+Add UMLet 15.1
+
+Add planner 0.14.91
+
+Add hyphen 2.8.8
+
+Update ggrep to 3.10
+
+Update aide to 0.18.2
+
+Update zabbix to 6.0.16
+
+Update haproxy to 1.7.14
+
+Add haproxy 2.6.12 (as TRIBblix-haproxy2)
+
+Add patchutils 0.4.2
+
+Update gawk to 5.2.1
+
+Update diffutils to 3.9
+
+Update coreutils to 9.3
+
+Add kristall 0.4
+
+Update jdk11 to 11.0.19
+
+Update jdk17 to 17.0.7
+
+Update jdk20 to 20.0.1
+
+Add node v20.0.0
+
+Update tiff to 4.4.0
+
+Update hiredis to 1.1.0
+
+Update gpgme to 1.20.0
+
+Update libgpg-error to 1.47
+
+Update nginx to 1.24.0
+
+Add gutenprint 5.3.4
+
+Update nghttp2 to 1.52.0
+
+Update testssl.sh to 3.0.8
+
+Update pekwm to 0.3.0
+
+Update amiwm to 0.22pl2
+
+Update icewm to 3.3.3
+
+Add icewm-extra-themes 1.2
+
+Update ninja to 1.11.1
+
+Add uwm 0.2.11b
+
+Update xrestop to 0.6
+
+Update xdpyinfo to 1.3.4
+
+Update GraphicsMagick to 1.3.40
+
+Update photoflare to 1.6.12
+
+Update kotlin to 1.8.21
+
+Add scipy overlay (covers numpy, pandas, and more)
+
+Add freeciv 3.0.7
+
+Remove emacs27
+
+Update at-spi2-core at-spi2-atk to 2.24.1
+
+Update dbus to 1.12.24
+
+Update gtk+ to 3.24.34
+
+Add gnome-tetravex 3.38.2

@@ -1,0 +1,309 @@
+Update irssi to 1.1.1
+
+Add tree 1.7.0
+
+Update gnu patch to 2.7.6
+
+Add skew (latest from github)
+
+Add pyjq 2.1.0
+
+Add netaddr 0.7.19
+
+Update rsync to 3.1.3
+
+Add sudo 1.8.22
+
+Update dehydrated to 0.5.0
+
+Update squid to 2.5.27
+
+Add firefox 52
+
+Update xmltooling-c to 1.6.4
+
+Update dhcp to 4.3.6-P1
+
+Update memcached to 1.5.7
+
+Update clamav to 0.99.4
+
+Update php to 5.6.36, 7.1.18
+
+Update groovy to 2.4.15
+
+Add pycparser 2.18
+
+Add python cffi 1.11.5
+
+Add python bcrypt 3.1.4
+
+Add PyNaCl 1.2.1
+
+Add paramiko 2.4.0
+
+Add libcloud 2.3.0
+
+Update Thunar to 1.6.14
+
+Update xfce panel to 4.12.2
+
+Update xfce settings to 4.12.2
+
+Update live555 to 2018.02.28
+
+Update node to 6.14.2, 8.11.2
+
+Add node v10.2.0
+
+Remove node v9
+
+Update ncurses to 6.1
+
+Add htop
+
+Update wireshark to 2.2.13
+
+Add restic
+
+Add z3 0.2.0
+
+Update Django to 1.11.12
+
+Update mutt to 1.9.4
+
+Update zlib to 1.2.11
+
+Update fontconfig to 2.12.6
+
+Add pandas 0.22.0
+
+Add cycler 0.10.0
+
+Add subprocess32 3.2.7
+
+Add backports.functools_lru_cache 1.5
+
+Add kiwisolver 1.0.1
+
+Add ncdu 1.13
+
+Update tomcat to 7.0.88, 8.5.31, 9.0.8
+
+Update samba to 4.6.15
+
+Update jruby to 9.1.17.0
+
+Update curl to 7.60.0
+
+Update nano to 2.9.7
+
+Update bind to 9.11.3
+
+Update lynis to 2.6.3
+
+Update commix to 2.3
+
+Update nikto
+
+Alien zones allow install from zfs send streams
+
+Update scala to 2.12.6
+
+Update apache httpd to 2.4.33
+
+Update ffmpeg to 2.8.14
+
+Add pg_back 1.5
+
+Update libjpeg-turbo to 1.5.3
+
+Update openjpeg to 2.3.0
+
+Update openssl to 1.0.2o
+
+Update libvorbis to 1.3.6
+
+Add repmgr 4.0.5
+
+Update ant to 1.9.11, 1.10.3
+
+Update jcifs to 1.3.19
+
+Update icinga to 2.8.2
+
+Update go to 1.9.6
+
+Add go 1.10.2
+
+Update ruby to 2.4.4, 2.5.1
+
+Update python3 to 3.6.5
+
+zap whatprovides
+
+Update gsed to 4.5
+
+Update gawk to 4.2.1
+
+Update libidn to 1.35
+
+Update libidn2 to 2.0.5
+
+Update gpgme to 1.11.1
+
+Update slang to 2.3.2
+
+Update jEdit to 5.4.0
+
+Update GMP to 6.1.2
+
+Update libassuan to 2.5.1
+
+Update libgcrypt to 1.8.2
+
+Add nPth 1.5
+
+Update gnupg2 to 2.2.7
+
+Update lynx to 2.8.9dev17
+
+Add Scout2
+
+Update zabbix to 3.0.17
+
+Update iso-codes to 3.77
+
+Update gzip to 1.9
+
+Update zsh to 5.5.1
+
+Update c-ares to 1.14.0
+
+Update nghttp to 1.31.1
+
+Update agedu to 20180329.af641e6
+
+Update aria2 to 1.33.1
+
+Update c_icap to 0.5.3, modules to 0.5.1
+
+Update h2o to 2.2.4
+
+Update claws-mail to 3.16.0
+
+Update git to 2.17.1
+
+Update doxygen to 1.8.14
+
+Update file/libmagic to 5.32
+
+Update freecol to 0.11.6
+
+Update geany to 1.33
+
+Update gixy to 0.1.9
+
+Update gnuplot to 5.2.2
+
+Update libgphoto2 to 2.5.16
+
+Update gphoto2 to 2.5.15
+
+Add ImageJ
+
+Add mlterm
+
+Update pgpool-II to 3.7.3
+
+Update pgbarman to 2.4
+
+Update sbcl to 1.4.6
+
+Update cmake to 3.11.1
+
+Update freetype to 2.8.1
+
+Update xscreensaver to 5.39
+
+Update libfastjson to 0.99.8
+
+Update rsyslog to 8.34.0
+
+Update libgpg-error to 1.31
+
+Update meson to 0.45.1
+
+Update mercurial to 4.5.3
+
+Update mysql to 5.6.40
+
+Update mbuffer to 20180410
+
+Update MediaInfo to 18.03.1
+
+Update wine to 3.0
+
+Update pcre to 8.42
+
+Update lcms2 to 2.9
+
+Update motif to 2.3.8
+
+Update less to 530
+
+zap create-user and delete-user
+
+Update python futures to 3.2.0
+
+Update pyasn1 to 0.4.2
+
+Update s3transfer to 0.1.13
+
+Update botocore to 1.10.9
+
+Update boto3 to 1.7.9
+
+Update awscli to 1.15.9
+
+Update libspectrum to 1.4.1, fuse to 1.5.2
+
+Update nasm to 2.13.03
+
+Add brotli 1.0.4
+
+Update python to 2.7.15
+
+Add python crtsh module
+
+Add crtsh client
+
+Update suricata to 4.0.4
+
+zap add-locale and remove-locale
+
+Update postgres to 9.5.13, 9.6.9, 10.4
+
+Update xfig/fig2dev to 3.2.7a
+
+Update hitch to 1.4.8
+
+Update wget to 1.19.5
+
+Update unbound to 1.7.1
+
+Add plib 1.8.5
+
+Update bash to 4.4.19
+
+Update gdb to 7.12.1
+
+Add openjdk 8u171
+
+Solaris 10 update 10 compatibility
+
+Build illumos against openjdk 8, not 7
+
+Add ACPICA 20180508
+
+Can create alien and lx zones from downloadable images

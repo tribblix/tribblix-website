@@ -1,0 +1,157 @@
+Add sparc as a first class citizen
+
+Build xz ourselves
+
+Update git
+
+Update rdesktop
+
+Update tomcat6, tomcat7, tomcat8
+
+Update groff
+
+Update subversion
+
+Update wget
+
+Update groovy
+
+Update firefox
+
+Update node
+
+Update zsh
+
+Update tcl/tk
+
+Update qemu
+
+Update wine
+
+Add openntpd
+
+Update python
+
+Update curl
+
+Update fluxbox
+
+Update icewm
+
+Add slang and jed
+
+Add dateutils
+
+Update openbox
+
+Ruby updates and add 2.2.0
+
+Update jruby
+
+Add mawk
+
+Update bash
+
+OpenJDK 7u75 and 8u31
+
+Update gdb
+
+Update jattack, sphaero2
+
+Update apache httpd
+
+Add maven
+
+Update thunderbird
+
+zap copy-repo
+
+Add i3wm, libev, yajl
+
+zap verify-overlays checks package versions
+
+Add jdiskreport
+
+Add ctwm, tvtwm, vtwm, piewm, amiwm
+
+Add tribblix-session
+
+Deprecated some old package versions
+
+Update windowmaker
+
+Add swapsize option to live installer
+
+Add e19
+
+Add mbuffer
+
+Add collectd
+
+Carry keyboard selection through to installed system
+
+Update libnice, farstream
+
+Update pidgin
+
+Remove pidgin from the kitchen-sink (and the iso)
+
+Update bind
+
+Split xfce-mixer and parole into xfce-media overlay
+
+Update bluefish
+
+Update pekwm
+
+Add nasm
+
+Update php
+
+Update ffmpeg
+
+Update djvulibre
+
+Add squid
+
+Update fping
+
+Add rsyslog
+
+Xfce 4.12
+
+Add gtksourceview and mousepad
+
+Update emacs
+
+Update libidn
+
+Add nginx
+
+illumos-build now uses apache22
+
+Update ghostscript
+
+Update libpcap, tcpdump, nmap
+
+Add boot-server overlay
+
+Add legacy-audio overlay
+
+General overlay cleanup
+
+Update ISC HDCP
+
+Update bison
+
+Update gpatch
+
+Openssl 1.0.2a
+
+Legacy openssl in a separate package
+
+Ship 64-bit tcsh
+
+Don't ship tpm by default
+
+Remove smb and stmf from the base

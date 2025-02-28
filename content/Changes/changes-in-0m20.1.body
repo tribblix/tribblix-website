@@ -1,0 +1,91 @@
+First micro (update) release milestone 20.1
+
+Add an LX variant (aka omnitribblix)
+
+Update node to 6.11.0 8.1.3
+
+Update irssi to 1.0.3
+
+Update php to 7.0.21
+
+Update memcached to 1.4.37
+
+Add Lynis
+
+Add python gnureadline module
+
+Add Commix
+
+Update suricata to 3.2.2
+
+Add perl Net:SSLeay module
+
+Add nikto2
+
+Add security overlay
+
+Update pkgsrc to 2017Q1
+
+Add 64-bit pkgsrc
+
+Add python pytoml module
+
+Add python dulwich module
+
+Add python urllib3 module and prereqs
+
+Update bind to 9.11.1-P2
+
+Update curl to 7.54.1
+
+Update jruby to 9.1.12.0
+
+Update wine to 1.8.7
+
+Update libfastjson to 0.99.5
+
+Update rsyslog to 8.27.0
+
+Update meson to 0.41.0
+
+Update mutt to 1.8.3
+
+Update pigz to 2.3.4
+
+Update jmespath to 0.9.3, botocore to 1.5.71
+
+Update awscli to 1.11.108
+
+Add container-transform
+
+Add maven 3.5.0
+
+Update leofs to 1.3.4
+
+Add vnc2flv
+
+Update haproxy to 1.6.13
+
+Package up a repo server
+
+Update fvwm to 2.6.7
+
+Update setuptools
+
+Update nmap to 7.50
+
+Update exiftool to 10.57
+
+Update Django to 1.11.2
+
+Update libgcrypt to 1.7.8
+
+Update openssl to 1.0.2l
+
+Update expat to 2.2.1
+
+Update pv to 1.6.6
+
+Update fping to 3.16
+
+Add quilt 0.65

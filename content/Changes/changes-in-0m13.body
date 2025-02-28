@@ -1,0 +1,105 @@
+Update node to v0.10.33
+
+Update bind to 9.9.6
+
+Update samba to 4.1.13
+
+Python 3.4.2
+
+Update giflib
+
+Update luajit
+
+Update fontconfig and build it ourselves
+
+Add libart
+
+Add/update harfbuzz
+
+Update cairo
+
+Update pango
+
+Update wget
+
+Update wireshark, add wireshark-qt
+
+Update gtk3
+
+GCC update to 4.8.3 and add gccgo
+
+Zap upgrade
+
+Update qt4
+
+Update boost
+
+Add tali
+
+Abiword 3.0.0
+
+Ship 64-bit copies of bash, zsh, ggrep
+
+Update scala, tomcat7, tomcat8
+
+Add R
+
+Add xcowsay
+
+Add bluefish
+
+Zap: refresh replaces refresh-overlays and refresh-catalog
+
+Zap: install understands aliases
+
+Zap: search aliases
+
+Zap: zap-upgrade marker
+
+Update pidgin
+
+Update mysql
+
+Update xfce weather plugin
+
+Add texinfo
+
+Add php
+
+Update apache httpd
+
+Add amp overlay
+
+Add go (but not cgo, unfortunately)
+
+Add gnuplot
+
+Add gstreamer1
+
+Add openttd
+
+64-bit libsdl
+
+Update qemu, fixed, with sdl
+
+Fix ata driver postinstall
+
+Update gpatch, ggrep
+
+Update xfce plugins: systemload equake
+
+Update pixman
+
+Add xchat
+
+Remove machid and friends
+
+Remove news(1)
+
+Remove cachefs
+
+Remove lint libraries
+
+curl 7.39.0, and 64-bit
+
+Fix 5421

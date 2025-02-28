@@ -1,0 +1,319 @@
+Integrate new boot loader
+
+Fix mime-cache handling
+
+More components are 64-bit
+
+Bring old perl modules up to current perl
+
+Add DBI and DBD for mysql and postgres
+
+Add mod_perl
+
+Add libgd
+
+Add goaccess, webalizer
+
+Update cmake to 3.5.2, add 3.6.3
+
+Update samba to 4.4.9
+
+Update tomcat7 to 7.0.75
+
+Update tomcat8 to 8.0.41
+
+Update wireshark to 2.2.4
+
+Update irssi to 1.0.0
+
+Update openssl to 1.0.2k
+
+Update gawk to 4.1.4
+
+Update texinfo to 6.3
+
+Update diffutils to 3.5
+
+Update bash to 4.4p12
+
+Update php to 5.6.30, 7.0.15
+
+Update firefox to 45.7.0esr
+
+Update libjpeg-turbo to 1.5.1
+
+Update bind to 9.11.0-P2
+
+Update Node 0.10.48 0.12.18 4.7.3 6.9.5
+
+Add node v7.5.0
+
+Update rrdtool to 1.6.0
+
+Update collectd to 5.6.2
+
+Add Radicale 1.1.1
+
+Add postgres 9.6.1
+
+Update postgres to 9.4.10, 9.5.5
+
+All postgres consumers switched to use 9.6
+
+Update redis to 3.2.6
+
+Update caddy to 0.9.3
+
+Update libffi to 3.2.1
+
+Update aria2 to 1.31.0
+
+Update fribidi to 0.19.7
+
+Update boto, and for python3
+
+Update freetype to 2.7.1
+
+Update gupnp and Rygel
+
+Update nmap to 7.40
+
+Update xcowsay to 1.4
+
+Update openjpeg to 2.1.2
+
+Update ISC dhcp to 4.3.5
+
+Update gnu make to 4.2.1
+
+Update git to 2.11.0
+
+Update pixman to 0.34.0
+
+Update dbus-glib to 0.108
+
+Update ocaml to 4.03.0
+
+Update expat to 2.2.0
+
+Update wine to 1.8.6
+
+Update doxygen to 1.8.12
+
+Update gtkmm to 2.24.5
+
+Update libsigc++ to 2.10.0
+
+Update cairo to 1.14.6
+
+Update cairomm to 1.12.0
+
+Update Django to 1.10.4
+
+Update mutt to 1.7.1
+
+Update mercurial to 3.9.2
+
+Update iso-codes to 3.70
+
+Update nghttp2 to 1.17.0
+
+Update gnu grep to 2.27
+
+Update ImageMagick to 6.9.6-6
+
+Update libxslt to 1.1.29
+
+Update memcached to 1.4.34
+
+Update gnuplot to 5.0.5
+
+Add libqb 1.0
+
+Add corosync 2.4.1
+
+Add openjdk 8u112, 8u121
+
+Update thunderbird to 45.5.1
+
+Update mysql to 5.6.35
+
+Update ristretto to 0.8.1
+
+Update unbound to 1.5.10
+
+Update help2man to 1.47.4
+
+Update zile to 2.4.13
+
+Update go to 1.6.4, 1.7.5
+
+Update gnutls to 3.3.26
+
+Update ELK stack to 5.1.2
+
+Add guile 1.8.8
+
+Add pangox-compat 0.0.2
+
+Add gtkglext 1.2.0
+
+Add JOSM
+
+Update gpgme to 1.8.0
+
+Update libassuan to 2.4.3
+
+Update libksba to 1.3.5
+
+Update R to 3.3.2
+
+Update xapian to 1.2.24
+
+Update jruby to 9.1.7.0
+
+Updata scala to 2.12.1
+
+Update libarchive to 3.2.2
+
+Update leveldb to 1.19, fix 64-bit
+
+Update nginx to 1.11.9
+
+Update squid to 3.5.22
+
+Add libunistring 0.9.6
+
+Update libssh2 to 1.8.0
+
+Add libssh 0.7.3
+
+Update haproxy to 1.6.11
+
+Update libpcap to 1.8.1, tcpdump to 4.8.1
+
+Update RabbitMQ to 3.6.6
+
+Update ruby to 2.2.6, 2.3.3
+
+Update clamav-rest to 1.0.2
+
+Update mtr to 0.87
+
+Update libtiff to 4.0.7
+
+Update agedu to 20160920.853cea9
+
+Add datamash 1.1.0
+
+Add libidn2 0.11
+
+Update Vim to 8.0
+
+Update c_icap to 0.4.4
+
+Update consul to 0.7.1
+
+Update subversion to 1.9.5
+
+Update claws-mail to 3.14.1
+
+Update pen to 0.34.0
+
+Update hitch to 1.4.3
+
+Update libsndfile to 1.0.27
+
+Update cdrtools to 3.01
+
+Update ffmpeg to 2.8.9
+
+Update xscreensaver to 5.36
+
+Update stunnel to 5.38
+
+Update scons to 2.5.1
+
+Update dash to 0.5.9.1
+
+Update slang to 2.3.1a
+
+Update zint to 2.5
+
+Update tmux to 2.3
+
+Update qemu to 2.6.2
+
+Update libnotify to 0.5.2
+
+Update tig to 2.2
+
+Update coreutils to 8.26
+
+Add socat 1.7.3.2
+
+Update illumos gcc to il-4
+
+Add Illumos::Zones and Illumos::SMF perl modules
+
+Update libgcrypt to 1.7.6
+
+Add x11vnc 0.9.14
+
+Update apache httpd to 2.4.25
+
+Update libxkbcommon to 0.7.0
+
+Update tcsh to 6.20.00
+
+Update curl to 7.52.1
+
+Add ruby 2.4.0
+
+Add Python 3.6.0
+
+Update gsed to 4.3
+
+Update libpng to 1.4.20
+
+Update libvncserver to 0.9.11
+
+Update leofs to 1.3.1
+
+Add seaweedfs
+
+Update flac to 1.3.2
+
+Update speex to 1.2.0
+
+Update groovy to 2.4.8
+
+Update pkgsrc to 2016Q4
+
+Add python crytography 1.7.1
+
+Update openttd to 1.6.1
+
+Add haskell 8.0.2
+
+Update fping to 3.15
+
+Update fossil to 1.37
+
+Add mod_proxy_protocol apache module
+
+Update ant to 1.9.8
+
+Add ant 1.10.0
+
+Add jodconverter
+
+Add PyOpenSSL
+
+Add M2Crypto
+
+Update tigervnc to 1.7.1
+
+Add jp2a
+
+Update libmng to 2.0.3

@@ -1,0 +1,125 @@
+Fix bhyve CVE
+
+Update botocore to 1.17.29
+
+Update awscli to 1.18.106
+
+Update boto3 to 1.14.29
+
+Update pgBadger to 11.3
+
+Update detect_secrets to 0.14.2
+
+Update phonenumbers to 8.12.7
+
+Update xev to 1.2.4
+
+Update libX11 to 1.6.11
+
+Update s3cmd to 2.1.0
+
+Update python-magic to 0.4.18
+
+Update Barman to 2.11
+
+Update ExifRead to 2.2.1
+
+Update ExifTool to 12.03
+
+Update the CA bundle
+
+Update jdk15 to 15+36
+
+Update more-itertools to 8.4.0
+
+Update coreutils to 8.32
+
+Update JRuby to 9.2.13.0
+
+Update jdk16 to 16+16
+
+Update meson to 0.55.0
+
+Update Django to 2.2.16, 3.1.1
+
+Update PHP to 7.3.22
+
+Update Go to 1.13.15, 1.4.7
+
+Add websockify 0.9.0
+
+Update apache httpd to 2.4.46
+
+Update ActiveMQ to 5.16.0
+
+Add pugixml 1.10
+
+Add Go 1.15.1
+
+Update Node to v10.22.1, v12.18.4, v14.11.0
+
+Update PostgreSQL to 11.9, 12.4, 13.0
+
+Add GnuCOBOL 2.2
+
+Update rsync to 3.2.3
+
+Update bind to 9.11.23
+
+Update Python to 3.7.9, 3.8.5
+
+Update paramiko to 2.7.2
+
+Update curl to 7.72.0
+
+Update gogs to 0.13.0
+
+Update Domination to 1.2.2
+
+Remove jdk 8u232
+
+Remove Go 1.12
+
+Update nikto
+
+Update commix to 3.1
+
+Update sqlmap to 1.4.8
+
+Update pmd to 6.26.0
+
+Update SpotBugs to 4.1.2
+
+Update libX11 to 1.6.12
+
+Add xview, with olwm, cmdtool, clock, and textedit
+
+Add olvwm
+
+Update pgFormatter to 4.4
+
+Update Radicale to 3.0.5
+
+Update pandas to 1.1.1
+
+Update unbound to 1.11.0
+
+Update Jinja to 2.11.2
+
+Update pycurl to 7.43.0.6
+
+Update libgcrypt to 1.8.6
+
+Update libgpg-error to 1.39
+
+Update libksba to 1.4.0
+
+Update npth to 1.6
+
+Update gnupg2 to 2.2.23
+
+Update gpgme to 1.14.0
+
+Update i3 to 4.18.2
+
+Update Apache Libcloud to 3.2.0

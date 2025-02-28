@@ -1,0 +1,411 @@
+Add CMake 3.5.0, CMake 3.4.3, retire older
+
+Update qemu to 2.4.1
+
+Update zsh to 5.2
+
+Update icinga2 to 2.4.3
+
+Update redis to 3.0.7
+
+Add Zabbix
+
+Add SWIG 3.0.8
+
+Fix zlib build
+
+Our own illumos gcc
+
+Update node to 0.10.45, 0.12.14
+
+Update node to v4.4.4 LTS
+
+Add node v5.11.1 Stable
+
+Add node v6.1.0 current
+
+Update gdb to 7.11, and 64-bit
+
+Remove tomcat6
+
+Update tomcat7 to 7.0.69
+
+Update tomcat8 to 8.0.33
+
+Update postgres to 9.4.6
+
+Add postgres 9.5.1
+
+Update mosh to 1.2.5
+
+Fix curl includes for 32/64-bit
+
+Update gettext to 0.19.7
+
+Update curl to 7.47.0
+
+Update Python to 2.7.11
+
+Add Python 3.5.1
+
+Update apache httpd to 2.4.18
+
+Update libpcap to 1.7.4, 64-bit
+
+Update netperf to 2.7.0
+
+Update mercurial to 3.7.2
+
+Update git to 2.8.0
+
+Update links to 2.12
+
+Update s3cmd to 1.6.0
+
+Add lensfun 0.3.2
+
+Update iso-codes to 3.62
+
+Update intltool to 0.51.0
+
+Add pciutils 3.4.1
+
+Update libtool to 2.4.6
+
+Update automake to 1.15
+
+Add expect 5.45
+
+Update xz to 5.2.2, and 64-bit
+
+Update Groovy to 2.4.6
+
+Update flex to 2.5.39
+
+Update haproxy to 1.6.5
+
+Add jq 1.5
+
+Zones code cleaned up
+
+Add gdbm 1.11
+
+Update less to 481
+
+Add pkgsrc bootstrap kit
+
+Add seqtest
+
+Fix pekwm build, add some themes
+
+Fix maven, update to 3.3.9
+
+Update WindowMaker to 0.95.7
+
+OpenJDK 8 up to 8u92
+
+Default java is now jdk8
+
+Add nghttp2 1.5.0
+
+Add supervisord 3.1.3
+
+Fix fuzzing CVEs in unzip
+
+Update php to 5.6.21
+
+Update xscreensaver to 5.34
+
+Update wireshark to 2.0.2
+
+Update ogg, vorbis
+
+Add libao, vorbis-tools
+
+Update Archive::Zip to 1.53
+
+Update samba to 4.3.8
+
+Update squid to 3.5.17
+
+Update gnu grep to 2.24
+
+Build our own nss/nspr
+
+Upgrade nss/nspr to 3.22.1/4.12
+
+Build our own TigerVNC, update to 1.5.0
+
+Add gkrellm 2.3.5
+
+Update fossil to 1.34
+
+Update libxcb
+
+Update the ca bundle
+
+Add unbound 1.5.8
+
+Build libpng ourselves, update to 1.4.19
+
+Update solview to 1.2
+
+Update projectlibre to 1.6.2
+
+Update rabbitmq to 3.6.1
+
+Add graphviz 2.38.0
+
+Update doxygen to 1.8.10
+
+Add the awesome window manager, update to 3.5.9
+
+Add net-snmp 5.7.3
+
+Replace SunSSH with OpenSSH
+
+Update OpenSSH to 7.2p2
+
+Add aalib
+
+Update nano to 2.5.2
+
+Update gimp to 2.8.16
+
+Update coreutils to 8.25
+
+Fix libxslt CVE-2015-7995
+
+Update nmap to 7.12
+
+Add a2ps 4.14
+
+Automate proxy zone creation
+
+Add gftp 2.0.19
+
+Update openssl to 1.0.2h
+
+Update pcre to 8.38
+
+Add libxkbcommon 0.5.0
+
+Update i3 to 4.12
+
+Update xfce4-screenshooter to 1.8.2
+
+Update xfce weather plugin to 0.8.7
+
+Update xfce eyes plugin to 4.4.5
+
+Add xfce4 dictionary 0.7.2
+
+Update Erlang to 18.3, and 64-bit
+
+Add Thunderbird 38
+
+Update firefox to 38.6.1esr
+
+Added our own firefox build (45.1.1)
+
+Update ocaml to 4.02.3, and shared
+
+Add stunnel 5.28
+
+Update etcd to 2.2.5
+
+Build jpeg ourselves, switch to libjpeg-turbo
+
+Update BIND to 9.9.9
+
+Add FreeGLUT 3.0.0
+
+Update GO to 1.5.4
+
+Add gox
+
+Add go 1.6.2
+
+Update fping to 3.13, add fping6
+
+Update wine to 1.8.1
+
+Add JRuby 9k
+
+Update JRuby to 1.7.24
+
+Update ruby to 2.2.4
+
+Add ruby 2.3.0
+
+Update rsync to 3.1.2
+
+Update memcached to 1.4.25
+
+Add htmldoc 1.8.29
+
+Update libreoffice to 4.4.7.2
+
+Add glew 1.13
+
+Add caddy 0.8.0
+
+Add vulcand
+
+Update ISC dhcp to 4.3.4
+
+Add leofs
+
+Add agedu
+
+Add PHP7, update to 7.0.6
+
+Add sniproxy
+
+Update findutils to 4.6.0
+
+Add consul
+
+Update wget to 1.17.1
+
+Add LibYAML 0.1.5
+
+Update ffmpeg to 2.8.6
+
+Update libxml2 to 2.9.3
+
+Update pkg-config to 0.28
+
+Build our own expat
+
+Fix 64-bit includes for gmp
+
+64-bit libs for nettle gnutls gcrypt gpg-error
+
+Add urxvt 9.22
+
+Update clojure to 1.8.0
+
+Add privoxy 3.0.24
+
+Update nginx to 1.10.0
+
+Add Zint barcode generator
+
+Add glm (OpenGL Mathematics)
+
+Add appres, editres, listres, viewres
+
+Add oclock, xedit
+
+Add djview4
+
+Add Xfce calculator plugin
+
+Update texinfo to 6.1
+
+Add snappy 1.1.3
+
+Add leveldb 1.18
+
+Build freetype ourselves, update to 2.6.3
+
+Add log4cplus 1.2.0
+
+Add pound 2.7
+
+Add libedit
+
+Add varnish 4.1.1
+
+Update openttd to 1.5.3
+
+Add ClamAV 0.99.1
+
+Add c-icap 0.4.2
+
+Add spread toolkit 4.4.0
+
+Add wackamole 2.1.5
+
+Add ucarp 1.5.2
+
+Add pen 0.32.0
+
+Add Xapian 1.2.22
+
+Update CUPS to 2.1.3
+
+Add NumPy 1.10.4
+
+Improve zap search
+
+Update bluefish to 2.2.8
+
+Update geany to 1.26
+
+Update gpicview to 0.2.5
+
+Update mbuffer to 20160228
+
+Update joe to 4.2
+
+Update jedit to 5.3.0
+
+Update irssi to 0.8.18
+
+Update iperf to 3.1.2
+
+Update scons to 2.4.1
+
+Add libfastjson 0.99.2
+
+Update rsyslog to 8.17.0
+
+Split out vim GUI
+
+Add ploticus
+
+Update scala to 2.11.8
+
+Update exiftool to 10.13
+
+Add SDL2 and friends
+
+Add OpenAL
+
+Add physfs
+
+Add modplug
+
+Add shibboleth SP stack
+
+Add gphoto2 2.5.10
+
+Update rrdtool to 1.5.6
+
+Add aria2 1.22.0
+
+Signed package support
+
+Add hitch 1.2.0
+
+Update motif to 2.3.5
+
+Add claws-mail 3.13.2
+
+Update ant to 1.9.7
+
+Update ImageMagick to 6.9.3-10
+
+Add gpgme 1.6.0
+
+Add Steel Bank Common Lisp
+
+Add xfishtank
+
+Add libarchive 3.2.0
+
+Update subversion to 1.9.4
+
+New over_install.sh script

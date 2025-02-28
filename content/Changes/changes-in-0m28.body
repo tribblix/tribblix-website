@@ -1,0 +1,154 @@
+GCC updated to 10.3.0
+
+Add fs-uae 3.1.66
+
+Update ffmpeg to 4.4.2 (2.8.20 for 32-bit)
+
+Update Qt5 to 5.15.5, and 64-bit
+
+Update VLC to 3.0.17.4
+
+Add libvisual 0.4.0
+
+Update GStreamer to 1.20.3
+
+Update gftp to 2.9.1b
+
+Update neon to 0.32.2
+
+Update libssh to 0.9.6
+
+Update openssl to 1.1.1q
+
+Update htmldoc to 1.9.15
+
+Add zathura 0.4.9
+
+Add Python 3.10
+
+Add synctex
+
+Update MATE to 1.24
+
+Add Castor gemini client
+
+Update amfora to 1.9.2
+[if crash on startup, rm ~/.config/amfora/config.toml]
+
+Update the fish shell to 3.5.0
+
+Update dash to 0.5.11.5
+
+Update tcsh to 6.24.01
+
+Update zsh to 5.9
+
+Update zenity to 3.42.1
+
+Update vala to 0.56.1
+
+Update libgee to 0.20.5
+
+Add tali
+
+Update curl to 7.84.0
+
+Update bash to 5.1.16
+
+Update libexif to 0.6.24
+
+Update speex to 1.2.1
+
+Update brotli to 1.0.9
+
+Update Django to 3.2.15, 4.0.7
+
+Add xosview
+
+Update Pale Moon to 31.2.0
+
+Update PHP to 8.1.9
+
+Update Node to v14.20.0
+
+Deprecate Node v10
+
+Deprecate Node v12
+
+Add Go 1.19
+
+Update go to 1.17.13, 1.18.5
+
+Go 1.18 is now the default
+
+Update irssi to 1.4.2
+
+Update awscli to 1.25.33, and bump dependencies
+
+Update jdk8 to 8u342, and then 8u345
+
+Update jdk11 to 11.0.16
+
+Update jdk13 to 13.0.12
+
+Update jdk15 to 15.0.8
+
+Update jdk17 to 17.0.4
+
+Update jdk18 to 18.0.2
+
+Added a jdk19 package
+
+Update tomcat to 8.5.82, 9.0.65
+
+Installer allows specification of dump size (-d option)
+
+Installer allows specification of root pool name (-P option)
+
+Update groovy to 2.5.18, 3.0.12, 4.0.4
+
+Update pmd to 6.47.0
+
+Update gnuplot to 5.4.4
+
+Update XScreenSaver to 6.04
+
+Update links to 2.27
+
+Update CUPS to 2.4.2
+
+Add Node v16.16.0
+
+Node v16 is now the default
+
+Add Node v18.7.0
+
+Update librevenge to 0.0.4
+
+Update R to 4.2.1
+
+Update v to 0.3.0
+
+Add classic-colors
+
+Update zabbix to 4.0.43
+
+Update IceWM to 2.9.9
+
+Update unbound to 1.16.2
+
+Add exa
+
+Update tig to 2.5.6
+
+Update trousers to 0.3.15
+
+Update tumbler to 4.16.1
+
+Update xfce4-settings to 4.16.3
+
+Update OpenEXR to 3.1.5
+
+Remove ilmbase and openexr-viewer
+
+Update JRuby 9.3.6.0

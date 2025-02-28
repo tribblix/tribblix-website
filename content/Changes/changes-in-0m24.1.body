@@ -1,0 +1,101 @@
+The ISO is now hybrid, so may boot via USB
+
+Tribblix will boot as a bhyve guest
+
+Bhyve handles illumos guests much better
+
+The illumos ksh updated to 93u+ 2012-08-01
+
+Improved bhyve integration
+
+Many python module updates
+
+Update jdk16 to 16+36
+
+Update jdk15 to 15.0.2
+
+Update jdk8 to 8u282
+
+Update openssh to 8.4p1
+
+Add subversion 1.14.0
+
+Update bind to 9.11.28
+
+Update botocore to 1.20.7
+
+Update boto3 to 1.17.7
+
+Update awscli to 1.19.7
+
+Update s3transfer to 0.3.4
+
+Update Shibboleth SP to 3.2.0
+
+Update Node to v10.23.3, v12.20.2, v14.15.5
+
+Update pctlife
+
+Update sphaero2
+
+Update wxWidgets to 3.1.4
+
+Update Emacs to 27.1
+
+Update Django to 3.1.7
+
+Update BorgBackup to 1.1.15
+
+Update Slony to 2.2.10
+
+Update Python to 3.8.7
+
+Update pg_back to 1.10
+
+Update pgBadger to 11.5
+
+Update pgFormatter to 5.0
+
+Add prowler
+
+Add cloudsec overlay
+
+Add LXTerminal 0.3.2
+
+Add ee
+
+Add ec2-metadata
+
+Update Zabbix to 4.0.27
+
+Add Pale Moon browser, update to 29.0.1
+
+Update Go to 1.14.15, 1.15.8
+
+Add Go 1.16
+
+Update the CA bundle
+
+Update sudo to 1.9.5p2
+
+Update meson to 0.56.2
+
+Update tomcat to 8.5.63, 9.0.43, 10.0.2
+
+Update PHP to 7.4.15
+
+Update curl to 7.75.0
+
+Update socat to 1.7.4.1
+
+Update xterm to 366
+
+Update wapiti to 3.0.4
+
+Add Xarchiver 0.5.4
+
+Patch gcc to use the illumos ssp, not its own
+
+Update postgres to 13.2, and make it 64-bit
+
+Update postgres to 11.11, 12.6

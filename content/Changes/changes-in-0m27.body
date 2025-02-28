@@ -1,0 +1,233 @@
+Finished rebuilds for perl5.34 migration
+
+zap staticnet
+
+JDK11 is the default java, and illumos is built against that java
+
+Add pcre2
+
+Add new desktop and server overlays
+
+Update vte to 0.52.4
+
+Update glib2 to 2.62.6
+
+Update git to 2.35.2
+
+Update Xapian to 1.4.19
+
+Update mod_perl to 2.0.12
+
+Update Node.JS to v12.22.12, v14.19.3
+
+Update samba to 4.15.6
+
+Update xterm to patch 372
+
+Update xclock to 1.1.1
+
+Update xdpyinfo to 1.3.3
+
+Update zlib to 1.2.12 (plus crc patch)
+
+Window Manager menus should be cleaner
+
+Update s-nail to 14.9.24
+
+Update less to version 590
+
+Update html tidy to 5.8.0
+
+Add diff-so-fancy
+
+Update links to 2.26
+
+Update pgBadger to v11.8
+
+Update restic to 0.13.1
+
+Update Pale Moon to 31.1.0
+
+Update Django to 3.2.13, 4.0.4
+
+Update subversion to 1.14.2
+
+Update ruby to 2.7.6, 3.0.4
+
+Update openssl to 1.1.1n
+
+Update llvm and clang to 14.0.1
+
+Update collectd to 5.12.0
+
+Update Nmap to 7.92
+
+Update suricata to 5.0.8
+
+Update gzip to 1.12
+
+Update help2man to 1.49.2
+
+Update openjdk 8u332
+
+Update openjdk 11.0.15
+
+Update openjdk 13.0.11
+
+Update openjdk 15.0.7
+
+Update openjdk 17.0.3
+
+Update openjdk 18.0.1
+
+Update xauth to 1.1.2
+
+Update python 3.7.13
+
+Update python 3.9.12
+
+Update Groovy 4.0.2
+
+Update Radicale to 3.1.7
+
+Update bind to 9.16.28
+
+Update xfontsel to 1.0.6
+
+Update xclipboard to 1.1.3
+
+Update xeyes to 1.2.0
+
+Update xlogo to 1.0.5
+
+Update zile to 2.4.15
+
+Add flawfinder 2.0.19
+
+Update fltk to 1.3.8
+
+Update XScreenSaver to 6.03
+
+Update mbuffer to 20220418
+
+Update bitmap to 1.1.0
+
+Update curl to 7.83.0
+
+Update mutt to 2.2.6
+
+Update libgphoto2 to 2.5.29
+
+Update gphoto2 to 2.5.28
+
+Update jed to 0.99.20-159
+
+Update xfig and fig2dev to 3.2.8b
+
+Update geany to 1.38
+
+Add geany plugins
+
+Update ActiveMQ to 5.16.5
+
+Update rsyslog to 8.2204.1
+
+Update freeglut to 3.2.8
+
+Add libmikmod 3.3.11.1
+
+Add mikmod 3.2.8
+
+Update rsync to 3.2.4
+
+Update go to 1.17.11, 1.18.3
+
+Default go is now 1.17
+
+Update awscli to 1.23.11
+
+Add neofetch
+
+Update PostgreSQL to 11.16, 13.7, 14.4
+
+Update PHP to 8.1.7
+
+Update Xfce terminal to 1.0.4
+
+Update Xfce taskmanager to 1.5.4
+
+Update sakura to 3.8.5
+
+Update pmd to 6.45.0
+
+Update lxterminal to 0.4.0
+
+Update jEdit to 5.6.0
+
+Update claws-mail to 4.1.0
+
+Update clamav to 0.103.6
+
+Update emacs to 28.1
+
+Add s5cmd
+
+Update doctl to 1.76
+
+Add ffuf
+
+Add postgres 15 (beta1)
+
+Update repmgr to 5.3.2
+
+Update groonga to 11.1.3
+
+Update pgroonga to 2.3.6
+
+Add osmo 0.4.4
+
+Update libgpg-error to 1.45
+
+Update libgcrypt to 1.8.9
+
+Update harfbuzz to 4.3.0
+
+Update pango to 1.44.7
+
+Update pixman to 0.40.0
+
+Update libcroco to 0.6.13
+
+Update cairo to 1.14.12
+
+Add MATE terminal
+
+Update apache httpd to 2.4.54
+
+Add the janet programming language
+
+Update tomcat to 8.5.79, 9.0.64, 10.0.22
+
+Update libgsf to 1.14.49
+
+Update exo to 4.16.4, xfce4-panel to 4.16.4, thunar to 4.16.11
+
+Update agedu to 20211129.8cd63c5
+
+Update babl to 0.1.92
+
+Update gegl to 0.4.36
+
+Update gexiv2 to 0.12.3
+
+Update gimp to 2.10.30
+
+Update goffice to 0.10.52
+
+Update gnumeric to 1.12.52
+
+Update pidgin to 2.14.10
+
+Update gnupg2 to 2.2.35
+
+Update nsxiv 29

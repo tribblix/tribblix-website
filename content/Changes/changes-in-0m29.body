@@ -1,0 +1,354 @@
+This release has the linker changes necessary to support binutils 2.40, amongst other things.
+
+Update bind to 9.16.36
+
+Update the prometheus node_exporter
+
+Update JRuby to 9.3.9.0
+
+Update scala to 2.13.10, 3.2.1
+
+Add xxHash 0.8.1
+
+Add Photoflare 1.6.10
+
+Add Go-For-It
+
+Publish images for Digital Ocean
+
+zap unconfigure
+
+Update the illumos metadata-agent
+
+Update git to 2.39.1
+
+Update mercurial to 6.2.1
+
+Update node to v14.21.3, v16.19.1, v18.14.1
+
+Update LibreOffice to 7.2.7.2
+
+Update rsyslog to 8.2208.0
+
+Update rclone to 1.59.1
+
+Update restic to 0.14.0
+
+Add the opentelemetry collector
+
+Update maven to 3.8.7
+
+Update ActiveMQ to 5.17.2
+
+Add smplayer
+
+Update lzip to 1.23, lzlib to 1.13, plzip to 1.10
+
+Update oclock to 1.0.5
+
+Update libFS to 1.0.9
+
+Update libfontenc to 1.1.6
+
+Update pgpool to 4.2.12
+
+Update pg_activity to 3.0.3
+
+Update Barman to 3.4.0
+
+Update pgFormatter to 5.5
+
+Update borgbackup to 1.2.2
+
+Update libXau to 1.0.10
+
+Update libXpm to 3.5.15
+
+Update libXdmcp to 1.1.4
+
+Update libXrender to 0.9.11
+
+Update libXcomposite to 0.4.6
+
+Update libXext to 1.3.5
+
+Update libXdamage to 1.1.6
+
+Update libXinerama to 1.1.5
+
+Update libXres to 1.2.2
+
+Update xdm to 1.1.14
+
+Update OpenBLAS to 0.3.21
+
+Update gpgme to 1.18.0
+
+Update djview4 to 4.12, now a Qt5 app
+
+Update fribidi to 1.0.12
+
+Update Coolreader to 3.5.28, now a Qt5 app
+
+No more Qt4
+
+Update Go to 1.18.10, 1.19.6
+
+Update python to 3.7.16, 3.9.16, 3.10.10
+
+Update groovy to 3.0.15, 4.0.9
+
+Retire groovy 2.5, groovy 4 is now the default
+
+Update pgBadger to v12.0
+
+Update pg_activity to 3.0.0
+
+Update pgbouncer to 1.18.0
+
+Add flameshot 12.1.0
+
+Update tomcat to 8.5.86, 9.0.72, 10.1.6
+
+Update unbound to 1.16.3
+
+Update patroni to 2.1.4
+
+In partial-root zones, individual packages can be copied from the global
+zone (-p) or added to the new zone (-P)
+
+Update clang and llvm to 14.0.6
+
+For bhyve, zap create-zone now has a -c flag to enable cloud-init for the
+guest, and a -k flag to add an ssh public-key.
+
+For bhyve, filesystems shared by create-zone with the -s and -S flags are
+now presented as virtfs devices to the guest
+
+Update gapi modules
+
+Update the bhyve brand
+
+Update ISC dhcp 4.4.3-P1
+
+Update terraform to v1.3.1
+
+Update doctl to 1.79
+
+Add vultr-cli 2.15
+
+Update binutils to 2.39
+
+Update rsync to 3.2.6
+
+Update samba to 4.15.12
+
+Add gitleaks
+
+Update postgres to 11.19, 13.10, 14.7
+
+Add postgres 15.2
+
+Filling out python 3.10 modules
+
+Add gupnp-tools
+
+Update sphaero2 to 1.6
+
+Update libksba to 1.6.3
+
+Update gnupg to 2.2.41
+
+Update nginx to 1.22.1
+
+Add openjdk 8u352
+
+Add openjdk 8u362
+
+Update openjdk11 to 11.0.18
+
+Update openjdk13 to 13.0.14
+
+Update openjdk15 to 15.0.10
+
+Update openjdk17 to 17.0.6
+
+Update openjdk19 to 19.0.2
+
+Package openjdk20
+
+Update fslsfonts to 1.0.6
+
+Update fstobdf to 1.0.7
+
+Update xfsinfo to 1.0.7
+
+Update font-util to 1.4.0
+
+Add LibreCAD 2.2.0
+
+Update vault to v1.12.0
+
+Update zlib to 1.2.13
+
+Update meson to 0.63.3
+
+Update x11perf to 1.6.2
+
+Update php to 7.4.33, 8.1.16
+
+Update libxml2 to 2.9.14
+
+Update consul to 1.13.3
+
+Update sessreg to 1.1.3
+
+Update amfora
+
+Update rgb to 1.1.0 
+
+Update xinput to 1.6.3 
+
+Update xsetroot to 1.1.3
+
+Update xfd to 1.1.4
+
+Update xvinfo to 1.1.5
+
+Update expat to 2.5.0
+
+Update pixman to 0.42.2
+
+Update minio server
+
+Update coredns to 1.10.0
+
+Update Pale Moon to 32.0.1
+
+Update sudo to 1.9.12p2
+
+Update prometheus to 2.37.2
+
+Update pmd to 6.53.0
+
+Update xkill to 1.0.6
+
+Update xlsatoms to 1.1.4
+
+Update xlsclients to 1.1.5
+
+Update xgc to 1.0.6
+
+Update xlogo to 1.0.6
+
+Update xstdcmap to 1.0.5
+
+Update xset to 1.2.5
+
+Update xprop to 1.2.6
+
+Update xgamma to 1.0.7
+
+Update xrandr to 1.5.2
+
+Update xcursorgen to 1.0.8
+
+Update xinit to 1.4.2
+
+Update xhost to 1.0.9
+
+Update xdriinfo to 1.0.7
+
+Update xcircuit to 3.10.30
+
+Update xfce4-screenshooter to 1.10.0
+
+Update GraphicsMagick to 1.3.38
+
+Add timg 1.4.5
+
+Update libffi to 3.4.4
+
+Update Tcl/Tk to 8.6.13
+
+Update ruby to 2.7.7, 3.1.3
+
+Update xrdp to 0.9.21
+
+Update botocore to 1.29.59, boto3 to 1.26.59, awscli to 1.27.59
+
+Update tkdiff to 5.6
+
+Update curl to 7.86.0
+
+Update Slony-I to 2.2.11
+
+Update repmgr to 5.3.3
+
+Add fx 24.0.0
+
+Add hurl
+
+Add osv-scanner 1.0.1
+
+Update pekwm to 0.2.1
+
+Update tree to 2.0.4
+
+Update libpng to 1.6.39
+
+Update xplanet
+
+Update imake to 1.0.9
+
+Update VisualVM to 2.1.5
+
+Update goffice to 0.10.53
+
+Update gnumeric to 1.12.53
+
+Update links to 2.28
+
+Update mutt to 2.2.9
+
+Update stunnel to 5.67
+
+Update janet to 1.26.0
+
+Update fossil to 2.20
+
+Update libarchive to 3.6.2
+
+Update citus to 11.1.5, supporting newer postgres
+
+Update hexyl to 0.12.0
+
+Update bat to 0.22.1
+
+Update emacs to 28.2
+
+Add potrace 1.16
+
+Update duplicity to 1.2.2
+
+Update apache httpd to 2.4.55
+
+Update screen to 4.9.0
+
+Update openssl to 1.1.1t
+
+Update claws-mail to 4.1.1
+
+Update mousepad to 0.6.0
+
+Update ristretto to 0.13.0
+
+Add LLnextgen 0.5.5
+
+Add tilde 1.1.3
+
+Update Django to 3.2.18, 4.1.7
+
+Update xterm to patch 378
+
+Update constype to 1.0.5

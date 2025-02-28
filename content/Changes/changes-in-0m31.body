@@ -1,0 +1,336 @@
+MATE updated to 1.26 (detailed updates below)
+
+Default postgres is now v15
+
+Default python is now 3.11
+
+OpenSSH is now 8.9p1 - will go to 9.x in the next release
+TRIBnet-ssh-ssh-key and ssh-keysign have been removed
+
+Update JRuby to 9.4.3.0
+
+Update VLC to 3.0.18
+
+Update go to 1.19.10, 1.20.5
+
+Remove go 1.17
+
+Update Xapian to 1.4.22
+
+Add xorriso 1.5.4.pl02
+
+Update links to 2.29
+
+Update lynx to 2.9.0dev.12
+
+Add wget2 2.0.1
+
+Update spectrum fuse to 1.5.7
+
+Update mtr to 0.94
+
+Update pidgin to 2.4.12
+
+Update git to 2.40.1
+
+Update sudo to 1.9.13p3
+
+Add iftop 0.17
+
+Add pioneers 15.6
+
+Add geeqie 2.0.1
+
+Update xcalc to 1.1.2
+
+Teach gnutls to find the certificate store
+
+Update pgbouncer to 1.19.1
+
+Update atril to 1.26.1
+
+Update engrampa to 1.26.1
+
+Update caja to 1.26.1
+
+Update eom to 1.26.0
+
+Update mate-terminal to 1.26.0
+
+Update mate-media to 1.26.0
+
+Update mate-desktop to 1.26.1
+
+Update mate-common to 1.26.0
+
+Update libmatemixer to 1.26.0
+
+Update mate-control-center to 1.26.0
+
+Update mate-session to 1.26.1
+
+Update luit, switch to Thomas Dickey's fork
+
+Update mawk to 1.3.4-20230404
+
+Update marco to 1.26.2
+
+Deprecate mcross, broken with python3.11
+
+Add moonlander
+
+Update mate-panel to 1.26.3
+
+Update mate-menus to 1.26.0
+
+Update mate-icon-theme to 1.26.0
+
+Update zathura to 0.5.2
+
+Update slang to 2.3.3
+
+Update jed to pre0.99.20-179
+
+Update mutt to 2.2.10
+
+Update gnu parallel to 20230422
+
+Update rsync to 3.2.7
+
+Update vultr-cli to 2.16.2
+
+Update rclone to v1.62.2
+
+Update fzf to 0.40.0
+
+Update xf86-input-mouse to 1.9.5
+
+Update xf86-video-savage to 2.4.0
+
+Update maven to 3.8.8, 3.9.2
+
+Deprecated libXp, as all consumers have been rebuilt to not use it
+
+Update Groovy to 3.0.18, 4.0.13
+
+Update JKstat to 1.4.0
+
+Add pizarra 1.7.4
+
+Restore log4cplus
+
+Add gtksourceview4
+
+Update pluma to 1.26.0
+
+Update PostgreSQL to 13.11, 15.3
+
+Update PHP to 8.1.21
+
+Update coredns to 1.10.1
+
+Update s5cmd to v2.1.0-beta.1
+
+Update varnish to 6.0.11
+
+Add Xantfarm
+
+Add Xphoon
+
+Update unbound to 1.17.1
+
+Update tree to 2.1.0
+
+Update mousepad to 0.6.1
+
+Update plan9port
+
+Update Pale Moon to 32.2.1
+
+Fully updated ffmpeg to 4.4.2
+
+Update LibVNCServer to 0.9.14
+
+Update tomcat to 10.1.10, 8.5.90, 9.0.76
+
+Update pgpool-II to 4.2.13
+
+Update pg_activity to 3.4.2
+
+Update SCons to 4.5.2
+
+Update Barman to 3.5.0
+
+Update s3cmd to 2.3.0
+
+Update commix to 3.7
+
+Update rust to 1.69.0
+
+Update datamash to 1.8
+
+Update libSDL2 to 2.26.5
+
+Add SDL2_gfx 1.0.4
+
+Add SDL2_Pango 2.1.5
+
+Add libimagequant 2.18.0
+
+Add tuxpaint 0.9.30
+
+Update freecol to 1.1.0
+
+Update openssl3 to 3.0.9
+
+Update openssl to 1.1.1u
+
+Update the CA bundle
+
+Update ristretto to 0.13.1
+
+Update irssi to 1.4.4
+
+Update tmux to 3.3a
+
+Update libpciaccess to 0.17
+
+Update xscope to 1.4.4
+
+Update xwd to 1.0.9
+
+Update pdsh to 2.34
+
+Update duviz to 3.2.0
+
+Update vim to 9.0
+
+Update p7zip to 16.02
+
+Update x11vnc
+
+Update samba to 4.18.3
+
+Update gnumeric to 1.12.55
+
+Update goffice to 0.10.55
+
+Update MediaInfo to 23.04
+
+Update libcares to 1.19.1
+
+Update wireshark to 3.6.14
+
+Update minio client
+
+Update terraform to 1.4.6
+
+Update etcd
+
+Update OpenTelemetry collector 0.79.0
+
+Update stolon
+
+Update consul to v1.15.3
+
+Update seaweedfs to 3.52
+
+Update prometheus haproxy exporter to 0.15.0
+
+Update prometheus bind exporter to 0.6.1
+
+Update nginx prometheus exporter to 0.11.0
+
+Update prometheus node_exporter to 1.6.0
+
+Update restic to 0.15.2
+
+Update cli53 to 0.8.22
+
+Add zfs stats to top
+
+Update loki to 2.8.2
+
+Update prometheus to 2.37.8
+
+Update gitleaks to v8.16.4
+
+Package openjdk21
+
+Fix SIGSEGV warnings in jdk16
+
+Update Xvnc to 1.16.4, and enable glx
+
+Add mesa-demos 8.5.0
+
+Update fzf to 0.41.1
+
+Update osv-scanner to 1.3.4
+
+Update bind to 9.18.15
+
+Update bluefish to 2.2.14
+
+Update Python to 3.7.17, 3.9.17, 3.11.4
+
+Add FontForge
+
+Update citus to v11.3.0
+
+Update gnucobol to 3.1.2
+
+Update Node.js to v16.20.1, v18.16.1, v20.3.1
+
+Default Node.js is now v18
+
+Update EFL to 1.20.7
+
+Update terminology to 1.7.0
+
+Update enlightenment to 0.21.11
+
+Update Zint to 2.12.0
+
+Update scala to 2.13.11, 3.3.0
+
+Update suricata to 5.0.9
+
+Update diffutils to 3.10
+
+Update gawk to 5.2.2
+
+Update wget to 1.21.4
+
+Update ggrep to 3.11
+
+Add AXPbox
+
+Update sqlmap to 1.7
+
+Update Barman to 3.6.0
+
+Update botocore to 1.29.165, boto3 to 1.26.165, awscli to 1.27.16
+
+Update cabextract to 1.11
+
+Update ActiveMQ to 5.17.5
+
+Update nmap to 7.94
+
+Update mercurial to 6.4.5
+
+Update prowler to 2.12.1
+
+Update nano to 6.4
+
+Update libxcb to 1.15, and update other xcb components
+
+Update libpng to 1.6.40
+
+Update kotlin to 1.9.0
+
+Update NEdit to 5.7
+
+Update gtkmm to 3.24.7
+
+Update cairo to 1.16.0

@@ -1,0 +1,135 @@
+Can now install to raidz1 and raidz2
+
+Rebuild many packages for libpng update
+
+You can now create alien zone templates
+
+Python being gradually migrated to 3.9
+
+Update links to 2.23
+
+Update xfig to 3.2.8a
+
+Update emacs to 27.2
+
+Update rrdtool to 1.7.2
+
+Update icoutils to 0.32.3
+
+Update pekwm to 0.1.18
+
+Update wxWidgets to 3.1.5
+
+Update gnuplot to 5.4.1
+
+Update meson to 0.58.0
+
+Update Xfce to 4.16
+
+Update jdk8 to 8u292, 8u302
+
+Update jdk15u to 15.0.3
+
+Update jdk16u to 16.0.2
+
+Add doctl
+
+Update Pale Moon to 29.4.1
+
+Update babl to 0.1.86
+
+Update php to 7.4.21
+
+Update bind to 9.11.32
+
+Update gegl to 0.4.30
+
+Update gimp to 2.10.24
+
+Update Python to 3.7.12, 3.8.12, 3.9.7
+
+Update Go to 1.15.15, 1.16.8
+
+Add Go 1.17.1
+
+Update ruby to 2.6.8, 2.7.4
+
+Add ruby 3.0.2 (and 64-bit)
+
+Update JRuby to 9.2.19
+
+Update postgres to 11.13, 12.8, 13.4
+
+Add postgres 14.0
+
+Update Django to 3.2.7
+
+Update IceWM to 2.3.4
+
+Update irssi to 1.2.3
+
+Update gnu grep to 3.6, and only ship 64-bit
+
+Update gnu make to 4.3, make 64-bit
+
+Update nginx to 1.20.1
+
+Update apache httpd to 2.4.49
+
+Update pmd to 6.38.0
+
+Update spotbugs to 4.2.3
+
+Add libXaw3d 1.6.3
+
+Update ProjectLibre to 1.9.3
+
+Update imagination to 3.6
+
+Update bluefish to 2.2.12
+
+Update geany to 1.37.1
+
+Update tree to 1.8.0 (thanks Dario Vladović)
+
+Package jdk17
+
+Update Node.js v12.22.6, v14.17.6
+
+Update gnutls to 3.6.16
+
+Update mousepad to 0.5.7
+
+Update Ant to 1.9.16, 1.10.11
+
+Update ristretto to 0.11.0
+
+Update gstreamer and plugins to 1.16.3
+
+Add libXfont2 2.0.5
+
+Update XScreensaver to 6.01
+
+Add cli53
+
+Aiming to replace bzr with breezy
+
+Add age v1.0.0
+
+Update Groovy to 2.5.15, 3.0.9
+
+Update pgBadger to 11.6
+
+Update subversion to 1.14.1
+
+Update lua to 5.3.6
+
+Update LGI to 0.9.2
+
+Update awesome to 4.3
+
+Add gcc10 for illumos shadow
+
+Update scala to 2.13.6
+
+Update fossil to 2.16
