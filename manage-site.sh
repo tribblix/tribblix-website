@@ -56,7 +56,7 @@ case $1 in
 	;;
     spell)
 	shift
-	/usr/bin/codespell -L ede content layouts
+	/usr/bin/codespell -L ede,oclock,nce content layouts
 	;;
     *)
 	usage
