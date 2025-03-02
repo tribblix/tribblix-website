@@ -29,18 +29,16 @@ Specifically, the currently available and supported AMIs, which can be
 used for both Nitro and non-Nitro instances, are:
 </p>
 <ul>
-<li>Tribblix m35 - ami-01b06698db06cdb16</li>
-<li>OmniTribblix m35lx - ami-09cae0ad1eebc2b0e</li>
+<li>Tribblix m36.1 - ami-0617e03e3bd21e5e3</li>
+<li>OmniTribblix m36lx.1 - ami-04820b9976d2deb21</li>
 </ul>
 
 <p>
 The previous release of supported AMIs are:
 </p>
 <ul>
-<li>Tribblix m33p1 - ami-03745614c82800523</li>
-<li>OmniTribblix m33p1lx - ami-0608ad0511e6fe3e1</li>
-<li>Tribblix m33p1 (Nitro) - ami-0941a5d7b466ea8fd</li>
-<li>OmniTribblix m33p1lx (Nitro) - ami-0554b8df5122ed8c7</li>
+<li>Tribblix m35 - ami-01b06698db06cdb16</li>
+<li>OmniTribblix m35lx - ami-09cae0ad1eebc2b0e</li>
 </ul>
 
 <p>
@@ -51,15 +49,6 @@ the AMI.
 <p>
 Sometimes the networking doesn't initialise properly on the first
 boot. Rebooting the instance from the AWS console ought to clear that.
-</p>
-
-<p>
-For releases prior to m35, the images labelled (Nitro) support the new
-(t3, m5 etc.) instance types. They won't run on the older (t2, m4,
-etc.) instances. Likewise, the images without the (Nitro) label will
-only run on the older instance types. As of the m35 release, Nitro
-support has greatly stabilised and the same images can be used for
-either.
 </p>
 
 <p>
@@ -82,8 +71,7 @@ With the current AMIs, the newer Nitro instances are a good bet, and cheaper.
 </p>
 
 <p>
-I recommend you enable static networking (again, not on Nitro instance
-with older AMIs) with
+I recommend you enable static networking with
 </p>
 <pre>
 zap staticnet -y
