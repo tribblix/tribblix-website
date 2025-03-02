@@ -12,15 +12,15 @@ do
     rev=${nfile##*-}
     case $rev in
 	0*)
-	    echo "<h1>Changes in ${rev} prerelease</h1>" > ${nfile}.html
+	    echo "<h1>Changes in ${rev} prerelease</h1>" > "${nfile}.html"
 	    ;;
 	*)
-	    echo "<h1>Changes in release ${rev}</h1>" > ${nfile}.html
+	    echo "<h1>Changes in release ${rev}</h1>" > "${nfile}.html"
 	    ;;
     esac
-    echo "<p>" >> ${nfile}.html
-    cat ${file} | sed 's:^$:</p><p>:' >> ${nfile}.html
-    echo "</p>" >> ${nfile}.html
+    echo "<p>" >> "${nfile}.html"
+    cat "${file}" | sed 's:^$:</p><p>:' >> "${nfile}.html"
+    echo "</p>" >> "${nfile}.html"
 done
 
 #
@@ -32,7 +32,7 @@ done
 #
 echo "<h1>Changes by release</h1>" > index.html
 echo "<ul>" >> index.html
-ls -1 *body |sort -t m -k 2 -nr | while read file
+ls -1 *body | sort -t m -k 2 -nr | while read -r file
 do
     nfile=${file%.body}
     hfile=${nfile}.html
