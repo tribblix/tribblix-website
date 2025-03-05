@@ -13,7 +13,15 @@ cat /usr/demo/SOUND/sounds/train.au > /dev/sound/1
 <p>To fix audio output for most applications that have no way of selecting
 the audio device, simply replace <code>/dev/audio</code>,
 <code>/dev/audioctl</code>, and <code>/dev/dsp</code> with symbolic links
-that point to the working device.</p>
+that point to the working device. For example, to use device 1:</p>
+<pre>
+rm /dev/audio
+ln -s sound/1 /dev/audio
+rm /dev/audioctl
+ln -s sound/1ctl /dev/audioctl
+rm /dev/dsp
+ln -s dsp1 /dev/dsp
+</pre>
 
 <p>To get GStreamer, and applications using GStreamer for audio output, to
 use the non-default audio device, set the environment variable
