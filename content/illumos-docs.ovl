@@ -1,0 +1,6 @@
+---
+title: illumos-docs overlay
+---
+<h1>Overlay illumos-docs - Illumos Docs Environment</h1>
+<p>This overlay contains the python modules required to work on the
+<a href="https://github.com/illumos/docs">illumos docs</a> site.</p>

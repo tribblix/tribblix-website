@@ -1,0 +1,8 @@
+---
+title: x11-fonts overlay
+---
+<h1>Overlay x11-fonts - Extra X11 fonts</h1>
+<p>Provides additional fonts. This will give you all the fonts packages for
+Tribblix. Normally you wouldn't need this, as all the core fonts are
+included in the @x11 overlay, and those needed by applications are included
+in the @retro-desktop overlay.</p>
