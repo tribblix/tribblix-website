@@ -3,3 +3,10 @@ title: nameserver overlay
 ---
 <h1>Overlay nameserver - BIND name server</h1>
 <p>Supplies the <a href="https://www.isc.org/bind/">BIND</a> nameserver.</p>
+<p>To set up a simple caching-only nameserver, copy the file
+<code>/etc/named-cache.conf</code> to <code>/etc/named.conf</code>,
+modifying as appropriate (you may need to update the local subnet in the
+<code>allow-query</code> statement) and start the server with</p>
+<pre>
+svcadm enable named
+</pre>
