@@ -142,7 +142,7 @@ and <code>-O</code> flags aren't appropriate.
   a special lightweight zone.</p>
 
 <p>
-  To create an alien zone, the command is:
+  To create a bhyve zone, the command is:
 </p>
 <pre>
 zap create-zone -z zone_name -t bhyve -V 8G -I /path/to/iso/image [other flags]
@@ -152,4 +152,8 @@ where the <code>-t</code> flag must specify bhve, and
 the <code>-I</code> flag tells it where a bootable iso image is to be
 found. The <code>-V</code> flags specifies the size of a ZFS volume
 that will be presented to the virtual machine as a disk drive.
+</p>
+<p>
+  There is <a href="Use/6.zones_bhyve.html">more about bhyve zones</a>
+  in the handbook.
 </p>
