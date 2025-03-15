@@ -1,0 +1,8 @@
+---
+title: storage-server overlay
+---
+<h1>Overlay storage-server - Multi Protocol Storage Server</h1>
+<p>The is the old OpenSolaris storage server software.</p>
+
+<p>If you're looking to provide networked clients with access to files, then
+you almost certainly want the @storage-nas overlay instead.</p>

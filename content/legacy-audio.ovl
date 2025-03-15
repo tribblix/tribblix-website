@@ -1,0 +1,12 @@
+---
+title: legacy-audio overlay
+---
+<h1>Overlay legacy-audio - Legacy audio tools and samples</h1>
+<p>Provides the legacy audio commands
+<code>audioconvert</code>,
+<code>audioctl</code>,
+<code>audioplay</code>,
+and <code>audiorecord</code>.
+</p>
+<p>Also provides the sample audio files which you'll find in the
+<code>/usr/share/audio/samples/au</code> directory.</p>
