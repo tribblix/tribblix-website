@@ -1,0 +1,7 @@
+---
+title: gnupg2 overlay
+---
+<h1>Overlay gnupg2 - GnuPG version 2</h1>
+<p>Provides gnupg, version 2.</p>
+
+<p>The simpler and older gnupg version 1 is provided in the system base.</p>

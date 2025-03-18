@@ -1,0 +1,9 @@
+---
+title: openlook overlay
+---
+<h1>Overlay openlook - Open Look</h1>
+<p>Supplies parts of the old Open Look desktop. This is built from
+the publicly released
+<a href="https://github.com/ptribble/xview-illumos">source</a> and includes
+the <code>olvwm</code> window manager. Note that the DeskSet tools aren't
+available.</p>
