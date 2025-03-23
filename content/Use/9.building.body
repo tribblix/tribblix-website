@@ -1,0 +1,11 @@
+<h1>&gt; Building Tribblix</h1>
+
+<p>One of the key freedoms of free software is the freedom to study how
+the program works, and change it so it does your computing as you wish
+(freedom 1). While there's always a requirement for a non-trivial level
+of skill, the intention of this chapter is to explain how you can
+exercise this freedom.</p>
+
+<p>The first step in this is to understand the
+<a href="9.building_1repos.html">list of source code repositories</a>
+that are used to construct Tribblix.</p>

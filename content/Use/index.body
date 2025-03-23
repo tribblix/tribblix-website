@@ -57,6 +57,11 @@
 <li><a href="8.webdev.html">Web Development</a></li>
 </ol>
 
+<li><a href="9.building.html">Building Tribblix</a>
+<ol>
+<li><a href="9.building_1repos.html">Source Code Repositories</a></li>
+</ol>
+
 </ol>
 
 <h2>Additional documentation</h2>

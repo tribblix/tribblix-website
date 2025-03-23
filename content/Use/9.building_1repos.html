@@ -1,0 +1,68 @@
+---
+title:  Source Repositories
+---
+<h1>&gt; Tribblix Source Repositories</h1>
+
+<p>The source for Tribblix is available. It's relatively complex and
+assembled from quite a large number of constituent parts.</p>
+
+<p>Here the source repositories are listed, grouped by how they
+contribute to the final product.</p>
+
+<h2>The illumos package repository</h2>
+
+<p>For each release, the packages for the illumos repo come from illumos-gate
+and gfx-drm, put together with the scripts in tribblix-build, with packages
+potentially transformed according to the rules in tribblix-transforms.</p>
+
+<ul>
+<li><a href="https://github.com/illumos/illumos-gate">illumos-gate</a></li>
+<li><a href="https://github.com/illumos/gfx-drm">gfx-drm</a></li>
+<li><a href="https://github.com/tribblix/tribblix-build">tribblix-build</a></li>
+<li><a href="https://github.com/tribblix/tribblix-transforms">tribblix-transforms</a></li>
+</ul>
+
+<h2>The tribblix package repository</h2>
+
+<p>This is where all the third-party software is packaged.</p>
+
+<ul>
+<li><a href="https://github.com/tribblix/build">build repo</a></li>
+</ul>
+
+<h2>The release package repository</h2>
+
+<p>For each release, there's a set of release packages containing metadata and
+the zap utilities.</p>
+
+<ul>
+<li><a href="https://github.com/tribblix/tribblix-release">tribblix-release</a></li>
+<li><a href="https://github.com/tribblix/zap">zap</a></li>
+</ul>
+
+<h2>Overlay repositories</h2>
+
+<p>There's a copy of the overlay repository for each variant.</p>
+
+<ul>
+<li><a href="https://github.com/tribblix/overlays">Regular Tribblix (x86)</a></li>
+<li><a href="https://github.com/tribblix/overlays.lx">OmniTribblix (x86)</a></li>
+<li><a href="https://github.com/tribblix/overlays.sparc">Regular Tribblix (sparc)</a></li>
+</ul>
+
+<h2>Supporting infrastructure</h2>
+
+<p>Then there are a handful of source code repositories that are more specific
+and supply one particular piece of functionality.</p>
+
+<ul>
+<li><a href="https://github.com/tribblix/desktop-cache">Desktop cache management</a></li>
+<li><a href="https://github.com/tribblix/tribblix-media">Live media</a></li>
+<li><a href="https://github.com/tribblix/tribblix-session">Desktop sessions</a></li>
+<li><a href="https://github.com/tribblix/tribblix-website">This website</a></li>
+<li><a href="https://github.com/tribblix/tribblix-zones">Zone brands</a></li>
+</ul>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="9.building.html">Previous Section</a>
+</p>
