@@ -1,0 +1,129 @@
+<h1>&gt; Using SSH</h1>
+
+<p>To connect to a different system, you'll often end up using the SSH
+protocol, either directly as <code>ssh</code> or with one of its variants
+like <code>scp</code> or <code>sftp</code>.</p>
+
+<p>One advantage of using <code>ssh</code> is that you can set it up so that
+you don't need a password to log in, but instead you use a secret key. The
+advantage here is that a secret key is much harder to guess than a password.</p>
+
+<h2>ssh keys</h2>
+
+<p>To create a secret key:</p>
+<pre>
+ssh-keygen -t ed25519 -C "my new key" -f ~/.ssh/id_ed25519
+</pre>
+<p>Generally, you'll want to create and use a <code>ed25519</code> key.
+If you have to connect to older legacy systems you might need to use
+<code>rsa</code> - you can create keys of different types if you need to.</p>
+
+<p>The <code>-C</code> flag adds a comment, which can be useful if you create
+multiple keys, as you then have a reminder of what a key was for.</p>
+
+<p>You can additionally protect a key with a passphrase, so that when you
+use it you'll be prompted for the passphrase for greater security. The above
+command will ask you what the passphrase should be.</p>
+
+<p>If you don't want a passphrase, then you can use:</p>
+<pre>
+ssh-keygen -t ed25519 -C "my new key" -f ~/.ssh/id_ed25519 -N ""
+</pre>
+
+<p>To use the key, you need to put the public key (here it will be
+<code>~/.ssh/id_ed25519.pub</code>) into the <code>~/.ssh/authorized_keys</code>
+file on the system you need to connect to. Don't send the private key,
+which is the <code>~/.ssh/id_ed25519</code> file. You may need to connect
+to the remote system with a password first in order to transfer the key.</p>
+
+<h2>connecting</h2>
+
+<p>To connect to a system it's then as simple as:</p
+<pre>
+ssh other.host.name
+</pre>
+
+<p>The first time you connect you'll get a dialog saying the that the other
+system isn't recognised. This looks like:</p>
+<pre>
+The authenticity of host '192.168.1.232 (192.168.1.232)' can't be established.
+ED25519 key fingerprint is SHA256:/rg8IOuSz2Jk3oTx+COkFl7/EyBSW0WFd3BEDN+E65g.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+</pre>
+<p>This is normal, if you're sure its's the right system (ideally you will
+be given an indepependent way to confirm that the fingerprint is correct) then
+accept. The identity will be saved and then checked every time you connect to
+that system in future. If at a later time the key doesn't match, the ssh
+connection will fail and you'll get a fairly bold message indicating that
+something has gone wrong:</p>
+<pre>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</pre>
+<p>There might be several reasons for this. One is that there's a security
+problem and something's been compromised. An alternative is that the system's
+key has been changed for a good reason, although you'll normally be told if
+that's happened. In that case you can tell ssh to forget the old host key:</p>
+<pre>
+ssh -R  other.host.name
+</pre>
+<p>and then you'll be offered the chance to accept the new key.</p>
+
+<h2>ssh and zones</h2>
+
+<p>While you can connect to a zone using <code>pfexec zlogin</code>, it's
+often more convenient to use ssh. That's fine, but you need to know the
+zone's IP address, because the chances are that it's name might not be in
+DNS.</p>
+
+<p>On Tribblix, because this is a fairly common need, there's a
+convenient helper command. Just use:</p>
+<pre>
+zap zssh my-zone
+</pre>
+<p>That assumes your account exists in the zone (you can share an account
+with a zone using the <code>-U</code> flag to <code>zap create-zone</code>).
+Or you can connect to a different account in the zone with:</p>
+<pre>
+zap zssh jill@my-zone
+</pre>
+
+<p>Another feature available with zones on Tribblix is that you can use the
+<code>-k</code> flag to <code>zap create-zone</code> to
+<a href="6.zones_bhyve.html">configure a zone</a> using cloud-init, allowing
+you to log in via ssh as root (or the zone's default user, which might be
+different).</p>
+
+<h2>legacy systems</h2>
+
+<p>Not all systems you connect to will be modern. Some will the using older
+ssh versions, and over time there might not be a compatible set of configuration
+properties. Fortunately it's possible to tell ssh to enable some of the older
+features if you need to. The following are some of the know cases.</p>
+
+<p>To connect to Solaris 10, you'll need:</p>
+<pre>
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 ...
+</pre>
+
+<p>To connect to Solaris 11.2 (and some server SPs or ILOMs will need this):</p>
+<pre>
+ssh -oHostKeyAlgorithms=+ssh-rsa ...
+</pre>
+
+<p>Note also that you'll often need to use an older key type, like rsa, to
+connect to these legacy systems. You may need to also add:</p>
+<pre>
+ssh -oPubkeyAcceptedKeyTypes=+ssh-rsa ...
+</pre>
+
+<p>You can also add a section to your <code>~/.ssh/config</code> file if you
+connect to a given host often, for example you might have something like the
+following that will get applied every time you connect to that host:</p>
+<pre>
+Host myoldsparc.local
+  PubkeyAcceptedKeyTypes=+ssh-rsa
+  HostKeyAlgorithms=+ssh-rsa
+</pre>
