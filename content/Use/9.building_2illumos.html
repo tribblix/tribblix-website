@@ -1,0 +1,237 @@
+---
+title: Building illumos-gate
+---
+<h1>&gt; Building illumos-gate</h1>
+
+<p>The packages from illumos-gate form the foundation of Tribblix. How
+they're built is described below.</p>
+
+<p>There are some assumptions in the build process based on my personal
+environment, namely that lots of stuff is present under the directory
+<code>/packages/localsrc/Tribblix</code> which I have as an environment
+variable <code>THOME</code>. You'll need <code>THOME</code> set for much
+of the following to work.</p>
+
+<h2>Initial setup</h2>
+
+<p>What you'll also need is a copy of the <code>tribblix-build</code> repo,
+which contains the build scripts and other files for the build.</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/tribblix-build
+</pre>
+
+<p>At the very end you'll need a copy of the <code>build</code> repo,
+which contains the online repo management scripts.</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/build
+</pre>
+
+<p>You'll also need a signing key. In Tribblix, the ELF objects are signed
+(as in the <code>-S</code> flag for the package generation scripts below).
+To create one:</p>
+<pre>
+mkdir ${HOME}/f
+cd ${HOME}/f
+openssl req -x509 -newkey rsa:2048 -nodes \
+  -subj "/O=MyName/CN=myname.org" \
+  -keyout elfcert.key -out elfcert.crt -days 3650
+chmod 644 elfcert.key
+</pre>
+<p>For verification, a copy of the <code>.crt</code> file needs to end up in
+the <code>/etc/crypto/certs</code> directory. With that, you can use
+<code>elfsign verify</code> to verify a given file.</p>
+
+<p>The distribution packages (the zap files) themselves are also signed;
+that will be covered elsewhere.</p>
+
+<h2>Creating a build host</h2>
+
+<p>The canonical way to build illumos in Tribblix is to use a specially
+configured zone. This makes sure that the global zone doesn't get corrupted
+by the changes necessary to set up the build environment.</p>
+
+<p>The zone will need the develop, java17, python312, and illumos-build
+overlays installed. To create it use a command such as the following:</p>
+<pre>
+zap create-zone -z illumos-build -t whole -i 192.168.1.201 \
+-o develop -o java17 -o python312 -O illumos-build \
+-S /export/packages/localsrc -U ptribble
+</pre>
+<p>Breaking this down, the <code>-z</code> flag defines the name of the zone,
+the <code>-i</code> flag sets up the IP address, the <code>-o</code> flags
+copy those overlays from the global zone and the <code>-O</code> flag
+installs the build environment in the zone. If some of the overlays aren't
+installed in the global zone then you can either install them there or use
+the <code>-O</code> flag instead.</p>
+
+<p>The <code>-S</code> flag shares the named directory with the zone, and
+the <code>-P</code> flag copies the named user.</p>
+
+<p>Once the zone is installed there are a few minor changes that are
+necessary.</p>
+<pre>
+pfexec zlogin illumos-build
+rm /usr/bin/cpp
+cd /usr/bin ; ln -s ../gnu/bin/xgettext gxgettext
+cd / ; ln -s export/packages .
+</pre>
+
+<h2>Setting up the build</h2>
+
+<p>The first thing you'll need is a copy of the illumos source. The way I do
+this is to have a reference copy of the gate on my machine, and build clones
+of that, rather than having to pull it over the network every time I do a
+build. If you want to build OmniTribblix then you'll need the source for
+the OmniOS variant of illumos-gate as well.</p>
+<pre>
+mkdir ${HOME}/Illumos-reference
+cd ${HOME}/Illumos-reference
+git clone https://github.com/illumos/illumos-gate
+git clone https://github.com/omniosorg/illumos-omnios
+</pre>
+<p>Once you have these, simply <code>git pull</code> as necessary to keep
+them up to date.</p>
+
+<p>You'll also need the closed components. Tribblix has minimized the use
+of non-open components, but you still need the whole set for the build.
+Assuming you're going to do you build in an <code>Illumos</code> directory,
+then get a copy of the closed binaries like so:</p>
+<pre>
+mkdir ${HOME}/Illumos
+cd ${HOME}/Illumos
+wget -c \
+  http://www.tribblix.org/illumos-build/on-closed-bins.i386.tar.bz2 \
+  http://www.tribblix.org/illumos-build/on-closed-bins-nd.i386.tar.bz2
+</pre>
+<p>You don't need to unpack them now; the build process will handle that.</p>
+
+<h2>Building the gate</h2>
+
+<p>The first step is to check out a copy of illumos that you can build.
+Let's assume you're going to build something called m36-gate.</p>
+<pre>
+cd ${HOME}/Illumos
+rm -fr m36-gate
+git clone ${HOME}/Illumos-reference/illumos-gate m36-gate
+</pre>
+
+<p>For OmniTribblix it's slightly trickier, there's a bit of a hack to
+remove a dependency on ncurses. Note also that the name of the OmniTribblix
+repo here has to match the name above with "lx" in the middle (the build
+looks for the corresponding vanilla copy of the gate).</p>
+<pre>
+cd ${HOME}/Illumos
+rm -fr m36lx-gate
+git clone ${HOME}/Illumos-reference/illumos-omnios m36lx-gate
+cd m36lx-gate
+git format-patch --stdout -1 3cb7d45669f9143c833d58e902f8880804a51791 > 1.patch
+sed -i s:Makefile.tools:Makefile:g 1.patch 
+git format-patch --stdout -1 6b8791159f33fb8479bb3c5a19e624dff6ed35bf > 2.patch
+gpatch -R -p1 < 1.patch
+gpatch -R -p1 < 2.patch
+rm 1.patch 2.patch
+cd ..
+</pre>
+
+<p>Then all you have to do is log in to the illumos-build zone and
+run the build.</p>
+<pre>
+zap zssh illumos-build
+
+cd ${HOME}/Illumos/m36-gate
+${THOME}/tribblix-build/illumos/releasebuild m36
+</pre>
+
+<p>For OmniTribblix it's:</p>
+<pre>
+zap zssh illumos-build
+
+cd ${HOME}/Illumos/m36lx-gate
+${THOME}/tribblix-build/illumos/omnibuild m36lx
+</pre>
+
+<p>You don't need to use m36, of course. If you do it like this then you'll
+get a build of the current code with the m36 name attached to it. All that's
+required is that there's an <code>illumos.sh</code> env file in the
+<code>${THOME}/tribblix-build/illumos</code> directory with a suffix equal
+to the name you choose, so you can create a distribution with whatever name
+you like. It's probably best to start from the most recent env file there,
+as it will be the closest to having the right properties for the current
+state of Tribblix and illumos.</p>
+
+<h2>Adding gfx-drm</h2>
+
+<p>The other component that we need from illumos is the <code>gfx-drm</code>
+packages. These can be built with a single script.</p>
+<pre>
+cd ${HOME}/Illumos
+rm -fr gfx-drm
+${THOME}/tribblix-build/gfx-drm/gfx-drm.sh -V 0.36
+</pre>
+<p>The version given here, 0.36, matches m36. This will build both the
+vanilla and omnitribblix packages. (They're the same, they just have different
+version numbers to match what packaging expects.)</p>
+
+<h2>Creating packages</h2>
+
+<p>Assuming the build is successful, you can create packages from the
+builds.</p>
+
+<p>You need to be root in the global zone for this step. (You can't use
+$THOME or $HOME here as root is a different account.)</p>
+<pre>
+/packages/localsrc/Tribblix/tribblix-build/repo_all.sh \
+  -G /export/home/ptribble/Illumos/m36-gate \
+  -V "0.36" \
+  -D /var/tmp/m36-pkgs \
+  -S /export/home/ptribble/f/elfcert >& /var/tmp/m36.log
+</pre>
+
+<p>Or for OmniTribblix, it's:</p>
+<pre>
+/packages/localsrc/Tribblix/tribblix-build/repo_all.sh \
+  -G /export/home/ptribble/Illumos/m36lx-gate \
+  -V "0.36lx" \
+  -D /var/tmp/m36lx-pkgs \
+  -S /export/home/ptribble/f/elfcert >& /var/tmp/m36lx.log
+</pre>
+
+<p>Those take a while. One they're done I copy them to my local
+distribution area, as yourself in the global zone:</p>
+<pre>
+cd ${THOME}
+mkdir -p illumos-pkgs-m36/pkgs/
+cp /var/tmp/m36-pkgs/pkgs/*.zap illumos-pkgs-m36/pkgs/
+cp /var/tmp/m36-pkgs/pkgs/*.zap.md5 illumos-pkgs-m36/pkgs/
+</pre>
+<p>and for OmniTribblix</p>
+<pre>
+cd ${THOME}
+mkdir -p illumos-pkgs-m36lx/pkgs/
+cp /var/tmp/m36lx-pkgs/pkgs/*.zap illumos-pkgs-m36lx/pkgs/
+cp /var/tmp/m36lx-pkgs/pkgs/*.zap.md5 illumos-pkgs-m36lx/pkgs/
+</pre>
+
+<p>You also need to copy the gfx-drm packages into the same place.
+Remember this was done in the illumos-build zone, and that we shared
+$THOME with the zone when we created it.</p>
+<pre>
+zap zssh illumos-build
+cd ${THOME}
+cp /var/tmp/gfx-pkgs/pkgs/*.zap* illumos-pkgs-m36/pkgs/
+cp /var/tmp/omni-gfx-pkgs/pkgs/*.zap* illumos-pkgs-m36lx/pkgs/
+</pre>
+
+<p>Then the metadata (catalog) needs to be created, again as yourself in the
+global zone:</p>
+<pre>
+cd ${THOME}/build
+./create-illumos-files ../illumos-pkgs-m36/pkgs
+./create-illumos-files ../illumos-pkgs-m36lx/pkgs
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="9.building_1repos.html">Previous Section</a>
+</p>
