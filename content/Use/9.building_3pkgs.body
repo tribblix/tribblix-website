@@ -1,0 +1,246 @@
+<h1>&gt; Creating a package</h1>
+
+<p>While illumos forms the foundation for Tribblix, most of the applications
+come from other sources.</p>
+
+<p>In some ways, building a package for a third-party piece of software
+is easier than building illumos, as it's generally much smaller and
+self contained. On the flip side, there's a lot more variety in the
+quality and portability of third-party software, leading to a whole
+set of new problems to solve.</p>
+
+<p>There are some assumptions in the build process based on my personal
+environment, namely that lots of stuff is present under the directory
+<code>/packages/localsrc/Tribblix</code> which I have as an environment
+variable <code>THOME</code>. You'll need <code>THOME</code> set for much
+of the following to work.</p>
+
+<h2>Initial setup</h2>
+
+<p>You'll most likely need to have the develop overlay installed:</p>
+<pre>
+zap install-overlay develop
+</pre>
+
+<p>You'll definitely need a copy of the <code>build</code> repo,
+which contains the existing packages and helper scripts.</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/build
+</pre>
+
+<h2>Naming</h2>
+
+<p>Naming is naturally one of the hardest problems in computing. Tribblix
+uses SVR4 packaging, so native packages start with the string <code>TRIB</code>
+(it's not a stock ticker, but Tribblix doesn't have a stock ticker anyway).
+</p>
+
+<p>Standalone packages tend to simply take the name of the software and
+put it together with the prefix. So the <code>foo</code> software
+would be in the <code>TRIBfoo</code> package.
+</p>
+
+<p> There are special conventions for modules for runtimes, such as perl and
+python. In the case of perl, the prefix
+is <code>TRIBlib-perl-5-</code> with the module name added on,
+dash-separated. In the case of python modules, the bar module would
+be <code>TRIBbar-python-XX</code>, where XX is the python
+version. (For these runtime modules, though, there
+are <code>pygen</code> and <code>perlgen</code> scripts that will do
+most of the work for you.)
+</p>
+
+<p>Some packages have names that look unusual. These tend to be historical
+- usually there was a prior version of the package (perhaps sourced from
+elsewhere) and I've kept the package name unchanged to ensure that updates
+run smoothly.
+</p>
+
+<h2>Structure</h2>
+
+<p>
+Once you have a package name, then create a directory with that name
+in the build repo and start to populate it. There are a number of
+files you may need to create.
+</p>
+
+<dl>
+
+<dt>alias</dt>
+<dd>The alias file is a list of other names this package is known
+  by. This is the friendly name - so that a user can type <code>zap
+  install foo</code>. If it's unlikely that the package will never
+  be added manually (and remember that the intention is that overlays
+  are the primary form of software management) then you don't need an
+  alias. Sometimes you'll have different versions of a package, in
+  which case there will be an alias with the version number, and an
+  unversioned alias for the default or preferred version. (In that
+  case, try and make sure that the default alias matches up with the
+  version that would be installed via any overlays).</dd>
+
+<dt>depend</dt>
+<dd>This file is an SVR4 depend file, so it's a list of other packages
+  this package depends on at runtime, one to a line, with a
+  leading <code>P</code> to show it's a prerequisite. Package
+  construction will attempt to divine runtime dependencies from shared
+  objects, but that isn't always reliable. But if the package build
+  tells you the actual dependencies differ from what was expected,
+  it's time to take a closer look.</dd>
+
+<dt>build_require/build_incompatible</dt>
+<dd>These files detail build-time dependencies. Because they don't end
+  up in the package, they're simple lists of package
+  names. The <code>depinstalled</code> script checks against these,
+  and more tooling ought to.</dd>
+
+<dt>pkginfo</dt>
+<dd>This is the key fragment of an SVR4 pkginfo file. It <b>must</b>
+  contain entries for PKG, NAME, and VERSION. If possible, it ought to
+  contain a ZAP_URL entry, which is where the package comes from.</dd>
+
+<dt>pkginfo.arch/arch.txt</dt>
+<dd>Normally, when you build a package it will embed the architecture
+  of the build host into the package. If you want to build one package
+  that will install on multiple architectures (for example, groovy is
+  cross-platform), list the architectures
+  in <code>pkginfo.arch</code>. If you know the package won't ever
+  work on multiple architectures (for example, go isn't supported on
+  sparc) then put the working architecture in <code>arch.txt</code> -
+  this won't affect the build, but there are tools that look to see
+  whether a package ought to be built or not.</dd>
+
+<dt>build.sh</dt>
+<dd>This is the main build script. Sometimes it really is a shell
+  script, but it's also a simple record of the commands you would
+  type. There are standard forms for the most common types of
+  build. Note that it's also intended that the contents of
+  the <code>build.sh</code> script can be run by hand, one at a time,
+  for debugging in case of problems, so that use of advanced or
+  shell-specific constructs should be avoided.</dd>
+
+<dt>fixinstall</dt>
+<dd>This is run after install, in the source directory. So if a
+  simple <code>make install</code> doesn't quite work, you can fix it
+  up here. Note that for 64-bit builds, <code>fixinstall.64</code> is
+  used instead.</dd>
+
+<dt>fixit</dt>
+<dd>This is a script run after install, in the temporary install
+  directory. This is where you can delete any things that shouldn't be
+  present, or move things around if they got put in the wrong
+  place. There are a standard set of fixit rules for common issues
+  (for example, we don't ship info files, static libraries, or libtool
+  archives by default).</dd>
+
+</dl>
+
+<h2>Canned helpers</h2>
+
+<p>
+There are a number of canned helper scripts.
+</p>
+
+<dl>
+
+<dt>dobuild</dt>
+<dd>This is the main driver script. It assumes the common
+  configure/make/make install workflow, and has a fair few options.</dd>
+
+<dt>cmbuild</dt>
+<dd>This is a variant of dobuild for software that uses CMake.</dd>
+
+<dt>mesonbuild</dt>
+<dd>This is a variant of dobuild for software that uses meson.</dd>
+
+<dt>imakebuild</dt>
+<dd>This is a variant of dobuild for software that uses legacy imake.</dd>
+
+<dt>unpack</dt>
+<dd>A convenient way to unpack a source tarball; it understands a
+  variety of compression schemes and archive formats. Will also apply
+  any patches (see below).</dd>
+
+<dt>genpkg</dt>
+<dd>Having built the software, this script will install it to a
+  temporary location and build a package. It's the partner to
+  dobuild et al.</dd>
+
+<dt>create_pkg</dt>
+<dd>This is a subset of genpkg, that assumes you've created a simple
+  staging area yourself (if, for instance, a vanilla <code>make
+  install</code> doesn't do the right thing).</dd>
+
+<dt>pkg_tarball</dt>
+<dd>In some cases, all you want is a downloaded archive converted into an
+  installable package. This is a script to do just that.</dd>
+
+<dt>pkg_setup_py/pkg_pep518/pkg_wheel</dt>
+<dd>These know how to create a python package that
+  uses <code>setup.py</code> or <code>pyproject.toml</code>, or is
+  only available as a wheel. The <code>pygen</code> script will create
+  a valid build.sh script that calls these, so for a python module
+  usually the only thing you have to do is get the depend file right.</dd>
+
+</dl>
+
+<h2>Patches</h2>
+
+<p>Well written software should build unchanged. But it's often
+  necessary to apply patches. These go in the <code>patches</code>
+  directory. Then you need a <code>.pls</code> (patch list) file, that
+  lists the patches on individual lines with the strip prefix
+  prepended (it's usually <code>-p1</code>). The name of
+  the <code>.pls</code> files is the root name of the archive being built
+  with <code>.pls</code> appended, so if there is one it will need to
+  be renamed if a new version is being built. Look at some of the
+  existing <code>.pls</code> files for examples. The patches will be
+  applied by the <code>unpack</code> script, so you can run that by
+  hand to see that the patches apply correctly.
+</p>
+
+<p>It's sometimes necessary to run commands as part of the build. For
+  this purpose there are <code>.preconf</code>
+  and <code>.postconf</code> scripts, named after the archive the same
+  way as the patch lists. These can do anything, and are respectively
+  run before and after the configuration step of the build. For
+  example, for <code>dobuild</code> the <code>.preconf</code> script
+  will run before <code>./configure</code> and
+  the <code>.postconf</code> script will be run
+  after <code>./configure</code>. (There's one sufficiently common
+  case, of running <code>autogen.sh</code>
+  before <code>./configure</code>, perhaps to create it,
+  that <code>dobuild</code> has a <code>-A</code> flag to avoid
+  needing to create an extra script.)</p>
+
+<h2>Obtaining the source</h2>
+
+<p>The build system assumes that the source tarballs have already been
+downloaded. They need to end up in the directory
+<code>${THOME}/tarballs</code>.</p>
+
+<p>This is a weakness, in that it normally requires manual intervention
+by the user to find and download a source archive.</p>
+
+<p>In the build repo there's a file <code>checksums.txt</code> which contains
+the sha256 checksums of source archives. When building from a new source, the
+checksum will be added to the end of the file. If there's an independent
+record of what the checksum is, you can manually verify that what you've
+just used matches. And if you build something that's been built before and
+the checksum doesn't match, the build will fail.</p>
+
+<h2>Running a build</h2>
+
+<p>To run a build, you can simply run the build script:</p>
+<pre>
+${THOME}/build.TRIBfoo/build.sh
+</pre>
+<p>If successful, a fully populated package will end up in the
+<code>/tmp/pct</code> directory.</p>
+
+<p>You can install the package (as root) to test it:</p>
+<pre>
+cd /tmp/pct
+zap d TRIBfoo
+pkgadd -d TRIBfoo.x.y.z.pkg
+</pre>

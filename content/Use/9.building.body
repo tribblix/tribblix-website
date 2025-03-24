@@ -12,3 +12,6 @@ that are used to construct Tribblix.</p>
 
 <p>The second step is to <a href="9.building_2illumos.html">build
 illumos-gate</a> from source.</p>
+
+<p>The third step is to <a href="9.building_3pkgs.html">create packages</a>
+for third-party software.</p>

@@ -1,41 +1,50 @@
 ---
-title: Creating a Package
+title: Creating a package
 ---
 <h1>&gt; Creating a package</h1>
 
-<p>
-Packages in Tribblix come from 3 places:
-</p>
-<ul>
-<li>From illumos, see the scripts in
-  the <a href="https://github.com/tribblix/tribblix-build">tribblix-build</a>
-  repo - specifically <code>repo_all.sh</code></li>
-<li>From a legacy distribution, these are temporary (for a rather
-  long-running notion of temporary)</li>
-<li>Native Tribblix packages, driven by
-  the <a href="https://github.com/tribblix/build">build repo</a></li>
-</ul>
-<p>
-Adding additional packages is all about the third option above. This
-is how I create a package.
-</p>
+<p>While illumos forms the foundation for Tribblix, most of the applications
+come from other sources.</p>
+
+<p>In some ways, building a package for a third-party piece of software
+is easier than building illumos, as it's generally much smaller and
+self contained. On the flip side, there's a lot more variety in the
+quality and portability of third-party software, leading to a whole
+set of new problems to solve.</p>
+
+<p>There are some assumptions in the build process based on my personal
+environment, namely that lots of stuff is present under the directory
+<code>/packages/localsrc/Tribblix</code> which I have as an environment
+variable <code>THOME</code>. You'll need <code>THOME</code> set for much
+of the following to work.</p>
+
+<h2>Initial setup</h2>
+
+<p>You'll most likely need to have the develop overlay installed:</p>
+<pre>
+zap install-overlay develop
+</pre>
+
+<p>You'll definitely need a copy of the <code>build</code> repo,
+which contains the existing packages and helper scripts.</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/build
+</pre>
 
 <h2>Naming</h2>
 
-<p>
-OK, naming is one of the hardest problems. Tribblix uses SVR4
-packaging, so native packages start with the string <code>TRIB</code>
-(it's not a stock ticker, but I don't have a stock ticker anyway).
+<p>Naming is naturally one of the hardest problems in computing. Tribblix
+uses SVR4 packaging, so native packages start with the string <code>TRIB</code>
+(it's not a stock ticker, but Tribblix doesn't have a stock ticker anyway).
 </p>
 
-<p>
-Standalone packages I tend to simply take the name of the software and
+<p>Standalone packages tend to simply take the name of the software and
 put it together with the prefix. So the <code>foo</code> software
 would be in the <code>TRIBfoo</code> package.
 </p>
 
-<p>
-There are special names for modules for runtimes, such as perl and
+<p> There are special conventions for modules for runtimes, such as perl and
 python. In the case of perl, the prefix
 is <code>TRIBlib-perl-5-</code> with the module name added on,
 dash-separated. In the case of python modules, the bar module would
@@ -45,11 +54,10 @@ are <code>pygen</code> and <code>perlgen</code> scripts that will do
 most of the work for you.)
 </p>
 
-<p>
-Some packages there at the moment have names that look unusual. These
-tend to be historical - usually there was a prior version of the
-package (perhaps sourced from elsewhere) and I've kept the package
-name unchanged to ensure that updates run smoothly.
+<p>Some packages have names that look unusual. These tend to be historical
+- usually there was a prior version of the package (perhaps sourced from
+elsewhere) and I've kept the package name unchanged to ensure that updates
+run smoothly.
 </p>
 
 <h2>Structure</h2>
@@ -207,3 +215,39 @@ There are a number of canned helper scripts.
   before <code>./configure</code>, perhaps to create it,
   that <code>dobuild</code> has a <code>-A</code> flag to avoid
   needing to create an extra script.)</p>
+
+<h2>Obtaining the source</h2>
+
+<p>The build system assumes that the source tarballs have already been
+downloaded. They need to end up in the directory
+<code>${THOME}/tarballs</code>.</p>
+
+<p>This is a weakness, in that it normally requires manual intervention
+by the user to find and download a source archive.</p>
+
+<p>In the build repo there's a file <code>checksums.txt</code> which contains
+the sha256 checksums of source archives. When building from a new source, the
+checksum will be added to the end of the file. If there's an independent
+record of what the checksum is, you can manually verify that what you've
+just used matches. And if you build something that's been built before and
+the checksum doesn't match, the build will fail.</p>
+
+<h2>Running a build</h2>
+
+<p>To run a build, you can simply run the build script:</p>
+<pre>
+${THOME}/build.TRIBfoo/build.sh
+</pre>
+<p>If successful, a fully populated package will end up in the
+<code>/tmp/pct</code> directory.</p>
+
+<p>You can install the package (as root) to test it:</p>
+<pre>
+cd /tmp/pct
+zap d TRIBfoo
+pkgadd -d TRIBfoo.x.y.z.pkg
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="9.building_2illumos.html">Previous Section</a>
+</p>
