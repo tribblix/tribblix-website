@@ -1,0 +1,111 @@
+---
+title: Building release packages
+---
+<h1>&gt; Building release packages</h1>
+
+<p>There's a small but important package repository - the release
+repository.</p>
+
+<p>This repository ships 3 packages:</p>
+<ul>
+<li>TRIBrelease-name</li>
+<li>TRIBzap</li>
+<li>TRIBzap-upgrade</li>
+</ul>
+
+<p>Of these, TRIBzap supplies most of the <code>zap</code> package management
+and systems administration tools.</p>
+
+<p>The TRIBrelease-name package just supplies the <code>/etc/release</code>
+and <code>/etc/os-release</code> files, which contain the main identifiers
+of exactly which version of Tribblix is installed.</p>
+
+<p>The TRIBzap-upgrade package supplies the list of upgrade candidates and
+the upgrade script. The reason for shipping the upgrade script in this
+package is so that it can be updated to match new upgrade candidates.</p>
+
+<p>Within the lifetime of a given release, only the upgrade package will
+ever get updated. And it gets updated whenever the next release becomes
+available. Initially, therefore, the upgrade list is essentially empty
+(technically, it contains itself).</p>
+
+<p>There are some assumptions in the build process based on my personal
+environment, namely that lots of stuff is present under the directory
+<code>/packages/localsrc/Tribblix</code> which I have as an environment
+variable <code>THOME</code>. You'll need <code>THOME</code> set for much
+of the following to work.</p>
+
+<h2>Sources</h2>
+
+<p>There are 2 source code repositories of interest that you'll need
+to check out:</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/tribblix-release
+</pre>
+<p>and</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/zap
+</pre>
+<p>plus you'll also need the <code>tribblix-build</code> repo if you haven't
+checked it out already,</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/tribblix-build
+</pre>
+
+<h2>Creating packages</h2>
+
+<p>There are several parts to this. First we need to add the information for
+a new release to the <code>tribblix-release</code> repo. For example, to add
+<code>m36</code> as a successor to <code>m35</code>, for both normal Tribblix
+and OmniTribblix:</p>
+<pre>
+cd ${THOME}/tribblix-release
+./mk_pkgs.sh -p i386 -r m36 -c m35
+./mk_pkgs.sh -p i386 -r m36 -v lx -c m35
+</pre>
+<p>What this will do is add a directory for each release with the appropriate
+metadata files in it.</p>
+
+<p>Next create the driver maps for ddu. This requires you to have
+<a href="9.building_2illumos.html">built the gate</a> already, as it
+needs a source for the driver mapping. This makes assumptions about
+naming and locations.</p>
+<pre>
+./mk-driver-map.sh -V m36
+./mk-driver-map.sh -V m36lx
+</pre>
+
+<p>Then you can create the packages. There are actually 4 upgrade
+pathways here: m35 to m36, m35lx to m36lx, and then the cross-upgrades
+m35 to m36lx and m35lx to m36.</p>
+<pre>
+./mk_pkgs.sh -p i386 -r m36 -u m35
+./mk_pkgs.sh -p i386 -r m36 -v lx -u m35
+./mk_pkgs.sh -p i386 -r m36 -u m35lx
+./mk_pkgs.sh -p i386 -r m36 -v lx -u m35lx
+</pre>
+
+<p>This will drop the packages into <code>/tmp/pct</code>, and also populate
+per-release directories in <code>../release-repos</code>.</p>
+
+<p>For publication on the online repo, a catalog files is needed.</p>
+<pre>
+./gen_catalog.sh ../release-repos/m36.i386 > ../release-repos/m36.i386/catalog
+./gen_catalog.sh ../release-repos/m36lx.i386 > ../release-repos/m36lx.i386/catalog
+</pre>
+
+<p>What the above will also have done is create the upgrade packages
+for the <code>m35</code> and <code>m35lx</code> releases, again in the
+per-release directory in <code>../release-repos</code>. Those will need
+new catalogs as well:</p>
+<pre>
+./gen_catalog.sh ../release-repos/m35.i386 >! ../release-repos/m35.i386/catalog
+./gen_catalog.sh ../release-repos/m35lx.i386 >! ../release-repos/m35lx.i386/catalog
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="9.building_3pkgs.html">Previous Section</a>
+</p>
