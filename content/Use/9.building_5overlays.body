@@ -1,0 +1,105 @@
+<h1>&gt; Managing overlays</h1>
+
+<p>There are some assumptions in the build process based on my personal
+environment, namely that lots of stuff is present under the directory
+<code>/packages/localsrc/Tribblix</code> which I have as an environment
+variable <code>THOME</code>. You'll need <code>THOME</code> set for much
+of the following to work.</p>
+
+<h2>Initial setup</h2>
+
+<p>You'll need to check out one or more of the 3 overlay sources.</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/overlays
+git clone https://github.com/tribblix/overlays.lx
+git clone https://github.com/tribblix/overlays.sparc
+</pre>
+<p>You'll also need the build repo, because some of the shared scripts are
+supplied there (rather than each set of overlays having a duplicate copy).</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/build
+</pre>
+
+<h2>Differences between the repos</h2>
+
+<p>In general, the intention is that the overlays available for the different
+variants should be as similar as possible.</p>
+
+<h3>lx vs vanilla</h3>
+
+<p>The lx version is slightly different, only because OmniTribblix has a
+couple of extra features. The only differences should be:</p>
+<ul>
+<li>The base overlay for lx includes inotify and the lx zone brand</li>
+<li>The lx variant has the azure-baseline and hyperv overlays</li>
+</ul>
+<p>In general, though, the application overlays for lx should be identical
+to the vanilla version. The actual packages are shared between the variants,
+so there's no reason for any differences.</p>
+
+<h3>x86 vs sparc</h3>
+
+<p>The sparc version can be quite different. There are significant differences
+in the packages that come from illumos - the packages are named differently
+in some cases, and there's a different set of drivers. And in terms of
+applications, software availability on sparc is quite a bit worse (there's
+no go or rust, for example, so anything requiring those won't exist on
+sparc at all).</p>
+
+<p>Some of the overlays make no sense at all on sparc (for example, anything
+related to cloud).</p>
+
+<p>Related to software availability, some packages for sparc are downrev
+compared to x86. (In many cases a later version has been rewritten in rust,
+for example, which means we can't update.) That also means that the list
+of dependencies can be quite different.</p>
+
+<h2>How the overlays work</h2>
+
+<p>There are 2 files for each overlay. The <code>ovl</code> file is metadata,
+and the <code>pkgs</code> file is simply the list of constituent packages.</p>
+
+<p>Generally, I try to normalise the overlays a bit. In other words,
+overlays are layered, so you don't have to duplicate packages between
+overlays too much. That's more of an aspiration than a hard rule.
+Dependencies between overlays are expressed as a <code>REQUIRES</code> entry
+in the <code>ovl</code> file.</p>
+
+<p>Adding a new overlay requires creating both files.</p>
+
+<p>Adding new software is simple a case of adding the package to the
+<code>pkgs</code> file and bumpoing the version in the <code>ovl</code>
+file.</p>
+
+<p>The overlays should be consistent (see the next section for checks),
+although there are missing dependencies in some of the core packages. This
+is deliberate (for example, perl is missing from the live image which makes
+it slightly wrong, but that's a known case and handled correctly).</p>
+
+<h2>Validation</h2>
+
+<p>The validation scripts are shared and come from the build repo.</p>
+
+<p>To check the dependencies are consistent:</p>
+<pre>
+cd ${THOME}/overlays
+../build/overlay-depends -a
+</pre>
+
+<p>If there's something missing you can see why for a given overlay:</p>
+<pre>
+cd ${THOME}/overlays
+../build/overlay-depends -v develop-extras
+</pre>
+
+<p>You can also check that all the packages actually exist:</p>
+<pre>
+cd ${THOME}/overlays
+../build/check-overlay-pkgs -a
+</pre>
+
+<p>Note that a lot of this assumes that you have a copy of the illumos
+packages as <a href="9.building_2illumos.html">built earlier</a> to
+check against.</p>
