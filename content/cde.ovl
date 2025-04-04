@@ -1,0 +1,13 @@
+---
+title: cde overlay
+---
+<h1>Overlay cde - CDE, the Common Desktop Environment</h1>
+<p>Provides the base of CDE, the
+<a href="https://sourceforge.net/projects/cdesktopenv/">Common Desktop
+Environment</a>. This was the standard desktop environment for several
+unix systems. On Solaris, it came after @openlook but was soon replaced
+by the GNOME-based Java Desktop System.</p>
+
+<p>Like @openlook, this overlay only provides the base of CDE. The extra
+tools to turn it into a generally useful environment were never available
+as open source.</p>

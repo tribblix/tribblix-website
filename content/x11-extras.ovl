@@ -1,0 +1,6 @@
+---
+title: x11-extras overlay
+---
+<h1>Overlay x11-extras - Extra X11 packages</h1>
+<p>Provides a variety of less commonly used X11 applications to
+extend the @x11 overlay.</p>

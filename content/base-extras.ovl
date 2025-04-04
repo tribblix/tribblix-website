@@ -1,0 +1,6 @@
+---
+title: base-extras overlay
+---
+<h1>Overlay base-extras - Extra generic packages, atop the base</h1>
+<p>Provides some packages that are at the same level as the base but
+of much less universal applicability.</p>

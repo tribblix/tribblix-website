@@ -1,0 +1,8 @@
+---
+title: boot-server overlay
+---
+<h1>Overlay boot-server - Boot/install server</h1>
+<p>In the past, this overlay provided the ability to set up a network boot
+server so that you could boot and install Tribblix over the network. It needs
+to be replaced with something that works with loader rather than grub, so
+you should not be using it at the present time.</p>
