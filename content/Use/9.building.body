@@ -21,3 +21,6 @@ packages</a> for a new release, and for upgrades from earlier releases.</p>
 
 <p>The fifth step is to <a href="9.building_5overlays.html">manage the
 overlays</a>.</p>
+
+<p>The sixth step is to <a href="9.building_6iso.html">create ISO images</a>.
+</p>

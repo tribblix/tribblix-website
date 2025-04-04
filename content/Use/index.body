@@ -65,6 +65,7 @@
 <li><a href="9.building_3pkgs.html">Creating third-party packages</a></li>
 <li><a href="9.building_4release.html">The release packages</a></li>
 <li><a href="9.building_5overlays.html">Managing overlays</a></li>
+<li><a href="9.building_6iso.html">Building ISO images</a></li>
 </ol>
 
 </ol>

@@ -1,0 +1,157 @@
+---
+title: Creating ISO images
+---
+<h1>&gt; Creating ISO images</h1>
+
+<p>There are some assumptions in the build process based on my personal
+environment, namely that lots of stuff is present under the directory
+<code>/packages/localsrc/Tribblix</code> which I have as an environment
+variable <code>THOME</code>. You'll need <code>THOME</code> set for much
+of the following to work.</p>
+
+<h2>Initial setup</h2>
+
+<p>You'll need quite a few repositories checked out. The actual scripts
+used for image construction are in the <code>tribblix-build</code> repo.</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/tribblix-build
+</pre>
+
+<p>You'll also need to have the <code>build</code> and relevant
+<code>overlay</code> repos.</p>
+<pre>
+cd $THOME
+git clone https://github.com/tribblix/build
+git clone https://github.com/tribblix/overlays
+git clone https://github.com/tribblix/overlays.lx
+git clone https://github.com/tribblix/overlays.sparc
+</pre>
+
+<p>You'll also need to have a set of
+<a href="9.building_2illumos.html">illumos</a> and
+<a href="9.building_4release.html">release</a> packages, and a local set of
+packages from the build repo (those are expected to be found in
+<code>$THOME/pkgs</code>). If you don't want to build them yourself, then
+look at <code>zap copy-package-repo</code>.</p>
+
+<h2>Checking it will work</h2>
+
+<p>Constructing an ISO needs quite a lot of things in place, so you will
+a dry run to validate things.</p>
+<pre>
+cd $THOME/tribblix-build
+./make-dist -R 36 -N
+./make-dist -R 36 -N minimal
+</pre>
+<p>Or for omnitribblix, it's:</p>
+<pre>
+cd $THOME/tribblix-build
+./make-lx-dist -R 36 -N
+./make-lx-dist -R 36 -N minimal
+</pre>
+<p>The <code>-N</code> flag is for a dry-run.
+The <code>-R</code> flag specifies the release, which tells it which
+illumos and release packages to include. It will always use the most
+recent version of all the other packages. The check will print out
+the names of all the packages it find, and hopefully it will find
+everything. If it doesn't then you'll have to make sure you have
+everything; the check should tell you what's missing.</p>
+
+<p>There are possible variant ISO images that can be created. The most common
+ones are the regular ISO and the minimal/server ISO. You can create others.</p>
+
+<p>The ISO image contains 2 distinct sets of packages. The first is those
+installed in the live image. The second is those packages shipped in the
+<code>pkgs</code> directory on the ISO, so that users can install extra
+overlays without hauling them over the network.</p>
+
+<p>The starting list of installed packages is the <code>core-tribblix</code>
+overlay, which is present in all images. The regular ISO also has the
+<code>base-iso</code> overlay which has a broad selection of device drivers;
+you can build a different ISO with <code>base-iso</code> replaced by another
+overlay - typically this might be used to generate cloud images with the
+<code>base-cloud</code> overlay which has a limited set of drivers appropriate
+to installation on the much more controlled cloud environment. And the
+<code>minimal</code> image uses <code>base-server</code> rather than
+<code>base-iso</code>.</p>
+
+<p>In the relevant overlay repo there will be a file <code>overlays.iso</code>
+(or <code>overlays.foo.iso</code> for the <code>foo</code> variant). This
+basically lists the overlays whos packages will be shipped on the ISO, so
+to create an ISO with e specific set of overlays you can either modify the
+base <code>overlays.iso</code> or create your own variant.</p>
+
+<h2>Building an ISO</h2>
+
+<p>Once the check is clean, you can build an ISO. This needs to be done
+as root. And remember <code>$THOME</code> won't be inherited by root.</p>
+<pre>
+cd /packages/localsrc/Tribblix/tribblix-build
+mkdir /export/tribblix/dist
+./make-dist -R 36 -M 256m
+</pre>
+<p>or</p>
+<pre>
+cd /packages/localsrc/Tribblix/tribblix-build
+mkdir /export/tribblix/dist
+./make-lx-dist -R 36 -M 252m
+</pre>
+<p>or</p>
+<pre>
+cd /packages/localsrc/Tribblix/tribblix-build
+mkdir /export/tribblix/dist.minimal
+./make-dist -R 36 -M 276m minimal
+</pre>
+<p>or</p>
+<pre>
+cd /packages/localsrc/Tribblix/tribblix-build
+mkdir /export/tribblix/dist.minimal
+./make-lx-dist -R 36 -M 272m minimal
+</pre>
+<p>What it's doing here is staging everything into
+<code>/export/tribblix/dist</code> or <code>/export/tribblix/dist.minimal</code>
+and using that to create the ISO. So you can then look around in
+<code>/export/tribblix/dist</code> to see what it's actually installed.</p>
+
+<p>Obviously, you'll need to remove (or move) an old staging area before
+each build.</p>
+
+<p>The <code>-M</code> flag specifies the size of the bootable ramdisk
+image. The above values are the ones used for the m36 release. If you
+install more or fewer drivers or applications into the live image, this
+value will need to be adjusted. You can see it's slightly different for
+each image. I try and keep it as small as reasonable to give the best
+experience on small systems.</p>
+
+<p>The ISO image should end up in <code>/var/tmp</code>.</p>
+
+<h2>Testing</h2>
+
+<p>The simplest way of testing the image is to boot it up in bhyve. For
+example, as root:</p>
+<pre>
+zap create-zone -t bhyve \
+-z bhyve1 -x 192.168.1.238 \
+-I /var/tmp/tribblix-0m36.iso \
+-V 8G
+</pre>
+<p>and then create a socket so you can see the console</p>
+<pre>
+socat TCP-LISTEN:5905,reuseaddr,fork UNIX-CONNECT:/export/zones/bhyve1/root/tmp/vm.vnc
+</pre>
+<p>then as yourself start up a vncviewer</p>
+<pre>
+vncviewer :5
+</pre>
+<p>You should be able to go through the live boot and do an install. Once
+that's done, you can reboot without the CD present:</p>
+<pre>
+zap remove-cd -z bhyve1 -r
+</pre>
+<p>and do the socat and vncviewer steps again to see the console as the
+installed system boots.</p>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="9.building_5overlays.html">Previous Section</a>
+</p>
