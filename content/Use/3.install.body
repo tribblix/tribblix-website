@@ -11,9 +11,7 @@
 
 <ul>
 <li>A 64-bit x86 or SPARC processor. Single or multiple cores,
-  sockets, and threads are all supported. (If you have an 32-bit
-  x86 system then the old and unsupported Tribblix m20 is the last version
-  that's known to work.)</li>
+  sockets, and threads are all supported.</li>
 <li>A minimum of 512M of memory. Tribblix will run in less, but the
   installer won't currently go below 512M (and may struggle even
   then). Depending on your expected use, more memory is better.</li>
