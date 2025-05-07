@@ -78,10 +78,10 @@ The <code>-U</code> flag specifies a user account to be shared with
 the zone. The account will be created in the zone with the same
 details as in the global zone, and the home directory will be
 shared. In addition, that user is delegated management of the zone,
-including the ability to use zlogin to connect to the zone. Note that
-this mechanism gives the delegated user full root access to the zone,
-and potentially full root access to the global zone via shared file
-systems, so should be used with caution.
+including the ability to use <code>pfexec zlogin</code> to connect to
+the zone. Note that this mechanism gives the delegated user full root
+access to the zone, and potentially full root access to the global
+zone via shared file systems, so should be used with caution.
 </p>
 
 <p>
