@@ -49,3 +49,16 @@ following arguments, which are similar to the same arguments of
 <code>
   zap delete-user -r myname
 </code>
+
+<h2>/home vs /export/home</h2>
+
+<p>On Tribblix, user home directories are created under
+<code>/export/home</code>. This is a good place for them, and for normal
+users (as opposed to accounts for running services) there's no need to
+change it.</p>
+
+<p>The <code>/home</code> directory might also be used. However, that
+location is often managed by the automounter, so you can't create a
+directory there. There are extra steps to configure the automounter,
+and it would normally only make sense for a network of systems where
+home directories are shared with NFS.</p>
