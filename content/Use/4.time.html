@@ -1,0 +1,51 @@
+---
+title: Keeping good time
+---
+<h1>&gt; Keeping good time</h1>
+
+<p>It's helpful to have your system keep the correct time. It's obviously
+useful to know what the time is, but certain functionality won't work well
+or at all if the computer's notion of time is wrong.</p>
+<ul>
+<li>Entries in log files which show times will be far less useful</li>
+<li>Encrypted connections can rely on system clocks being synchronized</li>
+</ul>
+
+<p>Tribblix can correct the system time with a high degree of accuracy
+using NTP - the Network Time Protocol - which compares your clock with
+a number of reference clocks on the internet. The implementation used in
+Tribblix is called <code>chrony</code>.</p>
+
+<p>In recent releases, chrony is installed by default. If it isn't, then
+install it using:</p>
+<pre>
+zap install TRIBchrony
+</pre>
+
+<p>To check if it's running, use the command:</p>
+<pre>
+svcs -p chrony
+</pre>
+
+<p>If it's not online, then enable it using:</p>
+<pre>
+svcadm enable svc:/network/chrony:default
+</pre>
+
+<p>If the system has been running without time synchronization, then the
+clock may have drifted. This will slowly be corrected. To see what the
+current state is, use the <code>chronyc tracking</code> command. This will
+give a variety of information, which will include something like:</p>
+<pre>
+# chronyc tracking
+...
+System time     : 14.466815948 seconds fast of NTP time
+</pre>
+<p>The above shows that the clock is off by almost 15 seconds. After a few
+minutes this should come down to close to zero, and <code>chrony</code>
+should be able to hold the time accurate to within a few milliseconds.</p>
+<hr>
+<p><a href="./">Index</a>
+ | <a href="4.storage.html">Previous Section</a>
+ | <a href="4.users.html">Next Section</a>
+</p>
