@@ -39,13 +39,13 @@ do
 	#echo prev is ${farray[$prev]}
 	turl=${farray[$prev]}
 	turl=${turl/.body/.html}
-	echo " | <a href=\"$turl\">Previous Section</a>" >> tfooter.tmp
+	echo " | <a rel=\"prev\" href=\"$turl\">Previous Section</a>" >> tfooter.tmp
     fi
     if [ "$next" -lt ${#farray[*]} ]; then
 	#echo next is ${farray[$next]}
 	turl=${farray[$next]}
 	turl=${turl/.body/.html}
-	echo " | <a href=\"$turl\">Next Section</a>" >> tfooter.tmp
+	echo " | <a rel=\"next\" href=\"$turl\">Next Section</a>" >> tfooter.tmp
     fi
     echo "</p>" >> tfooter.tmp
     cat theader.tmp "${file}" tfooter.tmp  >  "${file/.body/.html}"
