@@ -2,6 +2,8 @@ Increase DEFAULT_MAXPID to 99999, so you may see larger PIDs
 
 Usernames exceeding 8 characters are now accepted without warnings
 
+Files with dates after the Y2038 transition are now permitted on ZFS.
+
 New zap manage-cacerts utility
 
 Default java is now jdk21
