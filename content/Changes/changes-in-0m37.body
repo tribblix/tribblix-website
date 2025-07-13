@@ -1,0 +1,267 @@
+Increase DEFAULT_MAXPID to 99999, so you may see larger PIDs
+
+Usernames exceeding 8 characters are now accepted without warnings
+
+New zap manage-cacerts utility
+
+Default java is now jdk21
+
+Default go is now v1.24
+
+Default postgres is now v17
+
+Ruby is now 3.4.x
+
+Add KDE games (kde-games overlay)
+
+Update openSSH to 9.9p2
+
+Update cpuid to 1.8.3
+
+Update rsyslog to 8.2506.0
+
+Update bind to 9.18.37
+
+Update mercurial to 7.0.2
+
+Update Postgres to 15.13, 17.5
+
+Remove postgres 16
+
+Remove slony
+
+Update mutt to 2.2.14
+
+Update Barman to 3.14.0
+
+Update pg-activity to 3.6.1
+
+Update pgBackRest to 2.55.1
+
+Update exiv2 to 0.28.5
+
+Add wcurl
+
+Update consul to 1.20.4
+
+Update sudo to 1.9.17p1
+
+Update claws-mail to 4.3.1
+
+Update scala to 3.3.6
+
+Update vim to 9.1.1457
+
+Update xfig to 3.2.9a
+
+Update go to 1.23.11, 1.24.5
+
+Update pgpool-II to 4.6.2
+
+Update snac2 to 2.77
+
+Update xscope to 1.4.5
+
+Update xdm to 1.1.17
+
+Update xinit to 1.4.4
+
+Add the startvnc and startxephyr helpers
+
+Update ugrep to 7.3.0
+
+Update brotli to 1.1.0
+
+Update lzip to 1.25, lzlib to 1.15, plzip to 1.12
+
+Add lunzip 1.15
+
+Update LibVNCServer to 0.9.15
+
+Update Pale Moon to 33.7.2
+
+Update php to 8.2.29
+
+Add PHP 8.3 and 8.4 packages
+
+Update expat to 2.7.1
+
+Update pgFormatter to 5.6
+
+Update Midnight Commander to 4.8.33
+
+Update minio-client to 2025-03-12
+
+NOTE: /usr/bin/mc is Midnight Commander, MinIO client is /usr/bin/minio-client
+
+Update xcoral to 4.02.7
+
+Update pgBadger to 13.1
+
+Update freetype to 2.13.3
+
+Update liboqs to 0.14.0
+
+Update oqs-provider to 0.9.0
+
+Update Zabbix to 6.0.40
+
+Update testssl.sh to 3.2.0
+
+Update nsd to 4.12.0
+
+The uucp subsystem has been removed
+
+Update LibreCAD to 2.2.1.1
+
+Update c-ares to 1.34.5
+
+Update tomcat to 9.0.105, 10.1.41, 11.0.7
+
+Update Ruby to 3.4.4
+
+Update weechat to 4.6.3
+
+Update gzip to 1.14
+
+Update diffutils to 3.12
+
+Update gawk to 5.3.2
+
+Openjdk updates: 8u452, 11.0.27, 17.0.15, 21.0.7, 24.0.1
+
+Update Erlang to 26.2.5.11
+
+Add Cantarell font
+
+Update PgBouncer to 1.24.1
+
+Update libXft to 2.3.9
+
+Update unbound to 1.23.0
+
+Update redis to 6.2.18
+
+Update valkey to 7.2.9
+
+Update PMD to 7.15.0
+
+Update durdraw to 0.29.0
+
+Update Mariadb to 10.11.11
+
+Add tor 0.4.8.17
+
+Update JRuby to 9.4.13.0
+
+Add JRuby 10.0.0.1 (not sparc)
+
+Update iftop to 1.0pre4
+
+Update fossil to 2.26
+
+Update libheif to 1.20.1, drop 32-bit
+
+Update libde265 to 1.0.16, drop 32-bit
+
+Update twm to 1.0.13
+
+Update pixman to 0.46.0
+
+Update IceWM to 3.8.0
+
+Update EMWM to 1.3
+
+Update pekwm to 0.3.2
+
+Update varnish to 7.7.1
+
+Update harfbuzz to 10.4.0
+
+Update libpng to 1.6.50
+
+Update sessreg to 1.1.4
+
+Update vorbis-tools to 1.4.3
+
+Update liboggz to 1.1.3
+
+Update xcursorgen to 1.0.9
+
+Update showfont to 1.0.7
+
+Update viewres to 1.0.8
+
+Update rust to 1.87.0
+
+Update groovy to 4.0.27, 5.0.0-beta-1
+
+Update xrdp to 0.10.3
+
+Update meson to 1.8.2
+
+Update node to 20.19.2, 22.16.0
+
+Update nginx to 1.28.0
+
+Update jtreg to 7.5.2
+
+Update CUPS to 2.4.12
+
+Update libcupsfilters to 2.1.1
+
+Update libppd to 2.1.1
+
+Update cups-pdf 3.0.2
+
+Update nanoc to 4.13.5
+
+Add espeak-ng
+
+Rebuild libgmp to target a more egeneric cpu
+
+Update hugo to v0.147.7
+
+Update rclone to v1.69.3
+
+Update restic to v0.18.0
+
+Update osv-scanner to v2.0.2
+
+Update gitleaks to v8.27.0
+
+Update Python to 3.12.11
+
+Update ClamAV to 1.0.9
+
+Add xdotool
+
+Update josm to 19412
+
+Update JMapViewer to 2.25
+
+Update FerretDB to 2.3.1
+
+Update sox to sox_ng 14.4.4
+
+Update tig to 2.5.12
+
+Update openbao to 2.3.1
+
+Update vale to 3.12.0
+
+Update libssh to 0.11.2
+
+Update DjVuLibre to 3.5.29
+
+Update xterm to 401
+
+Update less to 679
+
+Update Zola to v0.20.0
+
+Update httpd to 2.4.64
+
+Update git to 2.50.1
+
+Add pqcscan 0.7.0
