@@ -1,0 +1,45 @@
+<h1>&gt; Managing Certificates</h1>
+
+<p>The set of digital certificates used by most applications is installed
+in the directory</p>
+<pre>
+/etc/openssl
+</pre>
+<p>The name <code>/etc/ssl</code> is also linked here.</p>
+
+<p>The certificates are installed as a single bundle in the
+<code>cacert.pem</code> file, and expanded as a set of files under
+<code>/etc/openssl/certs</code>. These variations are to handle the
+various different ways that applications expect to find certificates.</p>
+
+<p>The actual set of certificates installed is
+<a href="https://curl.se/docs/caextract.html">extracted</a> from
+the Mozilla CA list.</p>
+
+<p>If you need to add your own certificate to the list, updating both
+the single file bundle and the expanded list, use:</p>
+<pre>
+zap manage-cacerts [subcommand ...]
+</pre>
+
+<p>To add a certificate in a given file:</p>
+<pre>
+zap manage-cacerts add /path/to/certificate.pem
+</pre>
+
+<p>To list all added certificates:</p>
+<pre>
+zap manage-cacerts list
+</pre>
+
+<p>To list all certificates, including the default certificates:</p>
+<pre>
+zap manage-cacerts listall
+</pre>
+
+<p>To remove a certificate that has previously been added:</p>
+<pre>
+zap manage-cacerts remove certificate-name
+</pre>
+
+<p>The name to remove can be obtained from the list subcommand.</p>
