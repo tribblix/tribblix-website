@@ -608,7 +608,24 @@ package was incorrectly constructed and you will be unable to build
 software against it.
 </p>
 
+<h2><a name="m33-sparc"></a>Milestone 33, SPARC</h2>
+
+<p>This SPARC release matches m37 for x86.</p>
+
+<p>At the system level, the max PID is now 99999, so you may see larger
+PIDs. Usernames exceeding 8 characters are now accepted without
+warnings. Files with dates after the Y2038 transition are now permitted
+on ZFS.</p>
+
+<p>From the point of view of the underlying illumos, there should be no
+other changes.</p>
+
+<p>Notable default version updates: postgres is now v17, and ruby is
+v3.4. Java remains at JDK17.</p>
+
 <h2><a name="m32-sparc"></a>Milestone 32, SPARC</h2>
+
+<p>This SPARC release matches m36 for x86.</p>
 
 <p>
 The ISO image has been shrunk in an attempt to allow it to fit on a
