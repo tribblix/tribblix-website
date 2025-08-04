@@ -114,6 +114,16 @@ connect to a session, for example <code>tribblix:1</code>,
     vncserver -kill tribblix:1
 </pre>
 
+<p>There's a convenience script that wraps all the above into a one-liner:</p>
+<pre>
+    startvnc -session wmaker
+</pre>
+<p>will set the VNC session type to wmaker, create a VNC session, and
+automatically run the client. You can create multiple VNC sessions,
+potentially running different desktops, in this way. The
+<a href="/man/man1/startvnc.html">startvnc</a> command has a number of
+additional capabilities to control the session and to integrate with zones.</p>
+
 <h2>Applications</h2>
 
 <p>Tribblix provides a basic range of tools for desktop use.</p>

@@ -3,7 +3,7 @@
 <p>To run zones using the bhyve hypervisor, first ensure that the bhyve
 overlay is installed</p>
 <pre>
-zap install-overlay bhyve
+  zap install-overlay bhyve
 </pre>
 
 <p>To boot Tribblix (or other illumos distributions) as a bhyve guest, you
@@ -11,10 +11,10 @@ will need to use a fairly recent version of the distribution. For Tribblix
 specifically you'll need to use m24.1 or later. The command would be something
 like:</p>
 <pre>
-zap create-zone -t bhyve -z bhyve1 \
-  -x 192.168.0.236  \
-  -I /var/tmp/tribblix-0m36.iso \
-  -V 8G
+  zap create-zone -t bhyve -z bhyve1 \
+    -x 192.168.0.236  \
+    -I /var/tmp/tribblix-0m36.iso \
+    -V 8G
 </pre>
 <p>Here, the <code>-t</code> flag tells us that this is a bhyve zone, the
 <code>-z</code> flag gives the name of the zone, the <code>-x</code>
@@ -39,14 +39,28 @@ by 5900.</p>
 
 <p>Then, as yourself, you can connect with</p>
 <pre>
-vncviewer :5
+  vncviewer :5
 </pre>
 <p>and you should see, and be able to interact with, the system as it boots.</p>
+
+<p>There's a slightly more convenient way to view the graphical console
+without the manual mucking about with socat and vncviewer described above.
+If you share your user account with the zone using the <code>-U</code>
+flag (which in the case of bhyve zones means sharing with bhyve and not
+with the OS running as the guest):</p>
+<pre>
+  zap create-zone -t bhyve -z bhyve1 -U ptribble ...
+</pre>
+<p>then the <a href="/man/man1/startvnc.html">startvnc</a> command can be
+used to connect to the VNC console as that user, like so:</p>
+<pre>
+  startvnc -Z bhyve1
+</pre>
 
 <p>You can run the installer as normal. But before you can use the installed
 system you need to remove the virtual CD and reboot.</p>
 <pre>
-zap remove-cd -z bhyve1 -r
+  zap remove-cd -z bhyve1 -r
 </pre>
 <p>At the present time, you're unable to run X in Tribblix under bhyve.
 (Although you could run an X session under VNC.)</p>
@@ -61,7 +75,7 @@ and <code>-s</code> flags (for writable and read-only shares respectively).
 Linux guest you can mount these as follows:
 </p>
 <pre>
-mount -t 9p -o trans=virtio,uname=root bhyvefs0 /mnt/foo
+  mount -t 9p -o trans=virtio,uname=root bhyvefs0 /mnt/foo
 </pre>
 <p>
 The name <code>bhyvefs#</code> is fixed and, if you have multiple shares,
@@ -84,9 +98,9 @@ will enable <code>cloud-init</code> and configure the guest to allow SSH
 access to the default account (or root) using the given SSH key. For example,
 you might use:</p>
 <pre>
-zap create-zone -t bhyve -z bhyve2 \
-  -x 192.168.0.237  \
-  -I /var/tmp/ubuntu-22.04.1-live-server-amd64.iso \
-  -k /export/home/ptribble/.ssh/id_rsa.pub \
-  -V 8G
+  zap create-zone -t bhyve -z bhyve2 \
+    -x 192.168.0.237  \
+    -I /var/tmp/ubuntu-22.04.1-live-server-amd64.iso \
+    -k /export/home/ptribble/.ssh/id_rsa.pub \
+    -V 8G
 </pre>
