@@ -233,7 +233,7 @@ the checksum doesn't match, the build will fail.</p>
 
 <p>To run a build, you can simply run the build script:</p>
 <pre>
-${THOME}/build.TRIBfoo/build.sh
+${THOME}/build/TRIBfoo/build.sh
 </pre>
 <p>If successful, a fully populated package will end up in the
 <code>/tmp/pct</code> directory.</p>
