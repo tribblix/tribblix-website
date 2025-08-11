@@ -32,8 +32,9 @@ git clone https://github.com/tribblix/build
 <h2>Naming</h2>
 
 <p>Naming is naturally one of the hardest problems in computing. Tribblix
-uses SVR4 packaging, so native packages start with the string <code>TRIB</code>
-(it's not a stock ticker, but Tribblix doesn't have a stock ticker anyway).
+uses SVR4 packaging, so native package names start with the string
+<code>TRIB</code> (it's not a stock ticker, but Tribblix doesn't have a
+stock ticker anyway).
 </p>
 
 <p>Standalone packages tend to simply take the name of the software and
@@ -62,7 +63,7 @@ run smoothly.
 <p>
 Once you have a package name, then create a directory with that name
 in the build repo and start to populate it. There are a number of
-files you may need to create.
+files you may need to create:
 </p>
 
 <dl>
@@ -70,8 +71,9 @@ files you may need to create.
 <dt>alias</dt>
 <dd>The alias file is a list of other names this package is known
   by. This is the friendly name - so that a user can type <code>zap
-  install foo</code>. If it's unlikely that the package will never
-  be added manually (and remember that the intention is that overlays
+  install foo</code>. If it's likely that the package will never
+  be added manually (and remember that the intention is that
+  <a href="/overlays.html">overlays</a>
   are the primary form of software management) then you don't need an
   alias. Sometimes you'll have different versions of a package, in
   which case there will be an alias with the version number, and an
@@ -88,11 +90,19 @@ files you may need to create.
   tells you the actual dependencies differ from what was expected,
   it's time to take a closer look.</dd>
 
-<dt>build_require/build_incompatible</dt>
-<dd>These files detail build-time dependencies. Because they don't end
-  up in the package, they're simple lists of package
-  names. The <code>depinstalled</code> script checks against these,
+<dt>build_require</dt>
+<dd>This files details build-time dependencies. Because this file doesn't
+  end up in the package, it's a simple list of package
+  names. The <code>depinstalled</code> script checks these are present,
   and more tooling ought to.</dd>
+
+<dt>build_incompatible</dt>
+<dd>Similar to build_require, this file details any packages that must not
+  be present at build-time. One reason for using this is if configure detects
+  something installed that it shouldn't use, and it isn't possible to control
+  with some <code>--enable</code> or <code>--disable</code> arguments to the
+  configure script. Or sometimes, having something installed will break the
+  build entirely.</dd>
 
 <dt>pkginfo</dt>
 <dd>This is the key fragment of an SVR4 pkginfo file. It <b>must</b>
@@ -114,7 +124,7 @@ files you may need to create.
 <dd>This is the main build script. Sometimes it really is a shell
   script, but it's also a simple record of the commands you would
   type. There are standard forms for the most common types of
-  build. Note that it's also intended that the contents of
+  build. Note that it's definitely intended that the contents of
   the <code>build.sh</code> script can be run by hand, one at a time,
   for debugging in case of problems, so that use of advanced or
   shell-specific constructs should be avoided.</dd>
@@ -186,8 +196,8 @@ There are a number of canned helper scripts.
 
 <h2>Patches</h2>
 
-<p>Well written software should build unchanged. But it's often
-  necessary to apply patches. These go in the <code>patches</code>
+<p>Well written software should be prtable and build unchanged. But it's
+  often necessary to apply patches. These go in the <code>patches</code>
   directory. Then you need a <code>.pls</code> (patch list) file, that
   lists the patches on individual lines with the strip prefix
   prepended (it's usually <code>-p1</code>). The name of
