@@ -3,7 +3,7 @@ title: pkgsrc overlay
 ---
 <h1>Overlay pkgsrc - Pkgsrc bootstrap</h1>
 <p>Supplies the <a href="https://pkgsrc.smartos.org/install-on-illumos/">pkgsrc
-bootstrap.</p>
+</a> bootstrap.</p>
 
 <p>As an alternative, you could install the bootstrap kit manually. The
 package is simply a convenience.</p>
