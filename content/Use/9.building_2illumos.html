@@ -126,11 +126,11 @@ cd ${HOME}/Illumos
 rm -fr m36lx-gate
 git clone ${HOME}/Illumos-reference/illumos-omnios m36lx-gate
 cd m36lx-gate
-git format-patch --stdout -1 3cb7d45669f9143c833d58e902f8880804a51791 > 1.patch
+git format-patch --stdout -1 3cb7d45669f9143c833d58e902f8880804a51791 &gt; 1.patch
 sed -i s:Makefile.tools:Makefile:g 1.patch 
-git format-patch --stdout -1 6b8791159f33fb8479bb3c5a19e624dff6ed35bf > 2.patch
-gpatch -R -p1 < 1.patch
-gpatch -R -p1 < 2.patch
+git format-patch --stdout -1 6b8791159f33fb8479bb3c5a19e624dff6ed35bf &gt; 2.patch
+gpatch -R -p1 &lt; 1.patch
+gpatch -R -p1 &lt; 2.patch
 rm 1.patch 2.patch
 cd ..
 </pre>
