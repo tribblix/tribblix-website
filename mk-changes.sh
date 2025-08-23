@@ -10,12 +10,15 @@ for file in *.body
 do
     nfile=${file%.body}
     rev=${nfile##*-}
+    echo "---" > "${nfile}.html"
+    echo "title: ${rev} changes" >> "${nfile}.html"
+    echo "---" >> "${nfile}.html"
     case $rev in
 	0*)
-	    echo "<h1>Changes in ${rev} prerelease</h1>" > "${nfile}.html"
+	    echo "<h1>Changes in ${rev} prerelease</h1>" >> "${nfile}.html"
 	    ;;
 	*)
-	    echo "<h1>Changes in release ${rev}</h1>" > "${nfile}.html"
+	    echo "<h1>Changes in release ${rev}</h1>" >> "${nfile}.html"
 	    ;;
     esac
     echo "<p>" >> "${nfile}.html"
@@ -30,7 +33,10 @@ done
 # picks out the milestone part of the name for the numeric sort,
 # ensuring it correctly parses as a number
 #
-echo "<h1>Changes by release</h1>" > index.html
+echo "---" > index.html
+echo "title: Changes by release" >> index.html
+echo "---" >> index.html
+echo "<h1>Changes by release</h1>" >> index.html
 echo "<ul>" >> index.html
 ls -1 *body | sort -t m -k 2 -nr | while read -r file
 do
