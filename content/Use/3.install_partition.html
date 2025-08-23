@@ -1,0 +1,121 @@
+---
+title: Installation into a disk partition
+---
+<h1>&gt; Installation into a disk partition</h1>
+
+<p>The default for Tribblix installation (with the <code>-G</code> flag
+to <code>live_install.sh</code>) is to use the whole disk. While this is
+the preferred way to install Tribblix, it's possible to create partitions
+on the disk. The aim here would be to support the installation of multiple
+operating systems simultaneously.</p>
+
+<p>The Tribblix installer is not (yet) itself capable of partitioning of
+the disk that Tribblix is installed to. If you need to partition the disk,
+you'll need to partition it outside the installer.</p>
+
+<h2>Terminology</h2>
+
+<p>An important note on terminology. On illumos (as in Solaris) there
+are two terms that are used to describe how a disk is split up. These
+are <b>partitions</b> and <b>slices</b>. Sadly these are often used as
+if they're interchangeable, but to avoid confusion:<p>
+<ul>
+<li>A partition is the highest level. On x86, with traditional disk
+labelling (MBR), there can only be 4 primary partitions (or 3 primary
+and one partition with extended partitions). On illumos, the device
+names corresponding to these are <code>p0</code> for the whole disk
+and <code>p1</code> through <code>p4</code> for these 4 partitions.</li>
+<li>With modern GPT labelling of disks, the limit of 4 partitions no
+longer applies.</li>
+<li>Inside an MBR primary partition, illumos can have a secondary level of
+splitting the disk up into slices. That's what the device names ending
+in <code>s0</code> through <code>s15</code> refer to.</li>
+</ul>
+
+<h2>Tools</h2>
+
+<p>There are two tools on illumos that manage partitions and slices.</p>
+<ul>
+<li>The <code>fdisk</code> command manages primary partitions using MBR
+labelling, and can create a single top-level GPT partition.</li>
+<li>The <code>format</code> command manages slices within an MBR partition,
+and partitions on a GPT-labelled disk. In both cases, format unhelpfully
+uses the term partition.</li>
+</ul>
+
+<h2>MBR labelling</h2>
+
+<p>With MBR labelled disks, there has to be exactly one <code>solaris</code>
+or <code>solaris2</code> partition. The <code>fdisk</code> command can
+create and manage those partitions. In particular, the command</p>
+<pre>
+fdisk -B /dev/rdsk/cXtYdZp0
+</pre>
+<p>will create a single <code>solaris</code> partition that uses all the disk.
+If you want to leave space for other partitions, or you've already partitioned
+it with another tool, then simply allocate the space you need and set the type
+of the partition you want to use for Tribblix to <code>solaris</code>.</p>
+
+<p>With that in place, the <code>format</code> command can be used to
+configure the slices. To do this, select the disk in format, then
+<code>p</code> to enter the partition editor, and then <code>p</code> to
+show the table and the numeric id of a slice to edit it. You'll need to
+give a tag (which is mostly unused), flags (wm for anything you're going
+to use), the starting cylinder, and a size. One nice feature is that you
+give give the end cylinder with <code>e</code> which is the only way to be
+precise. I use <code>p</code> to show the table every time I edit anything,
+then once you're happy <code>l</code> to write a new label to the disk.
+In most cases, if you're using ZFS, then you should set up
+slice <code>s0</code> to the maximum size. Then run the installer as</p>
+<pre>
+./live_install.sh cXtYdZs0
+</pre>
+<p>and, without the <code>-G</code> flag it will use the disk exactly as it
+finds it.</p>
+
+<h2>GPT labelling</h2>
+
+<p>If you use the <code>-G</code> flag with the <code>live_install.sh</code>
+script then a ZFS pool will be created that fills the whole disk. This actually
+creates 2 partitions, a small <code>system</code> partition and a 2nd partition
+that uses the rest of the space.</p>
+
+<p>To split things up, then you still need the <code>system</code> partition
+which has to be big enough to create a FAT filesystem (pcfs) on it. If the disk
+has already been partitioned by some other system, you'll almost certainly
+already have this. If you're partitioning the disk from scratch, then you'll
+need to first allocate the whole disk</p>
+<pre>
+fdisk -E /dev/rdsk/cXtYdZp0
+</pre>
+<p>which simply puts a single EFI partition on the disk.</p>
+
+<p>With that in place, the <code>format</code> command can be used to
+configure individual partitions, only this time you need to invoke it
+in expert mode with <code>format -e</code>. The first thing to do is create
+a small partition (256MB is always big enough, usually 64MB is fine), and
+it must have type <code>system</code>.</p>
+
+<p>Then you can create your partitions for data. For example, you can create
+partition 5 with the space you want to allocate for Tribblix. Again, use the
+<code>p</code> option to show what you have, and <code>l</code> to write the
+label. In this case, make sure it's EFI and not SMI (which is the old style).
+</p>
+
+<p>And to install to the specific partition number 5,</p>
+<pre>
+./live_install.sh cXtYdZs5
+</pre>
+<p>and, just like with an MBR label, without the <code>-G</code> flag it
+will use the disk exactly as it finds it.</p>
+
+<p><b>IMPORTANT:</b> Note that illumos and Solaris count from 0. Some other
+partition editors start counting from 1. Make sure (by running
+<code>format -e</code> to examine the partition table before running the
+installer, for example) that you're sure you're installing to the partition
+you expect.</p>
+<hr>
+<p><a href="./">Index</a>
+ | <a rel="prev" href="3.install.html">Previous Section</a>
+ | <a rel="next" href="3.install_sparc.html">Next Section</a>
+</p>

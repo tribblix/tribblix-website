@@ -32,6 +32,17 @@
   work.</li>
 </ul>
 
+<h2>Expert mode</h2>
+
+<p>The instructions given below cover the common case, of installing to a whole
+disk using ZFS, and are recommended for most users. Other installation
+options are covered separately:</p>
+<ul>
+<li><a href="3.install_partition.html">Installation to a disk partition</a></li>
+<li><a href="3.install_sparc.html">Installing on sparc</a></li>
+<li><a href="3.install_ufs.html">Installation with UFS</a></li>
+</ul>
+
 <h2>Installation using a CD/DVD drive</h2>
 
 <p>You'll need to <a href="http://www.tribblix.org/download.html">download</a>

@@ -1,0 +1,73 @@
+---
+title: Installation with UFS
+---
+<h1>&gt; Installation with UFS</h1>
+
+<p>While Tribblix can be installed using the legacy UFS file system rather
+than ZFS, this is not recommended. You will be unable to use zones, it
+will be impossible to upgrade to a newer release, and it will stop working
+entirely in 2038.</p>
+
+<p>The advantage is that UFS requires less memory than ZFS. In particular,
+if your system has less than 1GB of memory installation to ZFS will run
+slowly or fail to run at all.</p>
+
+<h2>UFS partitioning</h2>
+
+<p>You have to <a href="3.install_partition.html">partition</a> the disk
+by hand before starting the installation.</p>
+
+<p>The installer requires that 2 slices exist, <code>s0</code> for the
+root file system and <code>s1</code> for swap.</p>
+
+<p>If you have a blank disk then create a <code>solaris2</code> partition
+using fdisk:</p>
+<pre>
+fdisk -B /dev/rdsk/cXtYdZp0
+</pre>
+
+<p>Run format and choose the disk you're using. Type 'p' to go into the
+partition (slice) menu, and 'p' to show the partitions. Enter a number to
+edit that slice.</p>
+
+<p>First type '1' to edit slice 1, type 'swap' for the
+tag, accept the permissions, the starting cylinder should be 0, and then
+input the size, given that you're most likely to be using a UFS installation
+because the system is short of memory anything from 512mb to 2gb should
+be plenty.</p>
+
+<p>Then type 'p' again to make sure it looks OK and take a note of the last
+cylinder for slice 1 and slice 2.</p>
+
+<p>Then type '0' to edit slice 0, type 'root' for the
+tag, accept the permissions, the starting cylinder should be 1 more than
+the end cylinder of slice 1, and then when it asks for the size enter the
+last cylinder for slice 2 with an <code>e</code> appended.</p>
+
+<p>Then type 'p' again to make sure it looks OK. Then 'l' to label the disk
+following which you can exit format.</p>
+
+<h2>Installation process</h2>
+
+<p>Once the disk has been partitioned, then run the UFS installer like so:</p>
+<pre>
+./ufs_install.sh cXtYdZs0 [overlays...]
+</pre>
+<p>Note that the installation will always use slice zero.</p>
+
+<p>The majority of the options to the normal installer don't apply to
+a UFS installation at all. The only options that are accepted are
+<code>-n</code> to set the system name and <code>-t</code> to set the
+timezone.</p>
+
+<h2>Using EFI partitioning</h2>
+
+<p>Tribblix is flexible enough that installing with UFS to a disk with a
+GPT label on it is possible, but it requires
+<a href="https://ptribble.blogspot.com/2025/03/tribblix-uefi-and-ufs.html">even
+more work</a>.</p>
+<hr>
+<p><a href="./">Index</a>
+ | <a rel="prev" href="3.install_sparc.html">Previous Section</a>
+ | <a rel="next" href="3.update.html">Next Section</a>
+</p>
