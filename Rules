@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 #
-# the handbook currently has a slightly different banner
+# the handbook currently has a slightly different title
 #
 compile '/**/Use/*.html' do
   layout '/handbook.*'
