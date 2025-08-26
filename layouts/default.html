@@ -5,7 +5,9 @@
 <title>Tribblix : <%= @item[:title] %></title>
 </head>
 <body>
+<header>
 <img class="banner" src="/banner2.png" alt="Tribblix, the retro illumos distribution" width=377 height=129>
+<nav>
 <table id="banner"><tr>
 <td><a href="/">Home</a></td>
 <td>::</td>
@@ -21,12 +23,18 @@
 <td>::</td>
 <td><a href="/Changes/">Changes</a></td>
 </tr></table>
+</nav>
+</header>
+<main>
 <%= yield %>
+</main>
+<footer>
 <hr>
 <i>tribblix@gmail.com</i>
 ::
 <a href="https://github.com/tribblix">GitHub</a>
 ::
 <a href="/privacy.html">Privacy</a>
+</footer>
 </body>
 </html>
