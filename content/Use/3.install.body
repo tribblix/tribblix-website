@@ -53,7 +53,7 @@ options are covered separately:</p>
   command:</p>
 
 <code>
-cdrw -i tribblix-0m36.iso
+cdrw -i tribblix-0m37.iso
 </code>
 
 <p>On an x86 system, you may need to interrupt the BIOS to specify an
@@ -172,9 +172,9 @@ Chainload disk0:
 </p>
 <pre>
     dhcp
-    chain http://pkgs.tribblix.org/m36/ipxe.txt
+    chain http://pkgs.tribblix.org/m37/ipxe.txt
 </pre>
-<p>You can replace m36 with m36lx to get omnitribblix, or an
+<p>You can replace m37 with m37lx to get omnitribblix, or an
   alternative version may be available. That should boot up as normal
   and you can do the install.
 </p>

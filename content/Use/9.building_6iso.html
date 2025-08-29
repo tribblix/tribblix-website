@@ -38,17 +38,17 @@ look at <code>zap copy-package-repo</code>.</p>
 <h2>Checking it will work</h2>
 
 <p>Constructing an ISO needs quite a lot of things in place, so you will
-a dry run to validate things.</p>
+perform a dry run to validate things.</p>
 <pre>
 cd $THOME/tribblix-build
-./make-dist -R 36 -N
-./make-dist -R 36 -N minimal
+./make-dist -R 37 -N
+./make-dist -R 37 -N minimal
 </pre>
 <p>Or for omnitribblix, it's:</p>
 <pre>
 cd $THOME/tribblix-build
-./make-lx-dist -R 36 -N
-./make-lx-dist -R 36 -N minimal
+./make-lx-dist -R 37 -N
+./make-lx-dist -R 37 -N minimal
 </pre>
 <p>The <code>-N</code> flag is for a dry-run.
 The <code>-R</code> flag specifies the release, which tells it which
@@ -63,8 +63,8 @@ ones are the regular ISO and the minimal/server ISO. You can create others.</p>
 
 <p>The ISO image contains 2 distinct sets of packages. The first is those
 installed in the live image. The second is those packages shipped in the
-<code>pkgs</code> directory on the ISO, so that users can install extra
-overlays without hauling them over the network.</p>
+<code>pkgs</code> directory on the ISO, so that users can add extra overlays
+at install time without hauling the packages over the network.</p>
 
 <p>The starting list of installed packages is the <code>core-tribblix</code>
 overlay, which is present in all images. The regular ISO also has the
@@ -89,25 +89,25 @@ as root. And remember <code>$THOME</code> won't be inherited by root.</p>
 <pre>
 cd /packages/localsrc/Tribblix/tribblix-build
 mkdir /export/tribblix/dist
-./make-dist -R 36 -M 256m
+./make-dist -R 37 -M 258m
 </pre>
 <p>or</p>
 <pre>
 cd /packages/localsrc/Tribblix/tribblix-build
 mkdir /export/tribblix/dist
-./make-lx-dist -R 36 -M 252m
+./make-lx-dist -R 37 -M 254m
 </pre>
 <p>or</p>
 <pre>
 cd /packages/localsrc/Tribblix/tribblix-build
 mkdir /export/tribblix/dist.minimal
-./make-dist -R 36 -M 276m minimal
+./make-dist -R 37 -M 278m minimal
 </pre>
 <p>or</p>
 <pre>
 cd /packages/localsrc/Tribblix/tribblix-build
 mkdir /export/tribblix/dist.minimal
-./make-lx-dist -R 36 -M 272m minimal
+./make-lx-dist -R 37 -M 274m minimal
 </pre>
 <p>What it's doing here is staging everything into
 <code>/export/tribblix/dist</code> or <code>/export/tribblix/dist.minimal</code>
@@ -118,7 +118,7 @@ and using that to create the ISO. So you can then look around in
 each build.</p>
 
 <p>The <code>-M</code> flag specifies the size of the bootable ramdisk
-image. The above values are the ones used for the m36 release. If you
+image. The above values are the ones used for the m37 release. If you
 install more or fewer drivers or applications into the live image, this
 value will need to be adjusted. You can see it's slightly different for
 each image. I try and keep it as small as reasonable to give the best
@@ -133,7 +133,7 @@ example, as root:</p>
 <pre>
 zap create-zone -t bhyve \
 -z bhyve1 -x 192.168.1.238 \
--I /var/tmp/tribblix-0m36.iso \
+-I /var/tmp/tribblix-0m37.iso \
 -V 8G
 </pre>
 <p>and then create a socket so you can see the console</p>
