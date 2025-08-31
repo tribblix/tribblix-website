@@ -1,0 +1,97 @@
+---
+title: Printing
+---
+<h1>&gt; Printing</h1>
+
+<p>Printing in Tribblix is handled, like on most unix-like system, by
+<a href="https://openprinting.github.io/cups/">CUPS</a>.</p>
+
+<p>If you want to set up printing, then the starting point is to install
+the <a href="/overlay-printing.html">printing</a> overlay:</p>
+<pre>
+    zap install-overlay printing
+</pre>
+<p>which will install both the client and server components. The client
+commands such as <code>lp</code>, <code>lpr</code>, and <code>lpq</code>,
+can be used immediately with no further configuration.</p>
+
+<h2>Enabling the print server</h2>
+
+<p>If you wish to have your system run as a print server to itself or
+to other machines on the network, then the <code>cups</code> services
+need to be enabled. To check, run:</p>
+<pre>
+    svcs -p cups/scheduler cups/in-lpd
+</pre>
+<p>and, if they aren't enabled, enable them with:</p>
+<pre>
+    svcadm enable cups/scheduler cups/in-lpd
+</pre>
+
+<h2>Connecting to the print server</h2>
+
+<p>Once it's running, to manage the print server you need to connect
+to its web interface. This is only available for the local machine,
+and to connect just open the following address in a web browser:</p>
+<pre>
+    <a href="http://localhost:631">http://localhost:631</a>
+</pre>
+<p>Initially, you'll need to log in with the root username and root
+password.</p>
+
+<h2>Sharing printers to a network</h2>
+
+<p>If you want to allow other machines on your network to print to
+printers attached to or managed by your system, then in the Administration
+tab of the CUPS web interface, tick the
+<i>Share printers connected to this system</i> box and press the Change
+Settings button.</p>
+
+<p>Alternatively, this can be managed from the command line. As the root
+user:</p>
+<pre>
+    cupsctl --share-printers
+</pre>
+
+<h2>Printing to a wireless printer</h2>
+
+<p>Now to a concrete example, the common case of printing to a wireless
+printer.</p>
+
+<p>You can see what printers are currently connected to the local network
+using the following command:</p>
+<pre>
+    ippfind
+</pre>
+<p>which might come back with something like</p>
+<pre>
+ipp://HP1234AB7890B0.local:631/ipp/print
+</pre>
+
+<p>Then log in to the CUPS web interface, go to the Administration tab,
+and press the Add Printer button. It will browse and hopefully find the
+same printer(s) that ippfind did.</p>
+
+<p>Select the printer you want.</p>
+
+<p>The next important step is to set the name to something sensible and
+short, because that's what you're going to use when printing to it.</p>
+
+<p>It'll ask you for make and model. Make ought to be straightforward,
+for model you want IPP everywhere.</p>
+
+<p>That should do it. Then you should be able to see the local queue(s)
+with</p>
+<pre>
+    lpc status
+</pre>
+<p>and to print a PDF file to the printer that you named, for example,
+HP5100:</p>
+<pre>
+    lpr -P HP5100 my_file.pdf
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a rel="prev" href="4.ns-ldap.html">Previous Section</a>
+ | <a rel="next" href="4.rmvolmgr.html">Next Section</a>
+</p>
