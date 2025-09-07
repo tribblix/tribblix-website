@@ -56,7 +56,21 @@ case $1 in
 	;;
     spell)
 	shift
-	/usr/bin/codespell -L ede,oclock,nce content layouts
+	if [ -x /usr/bin/codespell ]; then
+	    /usr/bin/codespell -L ede,oclock,nce content layouts
+	else
+	    echo "ERROR: codespell not installed"
+	    exit 1
+	fi
+	;;
+    pmd)
+	shift
+	if [ -x /usr/bin/pmd ]; then
+	    /usr/bin/pmd check -R category/html/bestpractices.xml -d $(find output -name '*.html') 2>/dev/null
+	else
+	    echo "ERROR: pmd not installed"
+	    exit 1
+	fi
 	;;
     *)
 	usage
