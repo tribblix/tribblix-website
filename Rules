@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
+#
+# SPDX-License-Identifier: CDDL-1.0
+#
+# Copyright 2025 Peter Tribble
+#
 
 #
 # the handbook currently has a slightly different title
@@ -34,21 +39,6 @@ compile '/**/*.ovl' do
   layout '/default.*'
   write '/overlay-' + item.identifier.without_ext.sub('/','') + '.html'
 end
-
-# This is an example rule that matches Markdown (.md) files, and filters them
-# using the :kramdown filter. It is commented out by default, because kramdown
-# is not bundled with Nanoc or Ruby.
-#
-#compile '/**/*.md' do
-#  filter :kramdown
-#  layout '/default.*'
-#
-#  if item.identifier =~ '**/index.*'
-#    write item.identifier.to_s
-#  else
-#    write item.identifier.without_ext + '/index.html'
-#  end
-#end
 
 compile '/**/*' do
   write item.identifier.to_s

@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025 Peter Tribble
+
+SPDX-License-Identifier: CDDL-1.0
+-->
+
 This is the [Tribblix](http://www.tribblix.org/) website.
 
 It uses [nanoc](https://nanoc.app/) as a Static Site Generator to assemble
