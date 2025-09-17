@@ -39,8 +39,11 @@ deliberately minimalist.</p>
 it all for Tribblix, just run the live_install.sh script with the name
 of the desired disk, like so:</p>
 <pre>
-# ./live_install.sh -B c1t0d0
+# ./live_install.sh -G c1t0d0
 </pre>
+<p>On SPARC, you can use -G or -B here, either will use the whole
+disk. On balance, -G is preferred as that matches the recommended
+usage for x86 installations</p>
 
 <p>You can also install additional software packages at this
 point. Additional package sets are known as overlays, so you don't need
@@ -59,13 +62,13 @@ such as NIS, LDAP, NFS</li>
 <p>and you simply add the name of the overlay(s) you want to install to
 the install command, like so:</p>
 <pre>
-# ./live_install.sh -B c1t0d0 develop
+# ./live_install.sh -G c1t0d0 develop
 </pre>
 <p>Any required overlays will be installed automatically. There's a
 special overlay, called <b>kitchen-sink</b> that will install most
 things, and that's what I often use.</p>
 <pre>
-# ./live_install.sh -B c1t0d0 kitchen-sink
+# ./live_install.sh -G c1t0d0 kitchen-sink
 </pre>
 <p>You can add additional software overlays later using
 the <a href="/zap.html">zap</a> utility.
@@ -95,7 +98,7 @@ immediately change.</p>
 and all the available space for the root file system. If you want to do
 something different, then you can manually partition the disk, and
 then tell the installer to use a given slice in that partition,
-omitting the -B flag. Manual partitioning is only for experts; if
+omitting the -G flag. Manual partitioning is only for experts; if
 you're not familiar with the way Solaris disk partitions/slices
 work, use the defaults.</p>
 

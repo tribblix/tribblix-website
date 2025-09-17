@@ -90,11 +90,11 @@ and same user and root passwords as the live image, which you should
 
 <h2><a name="efi"></a>EFI partitioning</h2>
 
-<p>The install script will use the traditional partitioning method for
-laying out the disk - creating a Solaris partition that spans the whole
-device. If you use the -G flag instead of the older -B, then it will create a
-whole disk pool with an EFI System partition instead, to support booting
-with UEFI firmware. I recommend always using -G rather than -B.</p>
+<p>If you use the -G flag (and -B is now an alias for -G) then
+installation will create a whole disk pool with an EFI System
+partition, to support booting with UEFI firmware. This is the
+recommended approach, if you want the legacy (MBR) partitioning then
+use -b instead of -G.</p>
 
 <h2><a name="manual"></a>Manual partitioning</h2>
 
@@ -103,7 +103,7 @@ and all the available space for the root file system. If you want to do
 something different, then you can manually partition the
 disk. Ultimately, you'll need to create a Solaris fdisk partition, and
 then tell the installer to use a given slice in that partition,
-omitting the -B or -G flag.</p>
+omitting the -b or -G flag.</p>
 
 <p>If you just have one disk and want to use it all for Tribblix, use
 fdisk -B to delete all the current partitions and just have a single
