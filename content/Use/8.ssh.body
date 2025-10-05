@@ -49,7 +49,7 @@ system isn't recognised. This looks like:</p>
 The authenticity of host '192.168.1.232 (192.168.1.232)' can't be established.
 ED25519 key fingerprint is SHA256:/rg8IOuSz2Jk3oTx+COkFl7/EyBSW0WFd3BEDN+E65g.
 This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
 </pre>
 <p>This is normal, if you're sure its's the right system (ideally you will
 be given an indepependent way to confirm that the fingerprint is correct) then

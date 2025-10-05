@@ -220,7 +220,7 @@ used along with the regular install process.
   partition the drive yourself (using the fdisk and format
   commands). In that case, you need to create a slice <code>s0</code>
   on the device, and Tribblix will install to that.</p></dd>
-  
+
   <dt>Mirroring</dt>
   <dd><p>You can tell the system to mirror the installation across two
     drives for redundancy, using the <code>-m</code> flag with the name of the

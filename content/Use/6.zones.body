@@ -266,7 +266,7 @@
   the zone. It will be mounted at the same location in the zone as in
   the global zone. With <code>-S</code>, the directory will be mounted
   read-write; with <code>-s</code>, it will be read-only.</p>
- 
+
 <h3>-B</h3>
 
 <p>Specifies that the zone will boot up blank, with no processes

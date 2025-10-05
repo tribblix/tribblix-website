@@ -10,8 +10,8 @@
 <p>The <a href="https://illumos.org/">illumos</a> project continued
   to develop the underlying code base -  the kernel and supporting
   user commands (sometimes known as ON - the OS and Networking
-  consolidation). This code base is now used as the basis for many 
-  derived distributions, including Tribblix.</p> 
+  consolidation). This code base is now used as the basis for many
+  derived distributions, including Tribblix.</p>
 
 <p>The <a href="https://www.openindiana.org/">OpenIndiana</a> project
   continued to develop a clone of the OpenSolaris distribution (which
@@ -37,7 +37,7 @@
   by the community. The key feature difference in OmniOS is the Linux
   emulation (LX) Zone system, which isn't present in vanilla illumos.</li>
 <li><a href="https://www.tritondatacenter.com/smartos">SmartOS</a> is a
-  Converged Container and Virtual Machine Hypervisor.</li> 
+  Converged Container and Virtual Machine Hypervisor.</li>
 <li>A number of storage vendors use OpenSolaris or illumos under the
   hood (largely because of ZFS).</li>
 </ul>

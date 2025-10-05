@@ -14,7 +14,6 @@
 
 <p>The first part of the update process is to issue the following
   command:</p>
-  
 <code>
 zap refresh
 </code>
@@ -22,21 +21,18 @@ zap refresh
 <p>This will not update any software, but will download newer versions
   of the software catalog. You can then see if any software updates
   are available:</p>
-
 <code>
 zap verify-overlay -a
 </code>
 
 <p>To update the components of one specific overlay to their current
   versions:</p>
-
 <code>
 zap update-overlay <em>overlay_name</em>
 </code>
 
 <p>To update the components of all installed overlays to their current
   versions:</p>
-
 <code>
 zap update-overlay -a
 </code>
