@@ -1,0 +1,18 @@
+---
+title: python313 overlay
+---
+<h1>Overlay python313 - Python 3.13</h1>
+<p>Supplies version 3.13 of the <a href="https://www.python.org/">Python</a>
+programming language.</p>
+
+<p>This is not the default version of Python in Tribblix. It is provided
+as a convenience for testing and for those who need a newer version than
+the default @python312.</p>
+
+<p>Few additional modules are packed for this python version. You should
+use virtual environments (venv) to install modules for your own needs.</p>
+
+<p>Note that the modules in the system Python are managed as Tribblix
+packages using zap. Technically, it's
+<a href="https://packaging.python.org/en/latest/specifications/externally-managed-environments/">externally managed</a>. You should not use tools such as
+<code>pip</code> to install Python modules.</p>

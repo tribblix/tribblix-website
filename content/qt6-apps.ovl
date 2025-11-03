@@ -1,0 +1,7 @@
+---
+title: qt6-apps overlay
+---
+<h1>Overlay qt6-apps - Applications for QT6</h1>
+<p>Provides a number of applications built using the @qt6-base toolkit.</p>
+
+<p>Specifically, includes Flameshot.</p>

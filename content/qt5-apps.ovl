@@ -2,6 +2,6 @@
 title: qt5-apps overlay
 ---
 <h1>Overlay qt5-apps - Applications for QT5</h1>
-<p>Provides a number of applications built using th @qt5-base toolkit.</p>
+<p>Provides a number of applications built using the @qt5-base toolkit.</p>
 
-<p>Specifically, includes Flameshot, Photoflare, DjView4, and CoolReader3.</p>
+<p>Specifically, includes Photoflare, DjView4, and CoolReader3.</p>

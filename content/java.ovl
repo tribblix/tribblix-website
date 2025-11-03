@@ -3,4 +3,7 @@ title: java overlay
 ---
 <h1>Overlay java - Java OpenJDK</h1>
 <p>Supplies the default version of Java
-<a href="https://openjdk.org/">OpenJDK</a>, currently JDK17.</p>
+<a href="https://openjdk.org/">OpenJDK</a>, currently JDK21.</p>
+
+<p>(Note that SPARC systems still only ship up to JDK17, so JDK17 is
+the default java on SPARC.)</p>

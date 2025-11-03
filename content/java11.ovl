@@ -2,5 +2,5 @@
 title: java11 overlay
 ---
 <h1>Overlay java11 - Java OpenJDK 11</h1>
-<p>Supplies the current default version 11 of Java
+<p>Supplies the old LTS version 11 of Java
 <a href="https://openjdk.org/">OpenJDK</a>.</p>
