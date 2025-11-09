@@ -38,14 +38,14 @@ look at <code>zap copy-package-repo</code>.</p>
 perform a dry run to validate things.</p>
 <pre>
 cd $THOME/tribblix-build
-./make-dist -R 37 -N
-./make-dist -R 37 -N minimal
+./make-dist -R 38 -N
+./make-dist -R 38 -N minimal
 </pre>
 <p>Or for omnitribblix, it's:</p>
 <pre>
 cd $THOME/tribblix-build
-./make-lx-dist -R 37 -N
-./make-lx-dist -R 37 -N minimal
+./make-lx-dist -R 38 -N
+./make-lx-dist -R 38 -N minimal
 </pre>
 <p>The <code>-N</code> flag is for a dry-run.
 The <code>-R</code> flag specifies the release, which tells it which
@@ -86,25 +86,25 @@ as root. And remember <code>$THOME</code> won't be inherited by root.</p>
 <pre>
 cd /packages/localsrc/Tribblix/tribblix-build
 mkdir /export/tribblix/dist
-./make-dist -R 37 -M 258m
+./make-dist -R 38 -M 256m
 </pre>
 <p>or</p>
 <pre>
 cd /packages/localsrc/Tribblix/tribblix-build
 mkdir /export/tribblix/dist
-./make-lx-dist -R 37 -M 254m
+./make-lx-dist -R 38 -M 256m
 </pre>
 <p>or</p>
 <pre>
 cd /packages/localsrc/Tribblix/tribblix-build
 mkdir /export/tribblix/dist.minimal
-./make-dist -R 37 -M 278m minimal
+./make-dist -R 38 -M 276m minimal
 </pre>
 <p>or</p>
 <pre>
 cd /packages/localsrc/Tribblix/tribblix-build
 mkdir /export/tribblix/dist.minimal
-./make-lx-dist -R 37 -M 274m minimal
+./make-lx-dist -R 38 -M 272m minimal
 </pre>
 <p>What it's doing here is staging everything into
 <code>/export/tribblix/dist</code> or <code>/export/tribblix/dist.minimal</code>
@@ -115,7 +115,7 @@ and using that to create the ISO. So you can then look around in
 each build.</p>
 
 <p>The <code>-M</code> flag specifies the size of the bootable ramdisk
-image. The above values are the ones used for the m37 release. If you
+image. The above values are the ones used for the m38 release. If you
 install more or fewer drivers or applications into the live image, this
 value will need to be adjusted. You can see it's slightly different for
 each image. I try and keep it as small as reasonable to give the best
@@ -130,7 +130,7 @@ example, as root:</p>
 <pre>
 zap create-zone -t bhyve \
 -z bhyve1 -x 192.168.1.238 \
--I /var/tmp/tribblix-0m37.iso \
+-I /var/tmp/tribblix-0m38.iso \
 -V 8G
 </pre>
 <p>and then create a socket so you can see the console</p>

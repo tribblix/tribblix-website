@@ -59,12 +59,12 @@ git clone https://github.com/tribblix/tribblix-build
 
 <p>There are several parts to this. First we need to add the information for
 a new release to the <code>tribblix-release</code> repo. For example, to add
-<code>m37</code> as a successor to <code>m36</code>, for both normal Tribblix
+<code>m38</code> as a successor to <code>m37</code>, for both normal Tribblix
 and OmniTribblix:</p>
 <pre>
 cd ${THOME}/tribblix-release
-./mk_pkgs.sh -p i386 -r m37 -c m36
-./mk_pkgs.sh -p i386 -r m37 -v lx -c m36
+./mk_pkgs.sh -p i386 -r m38 -c m37
+./mk_pkgs.sh -p i386 -r m38 -v lx -c m37
 </pre>
 <p>What this will do is add a directory for each release with the appropriate
 metadata files in it.</p>
@@ -74,18 +74,18 @@ metadata files in it.</p>
 needs a source for the driver mapping. This makes assumptions about
 naming and locations.</p>
 <pre>
-./mk-driver-map.sh -V m37
-./mk-driver-map.sh -V m37lx
+./mk-driver-map.sh -V m38
+./mk-driver-map.sh -V m38lx
 </pre>
 
 <p>Then you can create the packages. There are actually 4 upgrade
-pathways here: m36 to m37, m36lx to m37lx, and then the cross-upgrades
-m36 to m37lx and m36lx to m37.</p>
+pathways here: m37 to m38, m37lx to m38lx, and then the cross-upgrades
+m37 to m38lx and m37lx to m38.</p>
 <pre>
-./mk_pkgs.sh -p i386 -r m37 -u m36
-./mk_pkgs.sh -p i386 -r m37 -v lx -u m36
-./mk_pkgs.sh -p i386 -r m37 -u m36lx
-./mk_pkgs.sh -p i386 -r m37 -v lx -u m36lx
+./mk_pkgs.sh -p i386 -r m38 -u m37
+./mk_pkgs.sh -p i386 -r m38 -v lx -u m37
+./mk_pkgs.sh -p i386 -r m38 -u m37lx
+./mk_pkgs.sh -p i386 -r m38 -v lx -u m37lx
 </pre>
 
 <p>This will drop the packages into <code>/tmp/pct</code>, and also populate
@@ -93,17 +93,17 @@ per-release directories in <code>../release-repos</code>.</p>
 
 <p>For publication on the online repo, a catalog files is needed.</p>
 <pre>
-./gen_catalog.sh ../release-repos/m37.i386 > ../release-repos/m37.i386/catalog
-./gen_catalog.sh ../release-repos/m37lx.i386 > ../release-repos/m37lx.i386/catalog
+./gen_catalog.sh ../release-repos/m38.i386 > ../release-repos/m38.i386/catalog
+./gen_catalog.sh ../release-repos/m38lx.i386 > ../release-repos/m38lx.i386/catalog
 </pre>
 
 <p>What the above will also have done is create the upgrade packages
-for the <code>m36</code> and <code>m36lx</code> releases, again in the
+for the <code>m37</code> and <code>m37lx</code> releases, again in the
 per-release directory in <code>../release-repos</code>. Those will need
 new catalogs as well:</p>
 <pre>
-./gen_catalog.sh ../release-repos/m36.i386 >! ../release-repos/m36.i386/catalog
-./gen_catalog.sh ../release-repos/m36lx.i386 >! ../release-repos/m36lx.i386/catalog
+./gen_catalog.sh ../release-repos/m37.i386 >! ../release-repos/m37.i386/catalog
+./gen_catalog.sh ../release-repos/m37lx.i386 >! ../release-repos/m37lx.i386/catalog
 </pre>
 <hr>
 <p><a href="./">Index</a>

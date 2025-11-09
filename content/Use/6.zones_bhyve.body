@@ -13,7 +13,7 @@ like:</p>
 <pre>
   zap create-zone -t bhyve -z bhyve1 \
     -x 192.168.0.236  \
-    -I /var/tmp/tribblix-0m37.iso \
+    -I /var/tmp/tribblix-0m38.iso \
     -V 8G
 </pre>
 <p>Here, the <code>-t</code> flag tells us that this is a bhyve zone, the

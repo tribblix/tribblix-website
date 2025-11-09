@@ -110,11 +110,11 @@ wget -c \
 <h2>Building the gate</h2>
 
 <p>The first step is to check out a copy of illumos that you can build.
-Let's assume you're going to build something called m37-gate.</p>
+Let's assume you're going to build something called m38-gate.</p>
 <pre>
 cd ${HOME}/Illumos
-rm -fr m37-gate
-git clone ${HOME}/Illumos-reference/illumos-gate m37-gate
+rm -fr m38-gate
+git clone ${HOME}/Illumos-reference/illumos-gate m38-gate
 </pre>
 
 <p>For OmniTribblix it's slightly trickier, there's a bit of a hack to
@@ -123,9 +123,9 @@ repo here has to match the name above with "lx" in the middle (the build
 looks for the corresponding vanilla copy of the gate).</p>
 <pre>
 cd ${HOME}/Illumos
-rm -fr m37lx-gate
-git clone ${HOME}/Illumos-reference/illumos-omnios m37lx-gate
-cd m37lx-gate
+rm -fr m38lx-gate
+git clone ${HOME}/Illumos-reference/illumos-omnios m38lx-gate
+cd m38lx-gate
 git format-patch --stdout -1 3cb7d45669f9143c833d58e902f8880804a51791 &gt; 1.patch
 sed -i s:Makefile.tools:Makefile:g 1.patch
 git format-patch --stdout -1 6b8791159f33fb8479bb3c5a19e624dff6ed35bf &gt; 2.patch
@@ -140,20 +140,20 @@ run the build.</p>
 <pre>
 zap zssh illumos-build
 
-cd ${HOME}/Illumos/m37-gate
-${THOME}/tribblix-build/illumos/releasebuild m37
+cd ${HOME}/Illumos/m38-gate
+${THOME}/tribblix-build/illumos/releasebuild m38
 </pre>
 
 <p>For OmniTribblix it's:</p>
 <pre>
 zap zssh illumos-build
 
-cd ${HOME}/Illumos/m37lx-gate
-${THOME}/tribblix-build/illumos/omnibuild m37lx
+cd ${HOME}/Illumos/m38lx-gate
+${THOME}/tribblix-build/illumos/omnibuild m38lx
 </pre>
 
-<p>You don't need to use m37, of course. If you do it like this then you'll
-get a build of the current code with the m37 name attached to it. All that's
+<p>You don't need to use m38, of course. If you do it like this then you'll
+get a build of the current code with the m38 name attached to it. All that's
 required is that there's an <code>illumos.sh</code> env file in the
 <code>${THOME}/tribblix-build/illumos</code> directory with a suffix equal
 to the name you choose, so you can create a distribution with whatever name
@@ -168,9 +168,9 @@ packages. These can be built with a single script.</p>
 <pre>
 cd ${HOME}/Illumos
 rm -fr gfx-drm
-${THOME}/tribblix-build/gfx-drm/gfx-drm.sh -V 0.37
+${THOME}/tribblix-build/gfx-drm/gfx-drm.sh -V 0.38
 </pre>
-<p>The version given here, 0.37, matches m37. This will build both the
+<p>The version given here, 0.38, matches m38. This will build both the
 vanilla and omnitribblix packages. (They're the same, they just have different
 version numbers to match what packaging expects.)</p>
 
@@ -183,35 +183,35 @@ builds.</p>
 $THOME or $HOME here as root is a different account.)</p>
 <pre>
 /packages/localsrc/Tribblix/tribblix-build/repo_all.sh \
-  -G /export/home/ptribble/Illumos/m37-gate \
-  -V "0.37" \
-  -D /var/tmp/m37-pkgs \
-  -S /export/home/ptribble/f/elfcert >& /var/tmp/m37.log
+  -G /export/home/ptribble/Illumos/m38-gate \
+  -V "0.38" \
+  -D /var/tmp/m38-pkgs \
+  -S /export/home/ptribble/f/elfcert >& /var/tmp/m38.log
 </pre>
 
 <p>Or for OmniTribblix, it's:</p>
 <pre>
 /packages/localsrc/Tribblix/tribblix-build/repo_all.sh \
-  -G /export/home/ptribble/Illumos/m37lx-gate \
-  -V "0.37lx" \
-  -D /var/tmp/m37lx-pkgs \
-  -S /export/home/ptribble/f/elfcert >& /var/tmp/m37lx.log
+  -G /export/home/ptribble/Illumos/m38lx-gate \
+  -V "0.38lx" \
+  -D /var/tmp/m38lx-pkgs \
+  -S /export/home/ptribble/f/elfcert >& /var/tmp/m38lx.log
 </pre>
 
 <p>Those take a while. One they're done I copy them to my local
 distribution area, as yourself in the global zone:</p>
 <pre>
 cd ${THOME}
-mkdir -p illumos-pkgs-m37/pkgs/
-cp /var/tmp/m37-pkgs/pkgs/*.zap illumos-pkgs-m37/pkgs/
-cp /var/tmp/m37-pkgs/pkgs/*.zap.md5 illumos-pkgs-m37/pkgs/
+mkdir -p illumos-pkgs-m38/pkgs/
+cp /var/tmp/m38-pkgs/pkgs/*.zap illumos-pkgs-m38/pkgs/
+cp /var/tmp/m38-pkgs/pkgs/*.zap.md5 illumos-pkgs-m38/pkgs/
 </pre>
 <p>and for OmniTribblix</p>
 <pre>
 cd ${THOME}
-mkdir -p illumos-pkgs-m37lx/pkgs/
-cp /var/tmp/m37lx-pkgs/pkgs/*.zap illumos-pkgs-m37lx/pkgs/
-cp /var/tmp/m37lx-pkgs/pkgs/*.zap.md5 illumos-pkgs-m37lx/pkgs/
+mkdir -p illumos-pkgs-m38lx/pkgs/
+cp /var/tmp/m38lx-pkgs/pkgs/*.zap illumos-pkgs-m38lx/pkgs/
+cp /var/tmp/m38lx-pkgs/pkgs/*.zap.md5 illumos-pkgs-m38lx/pkgs/
 </pre>
 
 <p>You also need to copy the gfx-drm packages into the same place.
@@ -220,16 +220,16 @@ $THOME with the zone when we created it.</p>
 <pre>
 zap zssh illumos-build
 cd ${THOME}
-cp /var/tmp/gfx-pkgs/pkgs/*.zap* illumos-pkgs-m37/pkgs/
-cp /var/tmp/omni-gfx-pkgs/pkgs/*.zap* illumos-pkgs-m37lx/pkgs/
+cp /var/tmp/gfx-pkgs/pkgs/*.zap* illumos-pkgs-m38/pkgs/
+cp /var/tmp/omni-gfx-pkgs/pkgs/*.zap* illumos-pkgs-m38lx/pkgs/
 </pre>
 
 <p>Then the metadata (catalog) needs to be created, again as yourself in the
 global zone:</p>
 <pre>
 cd ${THOME}/build
-./create-illumos-files ../illumos-pkgs-m37/pkgs
-./create-illumos-files ../illumos-pkgs-m37lx/pkgs
+./create-illumos-files ../illumos-pkgs-m38/pkgs
+./create-illumos-files ../illumos-pkgs-m38lx/pkgs
 </pre>
 <hr>
 <p><a href="./">Index</a>
