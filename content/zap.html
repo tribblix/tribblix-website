@@ -11,8 +11,8 @@ largely hidden by a layer called ZAP - short for Zip Archive Packaging
 
 <p>
 Because of the connection to packaging, zap is also used to manage
-<a href="zap-zones.html">zones</a> and perform
-system <a href="zap-upgrade.html">upgrades</a>.
+<a href="Use/6.zones.html">zones</a> and perform
+system <a href="Use/3.upgrade.html">upgrades</a>.
 </p>
 
 <p>
@@ -117,6 +117,12 @@ files once, then you can copy the package files
 into <code>/var/zap/cache</code> on other systems. If that directory
 uses too much space, it's perfectly fine to delete some or all of the
 files there.
+</p>
+
+<p>
+While you can use the <code>rm</code> command to manually tidy up
+<code>/var/zap/cache</code>, the <code>zap clean-cache -a</code>
+command will empty it for you.
 </p>
 
 <p>
