@@ -1,29 +1,39 @@
 ---
-title: bhyve Zones
+title: emu Zones
 ---
-<h1>&gt; bhyve Zones</h1>
+<h1>&gt; emu Zones</h1>
 
-<p>To run zones using the bhyve hypervisor, first ensure that the bhyve
+<p>The emu brand allows you to run virtual machines under qemu, similar to
+the implementation for <a href="6.zones_bhyve.html">bhyve</a>.</p>
+
+<p>This is an <b>experimental</b> feature, introduced in Tribblix m38.</p>
+
+<p>To run zones using the emu brand, first ensure that the qemu
 overlay is installed</p>
 <pre>
-  zap install-overlay bhyve
+  zap install-overlay qemu
 </pre>
 
-<p>To boot Tribblix (or other illumos distributions) as a bhyve guest, you
-will need to use a fairly recent version of the distribution. For Tribblix
-specifically you'll need to use m24.1 or later. The command would be something
-like:</p>
+<p>To boot a guest, the command would be something like:</p>
 <pre>
-  zap create-zone -t bhyve -z bhyve1 \
+  zap create-zone -t emu -z emu1 \
     -x 192.168.0.236  \
     -I /var/tmp/tribblix-0m38.iso \
+    -M x86_64:max \
     -V 8G
 </pre>
-<p>Here, the <code>-t</code> flag tells us that this is a bhyve zone, the
+<p>Here, the <code>-t</code> flag tells us that this is an emu zone, the
 <code>-z</code> flag gives the name of the zone, the <code>-x</code>
 flag specifies the zone's permitted IP address, the <code>-I</code> flag
-tells bhyve where to find the ISO image to boot from, and the <code>-V</code>
+tells qemu where to find the ISO image to boot from, and the <code>-V</code>
 flag says to create an 8G virtual disk for the guest to use.</p>
+
+<p>The key difference with emu zones is that you need to specify the cpu
+details with the <code>-M</code> flag. Currently this takes 2 fields separated
+by a colon; the first field maps directly to the qemu binary to use (ie.
+qemu-system-x86_64), the second field is the cpu model. You can get the list
+of available cpu models by running qemu with the <code>-cpu help</code> flags.
+</p>
 
 <p>You can set the number of vcpus for the guest with the <code>-c</code>
 flag (the default is a single cpu). Likewise, the guest memory can be set
@@ -33,7 +43,7 @@ add <code>-c 2 -m 2G</code>.</p>
 <p>That will create and boot the zone. To interact with it, use VNC. As
 root, start up <code>socat</code> like so:</p>
 <pre>
-  socat TCP-LISTEN:5905,reuseaddr,fork UNIX-CONNECT:/export/zones/bhyve1/root/tmp/vm.vnc
+  socat TCP-LISTEN:5905,reuseaddr,fork UNIX-CONNECT:/export/zones/emu1/root/tmp/vm.vnc
 </pre>
 <p>Note the name of the path to the zone, which you'll need to change
 depending on the name of the zone. Also, you can choose a different port,
@@ -49,42 +59,22 @@ by 5900.</p>
 <p>There's a slightly more convenient way to view the graphical console
 without the manual mucking about with socat and vncviewer described above.
 If you share your user account with the zone using the <code>-U</code>
-flag (which in the case of bhyve zones means sharing with bhyve and not
+flag (which in the case of emu zones means sharing with the zone and not
 with the OS running as the guest):</p>
 <pre>
-  zap create-zone -t bhyve -z bhyve1 -U ptribble ...
+  zap create-zone -t emu -z emu1 -U ptribble ...
 </pre>
 <p>then the <a href="/man/man1/startvnc.html">startvnc</a> command can be
 used to connect to the VNC console as that user, like so:</p>
 <pre>
-  startvnc -Z bhyve1
+  startvnc -Z emu1
 </pre>
 
 <p>You can run the installer as normal. But before you can use the installed
 system you need to remove the virtual CD and reboot.</p>
 <pre>
-  zap remove-cd -z bhyve1 -r
+  zap remove-cd -z emu1 -r
 </pre>
-<p>At the present time, you're unable to run X in Tribblix under bhyve.
-(Although you could run an X session under VNC.)</p>
-
-<h2>Sharing data</h2>
-
-<p>In other zone types, you can share directories using the <code>-S</code>
-and <code>-s</code> flags (for writable and read-only shares respectively).
-</p>
-
-<p>The same works with bhyve, but the bhyve guest will use virtfs. In a
-Linux guest you can mount these as follows:
-</p>
-<pre>
-  mount -t 9p -o trans=virtio,uname=root bhyvefs0 /mnt/foo
-</pre>
-<p>
-The name <code>bhyvefs#</code> is fixed and, if you have multiple shares,
-will start from 0 and increment, in the order given by the <code>-S</code>
-and <code>-s</code> flags.
-</p>
 
 <h2>Cloud-init</h2>
 
@@ -101,7 +91,7 @@ will enable <code>cloud-init</code> and configure the guest to allow SSH
 access to the default account (or root) using the given SSH key. For example,
 you might use:</p>
 <pre>
-  zap create-zone -t bhyve -z bhyve2 \
+  zap create-zone -t emu -z emu2 \
     -x 192.168.0.237  \
     -I /var/tmp/ubuntu-22.04.1-live-server-amd64.iso \
     -k /export/home/ptribble/.ssh/id_rsa.pub \
@@ -109,6 +99,6 @@ you might use:</p>
 </pre>
 <hr>
 <p><a href="./">Index</a>
- | <a rel="prev" href="6.zones.html">Previous Section</a>
- | <a rel="next" href="6.zones_emu.html">Next Section</a>
+ | <a rel="prev" href="6.zones_bhyve.html">Previous Section</a>
+ | <a rel="next" href="6.zones_lx.html">Next Section</a>
 </p>

@@ -88,13 +88,20 @@
 
 <h3>bhyve</h3>
 
-<p>The byhve hypervisor allows you to run a virtual machine, within which you
+<p>The bhyve hypervisor allows you to run a virtual machine, within which you
   can run a range of alternative operating systems. While it's possible
   to run bhyve standalone, illumos distributions including Tribblix will
   normally wrap a bhyve instance inside a zone, to allow an additional
   layer of management.</p>
 
 <p><a href="6.zones_bhyve.html">More on bhyve...</a></p>
+
+<h3>emu</h3>
+
+<p>Similar to bhyve, the <b>experimental</b> emu brand allows to run wrap a
+qemu instance inside a zone, to allow an additional layer of management.</p>
+
+<p><a href="6.zones_emu.html">More on emu...</a></p>
 
 <h3>LX</h3>
 
