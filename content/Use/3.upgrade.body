@@ -5,8 +5,8 @@
   will also update applications to match.</p>
 
 <p>The first thing to do is to <a href="3.update.html">keep Tribblix
-    up to date</a>. If you're fully up to date (<code>zap
-    refresh</code> and <code>zap update-overlay -a</code>) then you
+  up to date</a>. If you're fully up to date (<code>zap
+  refresh</code> and <code>zap update-overlay -a</code>) then you
   can check for available upgrades with:</p>
 
 <code>
@@ -17,33 +17,34 @@ zap upgrade list
 version and any other versions available for upgrade. For example:</p>
 
 <pre>
-m30: (current)
+m37: (current)
 </pre>
 
-<p>Shows you that you're currently running the m30 release, and there
+<p>Shows you that you're currently running the m37 release, and there
   are no upgrades available. If it says:</p>
 
 <pre>
-m30: (current)
-m31: Tribblix m31
+m37: (current)
+m38: Tribblix m38
 </pre>
 
 <p>Then that's an indication that there's a new version - in this
-  case <em>m31</em> - available that you can upgrade to. You don't
-  have to upgrade, but it's often a good idea.</p>
+  case <em>m38</em> - available that you can upgrade to. You don't
+  have to upgrade, but it's often a good idea as updates to older
+  versions will stop fairly quickly once a new release has been made.</p>
 
-<p>What you'll also see from the above output is that there may be
+<p>What you might also see in the above output is that there may be
   multiple newer versions available to you. There's also a minor
   distinction between update releases within a stream, and going to a
   new version.
 </p>
   <ul>
-    <li>An update release - such as m25.3 - shares the application
+    <li>An update release - such as m36.1 - shares the application
     updates with all the other update releases in that stream. In
     other words, from the point of view of applications, running an
     <a href="3.update.html">update</a> will give you exactly the same
     application versions as an upgrade.</li>
-    <li>A full release - such as m31 - will have a different set of
+    <li>A full release - such as m38 - will have a different set of
     application updates. In particular, it may introduce completely
     new applications, and application updates that are incompatible
     will tend to occur at a full release boundary. In fact, it's the
@@ -53,7 +54,7 @@ m31: Tribblix m31
   </ul>
 <p>Once a new full release has been made, application updates for the
   old release will stop relatively quickly (although application
-  updates for security issues will continue a while longer), and the
+  updates for security issues may continue a while longer), and the
   focus will shift to only updating applications for the new release.
 </p>
 
@@ -64,7 +65,7 @@ m31: Tribblix m31
   the version you want to upgrade to:</p>
 
 <code>
-  zap upgrade m31
+  zap upgrade m38
 </code>
 
 <p>This will take a few minutes. It will create a clone of your
@@ -76,7 +77,7 @@ m31: Tribblix m31
 =====================================================
 || To switch to the newly upgraded version, issue  ||
 || the following commands:                         ||
-||   beadm activate m31                            ||
+||   beadm activate m38                            ||
 ||   init 6                                        ||
 =====================================================
 </pre>
@@ -103,16 +104,16 @@ m31: Tribblix m31
 <p>which will return something similar to the following:</p>
 
 <pre>
-BE  Active Mountpoint Space  Policy Created
-m30 -      -          15.84M static 2023-05-03 21:00
-m31 NR     /          25.30G static 2023-07-10 15:17
+BE    Active  Mountpoint  Space   Policy  Created
+m37   -       -           38.73M  static  2025-07-14 14:24
+m38   NR      /           22.73G  static  2025-11-10 13:34
 </pre>
 
 <p>Here I have 2 boot environments. The current one is
-  called <code>m31</code> - the <code>NR</code> in the Active column
+  called <code>m38</code> - the <code>NR</code> in the Active column
   shows that it's being used now ("N") and will be used if the system
   reboots ("R"). I also have an older boot
-  environment, <code>m30</code>, so you can see
+  environment, <code>m37</code>, so you can see
   the upgrade path.</p>
 
 <p>If, for some reason, you want to use one of the older boot
@@ -120,7 +121,7 @@ m31 NR     /          25.30G static 2023-07-10 15:17
   quite work correctly), then you need to activate it:</p>
 
 <code>
-  beadm activate m30
+  beadm activate m37
 </code>
 
 <p>and then reboot.</p>
@@ -133,5 +134,5 @@ m31 NR     /          25.30G static 2023-07-10 15:17
   to go back, you can delete them. For example:</p>
 
 <code>
-  beadm destroy m30
+  beadm destroy m37
 </code>

@@ -41,19 +41,19 @@ zap upgrade list
 and you should be given a list similar to the following:
 </p>
 <pre>
-m30: (current)
-m31: Milestone 31
+m37: (current)
+m38: Milestone 38
 </pre>
 <p>
-which shows that you're currently running the m30 release, and that an
-upgrade to m31 (Milestone 31) is available.
+which shows that you're currently running the m37 release, and that an
+upgrade to m38 (Milestone 38) is available.
 </p>
 
 <p>
 To perform the upgrade:
 </p>
 <pre>
-zap upgrade m31
+zap upgrade m38
 </pre>
 <p>
 and then to boot into the newly upgraded system, use beadm to activate
@@ -61,7 +61,7 @@ it and then reboot - the appropriate commands will be printed at the
 end of the upgrade process, but will be something like
 </p>
 <pre>
-beadm activate m31
+beadm activate m38
 init 6
 </pre>
 
@@ -71,16 +71,16 @@ back to the previous version. If you're in a running system then you
 can use <code>beadm list</code> to see the available boot environments
 </p>
 <pre>
-BE       Active Mountpoint      Space Policy Created
-m30      -      -               28.0M static 2023-05-03 15:40
-m31      NR     /               12.2G static 2023-07-10 18:42
+BE    Active   Mountpoint   Space    Policy   Created
+m37   -        -            38.73M   static   2025-07-14 14:24
+m38   NR       /            22.73G   static   2025-11-10 13:34
 </pre>
 <p>
 (note that the initially installed boot environment will usually be
 called tribblix), and then
 </p>
 <pre>
-beadm activate m30
+beadm activate m37
 init 6
 </pre>
 <p>
@@ -98,7 +98,7 @@ If you have the ISO for the new release, then you might save some time
 and bandwidth by copying the zap files from the pkgs directory on the
 ISO into the <code>/var/zap/cache</code> directory. And if you're
 upgrading more than one system, copying <code>/var/zap/cache</code>
-will do even better.
+from one system to the rest will do even better.
 </p>
 
 <p>
