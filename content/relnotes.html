@@ -19,6 +19,11 @@ by default; use the -M flag to choose different permissions.</p>
 
 <p>Default Go is now 1.25.</p>
 
+<p>There's a minor bug in the recursive package installation; if there
+are no dependencies to install, it won't even install the package you
+asked for. To get round that, use 'zap install-pkg' which works the
+old way. There will be an m38.1 update to fix this.</p>
+
 <h2><a name="m37-x86"></a>Milestone 37, x86</h2>
 
 <p>At the system level, the max PID is now 99999, so you may see larger
