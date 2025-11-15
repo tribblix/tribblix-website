@@ -99,7 +99,7 @@ e1000g0/_a        addrconf ok           fe80::3617:ebff:fec4:1b42%e1000g0/10
 </pre>
 <p>As you can see, it's getting quite complicated. The <code>ipadm</code>
 command thinks in terms of address objects (the names in the ADDROBJ column)
-which are the name of the interface and a label.<p>
+which are the name of the interface and a label.</p>
 
 <p>It's not quite obvious from the above, but the entries with "?" as the
 label are associated with shared-ip networking in zones. Each zone has its

@@ -15,7 +15,7 @@ you'll need to partition it outside the installer.</p>
 <p>An important note on terminology. On illumos (as in Solaris) there
 are two terms that are used to describe how a disk is split up. These
 are <b>partitions</b> and <b>slices</b>. Sadly these are often used as
-if they're interchangeable, but to avoid confusion:<p>
+if they're interchangeable, but to avoid confusion:</p>
 <ul>
 <li>A partition is the highest level. On x86, with traditional disk
 labelling (MBR), there can only be 4 primary partitions (or 3 primary

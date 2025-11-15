@@ -11,7 +11,8 @@ time.</p>
 <h2>ZFS pools</h2>
 
 <p>The first is the pool, which combines storage devices into a flexible
-pool of storage. To see which pools are present, their size and usage, run:<p>
+pool of storage. To see which pools are present, their size and usage,
+run:</p>
 <pre>
 zpool list
 </pre>
