@@ -1,0 +1,12 @@
+Fixed zap install failing to install anything if no dependencies
+needed installing
+
+Update IceWM to 3.9.0
+
+Update PgBouncer to 1.25.0
+
+Update PostgreSQL to 17.7, 18.1
+
+Update citus to 13.2.0
+
+Add zbar 0.23.93

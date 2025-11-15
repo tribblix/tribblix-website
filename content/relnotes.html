@@ -8,6 +8,18 @@ title: Release Notes
 completely removed</a>.
 </p>
 
+<h2><a name="m38.1-x86"></a>Milestone 38.1, x86</h2>
+
+<p>The recursive install change in m38 had a minor bug; if there were
+no additional packages needing to be installed by dependency
+resolution, nothing gets installed at all. The m38.1 release fixes
+that. It has no other significant changes and <code>uname</code> still
+reports the version as m38.</p>
+
+<p>There isn't a separate ISO for m38.1, but you should upgrade if
+you're running or install m38. If you're running an older release,
+bypass m38 and go straight to m38.1.</p>
+
 <h2><a name="m38-x86"></a>Milestone 38, x86</h2>
 
 <p>'zap install' now installs dependencies by default.</p>
