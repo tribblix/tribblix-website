@@ -185,18 +185,20 @@ There are a number of canned helper scripts.
 <dd>In some cases, all you want is a downloaded archive converted into an
   installable package. This is a script to do just that.</dd>
 
-<dt>pkg_setup_py/pkg_pep518/pkg_wheel</dt>
-<dd>These know how to create a python package that
-  uses <code>setup.py</code> or <code>pyproject.toml</code>, or is
-  only available as a wheel. The <code>pygen</code> script will create
+<dt>pkg_pep518/pkg_wheel</dt>
+<dd>These know how to create a python package that is built from source
+  or is only available as a wheel. The <code>pygen</code> script will create
   a valid build.sh script that calls these, so for a python module
-  usually the only thing you have to do is get the depend file right.</dd>
+  usually the only thing you have to do is get the depend file right, and
+  optionally create a fixit file if there's a command that needs to be
+  available in <code>/usr/bin</code>. (The old <code>setup.py</code> path is
+  deprecated, but pkg_pep518 knows how to handle that as well.)</dd>
 
 </dl>
 
 <h2>Patches</h2>
 
-<p>Well written software should be prtable and build unchanged. But it's
+<p>Well written software should be portable and build unchanged. But it's
   often necessary to apply patches. These go in the <code>patches</code>
   directory. Then you need a <code>.pls</code> (patch list) file, that
   lists the patches on individual lines with the strip prefix
