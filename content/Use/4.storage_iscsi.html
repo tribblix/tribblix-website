@@ -1,0 +1,145 @@
+---
+title: Networked Storage with iSCSI
+---
+<h1>&gt; Networked Storage with iSCSI</h1>
+
+<p>Tribblix supports iSCSI as a way to present block storage over a network.
+(As opposed to file system access using SMB or NFS, for example.)</p>
+
+<p>What this allows you to do is to take a chunk of disk space from one
+server, and present it to another system which can use it like any other
+disk device.</p>
+
+<p>Here I give a worked example of a trivial setup on both the server
+and client. The Simple setups here lack security measures and permissions
+so shouldn't be used for production.</p>
+
+<h2>Simple server setup</h2>
+
+<p>First install the required packages.</p>
+<pre>
+zap install TRIBdrv-net-ib TRIBnet-iscsi-iser \
+TRIBsys-lib-storage-ima TRIBsys-lib-storage-ima-header \
+TRIBnet-iscsi-target TRIBnet-iscsi-initiator TRIBstorage-stmf
+</pre>
+<p>Then you'll need to reboot for some of the drivers to become
+fully active.</p>
+
+<p>You'll need to have the appropriate SMF services running.</p>
+<pre>
+svcadm enable -s system/stmf
+svcadm enable -s iscsi/target
+</pre>
+
+<p>Then create a ZFS volume of the desired size - the <code>-V</code>
+argument used in this example sets the size to 2GB.</p>
+<pre>
+zfs create -V 2g rpool/vol1
+</pre>
+
+<p>Then use <a href="/man/man8/stmfadm.html">stmfadm</a> to create a
+Logical Unit (LU) based on that ZFS volume.</p>
+<pre>
+stmfadm create-lu /dev/zvol/rdsk/rpool/vol1
+</pre>
+<p>it will report the name of the LU, which you'll need later, for
+example</p>
+<pre>
+Logical unit created: 600144F02C7382150000691DE15C0001
+</pre>
+
+<p>Now you need to create a view. In real-world use you would restrict
+access using the <code>-h</code> (host group) and <code>-t</code> (target
+group) flags, omitting them simply means everything can see it. Without
+the <code>-n</code> flag the code will choose the LUN for you too. Use
+the LU identifier you got in the previous command.</p>
+<pre>
+stmfadm add-view 600144F02C7382150000691DE15C0001
+</pre>
+
+<p>You can look at the view and its properties:</p>
+<pre>
+stmfadm list-view -l 600144F02C7382150000691DE15C0001
+</pre>
+
+<p>And then you need to create a target group.</p>
+<pre>
+stmfadm create-tg mytarget
+</pre>
+
+<p>And then you need to create the target. We now switch to using the
+<a href="/man/man8/itadm.html">itadm</a> command.</p>
+<pre>
+itadm create-target
+</pre>
+
+<p>It will give you the name of the target it created, which you will
+need when setting up the client. Or you can list the target with:</p>
+<pre>
+itadm list-target -v
+</pre>
+
+<p>Which will look something like:</p>
+<pre>
+TARGET NAME                                                  STATE    SESSIONS 
+iqn.2010-08.org.illumos:02:0b5963ab-8a33-4e3e-aee5-599b37388726 online   0        
+        alias:                  -
+        auth:                   none (defaults)
+        targetchapuser:         -
+        targetchapsecret:       unset
+        tpg-tags:               default
+</pre>
+
+<h2>Simple client setup</h2>
+
+<p>First install the required packages.</p>
+<pre>
+zap install TRIBdrv-net-ib TRIBnet-iscsi-iser \
+TRIBsys-lib-storage-ima TRIBsys-lib-storage-ima-header \
+TRIBnet-iscsi-target TRIBnet-iscsi-initiator TRIBstorage-stmf
+</pre>
+<p>Then you'll need to reboot for some of the drivers to become
+fully active.</p>
+
+<p>The initiator service should be enabled automatically.</p>
+
+<p>Client configuration uses the
+<a href="/man/man8/iscsiadm.html">iscsiadm</a> command.</p>
+
+<p>The simplest method is to use static configuration, for which you need
+the long name of the target and the IP address of the server.</p>
+<pre>
+iscsiadm add static-config iqn.2010-08.org.illumos:02:0b5963ab-8a33-4e3e-aee5-599b37388726,10.10.10.21
+</pre>
+
+<p>You can check that with:</p>
+<pre>
+iscsiadm list static-config
+</pre>
+
+<p>And then you need to tell the system that it needs to use the static
+discovery method to find devices:</p>
+<pre>
+iscsiadm modify discovery --static enable
+</pre>
+
+<p>That should be enough, so if you go into format you should be able to see
+the new disk:</p>
+<pre>
+# format
+Searching for disks...done
+
+AVAILABLE DISK SELECTIONS:
+       0. c0t600144F02C7382150000691DE15C0001d0 &lt;SUN-COMSTAR-1.0 cyl 1022 alt 2 hd 128 sec 32&gt;
+          /scsi_vhci/disk@g600144f02c7382150000691de15c0001
+</pre>
+
+<p>Then you can take that disk and create a ZFS pool using it:</p>
+<pre>
+zpool create tank /dev/rdsk/c0t600144F02C7382150000691DE15C0001d0
+</pre>
+<hr>
+<p><a href="./">Index</a>
+ | <a rel="prev" href="4.storage.html">Previous Section</a>
+ | <a rel="next" href="4.time.html">Next Section</a>
+</p>
