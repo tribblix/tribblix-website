@@ -66,6 +66,17 @@ used to connect to the VNC console as that user, like so:</p>
 <pre>
   startvnc -Z emu1
 </pre>
+<p>This trick actually moves the socket into a dedicated location, which will
+be <code>/var/zap/emu/emu1/vm.vnc</code> in the global zone, but only
+accessible to the user you shared the zone with. So if you want to use
+socat you'll have to change the filename. If you're running the emu zone
+on a remote server, you can tunnel the VNC socket with ssh, like so:</p>
+<pre>
+  ssh -L 5905:/var/zap/emu/emu1/vm.vnc my.server.name
+</pre>
+<p>
+and then on the desktop machine point your VNC client at :5.
+</p>
 
 <p>You can run the installer as normal. But before you can use the installed
 system you need to remove the virtual CD and reboot.</p>
