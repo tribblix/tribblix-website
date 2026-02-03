@@ -90,6 +90,23 @@ HP5100:</p>
 <pre>
     lpr -P HP5100 my_file.pdf
 </pre>
+
+<h2>iPad and paper sizes</h2>
+
+<p>Sometime I find it's more reliable to get my iPad to print to a
+wireless printer via a queue on my Tribblix machine, rather than sending
+the print job directly.</p>
+
+<p>However, going through an intermediary occasionally results in the iPad
+picking completely the wrong paper size, despite the print system being
+set up correctly and offering the right set of available media.</p>
+
+<p>The way to fix that is to force exactly one available paper size, so
+on my home network, where the iPad tries to use Letter, I explicitly
+override it with:</p>
+<pre>
+    cupsctl ReadyPaperSizes=A4
+</pre>
 <hr>
 <p><a href="./">Index</a>
  | <a rel="prev" href="4.ns-ldap.html">Previous Section</a>
