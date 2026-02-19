@@ -2,5 +2,5 @@
 title: motif-apps overlay
 ---
 <h1>Overlay motif-apps - Motif applications</h1>
-<p>Supplies some additional applications - nedit, xephem, and
+<p>Supplies some applications - nedit, xephem, and
 classic-colors - that use the @motif toolkit.</p>

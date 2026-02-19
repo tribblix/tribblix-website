@@ -1,0 +1,8 @@
+---
+title: qt5-extras overlay
+---
+<h1>Overlay qt5-extras - Extra applications for QT5</h1>
+<p>Provides a number of extra applications built using the @qt5-base
+toolkit.</p> 
+
+<p>Specifically, includes Librecad and SMplayer.</p>

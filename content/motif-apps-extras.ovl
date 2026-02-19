@@ -1,0 +1,7 @@
+---
+title: motif-apps-extras overlay
+---
+<h1>Overlay motif-apps-extras - Extra Motif applications</h1>
+<p>Supplies some additional applications - Ted, Mosaic, GopherVR, and
+xsol - that use the @motif toolkit. These are generally quite old and
+less useful, but show what was available in the early days.</p>

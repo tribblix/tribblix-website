@@ -1,0 +1,7 @@
+---
+title: monitoring-extras overlay
+---
+<h1>Overlay monitoring-extras - Extra Monitoring Utilities</h1>
+<p>Supplies a range of extra utilities to monitor your system. Compared
+to @monitoring these extra utilities might be graphical or run as servers
+for remote tools to query.</p>
