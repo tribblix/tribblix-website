@@ -4,4 +4,4 @@ title: kf6 overlay
 <h1>Overlay kf6 - KDE Framework 6</h1>
 <p>Supplies the KDE framework.</p>
 <p>This overlay isn't meant for standalone use, but as a dependency
-for GUI applications such as @kde-game that need it.</p>
+for GUI applications such as @kde-games that need it.</p>

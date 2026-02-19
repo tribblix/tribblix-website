@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: CDDL-1.0
 #
-# Copyright 2025 Peter Tribble
+# Copyright 2026 Peter Tribble
 #
 # manage the tribblix website content
 #
@@ -43,6 +43,20 @@ stale_overlays() {
     cd .. || exit .
 }
 
+#
+# check overlay cross-references actually refer to a valid overlay
+#
+check_overlay_xref() {
+    cd content || exit 1
+    for file in $(grep -oh '@.* ' *.ovl| awk '{print $1}' | sed -e 's:@::' -e 's:,::' -e 's:\.::')
+    do
+	if [ ! -f "${file}.ovl" ]; then
+	    echo "WARN: missing overlay xref ${file}"
+	fi
+    done
+    cd .. || exit .
+}
+
 case $# in
     0)
 	usage
@@ -71,6 +85,7 @@ case $1 in
 	shift
 	$NANOC check css stale mixed_content
 	stale_overlays
+	check_overlay_xref
 	;;
     spell)
 	shift
