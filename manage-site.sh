@@ -28,6 +28,17 @@ usage() {
     exit 1
 }
 
+stale_overlays() {
+    cd content || exit 1
+    for file in *.ovl
+    do
+	if [ ! -f "${THOME}/overlays/${file}" ]; then
+	    echo "WARN: stale overlay file ${file}"
+	fi
+    done
+    cd .. | exit .
+}
+
 case $# in
     0)
 	usage
@@ -55,6 +66,7 @@ case $1 in
     check)
 	shift
 	$NANOC check css stale mixed_content
+	stale_overlays
 	;;
     spell)
 	shift

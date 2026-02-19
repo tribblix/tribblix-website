@@ -1,9 +1,0 @@
----
-title: postgres15 overlay
----
-<h1>Overlay postgres15 - PostgreSQL server, v15</h1>
-<p>Supplies the <a href="https://www.postgresql.org/">PostgreSQL</a>
-relational database, version 15.</p>
-
-<p>In current releases, this has been obsoleted and replaced by
-@postgres17.</p>

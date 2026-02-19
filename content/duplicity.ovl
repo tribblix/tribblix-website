@@ -1,5 +1,0 @@
-<h1>Overlay duplicity - Duplicity backup</h1>
-<p>This overlay is now deprecated and duplicity will not be packaged in
-future. Going forward, the stated plan from upstream is for
-<a href="http://duplicity.us/">Duplicity</a> to be installed using
-pipx.</p>
