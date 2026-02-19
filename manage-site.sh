@@ -23,9 +23,14 @@ if [ ! -d "${THOME}/overlays" ]; then
     exit 1
 fi
 
+bail() {
+    echo "ERROR: $1"
+    exit 1
+}
+
 usage() {
     echo "Usage: $0 update|view|check|spell"
-    exit 1
+    exit 2
 }
 
 #
@@ -33,28 +38,28 @@ usage() {
 # automatically removed from the website)
 #
 stale_overlays() {
-    cd content || exit 1
+    cd content || bail cd
     for file in *.ovl
     do
 	if [ ! -f "${THOME}/overlays/${file}" ]; then
 	    echo "WARN: stale overlay file ${file}"
 	fi
     done
-    cd .. || exit .
+    cd .. || bail cd
 }
 
 #
 # check overlay cross-references actually refer to a valid overlay
 #
 check_overlay_xref() {
-    cd content || exit 1
+    cd content || bail cd
     for file in $(grep -oh '@.* ' *.ovl| awk '{print $1}' | sed -e 's:@::' -e 's:,::' -e 's:\.::')
     do
 	if [ ! -f "${file}.ovl" ]; then
 	    echo "WARN: missing overlay xref ${file}"
 	fi
     done
-    cd .. || exit .
+    cd .. || bail cd
 }
 
 case $# in
@@ -92,8 +97,7 @@ case $1 in
 	if [ -x /usr/bin/codespell ]; then
 	    /usr/bin/codespell -L ede,oclock,nce content layouts
 	else
-	    echo "ERROR: codespell not installed"
-	    exit 1
+	    bail "codespell not installed"
 	fi
 	;;
     pmd)
@@ -101,8 +105,7 @@ case $1 in
 	if [ -x /usr/bin/pmd ]; then
 	    /usr/bin/pmd check -R category/html/bestpractices.xml -d $(find output -name '*.html') 2>/dev/null
 	else
-	    echo "ERROR: pmd not installed"
-	    exit 1
+	    bail "pmd not installed"
 	fi
 	;;
     *)
