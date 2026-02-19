@@ -28,6 +28,10 @@ usage() {
     exit 1
 }
 
+#
+# we shouldn't have stale overlay files in the repo (they aren't
+# automatically removed from the website)
+#
 stale_overlays() {
     cd content || exit 1
     for file in *.ovl
@@ -36,7 +40,7 @@ stale_overlays() {
 	    echo "WARN: stale overlay file ${file}"
 	fi
     done
-    cd .. | exit .
+    cd .. || exit .
 }
 
 case $# in
