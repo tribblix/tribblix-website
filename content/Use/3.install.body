@@ -45,7 +45,7 @@ options are covered separately:</p>
 
 <h2>Installation using a CD/DVD drive</h2>
 
-<p>You'll need to <a href="http://www.tribblix.org/download.html">download</a>
+<p>You'll need to <a href="https://www.tribblix.org/download.html">download</a>
   the ISO image. For virtual emulators, you can boot direct off the
   ISO image; for physical hardware you'll need to create a DVD. (If
   you don't have a CD or DVD drive, see the section below on iPXE.) On
