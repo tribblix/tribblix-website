@@ -20,7 +20,7 @@ title: Networking
   will set up the appropriate networking for you. It's still useful to
   understand what's available behind the scenes, though.</p>
 
-<p>By default, Tribblix networking uses nwam (NetWork Auto Magic) which
+<p>By default, Tribblix networking uses NWAM (NetWork Auto Magic) which
   will work out which network interface to use and run dhcp to get the
   configuration automatically. Most of the time, this will do the right
   thing.</p>
@@ -163,6 +163,31 @@ Routing daemons:
 <p>If all you want to do is monitor network usage of a zone, then the
   <code>dlstat</code> command will do that for you, with no need to create a
   flow.</p>
+
+<h2>IPv6</h2>
+
+<p>Tribblix fully supports IPv6, and in most cases it will just work. In
+the default configuration using NWAM, an addrconf address will be
+created and if your network supports IPv6 then you'll get a full IPv6
+address and all the routing will be set up for you.</p>
+
+<p>If you're not using NWAM but are setting up networking by hand using
+<code>ipadm</code>, then all you need to do is create the addrconf address
+like so:</p>
+<pre>
+/usr/sbin/ipadm create-addr -T addrconf e1000g0/v6
+</pre>
+<p>or whatever your network interface is instead of e1000g0.</p>
+
+<p>If you want to look at the IPv6 arp table, the arp command won't show
+it, but the equivalent invocation is:</p>
+<pre>
+netstat -pn -f inet6
+</pre>
+
+<p>With zones, all you need to do is pass the <code>-6</code> flag when
+building the zone with <code>zap create-zone</code> - see the
+<a href="6.zones_ipv6.html">zones documentation</a> for more details.</p>
 <hr>
 <p><a href="./">Index</a>
  | <a rel="prev" href="4.certificates.html">Previous Section</a>

@@ -1,0 +1,31 @@
+<h1>&gt; Zones and IPv6</h1>
+
+<p>To set a zone up with IPv6 networking in addition to the normal IPv4
+networking, simply add the <code>-6</code> flag when building the zone.
+For example:</p>
+<pre>
+zap create-zone -x 1.2.3.4 -6 ...
+</pre>
+
+<p>This will bring up an IPv6 interface in the zone. It's best to use
+exclusive-ip networking, which will configure IPv6 automatically from the
+network. With shared-ip zones, we'll simply make up an IPv6 address.</p>
+
+<p>Because of the way <code>allowed-address</code> is implemented in illumos,
+you can't specify multiple addresses in the allowed list. As a result, the
+<code>allowed-address</code> functionality is disabled if you enable IPv6.</p>
+
+<h2>Zones without IPv4</h2>
+
+<p>As of Tribblix m39, if you create a zone without specifying an IPv4
+address at all, but use the <code>-6</code> flag, then a pure-IPv6 zone
+will be created.</p>
+
+<p>Such a pure-IPv6 zone is useful and interesting for testing, but can
+very quickly highlight how much we're still dependent on IPv4. For example,
+on my home network the <code>/etc/resolv.conf</code> file as set up by
+my ISP only contains an IPv4 address, so a pure-IPv6 system is unable
+to resolve addresses using DNS. (Usually in these cases the resolver is also
+the same as the default router, so you can find the default router using
+<code>netstat -nr</code> and put the IPv6 default router address into
+<code>/etc/resolv.conf</code>.)</p>
