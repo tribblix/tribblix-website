@@ -39,6 +39,54 @@ zap update-overlay <em>overlay_name</em>
 <code>
 zap update-overlay -a
 </code>
+
+<p>The above can be simplified with a single invocation:</p>
+<code>
+zap update-everything
+</code>
+
+<h2>Automatic updates</h2>
+
+<p>If you don't want to run <code>zap update-everything</code> by hand,
+it's possible to automate the process so it's run regularly by
+<a href="/man/man8/cron.html">cron</a>. You can use
+<a href="/man/man1/crontab.html">crontab</a> to set this up yourself,
+or get <code>zap</code> to do it for you.</p>
+
+<p>To enable automatic updates, run:</p>
+<pre>
+zap autoupdate -e
+</pre>
+
+<p>To disable automatic updates, run:</p>
+<pre>
+zap autoupdate -d
+</pre>
+
+<p>To disable
+show the current status of automatic updates, run:</p>
+<pre>
+zap autoupdate -s
+</pre>
+
+<p>By default, automatic updates will be scheduled to run every day, at
+the same time the command is run (as this is a time the system is
+known to be up). To only run updates once a week, add the -w flag:</p>
+<pre>
+zap autoupdate -e -w
+</pre>
+
+<p>To specify a time, such as 23:15, use the -t flag:</p>
+<pre>
+zap autoupdate -e -t 23:15
+</pre>
+
+<p>Note that the autoupdate process and system reboots and shutdowns
+aren't aware of each other, so automatic updates should be enabled
+with care and a suitable time chosen. The risk here is that the update
+process has removed the old version of a package and doesn't get a
+chance to install the new version, leaving some potentially important
+software missing.</p>
 <hr>
 <p><a href="./">Index</a>
  | <a rel="prev" href="3.install_ufs.html">Previous Section</a>
