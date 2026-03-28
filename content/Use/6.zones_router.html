@@ -32,7 +32,7 @@ manage systems attached to the configured subnet.</p>
 new zone that's on the configured subnet, then it will be connected to that
 subnet and the router zone will route the traffic for it.</p>
 
-<p>So, for example, creating a bhyve zone like so:
+<p>For example, creating a bhyve zone like so:
 </p>
 <pre>
 zap create-zone -t bhyve -z bhyve10 \
@@ -40,7 +40,7 @@ zap create-zone -t bhyve -z bhyve10 \
   -I /var/tmp/tribblix-0m38.iso \
   -V 8G
 </pre>
-<p>Will connect the new zone to the subnet. The dhcp server on the router
+<p>will connect the new zone to the subnet. The dhcp server on the router
 zone will be configured to give out the right details.</p>
 
 <p>Native illumos zones (ie, sparse-root, whole-root, and alien-root)
@@ -50,8 +50,9 @@ will work the same way if you set them up as exclusive-ip (ie, with the
 <p>You can set up a shared-ip zone (with the <code>-i</code> flag) but such
 zones won't be able to communicate outside the subnet. (The reason here is
 that the network interface associated with a shared-ip address belongs to
-the global zone, rather than the router zone, so routing doesn't work.) So,
-if you can, set zones up to use exclusive-ip.</p>
+the global zone, rather than the router zone, so routing doesn't work.) To
+avoid this problem, configure zones behind a router zone to use exclusive-ip
+if you can.</p>
 
 <p>While NAT will allow traffic from zones to get out, there's no way
 for external traffic to reach one of the zones on the subnet. If you need to

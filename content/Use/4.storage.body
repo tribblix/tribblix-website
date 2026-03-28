@@ -71,8 +71,7 @@ zfs destroy rpool/export/spreadsheets@2021-12-02
 
 <p>One thing you can do with a snapshot it to look inside it. A ZFS file
 system has a magic <code>.zfs</code> directory that's hidden and only appears
-when you explicitly access it. So if you try and list the .zfs directory,
-with:</p>
+when you explicitly access it. If you list the .zfs directory, with:</p>
 <pre>
 ls /export/spreadsheets/.zfs
 </pre>

@@ -108,7 +108,7 @@ mkdir /export/tribblix/dist.minimal
 </pre>
 <p>What it's doing here is staging everything into
 <code>/export/tribblix/dist</code> or <code>/export/tribblix/dist.minimal</code>
-and using that to create the ISO. So you can then look around in
+and using that to create the ISO. You can then look around in
 <code>/export/tribblix/dist</code> to see what it's actually installed.</p>
 
 <p>Obviously, you'll need to remove (or move) an old staging area before

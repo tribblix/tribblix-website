@@ -41,8 +41,8 @@ stock ticker anyway).
 </p>
 
 <p>Standalone packages tend to simply take the name of the software and
-put it together with the prefix. So the <code>foo</code> software
-would be in the <code>TRIBfoo</code> package.
+put it together with the prefix. Following this pattern, the <code>foo</code>
+software would be in the <code>TRIBfoo</code> package.
 </p>
 
 <p> There are special conventions for modules for runtimes, such as perl and
@@ -73,7 +73,7 @@ files you may need to create:
 
 <dt>alias</dt>
 <dd>The alias file is a list of other names this package is known
-  by. This is the friendly name - so that a user can type <code>zap
+  by. This is the friendly name - a user can type <code>zap
   install foo</code>. If it's likely that the package will never
   be added manually (and remember that the intention is that
   <a href="/overlays.html">overlays</a>
@@ -133,7 +133,7 @@ files you may need to create:
   shell-specific constructs should be avoided.</dd>
 
 <dt>fixinstall</dt>
-<dd>This is run after install, in the source directory. So if a
+<dd>This is run after install, in the source directory. If a
   simple <code>make install</code> doesn't quite work, you can fix it
   up here. Note that for 64-bit builds, <code>fixinstall.64</code> is
   used instead.</dd>
