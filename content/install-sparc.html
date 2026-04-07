@@ -4,11 +4,13 @@ title: SPARC Installation
 <h1>&gt; Installation (SPARC)</h1>
 
 <p>The below are appropriate for Tribblix on SPARC; there are
-separate <a href="install.html">installation on x86 instructions</a>.
+separate <a href="install.html">installation on x86
+instructions</a>. If your system doesn't have a CD/DVD drive, try
+the <a href="#wanboot">wanboot</a> method.
 </p>
 
-<p>Once you have downloaded the ISO image, you
-can use cdrecord or cdrw to burn the image to a DVD.</p>
+<p>Once you have downloaded the ISO image, you can use cdrecord or
+cdrw to burn the image to a DVD.</p>
 
 <p>Booting from the DVD should take a few minutes or less, and you
 should be presented with a login prompt.</p>
@@ -132,3 +134,50 @@ system ssh keys and user account details from the existing system to make
 it easier to log in and get going. Using the <code>-N</code> flag will
 prevent this information from being copied across.
 </p>
+
+<h2><a name="wanboot"></a>Install using wanboot</h2>
+
+<p>Most SPARC systems have some way of booting from the network,
+  although the specifics depend on the precise model and boot
+  firmware.</p>
+
+<p>First, work out the IP address of the Tribblix boot server></p>
+<pre>
+    nslookup pkgs.tribblix.org
+</pre>
+<p>and then, replace <code>pkgs.tribblix.org</code> in the following
+with the IP address, because the firmware won't be able to issue DNS
+queries.</p>
+
+<p>In the following, I've used <code>1.2.3.4</code> as the IP address
+of the system you're trying to boot, and <code>1.2.3.1</code> as the
+router address. Adjust as necessary.</p>
+
+<p>The first version should work on more modern systems:</p>
+<pre>
+    boot net:host-ip=1.2.3.4,router-ip=1.2.3.1,subnet-mask=255.255.255.0,hostname=tribblix.local,file=http://pkgs.tribblix.org/m32.sparc/boot_archive
+</pre>
+
+<p>If that doesn't work, try it as 2 commands:</p>
+<pre>
+    setenv network-boot-arguments host-ip=1.2.3.4,router-ip=1.2.3.1,subnet-mask=255.255.255.0,hostname=tribblix.local,file=http://pkgs.tribblix.org/m32.sparc/boot_archive
+    boot net
+</pre>
+
+<p>Alternatively, download http://pkgs.tribblix.org/m32.sparc/boot_archive to a
+local tftp server and:</p>
+<pre>
+    setenv network-boot-arguments host-ip=1.2.3.4,router-ip=1.2.3.1,subnet-mask=255.255.255.0,hostname=tribblix.local,file=tftp://1.2.3.99/boot_archive
+    boot net
+</pre>
+
+<p>If you want to extract the boot_archive file out of a ISO image (if
+you have the ISO, or you're using a different ISO to the one I've
+loaded on the Tribblix download server), then install the TRIBlibcdio
+package and:</p> 
+<pre>
+    iso-read -e platform/sun4v/boot_archive -o boot_archive tribblix-sparc-0m32.iso
+</pre>
+<p>(note that on Tribblix there's only a single boot archive for both
+sun4u and sun4v architectures, the sun4u one is a symbolic link to
+the real one).</p>
