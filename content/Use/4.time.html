@@ -44,6 +44,23 @@ System time     : 14.466815948 seconds fast of NTP time
 <p>The above shows that the clock is off by almost 15 seconds. After a few
 minutes this should come down to close to zero, and <code>chrony</code>
 should be able to hold the time accurate to within a few milliseconds.</p>
+
+<h2>Offset time in VirtualBox</h2>
+
+<p>If you're running inside a hypervisor such as VirtualBox, you might see
+the clock being exactly an hour out in Summer. The issue here is that there
+might be two things managing time - the host might have already corrected
+for Daylight Savings Time, and is presenting that time to the guest operating
+system which then corrects again.</p>
+
+<p>If you see this, you can tell Tribblix what time the hardware clock is
+set to. In my case, I'm running in the GB timezone (look at the TZ
+environment variable), but the PC is also set to GB. So you should use the
+<a href="/man/man8/rtc.html">rtc</a> command to tell Tribblix that the clock
+it's been given is already corrected:</p>
+<pre>
+# rtc -z GB
+</pre>
 <hr>
 <p><a href="./">Index</a>
  | <a rel="prev" href="4.storage_iscsi.html">Previous Section</a>
