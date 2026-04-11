@@ -16,7 +16,7 @@ updated, retaining the old shared library versions for now. OpenSSL is
 now from the 3.5 series with the 3.0 api by default. Bind is now from
 the 9.20 series. OpenSSH is now 10.2, and you may get a 
 <a href="https://www.openssh.org/pq.html">Post-Quantum
-Cryptography warning</a> if connecting to older SSH servers.
+Cryptography warning</a> if connecting to older SSH servers.</p>
 
 <p>Tribblix also now includes several fixes for NFSv4.1 support.</p>
 
@@ -649,6 +649,24 @@ It is vital that you at least <code>zap refresh</code> followed by
 package was incorrectly constructed and you will be unable to build
 software against it.
 </p>
+
+<h2><a name="m34-sparc"></a>Milestone 34, SPARC</h2>
+
+<p>This SPARC release roughly matches m39 for x86.</p>
+
+<p>The graphical libraries libtiff and OpenEXR have been
+updated, retaining the old shared library versions for now. OpenSSL is
+now from the 3.5 series with the 3.0 api by default. Bind is now from
+the 9.20 series. OpenSSH is now 10.2, and you may get a 
+<a href="https://www.openssh.org/pq.html">Post-Quantum
+Cryptography warning</a> if connecting to older SSH servers.</p>
+
+<p>'zap install' now installs dependencies by default.</p>
+
+<p>'zap create-user' will now restrict new home directories to mode 0700
+by default; use the -M flag to choose different permissions.</p>
+
+<p>Support for UFS quotas has been removed.</p>
 
 <h2><a name="m33-sparc"></a>Milestone 33, SPARC</h2>
 
