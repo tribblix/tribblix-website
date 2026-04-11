@@ -4,3 +4,5 @@ title: awscli overlay
 <h1>Overlay awscli - AWS CLI utilities</h1>
 <p>Supplies the AWS CLI, and the associated Boto3, botocore, and s3client
 modules.</p>
+<p>If you find the help doesn't work, make sure you haven't got groff
+installed(<code>zap uninstall groff</code>).</p>
