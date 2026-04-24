@@ -21,3 +21,8 @@ the graphical output if tkinter is installed. To do this:</p>
 zap install-overlay tcl-tk
 zap install tkinter
 </pre>
+<p>Also, matplotlib will try and use the QtAgg backed if pyqt5 is installed.
+To defeat this, set MPLBACKEND in the environment:</p>
+<pre>
+env MPLBACKEND=tkagg python ...
+</pre>
