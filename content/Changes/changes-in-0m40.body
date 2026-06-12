@@ -1,0 +1,323 @@
+Default python is now python 3.13
+
+Default go is now 1.26
+
+Update perl to 5.42.2
+
+Update gcc to 14.2.0
+
+Update Xfce to 4.18
+
+Removed node v20
+
+Removed wfuzz
+
+/bin/sh and /sbin/sh are now 64-bit
+
+Update mbuffer to 20260511
+
+Update rsyslog to 8.2604
+
+Update LibreOffice to 26.2.4.2
+
+Update R to 4.5.3
+
+Update net-snmp to 5.9.5.2
+
+Update scribus to 1.6.6
+
+Update jkstat, jproc, jangle, kar, and illuminate
+
+Update jattack, pctlife, and sphaero2
+
+Add homebank 5.10
+
+Add awscli v2, in an isolated venv
+
+Update xfce4-screenshooter to 1.11.3
+
+Update ristretto to 0.14.0
+
+Update parole to 4.18.2
+
+Update orage to 4.18.0
+
+Update mousepad to 0.7.0
+
+Update slang to pre2.3.4-22, switch to pcre2
+
+Update rygel to 0.44.2
+
+Update gupnp-tools to 0.12.2
+
+Update gupnp-dlna to 0.12.0
+
+Update gupnp-av to 0.14.5
+
+Update gupnp to 1.6.10
+
+Update gssdp to 1.6.5
+
+Update GStreamer to 1.28.3
+
+Update vala to 0.56.19
+
+Add gst-editing-services
+
+Add libsoup3
+
+Update gobject-introspection to 1.84.0
+
+Update glib2 to 2.82.5
+
+Update LibRaw to 0.22.1
+
+Update gpgme to 2.1.0
+
+Update libde265 to 1.0.19
+
+Update libXi to 1.8.3
+
+Update xlsclients to 1.1.6
+
+Update libusb to 1.0.30
+
+Update memcached to 1.6.42
+
+Update atril to 1.28.5
+
+Update nmap to 7.99
+
+Update PostgreSQL to 17.10, 18.4
+
+Udpdate gnu sed to 4.10
+
+Update rrdtool to 1.9.0
+
+Update texinfo to 7.3
+
+Update i3wm to 4.25.1
+
+Update weechat to 4.9.0
+
+Update pgFormatter to 5.10
+
+Update colordiff to 1.0.22
+
+Update gnu parallel to 20260422
+
+Update ExifTool to 13.58
+
+Update diff-so-fancy to 1.4.10
+
+Update OpenSSH to 10.3p1
+
+Update unbound to 1.25.1
+
+Update mutt to 2.3.2
+
+Update vale to 3.14.1
+
+Update dash to 0.5.13.4
+
+Update file to 5.47
+
+Update Apache httpd to 2.4.68
+
+Update zola to 0.22.1
+
+Update rust to 1.96.0
+
+Update git to 2.54.0
+
+Update gnutls to 3.8.13
+
+Update lcms2 to 2.19
+
+Update etcd to 3.6.11
+
+Update age to 1.3.1
+
+Update consul to 1.22.7
+
+Update packer to 1.15.3
+
+Update rsync to 3.4.4
+
+Update git-codereview to 1.19.0
+
+Update SeaweedFS to 4.22
+
+Update curl to 8.20.0
+
+Update gnupg to 2.5.20
+
+Update libassuan to 3.0.2
+
+Update nPth to 1.8
+
+Update dillo to 3.3.0
+
+Update font-util to 1.4.2
+
+Update xrandr to 1.5.4
+
+Update xbitmaps to 1.1.4
+
+Update OpenEXR to 3.4.10
+
+Update xrdp to 0.10.6
+
+Update libXpm to 3.5.19
+
+Update editres to 1.1.1
+
+Update memcached_exporter to 0.16.0
+
+Update pgbouncer_exporter to 0.12.0
+
+Update postgres_exporter to 0.19.1
+
+Update openbao to 2.5.3
+
+Update libgpg-error to 1.61
+
+Update libksba to 1.8.0
+
+Update libgcrypt to 1.12.2
+
+Update mkfontscale to 1.2.4
+
+Update fzf to 0.71.0
+
+Update hugo to 0.160.1
+
+Update zrepl to 0.7.0
+
+Update fstobdf to 1.0.8
+
+Update PostGIS to 3.6.3
+
+Update gdal to 3.12.3
+
+Update GEOS to 3.14.1
+
+Update PROJ to 9.8.1
+
+Update wolfssl to 5.9.1
+
+Update Citus to 14.0
+
+Update constype to 1.0.6
+
+Update iceauth to 1.0.11
+
+Update ico to 1.0.7
+
+Add mkcomposecache 1.2.3
+
+Update listres to 1.0.7
+
+Update CUPS to 2.4.19
+
+Update maven to 3.9.16
+
+Update nghttp3 to 1.16.0
+
+Update ngtcp2 to 1.23.0
+
+Update xz to 5.8.3
+
+Update forgejo to 15.0.2
+
+Update Apache ActiveMQ to 6.2.6
+
+Update Python 3.13 to 3.13.13
+
+Update unrar to 7.2.5
+
+Update OpenSSL to 3.5.6
+
+Update go to 1.25.11, 1.26.4
+
+Update tcpdump to 4.99.6
+
+Update libpcap to 1.10.6
+
+Update Pale Moon to 34.3.0
+
+Update bluefish to 2.4.1
+
+Update sakura to 3.8.9
+
+Update libarchive to 3.8.6
+
+Update rclone to 1.73.5
+
+Update mercurial to 7.2.2
+
+Update sqlmap to 1.10
+
+Update gitleaks to 8.30.1
+
+Update testssl.sh to 3.2.3
+
+Update graudit
+
+Update tomcat to 9.0.118, 10.1.54, 11.0.22
+
+Update nikto
+
+Update commix to 4.1
+
+Update aide to 0.19.3
+
+Update ant to 1.10.16
+
+Update libpng to 1.6.58
+
+Update Groovy to 4.0.32, 5.0.6
+
+Update scala to 3.3.7
+
+Update JBang to 0.137.0
+
+Update Freeplane to 1.13.2
+
+Update JRuby to 10.0.5.0
+
+Update Node to v20.20.2, v22.22.2
+
+Added illumosfb Xorg driver for basic UEFI support
+
+Update nginx to 1.30.2
+
+Update fastfetch to 2.63.1
+
+Prefer fastfetch to neofetch
+
+Update tor to 0.4.8.25
+
+Update bind to 9.20.23
+
+Update Barman to 3.19.0
+
+Update snac2 to 2.92
+
+Update ruby to 3.4.9
+
+Update haproxy to 2.6.25
+
+Update nghttp2 to 1.68.1
+
+Update expat to 2.8.1
+
+Update libva to 2.23.0
+
+Update gstreamer to 1.28.1
+
+Update meson to 1.10.2
+
+Update PMD to 7.25.0
+
+Update PHP to 8.2.31, 8.3.31, 8.4.22, 8.5.7
