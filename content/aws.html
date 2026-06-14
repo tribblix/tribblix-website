@@ -69,7 +69,7 @@ and reboot, and all should be fine.
 The m4/m5 and similar generation instances work well, as do
 t2/t3 instances. The t2.micro or t3.micro are just fine for Tribblix,
 and are on the free tier. With the current AMIs, the newer Nitro
-instances like t3 are a good bet, and cheaper. The very latest Nitro
+instances like t3 are a good bet, and cheaper. The latest Nitro
 instances -
 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Nitro
 v5 and later</a>, such as m8a - are
@@ -86,7 +86,7 @@ zap staticnet -y
 <p>
 After launching an instance, you should be able to log in as root with your
 key pair. That's the only way in, there's no jack account, and no valid root
-password. You should create your own regular users, of course.
+password. You should then create your own regular users.
 </p>
 
 <p>
@@ -96,7 +96,7 @@ need to.)
 </p>
 
 <p>
-The images supplied only have a smallish system disk. If you need a bigger
+The images supplied only have a smallish system disk. If you need a larger
 root pool (as opposed to adding a second data pool) then create the root
 EBS volume with a larger size and expand the pool with:
 </p>

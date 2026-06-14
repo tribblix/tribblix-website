@@ -3,14 +3,14 @@ title: Installation
 ---
 <h1>&gt; Installation</h1>
 
-<p>The below are appropriate for current Tribblix on x86; there are
+<p>The below are appropriate for Tribblix on x86; there are
 separate <a href="install-sparc.html">installation on SPARC instructions</a>,
 and you can <a href="cloud.html">run in the cloud directly</a>.
 </p>
 
 <p>Once you have downloaded the ISO image, you can boot an emulator
 such as VirtualBox directly from the ISO. For physical hardware, you
-can use cdrecord or cdrw to burn the image to a DVD.</p>
+can use cdrecord or cdrw to write the image to a DVD.</p>
 
 <p>For VirtualBox, set the graphics driver to VMSVGA in the VirtualBox
 setup.</p>
@@ -59,7 +59,7 @@ overlays likely to be commonly used:
 <li>kitchen-sink - combined desktop, server, and development</li>
 </ul>
 <p>
-and you simply add the name of the overlay(s) you want to install to
+and you can add the name of any overlay(s) you want to install to
 the install command, like so:</p>
 <pre>
 # ./live_install.sh -G c1t0d0 develop desktop
@@ -83,10 +83,10 @@ This should then boot up.</p>
 
 <p>When booted up the first time, you have the same user account (jack)
 and same user and root passwords as the live image, which you should
-  immediately change.</p>
+immediately change.</p>
 
 <p>Once installed, you might find it useful to browse the Tribblix
-  <a href="/Use/">Documentation</a>.</p>
+<a href="/Use/">Documentation</a>.</p>
 
 <h2><a name="efi"></a>EFI partitioning</h2>
 
@@ -114,7 +114,7 @@ by <code>p0</code>, for example</p>
 </pre>
 
 <p>If you already have partitions, and you wish to save some of them,
-then simply create a Solaris partition in some free space.</p>
+then create a Solaris partition in some free space.</p>
 
 <p>Now run format again and choose the disk you're using. Type 'p' to
 go into the partition (slice) menu, and 'p' to show the
@@ -181,7 +181,7 @@ prevent this information from being copied across.
 iPXE media from <a href="https://ipxe.org/">ipxe.org</a> and get an
 interactive iPXE shell.</p>
 
-<p>For a cloud provider, you simply need to tell it where the ipxe
+<p>For a cloud provider, all you need to do is tell it where the ipxe
 configuration script is. An example is given in the article
 <a href="https://ptribble.blogspot.co.uk/2017/06/installing-tribblix-on-vultr-using-ipxe.html">Installing Tribblix on Vultr using iPXE</a>.</p>
 

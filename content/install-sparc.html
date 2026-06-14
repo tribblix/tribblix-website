@@ -10,7 +10,7 @@ the <a href="#wanboot">wanboot</a> method.
 </p>
 
 <p>Once you have downloaded the ISO image, you can use cdrecord or
-cdrw to burn the image to a DVD.</p>
+cdrw to write the image to a DVD.</p>
 
 <p>Booting from the DVD should take a few minutes or less, and you
 should be presented with a login prompt.</p>
@@ -46,7 +46,8 @@ usage for x86 installations</p>
 point. Additional package sets are known as overlays, so you don't need
 to know anything about individual packages. There's
 a <a href="overlays.html">complete list</a>, but here are some of the
-overlays likely to be commonly used on SPARC:</p>
+overlays likely to be commonly used:
+</p>
 <ul>
 <li>x11 - enough for a basic X11 installation</li>
 <li>retro-desktop - additional window managers, tools, and libraries</li>
@@ -56,7 +57,8 @@ such as NIS, LDAP, NFS</li>
 <li>java - openjdk17</li>
 <li>kitchen-sink - a desktop and development tools</li>
 </ul>
-<p>and you simply add the name of the overlay(s) you want to install to
+<p>
+and you can add the name of any overlay(s) you want to install to
 the install command, like so:</p>
 <pre>
 # ./live_install.sh -G c1t0d0 develop
@@ -87,7 +89,7 @@ and same user and root passwords as the live image, which you should
 immediately change.</p>
 
 <p>Once installed, you might find it useful to browse the Tribblix
-  <a href="/Use/">Documentation</a>.</p>
+<a href="/Use/">Documentation</a>.</p>
 
 <h2><a name="manual"></a>Manual partitioning</h2>
 

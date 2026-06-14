@@ -131,15 +131,15 @@ where the <code>-t</code> flag must specify alien, and
 the <code>-I</code> flag tells it where the iso image is to be
 found. The file systems will be populated from the ISO, and the
 installation will attempt to undo the customizations needed for a live
-boot environment. For obvious reasons, the <code>-o</code>
-and <code>-O</code> flags aren't appropriate.
+boot environment. The <code>-o</code> and <code>-O</code> flags aren't
+appropriate here as they're only relevant for Tribblix.
 </p>
 
 <h2>Bhyve zones</h2>
 
 <p>The bhyve hypervisor allows you to run most operating systems in a
-  virtual machine. For convenience, this is most easily managed inside
-  a special lightweight zone.</p>
+  virtual machine. For convenience, this is managed inside a
+  lightweight zone.</p>
 
 <p>
   To create a bhyve zone, the command is:
