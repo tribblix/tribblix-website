@@ -82,7 +82,8 @@
   version of Tribblix.</p>
 
 <p>The alien-root variant allows you to install a zone from any
-  tarball, so you can construct arbitrary zone images (the mvi project
+  tarball, so you can construct arbitrary zone images (the
+  <a href="https://github.com/ptribble/mvi">mvi</a> project
   is one way to do this) for specific purposes. In particular,
   minimalist single-application zones can be built.</p>
 
@@ -129,9 +130,11 @@ qemu instance inside a zone, to allow an additional layer of management.</p>
 
 <p>You can run an old Solaris 10 image as a zone. This is useful if
   you have an old system you wish to import, or if you still need to
-  build applications compatible with Solaris 10. (To create such an
+  build applications compatible with Solaris 10. To create such an
   image from distribution media, pkgadd the required packages to an
-  alternate root with <code>-R</code>, and tar that image up.)</p>
+  alternate root with <code>-R</code>, and tar that image up. Or if
+  the -I arguments refers to a Solaris 10 ISO image, a basic image
+  will be created and used automatically.</p>
 
 <h3>Dedicated or shared networks</h3>
 
@@ -164,7 +167,7 @@ qemu instance inside a zone, to allow an additional layer of management.</p>
   must supply. The other options are listed below.
 </p>
 
-<h3>-t whole|sparse|alien|s10|lx|bhyve</h3>
+<h3>-t whole|sparse|alien|bhyve|emu|s10|lx|router</h3>
 
 <p>You can specify the zone variant to use with the -t flag. The
   default is to create a sparse-root zone. If creating an alien-root,
@@ -178,6 +181,8 @@ qemu instance inside a zone, to allow an additional layer of management.</p>
   be installed.</p>
 
 <p>For bhyve zones, the bhyve overlay must be installed.</p>
+
+<p>For emu zones, the qemu overlay must be installed.</p>
 
 <h3>-T template</h3>
 
