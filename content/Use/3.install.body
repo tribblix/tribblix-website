@@ -123,11 +123,9 @@ su -
 
 <p>Which means install the kitchen sink to the
   disk <code>c0t0d0</code>. The <code>-G</code> before the disk means
-  to take over the whole drive. If omitted, it is assumed that you
-  have manually partitioned the disk and allocated the named part of
-  the disk to Tribblix. (What this means is that without <code>-G</code>
-  you're also responsible for managing the boot process and configuring
-  your own bootloader.)</p>
+  to take over the whole drive. (It is possible to
+  <a href="3.install_partition.html">manually partition</a> the
+  disk.)</p>
 
 <p>The installer takes over the disk device, creates a ZFS pool and
   file systems, copies the running system to the disk, and installs
@@ -220,9 +218,10 @@ used along with the regular install process.
   the drives, and is free to do whatever it wants with them. (This is
   the same as running <code>fdisk -B</code>.) If you have data on the
   drive you need to preserve, or want to partition the disk to give
-  space elsewhere, then you need to omit the <code>-G</code> flag and
-  partition the drive yourself (using the fdisk and format
-  commands). In that case, you need to create a slice <code>s0</code>
+  space elsewhere, then you need to use <code>-p</code> instead of the
+  <code>-G</code> flag and partition the drive yourself as described in the
+  <a href="3.install_partition.html">manual partitioning instructions</a>.
+  In that case, you need to create a slice <code>s0</code>
   on the device, and Tribblix will install to that.</p></dd>
 
   <dt>Mirroring</dt>

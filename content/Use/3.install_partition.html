@@ -9,7 +9,7 @@ the preferred way to install Tribblix, it's possible to create partitions
 on the disk. The aim here would be to support the installation of multiple
 operating systems simultaneously.</p>
 
-<p>The Tribblix installer is not (yet) itself capable of partitioning of
+<p>The Tribblix installer is not (yet) itself capable of partitioning
 the disk that Tribblix is installed to. If you need to partition the disk,
 you'll need to partition it outside the installer.</p>
 
@@ -68,10 +68,10 @@ then once you're happy <code>l</code> to write a new label to the disk.
 In most cases, if you're using ZFS, then you should set up
 slice <code>s0</code> to the maximum size. Then run the installer as</p>
 <pre>
-./live_install.sh cXtYdZs0
+./live_install.sh -p cXtYdZs0
 </pre>
-<p>and, without the <code>-G</code> flag it will use the disk exactly as it
-finds it.</p>
+<p>and, with the <code>-p</code> flag instead of <code>-G</code> it will use
+the disk exactly as it finds it.</p>
 
 <h2>GPT labelling</h2>
 
@@ -104,10 +104,10 @@ label. In this case, make sure it's EFI and not SMI (which is the old style).
 
 <p>And to install to the specific partition number 5,</p>
 <pre>
-./live_install.sh cXtYdZs5
+./live_install.sh -p cXtYdZs5
 </pre>
-<p>and, just like with an MBR label, without the <code>-G</code> flag it
-will use the disk exactly as it finds it.</p>
+<p>and, just like with an MBR label, with the <code>-p</code> flag instead
+of <code>-G</code> it will use the disk exactly as it finds it.</p>
 
 <p><b>IMPORTANT:</b> Note that illumos and Solaris count from 0. Some other
 partition editors start counting from 1. Make sure (by running

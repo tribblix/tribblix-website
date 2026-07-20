@@ -103,7 +103,7 @@ and all the available space for the root file system. If you want to do
 something different, then you can manually partition the
 disk. Ultimately, you'll need to create a Solaris fdisk partition, and
 then tell the installer to use a given slice in that partition,
-omitting the -b or -G flag.</p>
+replacing the -G flag with -p.</p>
 
 <p>If you just have one disk and want to use it all for Tribblix, use
 fdisk -B to delete all the current partitions and just have a single
@@ -132,7 +132,7 @@ slice 0 of your chosen disk as the argument. If the disk is
 <code>c1t0d0</code>, then you're installing to <code>c1t0d0s0</code>
 </p>
 <pre>
-# ./live_install.sh c1t0d0s0
+# ./live_install.sh -p c1t0d0s0
 </pre>
 <p>(optionally followed by the names of overlays you want to install) and
 wait a few minutes for it to do the install.</p>
