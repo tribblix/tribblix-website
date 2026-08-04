@@ -118,7 +118,46 @@ you might use:</p>
     -k /export/home/ptribble/.ssh/id_rsa.pub \
     -V 8G
 </pre>
-<hr>
+
+<h2>Using raw images</h2>
+
+<p>The startup above assumed that you had an installtion ISO image. Some
+projects make raw images, often known as cloud images, available. The process
+here is slightly different.</p>
+
+<p>First, you need a raw image. If you have a <code>vmdk</code> image,
+then it can be converted, for example:</p>
+<pre>
+  qemu-img convert -O raw omnios-r151058.cloud.vmdk omnios-r151058.img
+</pre>
+
+<p>Then you need to create a zfs volume, making sure it's large enough to
+take the whole image. You can get the size from <code>ls -lh</code>, which
+shows the length of the file, not the amount of space it takes up.</p>
+<pre>
+  zfs create -V 8G rpool/client1
+</pre>
+
+<p>For most such images, you need to enable cloud-init with an ssh key,
+otherwise there will be no way to log in. The easiest way to do this is
+pass the ssh public key you want to use, and zap will fill in the rest.
+Then create a bhyve zone using the zfs volume you just populated:</p>
+<pre>
+  zap create-zone -t bhyve -z client1 \
+    -x 192.168.1.236  \
+    -v rpool/client1 \
+    -k /export/home/ptribble/.ssh/id_rsa.pub
+</pre>
+<p>and after a few seconds it should boot up, pick up its name and address,
+and you can ssh in as root (or whatever the standard username is).</p>
+
+<p>Some notes:</p>
+<ul>
+<li>The Tribblix raw images for Digital ocean don't work, they incorrectly
+detect cloud-init so nothing gets configured.</li>
+<li>The OmniOS images work fine, but nothing will appear on the graphical
+display, use <code>zlogin -C</code> to access the console.</li>
+</ul><hr>
 <p><a href="./">Index</a>
  | <a rel="prev" href="6.zones.html">Previous Section</a>
  | <a rel="next" href="6.zones_emu.html">Next Section</a>
