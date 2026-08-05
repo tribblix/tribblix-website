@@ -173,9 +173,9 @@ Chainload disk0:
 </p>
 <pre>
     dhcp
-    chain http://pkgs.tribblix.org/m38/ipxe.txt
+    chain http://pkgs.tribblix.org/m41/ipxe.txt
 </pre>
-<p>You can replace m38 with m38lx to get omnitribblix, or an
+<p>You can replace m41 with m41lx to get omnitribblix, or an
   alternative version may be available. That should boot up as normal
   and you can do the install.
 </p>
