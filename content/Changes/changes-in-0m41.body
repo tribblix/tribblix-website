@@ -1,0 +1,215 @@
+Update xorriso to 1.5.8.pl02
+
+Update findutils to 4.11.0
+
+Update gawk to 5.4.1
+
+Update OpenSSH to 10.4p1
+
+Update pgBackRest to 2.59.0
+
+Update OpenConnect to 9.21
+
+Update goaccess to 1.11
+
+Update Node.JS to v22.23.2
+
+Update GraphicsMagick to 1.3.48
+
+Update apache arrow adbc to 24
+
+Update apache arrow to 25.0.0
+
+Update etcd to 3.6.14
+
+Update lzip to 1.26, lzlib to 1.16, plzip to 1.13, lunzip to 1.16
+
+Update libedit
+
+Update libpsl to 0.23.0
+
+Update libssh to 0.11.5
+
+Update JDK to 26.0.2, 25.0.4, 21.0.12, 17.0.20, 11.0.32, 8u502
+
+Update unbound to 1.25.2
+
+Update bluefish to 2.4.2
+
+Update rsyslog to 8.2606.0
+
+Update lxterminal to 0.4.1
+
+Update mlterm to 3.9.5
+
+Update xterm to 410
+
+Update xkbprint to 1.0.8
+
+Update xclipboard to 1.1.6
+
+Update xwininfo to 1.1.7
+
+Update xmodmap to 1.0.12
+
+Update xrdb to 1.2.3
+
+Update xset to 1.2.6
+
+Update xsetroot to 1.1.4
+
+Update nginx to 1.30.4
+
+Update liboqs to 0.16.0
+
+Update meson to 1.11.2
+
+Update xstdcmap to 1.0.6
+
+Update xvinfo to 1.1.6
+
+Update xwd to 1.0.10
+
+Update xwud to 1.0.8
+
+Update xrefresh to 1.1.1
+
+Update less to 704
+
+Update xkbutils to 1.0.7
+
+Update libXfont2 to 2.0.9
+
+Update xlsatoms to 1.1.5
+
+Update xlsfonts to 1.0.9
+
+Update tomcat to 9.0.120, 10.1.57, 11.0.24
+
+Update go to 1.25.12, 1.26.5
+
+Update pv to 1.11.0
+
+Update iperf to 3.21
+
+Update socat to 1.8.1.3
+
+Udpate xrdp to 0.10.6.1
+
+Add slsa-verifier 2.7.1
+
+Update c-ares to 1.34.7
+
+Update bzip3 to 1.5.3
+
+Update PostGIS to 3.6.4
+
+Update memcached to 1.6.43
+
+Update Garage to 2.3.0
+
+Update forgejo to 15.0.4
+
+Update bgpq4 to 1.16
+
+Update libansilove to 1.4.2, ansilove to 4.2.2
+
+Update GStreamer to 1.28.4
+
+Update haproxy to 2.6.31
+
+Update PMD to 7.26.0
+
+Update Groovy to 4.0.33, 5.0.8
+
+Update maxima to 5.49.0
+
+Update GnuPG to 2.5.21
+
+Update GPGME to 2.1.2
+
+Update git to 2.55.0
+
+Update PHP to 8.2.33, 8.3.34, 8.4.24, 8.5.9
+
+Update mercurial to 7.2.3
+
+Update clamav to 1.4.5
+
+Update zabbix to 7.0.27
+
+Update jbang to 0.139.3
+
+Update JRuby to 9.4.15.0, 10.0.6.0
+
+Update ruby to 3.4.10
+
+Update snac2 to 2.93
+
+Update Apache ActiveMQ to 6.2.8
+
+Update libheif to 1.23.1
+
+Update Expat to 2.8.2
+
+Update xfontsel to 1.1.2
+
+Update xedit to 1.2.5
+
+Update xclock to 1.2.1
+
+Update nsd to 4.15.0
+
+Update Pale Moon to 34.3.2
+
+Update rclone to 1.74.3
+
+Update the CA bundle
+
+Update curl to 8.21.0
+
+Update qpdf to 12.3.2
+
+Update xkeyboard-config to 2.48
+
+Add pctgemini
+
+Update emwm to 2.0
+
+Update openjph to 0.29.0
+
+Update openexr to 3.4.13
+
+Update libdeflate to 1.25
+
+Update Python to 3.13.14
+
+Update scala to 3.3.8
+
+Update bind to 9.20.26
+
+Update jdiskreport to 2beta5
+
+Update JOSM to 19555
+
+Update OpenSSL to 3.5.7
+
+Update weechat to 4.9.5
+
+Update mutt to 2.3.3
+
+Update SeaweedFS to 4.34
+
+Update freetype to 2.14.3
+
+Update tmux to 3.7a
+
+Update llvm+clang to 22.1.7
+
+Update marco to 1.28.2
+
+Update mate-menus to 1.28.1
+
+Update engrampa to 1.28.3
+
+Update atril to 1.28.6
