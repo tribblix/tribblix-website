@@ -118,7 +118,7 @@ you might use:</p>
 
 <h2>Using raw images</h2>
 
-<p>The startup above assumed that you had an installtion ISO image. Some
+<p>The startup above assumed that you had an installation ISO image. Some
 projects make raw images, often known as cloud images, available. The process
 here is slightly different.</p>
 
