@@ -41,19 +41,19 @@ zap upgrade list
 and you should be given a list similar to the following:
 </p>
 <pre>
-m37: (current)
-m38: Milestone 38
+m40: (current)
+m41: Milestone 41
 </pre>
 <p>
-which shows that you're currently running the m37 release, and that an
-upgrade to m38 (Milestone 38) is available.
+which shows that you're currently running the m40 release, and that an
+upgrade to m41 (Milestone 41) is available.
 </p>
 
 <p>
 To perform the upgrade:
 </p>
 <pre>
-zap upgrade m38
+zap upgrade m41
 </pre>
 <p>
 and then to boot into the newly upgraded system, use beadm to activate
@@ -61,7 +61,7 @@ it and then reboot - the appropriate commands will be printed at the
 end of the upgrade process, but will be something like
 </p>
 <pre>
-beadm activate m38
+beadm activate m41
 init 6
 </pre>
 
@@ -72,15 +72,15 @@ can use <code>beadm list</code> to see the available boot environments
 </p>
 <pre>
 BE    Active   Mountpoint   Space    Policy   Created
-m37   -        -            38.73M   static   2025-07-14 14:24
-m38   NR       /            22.73G   static   2025-11-10 13:34
+m40   -       -           38.73M  static  2026-07-13 17:07
+m41   NR      /           22.73G  static  2026-08-05 13:39
 </pre>
 <p>
 (note that the initially installed boot environment will usually be
 called tribblix), and then
 </p>
 <pre>
-beadm activate m37
+beadm activate m40
 init 6
 </pre>
 <p>
