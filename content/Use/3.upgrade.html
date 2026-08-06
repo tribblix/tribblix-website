@@ -20,19 +20,19 @@ zap upgrade list
 version and any other versions available for upgrade. For example:</p>
 
 <pre>
-m37: (current)
+m40: (current)
 </pre>
 
-<p>Shows you that you're currently running the m37 release, and there
+<p>Shows you that you're currently running the m40 release, and there
   are no upgrades available. If it says:</p>
 
 <pre>
-m37: (current)
-m38: Tribblix m38
+m40: (current)
+m41: Tribblix m41
 </pre>
 
 <p>Then that's an indication that there's a new version - in this
-  case <em>m38</em> - available that you can upgrade to. You don't
+  case <em>m41</em> - available that you can upgrade to. You don't
   have to upgrade, but it's often a good idea as updates to older
   versions will stop fairly quickly once a new release has been made.</p>
 
@@ -42,12 +42,12 @@ m38: Tribblix m38
   new version.
 </p>
   <ul>
-    <li>An update release - such as m36.1 - shares the application
+    <li>An update release - such as m38.1 - shares the application
     updates with all the other update releases in that stream. In
     other words, from the point of view of applications, running an
     <a href="3.update.html">update</a> will give you exactly the same
     application versions as an upgrade.</li>
-    <li>A full release - such as m38 - will have a different set of
+    <li>A full release - such as m41 - will have a different set of
     application updates. In particular, it may introduce completely
     new applications, and application updates that are incompatible
     will tend to occur at a full release boundary. In fact, it's the
@@ -68,7 +68,7 @@ m38: Tribblix m38
   the version you want to upgrade to:</p>
 
 <code>
-  zap upgrade m38
+  zap upgrade m41
 </code>
 
 <p>This will take a few minutes. It will create a clone of your
@@ -80,7 +80,7 @@ m38: Tribblix m38
 =====================================================
 || To switch to the newly upgraded version, issue  ||
 || the following commands:                         ||
-||   beadm activate m38                            ||
+||   beadm activate m41                            ||
 ||   init 6                                        ||
 =====================================================
 </pre>
@@ -108,15 +108,15 @@ m38: Tribblix m38
 
 <pre>
 BE    Active  Mountpoint  Space   Policy  Created
-m37   -       -           38.73M  static  2025-07-14 14:24
-m38   NR      /           22.73G  static  2025-11-10 13:34
+m40   -       -           38.73M  static  2026-07-13 17:07
+m41   NR      /           22.73G  static  2026-08-05 13:39
 </pre>
 
 <p>Here I have 2 boot environments. The current one is
-  called <code>m38</code> - the <code>NR</code> in the Active column
+  called <code>m41</code> - the <code>NR</code> in the Active column
   shows that it's being used now ("N") and will be used if the system
   reboots ("R"). I also have an older boot
-  environment, <code>m37</code>, so you can see
+  environment, <code>m40</code>, so you can see
   the upgrade path.</p>
 
 <p>If, for some reason, you want to use one of the older boot
@@ -124,7 +124,7 @@ m38   NR      /           22.73G  static  2025-11-10 13:34
   quite work correctly), then you need to activate it:</p>
 
 <code>
-  beadm activate m37
+  beadm activate m40
 </code>
 
 <p>and then reboot.</p>
@@ -137,7 +137,7 @@ m38   NR      /           22.73G  static  2025-11-10 13:34
   to go back, you can delete them. For example:</p>
 
 <code>
-  beadm destroy m37
+  beadm destroy m40
 </code>
 <hr>
 <p><a href="./">Index</a>
