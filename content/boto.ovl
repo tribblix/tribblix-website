@@ -1,0 +1,7 @@
+---
+title: boto overlay
+---
+<h1>Overlay boto - AWS Boto modules</h1>
+<p>Supplies the boto3, botocore, and s3transfer modules - the python API
+to AWS services.</p>
+<p>If you're after the AWS CLI, install the @awscli overlay instead.</p>
