@@ -1,7 +1,8 @@
 <h1>&gt; Supported Hardware</h1>
 
 <p>Tribblix will run on a wide variety of x86 and SPARC systems.
-Here are some system models that are known to work.</p>
+Here are some system models that are known to work, and notes for
+some that don't.</p>
 
 <h2>Known x86 systems</h2>
 
@@ -15,6 +16,26 @@ develop Tribblix, and as my daily driver):</p>
 <li>Dell Optiplex 9020, i7-4790</li>
 <li>Dell Optiplex 5050, i7-7700</li>
 </ul>
+
+<h2>Virtualization</h2>
+
+<p>Tribblix ought to work under bhyve (illumos or FreeBSD), VirtualBox,
+and KVM.</p>
+
+<p>If you're using nvmm (NetBSD, maybe DragonFlyBSD), then adding
+<code>"-no-acpi -smp 1"</code> may be necessary.</p>
+
+<p>No success has yet been reported with XCP-ng.</p>
+
+<h2>Workarounds</h2>
+
+<p>If your network card doesn't work, then it's possible in theory to pass
+the device through to a bhyve guest and get that to handle the networking.
+See
+<a href="https://cryogenix.org/library/operating-systems/tribblix-with-bhyve-wifi-bridge-on-a-thinkpad-x260-w-intel-8260">this example</a>
+of getting it to work.</p>
+
+<p>
 
 <h2>Known sparc systems</h2>
 
