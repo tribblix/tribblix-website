@@ -4,3 +4,8 @@ title: postgres-utils overlay
 <h1>Overlay postgres-utils - PostgreSQL utilities</h1>
 <p>Supplies a wide range of tools and utilities to enhance the usage of
 PostgreSQL, supplied by the @postgres17 overlay.</p>
+<p>If you're backing up using <a href="https://pgbarman.org/">Barman</a>
+then connections to S3 using @boto will work out of the box. If you want
+Barman to back up to Google Cloud, then install the @gapi overlay. If
+you want Barman to back up to Azure, install the
+<code>TRIBazure-storage-python-313</code> package.</p>
