@@ -1,0 +1,43 @@
+<h1>&gt; Release Model</h1>
+
+<p>To set expectations, in Tribblix there's a distinction between
+<a href="3.update.html">Updates</a> and <a href="3.upgrade.html">Upgrades</a>.
+Updates are for newer versions of packages, and happen continuously because
+applications keep being updated. Upgrades are relatively infrequent, involve
+a new release, and establish a new baseline of applications.</p>
+
+<p>Tribblix follows the "when I feel like it" release model. A release
+is made when it's felt to be necessary. The definition of necessary can
+be:
+</p>
+
+<ul>
+<li>There's an important feature in illumos that makes upgrading beneficial
+- that could be security, hardware support, or new programming interfaces.</li>
+<li>There's a breaking or potentially breaking change in the applications
+that come with Tribblix. Examples here include updating the default
+compiler, or updating the versions of important runtimes (java, perl, python),
+or updating key libraries, or removing any functionality.</li>
+</ul>
+
+<p>What this means is that there's no set frequency to releases. That said,
+something like 3 to 4 months between releases seems to be the settled pattern,
+although obviously if a security issue needs to be fixed then a release
+will be made when it's necessary.</p>
+
+<p>In general, any breaking changes will be batched together to reduce the
+number of releases required. Some releases will have more changes than others.
+Such changes happen at release boundaries because only then can we be sure
+that all packages are consistent (for example, that everything depending
+on software that's changed incompatibly gets rebuilt).
+</p>
+
+<p>Application updates that don't require a full release will be made
+immediately.</p>
+
+<p>Essentially any changes in illumos will require an upgrade to a new
+release.</p>
+
+<p>Once a release is made, all updates will be targeted to the new version.
+Backporting an application update to an older release is not normally
+considered.</p>
