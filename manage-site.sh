@@ -49,6 +49,18 @@ stale_overlays() {
 }
 
 #
+# all overlays should be documented
+#
+undocumented_overlays() {
+    for file in $(cd ${THOME}/overlays ; echo *.ovl)
+    do
+	if [ ! -f content/${file} ]; then
+	    echo "WARN: Undocumented overlay $file"
+	fi
+    done
+}
+
+#
 # check overlay cross-references actually refer to a valid overlay
 #
 check_overlay_xref() {
@@ -91,6 +103,7 @@ case $1 in
 	$NANOC check css stale mixed_content
 	stale_overlays
 	check_overlay_xref
+	undocumented_overlays
 	;;
     spell)
 	shift
