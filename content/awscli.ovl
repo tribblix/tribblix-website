@@ -4,5 +4,5 @@ title: awscli overlay
 <h1>Overlay awscli - AWS CLI utilities</h1>
 <p>Supplies the AWS CLI.</p>
 <p>If you find the help doesn't work, make sure you haven't got groff
-installed(<code>zap uninstall groff</code>).</p>
+installed (<code>zap uninstall groff</code>).</p>
 <p>If you're after the python API, install the @boto overlay instead.</p>
