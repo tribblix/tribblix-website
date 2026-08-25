@@ -28,6 +28,11 @@ and KVM.</p>
 <p>If you're using nvmm (NetBSD, maybe DragonFlyBSD), then adding
 <code>"-no-acpi -smp 1"</code> may be necessary.</p>
 
+<p>Under VMware workstation, the <code>pvscsi</code> driver isn't present
+by default, but when the ISO is booted into the installer, a
+<code>zap install TRIBdrv-storage-pvscsi</code> will add it, and you should
+then be able to see the disk and install to it.</p>
+
 <p>No success has yet been reported with XCP-ng.</p>
 
 <h2>Workarounds</h2>
