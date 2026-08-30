@@ -10,7 +10,7 @@ in the directory</p>
 <p>The certificates are installed as a single bundle in the
 <code>cacert.pem</code> file, and expanded as a set of files under
 <code>/etc/openssl/certs</code>. These variations are to handle the
-various different ways that applications expect to find certificates.</p>
+different ways that applications expect to find certificates.</p>
 
 <p>The actual set of certificates installed is
 <a href="https://curl.se/docs/caextract.html">extracted</a> from

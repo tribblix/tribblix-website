@@ -59,7 +59,7 @@ configure the slices. To do this, select the disk in format, then
 show the table and the numeric id of a slice to edit it. You'll need to
 give a tag (which is mostly unused), flags (wm for anything you're going
 to use), the starting cylinder, and a size. One nice feature is that you
-give give the end cylinder with <code>e</code> which is the only way to be
+give the end cylinder with <code>e</code> which is the only way to be
 precise. I use <code>p</code> to show the table every time I edit anything,
 then once you're happy <code>l</code> to write a new label to the disk.
 In most cases, if you're using ZFS, then you should set up

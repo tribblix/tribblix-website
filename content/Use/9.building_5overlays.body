@@ -16,7 +16,7 @@ git clone https://github.com/tribblix/overlays.lx
 git clone https://github.com/tribblix/overlays.sparc
 </pre>
 <p>You'll also need the build repo, because some of the shared scripts are
-supplied there (rather than each set of overlays having a duplicate copy).</p>
+supplied there (rather than duplicated in each set of overlays).</p>
 <pre>
 cd $THOME
 git clone https://github.com/tribblix/build
