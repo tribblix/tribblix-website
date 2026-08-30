@@ -52,7 +52,7 @@ Add ossp-uuid 1.6.2
 
 Add libvncserver 0.9.10
 
-Update ruby 2.2.5, 2.3.1
+Update ruby to 2.2.5, 2.3.1
 
 Ruby 2.3.x now the default
 
@@ -74,7 +74,7 @@ Add fpm to php
 
 Update node to v4.5.0, v6.6.0
 
-Update older node 0.12.15, 0.10.46
+Update older node to 0.12.15, 0.10.46
 
 Deprecate node v5
 

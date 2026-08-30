@@ -68,25 +68,25 @@ Update gzip to 1.12
 
 Update help2man to 1.49.2
 
-Update openjdk 8u332
+Update openjdk to 8u332
 
-Update openjdk 11.0.15
+Update openjdk to 11.0.15
 
-Update openjdk 13.0.11
+Update openjdk to 13.0.11
 
-Update openjdk 15.0.7
+Update openjdk to 15.0.7
 
-Update openjdk 17.0.3
+Update openjdk to 17.0.3
 
-Update openjdk 18.0.1
+Update openjdk to 18.0.1
 
 Update xauth to 1.1.2
 
-Update python 3.7.13
+Update python to 3.7.13
 
-Update python 3.9.12
+Update python to 3.9.12
 
-Update Groovy 4.0.2
+Update Groovy to 4.0.2
 
 Update Radicale to 3.1.7
 
@@ -230,4 +230,4 @@ Update pidgin to 2.14.10
 
 Update gnupg2 to 2.2.35
 
-Update nsxiv 29
+Update nsxiv to 29

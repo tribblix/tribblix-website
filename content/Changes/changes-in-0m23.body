@@ -46,9 +46,9 @@ Update Go to 1.13.14, 1.14.6
 
 Go 1.14 is now the default
 
-Update numpy 1.18.3
+Update numpy to 1.18.3
 
-Update pandas 1.0.3
+Update pandas to 1.0.3
 
 Update six to 1.15.0
 
@@ -148,11 +148,11 @@ Update fvwm to 2.6.9
 
 Update openjdk8 to 8u262
 
-Update openjdk 11.0.8, and build with gcc
+Update openjdk to 11.0.8, and build with gcc
 
-Update openjdk 13.0.4, and build with gcc
+Update openjdk to 13.0.4, and build with gcc
 
-Update openjdk 14.0.1, and build with gcc
+Update openjdk to 14.0.1, and build with gcc
 
 Add openjdk 15 (prerelease)
 
@@ -256,7 +256,7 @@ Update jkstat
 
 Update jangle
 
-Update fabio 1.5.12
+Update fabio to 1.5.12
 
 Update coredns to 1.6.9
 

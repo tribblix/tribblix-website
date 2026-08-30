@@ -22,7 +22,7 @@ Update xfce4-terminal to 0.8.9.2
 
 Update ant to 1.10.9
 
-Update openjdk 16+21
+Update openjdk to 16+21
 
 Update Zabbix to 4.0.25
 
@@ -64,13 +64,13 @@ Update ExifTool to 12.07
 
 Update libnice to 0.1.17
 
-Update farstream 0.2.9
+Update farstream to 0.2.9
 
 Update Pidgin to 2.14.1
 
 Update pidgin-sipe to 1.25.0
 
-Update Python 3.8.6
+Update Python to 3.8.6
 
 Add Python 3.9 for testing
 
@@ -102,6 +102,6 @@ Update freetype to 2.10.4
 
 Update the CA bundle
 
-Update openjdk 8u272
+Update openjdk to 8u272
 
-Update openjdk 11.0.9+11
+Update openjdk to 11.0.9+11

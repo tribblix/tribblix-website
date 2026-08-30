@@ -46,7 +46,7 @@ Zap uninstall-overlay
 
 Zap: overlay refresh triggers a catalog refresh
 
-Update ruby 1.9.3 and 2.0.0
+Update ruby to 1.9.3 and 2.0.0
 
 Update jfreechart, jkstat, kar
 

@@ -34,7 +34,7 @@ Update ISC dhcp to 4.4.1
 
 Update php7 from 7.1.x to 7.2.x
 
-Update php 7.2.7
+Update php to 7.2.7
 
 Update zabbix to 3.0.19
 
@@ -50,7 +50,7 @@ Add livereload 2.5.2
 
 Add mkdocs 0.17.4
 
-Update libgcrypt 1.8.3
+Update libgcrypt to 1.8.3
 
 Add pymdown-extensions 4.11
 
