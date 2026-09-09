@@ -158,6 +158,76 @@ detect cloud-init so nothing gets configured.</li>
 <li>The OmniOS images work fine, but nothing will appear on the graphical
 display, use <code>zlogin -C</code> to access the console.</li>
 </ul>
+
+<h2>Worked Example: FreeBSD</h2>
+
+<p>The following is a quick example of how I set up a bhyve zone running
+FreeBSD. I downloaded the disc1 iso image, and then started bhyve like
+so in order to access the installer:</p>
+<pre>
+zap create-zone -z freebsd2 -t bhyve \
+-I /var/tmp/FreeBSD-15.1-RELEASE-amd64-disc1.iso \
+-U ptribble \
+-x 192.168.1.215 \
+-V 16G -m 4G -c 2
+</pre>
+<p>That allocates 4G of RAM and 2 cpus to the guest, and provides a 16G
+disk which is enough to install a few packages and experiment.</p>
+
+<p>Because I used the <code>-U</code> flag to share my account and give it
+administration rights, I can directly connect to the zone's console with
+VNC:</p>
+<pre>
+startvnc -Z freebsd2
+</pre>
+
+<p>The installer is reasonably straightforward. I went for the basic packaged
+install on ZFS, didn't do anything fancy. For networking, set up IPv4
+manually with the address specified, and without IPv6 (because the zone is
+configured for the given IPv4 address and doesn't have any IPv6 enabled).</p>
+
+<p>I give zones the same hostname as the zone name, otherwise it gets a bit
+confusing. I also created my account with the same userid and username as
+on my main system, setting a temporary password so I can get in the first
+time to copy up my ssh authorized_keys file, and when it asks about
+inviting to a group, answer with "wheel" which will put you into the wheel
+group, necessary so you can use su.</p>
+
+<p>The first thing once it's up is to set up my account. All I do is copy
+my ssh key, shell startup, and my personal bin directory which has a set
+of useful helper scripts. I use the <code>zssh</code> helper from
+<code>zap</code> which can work out how to ssh to a zone without needing
+to know the IP address.</p>
+<pre>
+tar cf - .ssh/authorized_keys .tcshrc bin \
+| zap zssh freebsd2 tar xf -
+</pre>
+<p>That will ask you for the temporary password, but after that you'll
+get passwordless authentication via your ssh key.</p>
+
+<p>Then, in order to have a look around as a desktop (the 4G I allocated
+is plenty to run a decent desktop and browse the web), I installed some
+software (after su):</p>
+<pre>
+pkg install xfce
+pkg install tigervnc-server
+pkg install xorg
+pkg install firefox
+</pre>
+
+<p>I can then run a VNC session on the FreeBSD system:</p>
+<pre>
+vncserver -geometry 1600x1200
+</pre>
+<p>This needs a <code>.vnc/xstartup</code> file. I copied the one from
+<code>/usr/share/tribblix-session/xfce.xstartup</code> on my Tribblix host,
+changing <code>/usr/bin</code> to <code>/usr/local/bin</code> as applications
+end up in different places on FreeBSD.</p>
+<p>If you set the vnc password in the guest to be the same as the host,
+you can then connect to it with a simple:</p>
+<pre>
+startvnc -z freebsd2:1
+</pre>
 <hr>
 <p><a href="./">Index</a>
  | <a rel="prev" href="6.zones.html">Previous Section</a>
