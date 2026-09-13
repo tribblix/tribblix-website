@@ -1,0 +1,8 @@
+---
+title: pydo overlay
+---
+<h1>Overlay pydo - Digital Ocean Python Module</h1>
+<p>Supplies some python modules for accessing Digital Ocean.</p>
+
+<p>For basic operations, the <code>doctl</code> application may be
+easier to use, which is part of the @cloud-clients overlay.</p>
