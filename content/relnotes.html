@@ -662,6 +662,23 @@ package was incorrectly constructed and you will be unable to build
 software against it.
 </p>
 
+<h2><a name="m35-sparc"></a>Milestone 35, SPARC</h2>
+
+<p>This is a synthetic release. New applications are provided, but the
+  underlying OS is still the same as m34 (so that <code>uname</code>
+  will still report m34 - the way to confirm which release you're
+  running is with <code>zap upgrade list</code>).</p>
+
+<p>The key change here is that gcc has finally been updated from gcc7
+  to gcc10, allowing many other components to be updated.</p>
+
+<p>There is no ISO available yet, upgrade as normal:</p>
+<pre>
+  zap refresh
+  zap update TRIBzap-upgrade
+  zap upgrade m35
+</pre>
+
 <h2><a name="m34-sparc"></a>Milestone 34, SPARC</h2>
 
 <p>This SPARC release roughly matches m39 for x86.</p>
